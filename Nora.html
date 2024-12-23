@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nora - XenoraAI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        /* Custom styles for individual model pages */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: linear-gradient(120deg, #121212, #1A1A1A);
+            color: #ECECEC;
+        }
+
+        /* Light Mode */
+        body.light-mode {
+            background: linear-gradient(120deg, #f5f5f5, #e0e0e0);
+            color: #333;
+        }
+
+        .model-detail {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #444;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .model-detail h2 {
+            margin-top: 1rem;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .model-detail p {
+            margin-top: 1rem;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            margin-top: 2rem;
+            padding: 10px 20px;
+            background: #00FFF6;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #00C0B6;
+        }
+
+        /* Chatbot style box */
+        .chatbox {
+            background: #333;
+            color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .chatbox h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .chatbox p {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .chatbox input {
+            padding: 10px;
+            width: 100%;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background-color: #121212;
+            color: #fff;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .chatbox input:focus {
+            background-color: #333;
+            border-color: #00FFF6;
+        }
+
+        .chatbox button {
+            padding: 10px 20px;
+            background: #00FFF6;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .chatbox button:hover {
+            background: #00C0B6;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+
+    <div class="model-detail">
+        <img src="model1.jpg" alt="Nora" style="max-width: 300px; border-radius: 10px;">
+        <h2>Nora - AI Personal Lawyer</h2>
+        <p>Nora is an AI model designed to assist you with legal tasks, offering expertise in Canadian law and providing advice tailored to your needs. Nora is always up-to-date with the latest legal data and ready to support you in a variety of legal matters.</p>
+        <button class="back-button" onclick="window.location.href='models.html'">Back to Models</button>
+    </div>
+
+    <div class="chatbox">
+        <h3>Chat with Nora</h3>
+        <p>Have any legal questions? Type them below, and Nora will assist you right away.</p>
+        <input type="text" placeholder="Type your question..." id="userInput" />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <py-script>
+    </py-script>
+
+</body>
+</html>
