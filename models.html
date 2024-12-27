@@ -130,20 +130,49 @@
             box-shadow: 0 8px 20px rgba(0, 255, 246, 0.5);
         }
 
-        .model-card img {
-            max-width: 100%;
+        .ai-interaction {
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .ai-interaction textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
             border-radius: 10px;
-        }
-
-        .model-card h3 {
-            font-size: 1.5em;
-            margin: 10px 0;
-            color: #00FFF6;
-        }
-
-        .model-card p {
+            border: 2px solid #00FFF6;
+            background: rgba(0, 0, 0, 0.9);
+            color: #ECECEC;
+            margin-bottom: 10px;
             font-size: 1em;
-            color: #B3B3B3;
+            resize: none;
+        }
+
+        .ai-interaction button {
+            background: #00FFF6;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #000;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .ai-interaction button:hover {
+            background: #00C4BA;
+            transform: scale(1.05);
+        }
+
+        .ai-response {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00FFF6;
+            color: #ECECEC;
         }
 
         footer {
@@ -159,7 +188,7 @@
 
     <nav class="fade-in">
         <a href="index.html">Home</a>
-        <a href="models.html">Models</a>
+        <a href="models_with_ai.html">Models</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </nav>
@@ -170,22 +199,10 @@
     </header>
 
     <main class="fade-in">
-        <div class="model-container">
-            <div class="model-card">
-                <img src="model1.jpg" alt="Model 1">
-                <h3>Model 1</h3>
-                <p>Description of the first model and its features.</p>
-            </div>
-            <div class="model-card">
-                <img src="model2.jpg" alt="Model 2">
-                <h3>Model 2</h3>
-                <p>Description of the second model and its features.</p>
-            </div>
-            <div class="model-card">
-                <img src="model3.jpg" alt="Model 3">
-                <h3>Model 3</h3>
-                <p>Description of the third model and its features.</p>
-            </div>
+        <div class="ai-interaction">
+            <textarea id="user-input" placeholder="Type your query here..."></textarea>
+            <button onclick="getAIResponse()">Ask AI</button>
+            <div class="ai-response" id="ai-response"></div>
         </div>
     </main>
 
@@ -194,14 +211,27 @@
     </footer>
 
     <script>
-        const starfield = document.getElementById('stars');
-        for (let i = 0; i < 200; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.animationDelay = Math.random() * 4 + 's';
-            starfield.appendChild(star);
+        async function getAIResponse() {
+            const input = document.getElementById("user-input").value;
+            const responseContainer = document.getElementById("ai-response");
+
+            responseContainer.innerHTML = "Processing...";
+
+            try {
+                const response = await fetch("https://api-inference.huggingface.co/models/saadixsd/Nora", {
+                    method: "POST",
+                    headers: {
+                        "Authorization": "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",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ inputs: input })
+                });
+
+                const data = await response.json();
+                responseContainer.innerHTML = data.generated_text || "No response generated.";
+            } catch (error) {
+                responseContainer.innerHTML = `Error: ${error.message}`;
+            }
         }
     </script>
 </body>
