@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS  # Add this line
 import re
 import os
 import logging
@@ -10,6 +10,10 @@ from huggingface_hub import login
 
 # Use a single Flask app instance
 app = Flask(__name__)
+CORS(app)  # Add this line to enable CORS
+
+# Your existing code continues...
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
