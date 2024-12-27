@@ -131,7 +131,9 @@ def web_interaction():
 
 
 # Ensure you've logged in or set the token in the environment variable
-login(token="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")
+
+token = os.getenv("HF_TOKEN")  # Fetch token from environment variable
+
 
 tokenizer = AutoTokenizer.from_pretrained("gpt2")
 model = AutoModelForCausalLM.from_pretrained("gpt2")
