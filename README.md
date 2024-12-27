@@ -1,2 +1,0 @@
-# Nora
-AI Lawyer Model
