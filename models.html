@@ -12,373 +12,207 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background: #000;
-            color: #ECECEC;
+            background: #f0f8f0; /* Soft light greenish background */
+            color: #3c6e71; /* Teal text color */
+            line-height: 1.6;
         }
 
-        .starfield {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at bottom, #0d1b2a, #000);
-            overflow: hidden;
+        /* Global Styles */
+        h1, h2, h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
         }
 
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 4s infinite ease-in-out;
+        a {
+            text-decoration: none;
+            color: #3c6e71;
         }
 
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.6;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: scale(0.95);
-            animation: fadeIn 1.5s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.9) translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
+        /* Navigation Bar */
         nav {
             display: flex;
-            justify-content: center;
-            padding: 15px 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 255, 246, 0.4);
+        }
+
+        nav .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #3c6e71;
         }
 
         nav a {
-            margin: 0 20px;
             font-size: 1.1em;
-            color: #ECECEC;
-            font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
+            color: #333;
+            font-weight: 500;
+            margin: 0 20px;
         }
 
         nav a:hover {
-            color: #00FFF6;
-            transform: scale(1.1);
+            color: #3c6e71;
         }
 
+        /* Header Section */
         header {
             text-align: center;
-            padding: 50px 20px;
-            margin-top: 80px;
-            color: #ECECEC;
+            padding: 100px 20px;
+            color: #3c6e71;
+            margin-top: 60px; /* Space for nav */
         }
 
         header h1 {
-            font-size: 3em;
-            color: #00FFF6;
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #3c6e71;
         }
 
         header p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        header button {
+            background-color: #3c6e71;
+            color: white;
+            padding: 12px 24px;
             font-size: 1.2em;
-            margin: 10px 0 30px;
-        }
-
-        .model-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .model-card {
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00FFF6;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            color: #ECECEC;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 255, 246, 0.4);
-        }
-
-        .model-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 255, 246, 0.5);
-        }
-
-        .ai-interaction {
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: center;
-        }
-
-        .ai-interaction textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            border-radius: 10px;
-            border: 2px solid #00FFF6;
-            background: rgba(0, 0, 0, 0.9);
-            color: #ECECEC;
-            margin-bottom: 10px;
-            font-size: 1em;
-            resize: none;
-        }
-
-        .ai-interaction button {
-            background: #00FFF6;
             border: none;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #000;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
-        .ai-interaction button:hover {
-            background: #00C4BA;
-            transform: scale(1.05);
+        header button:hover {
+            background-color: #2a4d4b;
         }
 
-        .ai-response {
-            margin-top: 20px;
-            padding: 10px;
+        /* Section */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            background: #ffffff;
+            margin: 40px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00FFF6;
-            color: #ECECEC;
         }
 
+        section h2 {
+            font-size: 2.5em;
+            color: #3c6e71;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        section button {
+            background-color: #3c6e71;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        section button:hover {
+            background-color: #2a4d4b;
+        }
+
+        /* Nora Interaction Section */
+        .nora-container {
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        .nora-container h3 {
+            font-size: 2.2em;
+            color: #3c6e71;
+            margin-bottom: 20px;
+        }
+
+        .nora-container p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .nora-container button {
+            background-color: #3c6e71;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nora-container button:hover {
+            background-color: #2a4d4b;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.9);
-            color: #FFF;
+            margin-top: 40px;
+            background-color: #ffffff;
+            color: #555;
+            font-size: 1em;
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-    <div class="starfield" id="stars"></div>
 
-    <nav class="fade-in">
-        <a href="index.html">Home</a>
-        <a href="models_with_ai.html">Models</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">XenoraAI</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="models.html">Models</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </nav>
 
-    <header class="fade-in">
-        <h1>Our Models</h1>
-        <p>Explore our cutting-edge AI models designed for various industries.</p>
+    <!-- Header Section -->
+    <header>
+        <h1>Explore Our AI Models</h1>
+        <p>Find cutting-edge AI solutions tailored to your industry needs.</p>
+        <button onclick="window.location.href='contact.html'">Contact Us</button>
     </header>
 
-    <main class="fade-in">
-        <div class="ai-interaction">
-            <textarea id="user-input" placeholder="Type your query here..."></textarea>
-            <button onclick="getAIResponse()">Ask AI</button>
-            <div class="ai-response" id="ai-response"></div>
+    <!-- Nora Interaction Section -->
+    <section>
+        <div class="nora-container">
+            <h3>Meet Nora - Your Legal AI Assistant</h3>
+            <p>Use Nora to get assistance with legal research, case summaries, and more! Ask her questions related to Canadian law, and she will guide you.</p>
+            <button onclick="alert('Hello! How can I assist you today?')">Ask Nora</button>
         </div>
-    </main>
+    </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 XenoraAI. All rights reserved.</p>
     </footer>
 
-    <script>
-        async function getAIResponse() {
-            const input = document.getElementById("user-input").value;
-            const responseContainer = document.getElementById("ai-response");
-
-            responseContainer.innerHTML = "Processing...";
-
-            try {
-                const response = await fetch("https://api-inference.huggingface.co/models/saadixsd/Nora", {
-                    method: "POST",
-                    headers: {
-                        "Authorization": "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",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ inputs: input })
-                });
-
-                const data = await response.json();
-                responseContainer.innerHTML = data.generated_text || "No response generated.";
-            } catch (error) {
-                responseContainer.innerHTML = `Error: ${error.message}`;
-            }
-        }
-    </script>
-    <pyscript>
-        from flask import Flask, request, jsonify
-from flask_cors import CORS  # Add this line
-import re
-import os
-import logging
-from langchain_ollama import OllamaLLM
-from langchain_core.prompts import ChatPromptTemplate
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from huggingface_hub import login
-
-# Use a single Flask app instance
-app = Flask(__name__)
-CORS(app)  # Add this line to enable CORS
-
-# Your existing code continues...
-
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
-logging.getLogger("httpx").setLevel(logging.WARNING)  # Suppress httpx logs
-logger = logging.getLogger(__name__)  # Your application-specific logger
-
-# Initialize the AI model and prompt chain
-model = OllamaLLM(model="llama3")  # Update to the correct model name as required
-template = """Hi there! I'm Nora, your AI assistant. Let me know how I can help, and I'll tailor my responses to your needs. 
-Whether it's legal insights, academic support, or general questions, I’m here for you.
-
-**Conversation History:**
-{context}
-
-User: {question}
-Nora:"""
-prompt = ChatPromptTemplate.from_template(template)
-chain = prompt | model
-
-# Helper functions
-def extract_user_details(introduction_text):
-    """Extracts the user's name and role from their introduction."""
-    name_patterns = [
-        r"(?i)(?:my name is|i'm|i am|this is)\s+([A-Za-z]+)",
-        r"(?i)(?:hi,?\s*|hello,?\s*)i'm\s+([A-Za-z]+)",
-        r"([A-Za-z]+)(?:,?\s+a\s+lawyer|,?\s+a\s+legal professional|,?\s+an\s+attorney|,?\s+a\s+student)"
-    ]
-    role_patterns = [
-        r"(?i)\b(?:lawyer|legal professional|attorney)\b",
-        r"(?i)\b(?:student|academic)\b",
-    ]
-
-    name = "User"
-    role = "user"
-
-    for pattern in name_patterns:
-        match = re.search(pattern, introduction_text)
-        if match:
-            name = match.group(1).strip()
-            break
-
-    for pattern in role_patterns:
-        match = re.search(pattern, introduction_text)
-        if match:
-            role = match.group(0).lower()
-            break
-
-    return name, role
-
-def truncate_context(context, max_lines=20):
-    """Keeps the last `max_lines` lines of the conversation context."""
-    lines = context.split("\n")
-    return "\n".join(lines[-max_lines:])
-
-def handle_conversation(user_input, context, user_role):
-    """Processes user input and returns Nora's response."""
-    try:
-        follow_up = ""
-        if user_role != "lawyer" and "case" in user_input.lower():
-            follow_up = "Could you tell me more about the case? Any specific issues you're dealing with?"
-
-        result = chain.invoke({"context": context, "question": user_input})
-        logger.debug("Response from model: %s", result)
-        return result + ("\n\n" + follow_up if follow_up else "")
-    except Exception as e:
-        logger.error("Error processing request: %s", e)
-        return f"An error occurred: {e}"
-
-# Flask API endpoint
-@app.route('/ask', methods=['POST'])
-def ask():
-    try:
-        data = request.get_json()
-        question = data.get('question', '')
-        context = data.get('context', '')
-        user_role = data.get('user_role', 'user')
-
-        if not question:
-            return jsonify({'error': 'Question is required.'}), 400
-
-        response = handle_conversation(question, context, user_role)
-        return jsonify({'response': response})
-    except Exception as e:
-        logger.error("API Error: %s", e)
-        return jsonify({'error': str(e)}), 500
-
-# Command-line interaction
-def web_interaction():
-    print("\nNora: Welcome, I'm Nora, your AI Assistant!\n")
-    user_intro = input("Nora: Please introduce Yourself ").strip()
-    if user_intro.lower() in ["exit", "quit"]:
-        print("Nora: Goodbye! Have a great day!")
-        return
-
-    user_name, user_role = extract_user_details(user_intro)
-    role_message = {
-        "lawyer": "case insights, legal references, and tailored guidance.",
-        "student": "help with assignments, case studies, or understanding legal principles.",
-    }.get(user_role, "answers to your general queries or tasks.")
-
-    print(f"Nora: Hi {user_name}, nice to meet you! Since you're a {user_role}, I can assist with {role_message}")
-
-    context = f"User: {user_intro}\nNora: Hi {user_name}, nice to meet you!\nNora: Since you're a {user_role}, I can assist with {role_message}"
-
-    while True:
-        user_input = input(f"{user_name}: ").strip()
-        if user_input.lower() in ["exit", "quit"]:
-            print(f"Nora: Thank you for using Nora. Goodbye, {user_name}!")
-            break
-
-        response = handle_conversation(user_input, context, user_role)
-        print(f"Nora: {response}")
-        context += f"\nUser: {user_input}\nNora: {response}"
-        context = truncate_context(context)
-
-
-# Ensure you've logged in or set the token in the environment variable
-login(token="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")
-
-tokenizer = AutoTokenizer.from_pretrained("gpt2")
-model = AutoModelForCausalLM.from_pretrained("gpt2")
-
-
-if __name__ == '__main__':
-    if os.getenv('FLASK_MODE', 'False').lower() == 'true':
-        app.run(debug=True)
-    else:
-        web_interaction()
-    </pyscript>
 </body>
 </html>
