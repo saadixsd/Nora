@@ -19,3 +19,4 @@ transformers==4.31.0
 torch==2.0.1
 uvicorn==0.34.0
 flask-cors>=5.0.0
+plotly==5.24.1
