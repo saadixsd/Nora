@@ -5,8 +5,6 @@ import os
 import logging
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from huggingface_hub import login
 
 # Use a single Flask app instance
 app = Flask(__name__)
@@ -24,10 +22,8 @@ logger = logging.getLogger(__name__)  # Your application-specific logger
 model = OllamaLLM(model="llama3")  # Update to the correct model name as required
 template = """Hi there! I'm Nora, your AI assistant. Let me know how I can help, and I'll tailor my responses to your needs. 
 Whether it's legal insights, academic support, or general questions, I’m here for you.
-
 **Conversation History:**
 {context}
-
 User: {question}
 Nora:"""
 prompt = ChatPromptTemplate.from_template(template)
@@ -133,10 +129,6 @@ def web_interaction():
 # Ensure you've logged in or set the token in the environment variable
 
 token = os.getenv("HF_TOKEN")  # Fetch token from environment variable
-
-
-tokenizer = AutoTokenizer.from_pretrained("gpt2")
-model = AutoModelForCausalLM.from_pretrained("gpt2")
 
 
 if __name__ == '__main__':
