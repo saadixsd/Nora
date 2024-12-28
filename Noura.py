@@ -3,15 +3,15 @@ from flask_cors import CORS  # Add this line
 import re
 import os
 import logging
+import plotly.express as px
+import pandas as pd
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
+from datasets import load_dataset
 
 # Use a single Flask app instance
 app = Flask(__name__)
 CORS(app)  # Add this line to enable CORS
-
-# Your existing code continues...
-
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
@@ -78,7 +78,46 @@ def handle_conversation(user_input, context, user_role):
         logger.error("Error processing request: %s", e)
         return f"An error occurred: {e}"
 
-# Flask API endpoint
+# Function to fetch and process case data (real data from legal databases)
+def get_case_data(query):
+    """Fetches case data from legal databases like Hugging Face datasets."""
+    
+    # Load a relevant dataset (e.g., from Hugging Face)
+    dataset = load_dataset("refugee-law-lab/canadian-legal-data", split="train")
+    
+    # Extract the relevant information (e.g., case types and frequencies)
+    # This is an example, modify based on actual dataset content
+    case_data = {
+        'Case Type': [],
+        'Frequency': []
+    }
+    
+    # Process the dataset to find case types and their frequencies (dummy example)
+    for entry in dataset:
+        case_type = entry.get("case_type", "Unknown")
+        case_data['Case Type'].append(case_type)
+        case_data['Frequency'].append(1)  # Assuming each entry is one occurrence of a case type
+    
+    # Optionally aggregate or clean the data (e.g., summing frequencies for the same case types)
+    case_data = {key: pd.Series(value).value_counts().to_dict() for key, value in case_data.items()}
+
+    return case_data
+
+# Function to generate and return the graph (no graphical display)
+def generate_case_type_graph(user_query):
+    # Get the relevant data
+    case_data = get_case_data(user_query)
+    
+    # Convert to a DataFrame for plotting
+    df = pd.DataFrame(list(case_data.items()), columns=["Case Type", "Frequency"])
+    
+    # Generate Plotly bar graph (no display here, Flask will handle it)
+    fig = px.bar(df, x='Case Type', y='Frequency', title='Case Type Frequency Analysis')
+    
+    # Instead of displaying, return the plotly JSON object
+    return fig.to_json()
+
+# Flask API endpoint for handling user input and returning the graph
 @app.route('/ask', methods=['POST'])
 def ask():
     try:
@@ -90,8 +129,16 @@ def ask():
         if not question:
             return jsonify({'error': 'Question is required.'}), 400
 
+        # Get the relevant graph as a response
+        graph_json = generate_case_type_graph(question)
+        
+        # Call the model to handle the conversation
         response = handle_conversation(question, context, user_role)
-        return jsonify({'response': response})
+        
+        return jsonify({
+            'response': response,
+            'graph': graph_json  # Return graph data as JSON for the frontend to handle
+        })
     except Exception as e:
         logger.error("API Error: %s", e)
         return jsonify({'error': str(e)}), 500
@@ -99,7 +146,7 @@ def ask():
 # Command-line interaction
 def web_interaction():
     print("\nNora: Welcome, I'm Nora, your AI Assistant!\n")
-    user_intro = input("Nora: Please introduce Yourself ").strip()
+    user_intro = input("Nora: Please introduce Yourself: ").strip()
     if user_intro.lower() in ["exit", "quit"]:
         print("Nora: Goodbye! Have a great day!")
         return
@@ -124,12 +171,6 @@ def web_interaction():
         print(f"Nora: {response}")
         context += f"\nUser: {user_input}\nNora: {response}"
         context = truncate_context(context)
-
-
-# Ensure you've logged in or set the token in the environment variable
-
-token = os.getenv("HF_TOKEN")  # Fetch token from environment variable
-
 
 if __name__ == '__main__':
     if os.getenv('FLASK_MODE', 'False').lower() == 'true':
