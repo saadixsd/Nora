@@ -3,236 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Learn more about XenoraAI and how we bring cutting-edge AI solutions to various industries.">
-    <meta name="keywords" content="XenoraAI, About, AI Solutions, Artificial Intelligence">
-    <title>About Us | XenoraAI</title>
+    <meta name="description" content="Explore XenoraAI's advanced AI models designed for your industry.">
+    <meta name="keywords" content="AI Models, XenoraAI, Technology Solutions, Artificial Intelligence">
+    <title>About Us - XenoraAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #000;
-            color: #ECECEC;
-            transition: background 0.3s ease, color 0.3s ease;
+            background: #f0f8f0; /* Soft light greenish background */
+            color: #3c6e71; /* Teal text color */
+            line-height: 1.6;
         }
 
-        .starfield {
+        /* Global Styles */
+        h1, h2, h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3c6e71;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at bottom, #0d1b2a, #000);
-            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
         }
 
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 4s infinite ease-in-out;
-        }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.6;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: scale(0.95);
-            animation: fadeIn 1.5s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.9) translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-            z-index: 1000;
-            transition: background 0.3s ease;
+        nav .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #3c6e71;
         }
 
         nav a {
-            margin: 0 20px;
             font-size: 1.1em;
-            color: #ECECEC;
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
+            color: #333;
+            font-weight: 500;
+            margin: 0 20px;
         }
 
         nav a:hover {
-            color: #00FFF6;
-            transform: translateY(-3px);
+            color: #3c6e71;
         }
 
+        /* Header Section */
         header {
             text-align: center;
-            padding: 150px 20px;
-            background: url('https://source.unsplash.com/1920x1080/?technology,ai') no-repeat center/cover;
-            color: #ECECEC;
-            position: relative;
+            padding: 100px 20px;
+            color: #3c6e71;
+            margin-top: 60px; /* Space for nav */
         }
 
         header h1 {
-            font-size: 3em;
-            font-weight: bold;
-            margin: 0;
-            color: #00FFF6;
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #3c6e71;
         }
 
         header p {
             font-size: 1.5em;
-            margin-top: 10px;
-            color: #00FFF6;
+            margin-bottom: 30px;
+            color: #555;
         }
 
         header button {
-            background: #00FFF6;
-            color: #121212;
+            background-color: #3c6e71;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.2em;
             border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            margin-top: 20px;
+            border-radius: 8px;
             cursor: pointer;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         header button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 255, 246, 0.4);
+            background-color: #2a4d4b;
         }
 
+        /* Outer Box for About Us Section */
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background: #ffffff;
+            margin: 40px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-container p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* Section */
         section {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
-            background: #1A1A1A;
-            border: 2px solid #00FFF6;
-            margin: 20px auto;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 255, 246, 0.4);
-            width: 90%;
-            max-width: 800px;
+            background: #ffffff;
+            margin: 40px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         section h2 {
-            font-size: 2.2em;
-            color: #00FFF6;
+            font-size: 2.5em;
+            color: #3c6e71;
             margin-bottom: 20px;
         }
 
         section p {
             font-size: 1.2em;
-            color: #B3B3B3;
+            color: #555;
             line-height: 1.6;
             margin-bottom: 30px;
         }
 
         section button {
-            background: #00FFF6;
-            color: #121212;
+            background-color: #3c6e71;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.1em;
             border: none;
-            padding: 10px 20px;
-            font-size: 1em;
+            border-radius: 8px;
             cursor: pointer;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         section button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 255, 246, 0.4);
+            background-color: #2a4d4b;
         }
 
+        /* Footer */
         footer {
             text-align: center;
-            padding: 15px 0;
-            background: #1F1F1F;
-            color: #ECECEC;
-            font-size: 0.9em;
-        }
-
-        footer a {
-            color: #00FFF6;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #00FFF6;
-            color: #121212;
-            border: none;
-            padding: 10px 20px;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #ffffff;
+            color: #555;
             font-size: 1em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
-<body class="dark-mode">
-    <!-- Starfield Background -->
-    <div class="starfield" id="stars"></div>
+<body>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()">Switch to Light Mode</button>
-
-    <!-- Navigation -->
-    <nav class="fade-in">
-        <a href="index.html">Home</a>
-        <a href="models.html">Models</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">XenoraAI</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="models.html">Models</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </nav>
 
     <!-- Header Section -->
-    <header class="fade-in">
-        <h1>About XenoraAI</h1>
-        <p>We are committed to bringing AI-driven solutions to transform industries globally.</p>
+    <header>
+        <h1>About Us</h1>
+        <p>At XenoraAI, we are dedicated to bringing the power of Artificial Intelligence to industries that need it most. Our mission is simple: Make Your Life Better by Utilizing AI. We develop tailored AI models that solve unique challenges for businesses across various sectors. Whether it's optimizing operations, improving decision-making, or transforming customer experiences, XenoraAI is here to help your business harness the full potential of AI.</p>
+        <button onclick="window.location.href='contact.html'">Contact Us</button>
     </header>
 
-    <!-- About Content Section -->
-    <section class="fade-in">
-        <h2>Our Mission</h2>
-        <p>XenoraAI is focused on building state-of-the-art artificial intelligence models designed to address real-world challenges in various industries. Our goal is to revolutionize how businesses operate with the power of AI.</p>
-        <button>Learn More</button>
+    <!-- About Us Section with Outer Box -->
+    <div class="about-container">
+        <p>Our team is made up of experts who are passionate about pushing the boundaries of technology to create smart solutions that make a real difference. We are committed to delivering high-performance, adaptable, and scalable AI models to fit the evolving needs of our clients. At XenoraAI, we don’t just offer technology; we offer a partnership for growth and success. Let us help you unlock new opportunities, improve efficiency, and take your business to the next level with our advanced AI solutions.</p>
+    </div>
+
+    <!-- Mission Statement Section -->
+    <section>
+        <h2>Our Mission Statement</h2>
+        <p>Our mission is to harness the power of Artificial Intelligence to transform industries and enhance lives. We are dedicated to providing innovative AI solutions that help businesses solve complex challenges, streamline operations, and unlock new opportunities. By focusing on adaptability, scalability, and performance, we aim to create AI models that drive positive change and deliver measurable results for our clients.</p>
     </section>
 
     <!-- Footer -->
@@ -240,30 +202,5 @@
         <p>&copy; 2024 XenoraAI. All rights reserved.</p>
     </footer>
 
-    <script>
-        const starfield = document.getElementById('stars');
-        for (let i = 0; i < 200; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.animationDelay = Math.random() * 4 + 's';
-            starfield.appendChild(star);
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            const button = document.querySelector('.theme-toggle');
-            if (body.classList.contains('dark-mode')) {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-    
-            } else {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-                
-            }
-        }
-    </script>
 </body>
 </html>
