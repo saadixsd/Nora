@@ -12,11 +12,30 @@ from datasets import load_dataset
 import requests  # Required for Hugging Face API interaction
 
 # Use a single Flask app instance
-app = Flask(__name__)
-CORS(app)  # Add this line to enable CORS
+import os
+from flask import Flask, request, jsonify
+import requests
 
-HUGGINGFACE_API_URL = "https://huggingface.co/spaces/saadixsd/Nora"
-HUGGINGFACE_API_KEY = "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"
+app = Flask(__name__)
+
+HUGGINGFACE_API_KEY = os.getenv("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")
+
+@app.route('/proxy', methods=['POST'])
+def proxy():
+    if not HUGGINGFACE_API_KEY:
+        return jsonify({"error": "API key is not set"}), 500
+
+    data = request.get_json()
+    query = data.get('query', '')
+
+    headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
+    api_url = "https://api-inference.huggingface.co/models/Nora"
+
+    response = requests.post(api_url, headers=headers, json={"inputs": query})
+    return jsonify(response.json())
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
