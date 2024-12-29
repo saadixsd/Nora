@@ -18,21 +18,23 @@ import requests
 
 app = Flask(__name__)
 
-HUGGINGFACE_API_KEY = os.getenv("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")
+import requests
 
-@app.route('/proxy', methods=['POST'])
-def proxy():
-    if not HUGGINGFACE_API_KEY:
-        return jsonify({"error": "API key is not set"}), 500
+HUGGINGFACE_API_URL = "https://api-inference.huggingface.co/models/Nora"
+HUGGINGFACE_API_KEY = "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"
 
-    data = request.get_json()
-    query = data.get('query', '')
+def fetch_huggingface_data(query, api_url=HUGGINGFACE_API_URL, api_key=HUGGINGFACE_API_KEY):
+    headers = {"Authorization": f"Bearer {api_key}"}
+    payload = {"inputs": query}
 
-    headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
-    api_url = "https://api-inference.huggingface.co/models/Nora"
+    try:
+        response = requests.post(api_url, headers=headers, json=payload)
+        response.raise_for_status()  # Raise HTTPError for bad responses
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        return {"error": str(e)}
 
-    response = requests.post(api_url, headers=headers, json={"inputs": query})
-    return jsonify(response.json())
+
 
 if __name__ == "__main__":
     app.run(debug=True)
