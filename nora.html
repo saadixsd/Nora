@@ -12,7 +12,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f0f8f0;
+            background: #f0f8f0; /* Original background color */
             color: #3c6e71;
             line-height: 1.6;
         }
@@ -160,29 +160,52 @@
     </footer>
 
     <script>
-        function sendMessage() {
-            var userInput = document.getElementById('user-input').value;
+        async function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
             if (userInput.trim() === "") {
                 alert("Please enter a question!");
                 return;
             }
 
-            var messagesDiv = document.getElementById('messages');
+            const messagesDiv = document.getElementById('messages');
 
             // User message
-            var userMessage = document.createElement('div');
+            const userMessage = document.createElement('div');
             userMessage.classList.add('message');
-            userMessage.innerHTML = "<p><strong>You:</strong> " + userInput + "</p>";
+            userMessage.innerHTML = `<p><strong>You:</strong> ${userInput}</p>`;
             messagesDiv.appendChild(userMessage);
-
-            // Nora's response (For now, it's static)
-            var noraMessage = document.createElement('div');
-            noraMessage.classList.add('message');
-            noraMessage.innerHTML = "<p><strong>Nora:</strong> I'm here to help with Canadian legal questions! How can I assist you today?</p>";
-            messagesDiv.appendChild(noraMessage);
 
             // Clear input field
             document.getElementById('user-input').value = "";
+
+            // Show a "thinking" message while waiting for a response
+            const noraMessage = document.createElement('div');
+            noraMessage.classList.add('message');
+            noraMessage.innerHTML = `<p><strong>Nora:</strong> Thinking...</p>`;
+            messagesDiv.appendChild(noraMessage);
+
+            // Scroll to the bottom of the messages
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            try {
+                const response = await fetch("https://huggingface.co/spaces/saadixsd/Nora", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: userInput })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch response from Nora.");
+                }
+
+                const data = await response.json();
+
+                // Update Nora's response
+                noraMessage.innerHTML = `<p><strong>Nora:</strong> ${data.answer}</p>`;
+            } catch (error) {
+                console.error(error);
+                noraMessage.innerHTML = `<p><strong>Nora:</strong> I'm having trouble connecting to the server. Please try again later.</p>`;
+            }
 
             // Scroll to the bottom of the messages
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
