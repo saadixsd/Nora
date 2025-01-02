@@ -11,6 +11,8 @@ from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from datasets import load_dataset
 import matplotlib.pyplot as plt
+from urllib.parse import quote as url_quote
+
 
 # Use a single Flask app instance
 app = Flask(__name__)
