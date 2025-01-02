@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS  # Add this line
 import re
 import os
+import time
+import sys
 import logging
 import plotly.express as px
 import pandas as pd
@@ -165,6 +167,15 @@ def ask():
         logger.error("API Error: %s", e)
         return jsonify({'error': str(e)}), 500
 
+def print_real_time(text, delay=0.035):
+    """Print text one character at a time with a delay."""
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()  # Flush to ensure the character is printed immediately
+        time.sleep(delay)  # Delay to simulate real-time typing effect
+    print()  # Newline at the end
+
+
 
 # Command-line interaction
 # Command-line interaction
@@ -180,9 +191,9 @@ def web_interaction():
 
         user_name, user_role = extract_user_details(user_input)
         response = handle_conversation(user_input, context, user_role)
-        
-        # Adding a space after each interaction for better readability
-        print(f"\nNora: {response}\n")  # Adding a newline after Nora's response
+
+        # Real-time printing for Nora's response
+        print_real_time(f"\nNora: {response}\n")
         context += f"\nUser: {user_input}\nNora: {response}"
         context = truncate_context(context)
 
