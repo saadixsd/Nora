@@ -11,33 +11,32 @@ from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from datasets import load_dataset
 import matplotlib.pyplot as plt
-from huggingface_hub import login
-from huggingface_hub import HfApi
-from huggingface_hub import login
+from huggingface_hub import login, HfApi
+from dotenv import load_dotenv
 
-hf_token = os.getenv("HF_TOKEN")  # Ensure the token is fetched
-if hf_token:
-    login(token=hf_token)  # Log in using the token
-else:
-    raise ValueError("HF_TOKEN environment variable is not set.")
+# Load environment variables from .env file
+load_dotenv()
 
+# Fetch the Hugging Face token from the environment
+hf_token = os.getenv("HF_TOKEN")  # Retrieve token from environment
 
-# Log in using the environment variable for the token
-login(token=os.getenv("HF_TOKEN"))
+if not hf_token:
+    raise ValueError("HF_TOKEN environment variable is not set.")  # Ensure HF_TOKEN is set
+
+# Log in using the Hugging Face token
+login(token=hf_token)  # Log in only once
 
 # Specify the model directory you want to upload
-model_dir = "https://huggingface.co/saadixsd/Nora"
+model_dir = "path_to_your_model"  # Replace with the correct path to your model directory
 
+# Create an instance of the Hugging Face API
 api = HfApi()
-
-# If you're pushing the model directory:
-model_dir = "path_to_your_model"  # Specify the correct model directory
 
 # Push to the Hugging Face Hub
 api.upload_folder(
-    repo_id="your_username/your_model_name",
+    repo_id="saadixsd/Nora",  
     folder_path=model_dir,
-    token=hf_token
+    token=hf_token  # Use the fetched token for authentication
 )
 
 # Use a single Flask app instance
