@@ -13,6 +13,23 @@ from datasets import load_dataset
 import matplotlib.pyplot as plt
 from urllib.parse import quote as url_quote
 
+# Fetch Hugging Face token from environment variable (secure approach)
+hf_token = os.getenv("HF_TOKEN")  # Make sure to set your token in the environment
+
+# Check if the token is available
+if not hf_token:
+    raise ValueError("Hugging Face token is missing! Set the HF_TOKEN environment variable.")
+
+from huggingface_hub import HfApi, HfFolder, Repository
+
+# Authentication: Log in using your token
+from huggingface_hub import login
+
+# Log in using the environment variable for the token
+login(token=os.getenv("HF_TOKEN"))
+
+# Specify the model directory you want to upload
+model_dir = "https://huggingface.co/saadixsd/Nora"
 
 # Use a single Flask app instance
 app = Flask(__name__)
@@ -39,7 +56,6 @@ role_messages = {
     "student": "I can help with assignments, legal concepts, or academic guidance. Let me know how I can assist",
     "user": "Feel free to ask me anything, whether it's general queries or specific tasks. Let me know how I can assist",
 }
-
 
 # Helper functions
 def extract_user_details(introduction_text):
@@ -72,7 +88,6 @@ def extract_user_details(introduction_text):
 
     return name, role
 
-
 def truncate_context(context, max_lines=20):
     """Keeps the last `max_lines` lines of the conversation context."""
     lines = context.split("\n")
@@ -97,7 +112,6 @@ def handle_conversation(user_input, context, user_role):
     except Exception as e:
         logger.error("Error in conversation handling: %s", e)
         return "I'm sorry, something went wrong. Could you rephrase that?"
-
 
 # Fetch CanLII data (or any other relevant dataset)
 def get_case_data(query):
@@ -177,9 +191,6 @@ def print_real_time(text, delay=0.035):
         time.sleep(delay)  # Delay to simulate real-time typing effect
     print()  # Newline at the end
 
-
-
-# Command-line interaction
 # Command-line interaction
 def web_interaction():
     print("\nNora: Hi there I'm Nora! I'm here to assist you with legal aid, how can I help you ?\n")
