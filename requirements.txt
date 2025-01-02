@@ -8,7 +8,6 @@ boto3==1.35.86
 datasets==3.2.0
 fastapi==0.115.6
 ffmpy==0.5.0
-flask==3.1.0
 gradio==5.9.1
 huggingface-hub==0.27.0
 langchain-ollama==0.2.2
@@ -21,3 +20,6 @@ torch==2.0.1
 uvicorn==0.34.0
 flask-cors>=5.0.0
 plotly==5.24.1
+Flask==2.2.3
+python-dotenv==0.21.0
+setuptools>=58.0.0
