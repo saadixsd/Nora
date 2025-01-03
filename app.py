@@ -97,26 +97,38 @@ def handle_conversation(user_input, context, user_role):
         return "I'm sorry, something went wrong. Could you rephrase that?"
 
 
-# Fetch CanLII data (or any other relevant dataset)
 def get_case_data(query):
-    # Load a relevant dataset (e.g., from Hugging Face)
+    """
+    Fetches relevant legal cases based on a dynamic query from a dataset.
+    query: str - The user’s search term (could be related to case type, name, citation, etc.).
+    Returns a DataFrame with relevant cases.
+    """
+    # Load a dataset containing real case data (CanLII or similar)
     dataset = load_dataset("refugee-law-lab/canadian-legal-data", split="train")
-
-    # Example: Aggregating data to count case types
-    case_data = {'Case Type': [], 'Frequency': []}
     
+    # Initialize dictionary to store matching cases
+    case_data = {'Case Name': [], 'Case Type': [], 'Citation': []}
+    
+    # Iterate through the dataset and filter based on the query
     for entry in dataset:
+        case_name = entry.get("case_name", "Unknown")
         case_type = entry.get("case_type", "Unknown")
-        case_data['Case Type'].append(case_type)
-        case_data['Frequency'].append(1)  # Assuming each entry is one occurrence
-
-    # Convert to DataFrame for easy analysis
+        citation = entry.get("citation", "Unknown")
+        
+        # Check if the query matches any case name or case type (case insensitive)
+        if query.lower() in case_name.lower() or query.lower() in case_type.lower():
+            case_data['Case Name'].append(case_name)
+            case_data['Case Type'].append(case_type)
+            case_data['Citation'].append(citation)
+    
+    # Convert the case data to a DataFrame for easy viewing
     df = pd.DataFrame(case_data)
     
-    # Aggregate frequencies
-    case_counts = df.groupby('Case Type').size().reset_index(name='Frequency')
+    # If no matching cases found, return an appropriate message
+    if df.empty:
+        return f"No cases found for the query: '{query}'. Please refine your search."
     
-    return case_counts
+    return df
 
 # Function to generate a Plotly bar graph
 def generate_case_type_graph(query):
@@ -180,7 +192,7 @@ def print_real_time(text, delay=0.035):
 # Command-line interaction
 # Command-line interaction
 def web_interaction():
-    print("\nNora: Hi there I'm Nora! I'm here to assist you with legal aid, how can I help you ?\n")
+    print("\nNora: Hello! I'm Nora, your AI legal assistant. I'm ready to help you with legal questions and provide data visualizations. What would you like to know ?\n")
 
     context = ""
     while True:
