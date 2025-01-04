@@ -11,20 +11,18 @@ from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from datasets import load_dataset
 import matplotlib.pyplot as plt
-
-
+import seaborn as sns
 
 # Use a single Flask app instance
 app = Flask(__name__)
 app.run(host='0.0.0.0', port=5500)
 
-
-CORS(app)  # Add this line to enable CORS
+CORS(app, resources={r"/*": {"origins": "*"}})  # Replace "*" with specific domains for production
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
 logging.getLogger("httpx").setLevel(logging.WARNING)  # Suppress httpx logs
-logger = logging.getLogger(__name__)  # Your application-specific logger
+logger = logging.getLoger(__name__)  # Your application-specific logger
 
 # Initialize the AI model and prompt chain
 model = OllamaLLM(model="llama3")  # Update to the correct model name as required
