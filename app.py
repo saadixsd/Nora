@@ -12,9 +12,11 @@ from langchain_core.prompts import ChatPromptTemplate
 from datasets import load_dataset
 import matplotlib.pyplot as plt
 
+
+
 # Use a single Flask app instance
 app = Flask(__name__)
-app.run(host='0.0.0.0', port=5000)
+app.run(host='0.0.0.0', port=5500)
 CORS(app)  # Add this line to enable CORS
 
 # Configure logging
