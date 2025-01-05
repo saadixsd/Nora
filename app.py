@@ -14,15 +14,19 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Use a single Flask app instance
-app = Flask(__name__)
-app.run(host='0.0.0.0', port=5500)
+app = Flask(__name__, static_url_path='', static_folder='static')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5500)
+
 
 CORS(app, resources={r"/*": {"origins": "*"}})  # Replace "*" with specific domains for production
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
 logging.getLogger("httpx").setLevel(logging.WARNING)  # Suppress httpx logs
-logger = logging.getLoger(__name__)  # Your application-specific logger
+logger = logging.getLogger(__name__)  # Your application-specific logger
+
 
 # Initialize the AI model and prompt chain
 model = OllamaLLM(model="llama3")  # Update to the correct model name as required
@@ -134,15 +138,30 @@ def get_case_data(query):
     return df
 
 # Function to generate a Plotly bar graph
+# Function to generate a Seaborn bar graph
 def generate_case_type_graph(query):
     # Get the relevant case data
     case_data = get_case_data(query)
     
-    # Generate Plotly bar graph
-    fig = px.bar(case_data, x='Case Type', y='Frequency', title='Case Type Frequency')
-    
-    # Return the graph as a JSON object (for web use)
-    return fig.to_json()
+    # Check if the data is a DataFrame
+    if isinstance(case_data, pd.DataFrame) and not case_data.empty:
+        # Create a count plot using Seaborn
+        plt.figure(figsize=(10, 6))
+        sns.countplot(data=case_data, x='Case Type', palette='viridis')
+        plt.title('Case Type Frequency', fontsize=16)
+        plt.xlabel('Case Type', fontsize=12)
+        plt.ylabel('Frequency', fontsize=12)
+        plt.xticks(rotation=45)
+        
+        # Save the plot as an image
+        image_path = "static/case_type_plot.png"  # Ensure the 'static' folder exists
+        plt.savefig(image_path, bbox_inches='tight')
+        plt.close()
+        
+        return image_path  # Return the path to the image
+    else:
+        return None
+
 
 # Flask API endpoint to handle graph generation and responses
 @app.route('/ask', methods=['POST'])
@@ -163,10 +182,9 @@ def ask():
             return jsonify({'error': 'Question is required.'}), 400
 
         # Check for graph requests
+        graph_image = None
         if "graph" in question.lower() or "plot" in question.lower():
-            graph_json = generate_case_type_graph(question)
-        else:
-            graph_json = None
+            graph_image = generate_case_type_graph(question)
 
         # Process the conversation
         response = handle_conversation(question, context, user_role)
@@ -175,12 +193,13 @@ def ask():
 
         return jsonify({
             'response': response,
-            'graph': graph_json,
+            'graph': f"/{graph_image}" if graph_image else None,
             'context': context  # Updated context for the next request
         })
     except Exception as e:
         logger.error("API Error: %s", e)
         return jsonify({'error': str(e)}), 500
+
 
 def print_real_time(text, delay=0.035):
     """Print text one character at a time with a delay."""
@@ -189,7 +208,6 @@ def print_real_time(text, delay=0.035):
         sys.stdout.flush()  # Flush to ensure the character is printed immediately
         time.sleep(delay)  # Delay to simulate real-time typing effect
     print()  # Newline at the end
-
 
 
 # Command-line interaction
