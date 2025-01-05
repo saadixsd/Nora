@@ -20,7 +20,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5500)
 
 
-CORS(app, resources={r"/*": {"origins": "*"}})  # Replace "*" with specific domains for production
+CORS(app, resources={r"/*": {"origins": ["https://xenoraai.com"]}})
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
