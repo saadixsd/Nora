@@ -189,16 +189,17 @@
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
             try {
-                const response = await fetch("http://54.91.68.44:5000", {
-                method: "POST", // or "GET", depending on your request type
+                const response = await fetch("http://54.91.68.44", {
+                    
+
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                     // Your request payload
-                      })
-                    
-                    });
+                    // Your request payload
+                    })
+                });
 
 
                 if (!response.ok) {
