@@ -20,7 +20,7 @@ def home():
     return "Welcome to Nora!"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5500)
+    app.run(host='0.0.0.0', port=5000)
 
 
 CORS(app, resources={r"/*": {"origins": ["https://xenoraai.com"]}})
