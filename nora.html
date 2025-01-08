@@ -161,63 +161,69 @@
     </footer>
 
     <script>
-        async function sendMessage() {
-            const userInput = document.getElementById('user-input').value;
-            if (userInput.trim() === "") {
-                alert("Please enter a question!");
-                return;
-            }
+    async function sendMessage() {
+        const userInput = document.getElementById('user-input').value;
+        if (userInput.trim() === "") {
+            alert("Please enter a question!");
+            return;
+        }
 
-            const messagesDiv = document.getElementById('messages');
+        const messagesDiv = document.getElementById('messages');
 
-            // User message
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message');
-            userMessage.innerHTML = `<p><strong>You:</strong> ${userInput}</p>`;
-            messagesDiv.appendChild(userMessage);
+        // User message
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('message');
+        userMessage.innerHTML = `<p><strong>You:</strong> ${userInput}</p>`;
+        messagesDiv.appendChild(userMessage);
 
-            // Clear input field
-            document.getElementById('user-input').value = "";
+        // Clear input field
+        document.getElementById('user-input').value = "";
 
-            // Show a "thinking" message while waiting for a response
-            const noraMessage = document.createElement('div');
-            noraMessage.classList.add('message');
-            noraMessage.innerHTML = `<p><strong>Nora:</strong> Thinking...</p>`;
-            messagesDiv.appendChild(noraMessage);
+        // Show a "thinking" message while waiting for a response
+        const noraMessage = document.createElement('div');
+        noraMessage.classList.add('message');
+        noraMessage.innerHTML = `<p><strong>Nora:</strong> Thinking...</p>`;
+        messagesDiv.appendChild(noraMessage);
 
-            // Scroll to the bottom of the messages
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        // Scroll to bottom
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-            try {
-                const response = await fetch("http://127.0.0.1:5000", {
-                    
-
+        try {
+            const response = await fetch('/ask', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    // Your request payload
-                    })
-                });
+                    message: userInput,
+                    context: ""  // You can implement context tracking if needed
+                })
+            });
 
-
-                if (!response.ok) {
-                    throw new Error("Failed to fetch response from Nora.");
-                }
-
-                const data = await response.json();
-
-                // Update Nora's response
-                noraMessage.innerHTML = `<p><strong>Nora:</strong> ${data.answer}</p>`;
-            } catch (error) {
-                console.error(error);
-                noraMessage.innerHTML = `<p><strong>Nora:</strong> I'm having trouble connecting to the server. Please try again later.</p>`;
+            if (!response.ok) {
+                throw new Error("Failed to fetch response from Nora.");
             }
 
-            // Scroll to the bottom of the messages
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            const data = await response.json();
+            print(data);
+
+            // Update Nora's response
+            noraMessage.innerHTML = `<p><strong>Nora:</strong> ${data.answer}</p>`;
+        } catch (error) {
+            console.error(error);
+            noraMessage.innerHTML = `<p><strong>Nora:</strong> I'm having trouble connecting to the server. Please try again later.</p>`;
         }
+
+        // Scroll to bottom
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    // Add event listener for Enter key
+    document.getElementById('user-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
     </script>
 
 </body>
