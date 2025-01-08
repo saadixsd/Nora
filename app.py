@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS  # Add this line
 import re
 import os
@@ -13,27 +13,23 @@ from datasets import load_dataset
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Welcome to Nora!"
+    return render_template('nora.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
 
-CORS(app, resources={r"/*": {"origins": ["https://xenoraai.com"]}})
+CORS(app, resources={r"/*": {"origins": "*"}})  # For development - restrict this in production
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
 logging.getLogger("httpx").setLevel(logging.WARNING)  # Suppress httpx logs
 logger = logging.getLogger(__name__)  # Your application-specific logger
-
-@app.route('/favicon.ico')
-def favicon():
-    return '', 204  # Return an empty response with HTTP status 204 (No Content)
-
 
 
 # Initialize the AI model and prompt chain
@@ -171,38 +167,22 @@ def generate_case_type_graph(query):
         return None
 
 
-# Flask API endpoint to handle graph generation and responses
 @app.route('/ask', methods=['POST'])
 def ask():
     try:
         data = request.get_json()
-        question = data.get('question', '')
+        question = data.get('message', '')  # Changed from 'question' to match frontend
         context = data.get('context', '')
-        user_role = data.get('user_role', 'user')  # Optional role parameter
-
-        # Extract user details if not explicitly provided
-        if not user_role or user_role == 'user':
-            user_name, user_role = extract_user_details(question)
-        else:
-            user_name = "User"  # Default name if not provided
-
+        
         if not question:
-            return jsonify({'error': 'Question is required.'}), 400
-
-        # Check for graph requests
-        graph_image = None
-        if "graph" in question.lower() or "plot" in question.lower():
-            graph_image = generate_case_type_graph(question)
+            return jsonify({'error': 'Message is required.'}), 400
 
         # Process the conversation
-        response = handle_conversation(question, context, user_role)
-        context += f"\nUser: {question}\nNora: {response}"
-        context = truncate_context(context)
-
+        response = handle_conversation(question, context, 'user')
+        
         return jsonify({
-            'response': response,
-            'graph': f"/{graph_image}" if graph_image else None,
-            'context': context  # Updated context for the next request
+            'answer': response,  # Changed from 'response' to match frontend
+            'context': context
         })
     except Exception as e:
         logger.error("API Error: %s", e)
@@ -217,11 +197,9 @@ def print_real_time(text, delay=0.035):
         time.sleep(delay)  # Delay to simulate real-time typing effect
     print()  # Newline at the end
 
-
-# Command-line interaction
 # Command-line interaction
 def web_interaction():
-    print("\nNora: Hello! I'm Nora, your AI legal assistant. I'm ready to help you with legal questions and provide data visualizations. What would you like to know ?\n")
+    print("\nNora: Hello! I'm Nora, your AI legal assistant. I'm ready to help you with legal questions and provide data visualizations. What would you like to know?\n")
 
     context = ""
     while True:
