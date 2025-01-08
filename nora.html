@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chat with Nora, your Legal AI Assistant.">
+    <meta name="description" content="Nora">
     <meta name="keywords" content="AI, Nora, Legal Assistant, Canadian Law, XenoraAI">
-    <title>Chat with Nora - XenoraAI</title>
+    <title>Nora- XenoraAI</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -101,6 +101,15 @@
             padding: 10px;
             border-radius: 8px;
             border: 1px solid #ddd;
+            outline: none;
+        }
+
+        .input-container input:focus::placeholder {
+            color: transparent;
+        }
+
+        .input-container input::placeholder {
+            color: #aaa;
         }
 
         .input-container button {
@@ -112,6 +121,17 @@
             font-size: 1.2em;
             border-radius: 8px;
             cursor: pointer;
+        }
+
+        .graph-container {
+            display: none;
+            margin: 20px auto;
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         footer {
@@ -150,9 +170,14 @@
         </div>
 
         <div class="input-container">
-            <input type="text" id="user-input" placeholder="Ask Nora a question..." />
+            <input type="text" id="user-input" placeholder="Enter your text here" />
             <button onclick="sendMessage()">Send</button>
         </div>
+    </div>
+
+    <!-- Graph Section -->
+    <div class="graph-container" id="graph-container">
+        <canvas id="graph-canvas" width="500" height="300"></canvas>
     </div>
 
     <!-- Footer -->
@@ -160,6 +185,7 @@
         <p>&copy; 2024 XenoraAI. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     async function sendMessage() {
         const userInput = document.getElementById('user-input').value;
@@ -205,7 +231,11 @@
             }
 
             const data = await response.json();
-            print(data);
+
+            // Check if the user asked for a graph
+            if (data.answer.toLowerCase().includes("graph")) {
+                drawGraph(data.graphData);
+            }
 
             // Update Nora's response
             noraMessage.innerHTML = `<p><strong>Nora:</strong> ${data.answer}</p>`;
@@ -216,6 +246,41 @@
 
         // Scroll to bottom
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function drawGraph(graphData) {
+        const graphContainer = document.getElementById('graph-container');
+        const graphCanvas = document.getElementById('graph-canvas');
+        const ctx = graphCanvas.getContext('2d');
+
+        // Clear existing graph
+        graphContainer.style.display = "block";
+        ctx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+
+        // Draw graph using Chart.js
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: graphData.labels,
+                datasets: [{
+                    label: graphData.label,
+                    data: graphData.data,
+                    borderColor: '#3c6e71',
+                    backgroundColor: 'rgba(60, 110, 113, 0.2)',
+                    borderWidth: 2,
+                    fill: true,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                },
+            }
+        });
     }
 
     // Add event listener for Enter key
