@@ -21,7 +21,7 @@ def home():
     return render_template('nora.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5500)
 
 
 CORS(app, resources={r"/*": {"origins": "*"}})  # For development - restrict this in production
@@ -141,29 +141,44 @@ def get_case_data(query):
     
     return df
 
-# Function to generate a Plotly bar graph
-# Function to generate a Seaborn bar graph
+
 def generate_case_type_graph(query):
-    # Get the relevant case data
-    case_data = get_case_data(query)
-    
-    # Check if the data is a DataFrame
-    if isinstance(case_data, pd.DataFrame) and not case_data.empty:
-        # Create a count plot using Seaborn
-        plt.figure(figsize=(10, 6))
-        sns.countplot(data=case_data, x='Case Type', palette='viridis')
-        plt.title('Case Type Frequency', fontsize=16)
-        plt.xlabel('Case Type', fontsize=12)
-        plt.ylabel('Frequency', fontsize=12)
-        plt.xticks(rotation=45)
+    """
+    Generates a bar chart of case types based on a query.
+    """
+    try:
+        # Fetch case data
+        case_data = get_case_data(query)
         
-        # Save the plot as an image
-        image_path = "static/case_type_plot.png"  # Ensure the 'static' folder exists
-        plt.savefig(image_path, bbox_inches='tight')
-        plt.close()
-        
-        return image_path  # Return the path to the image
-    else:
+        # Check if case_data is valid
+        if isinstance(case_data, pd.DataFrame) and not case_data.empty:
+            # Count occurrences of each case type
+            case_type_counts = case_data['Case Type'].value_counts()
+
+            # Convert to a DataFrame for visualization
+            df = pd.DataFrame({
+                'Case Type': case_type_counts.index,
+                'Frequency': case_type_counts.values
+            })
+
+            # Create the plot
+            plt.figure(figsize=(12, 8))
+            sns.barplot(x='Frequency', y='Case Type', data=df, palette='coolwarm')
+            plt.title(f"Case Type Frequency for Query: {query}", fontsize=16)
+            plt.xlabel("Frequency", fontsize=12)
+            plt.ylabel("Case Type", fontsize=12)
+            plt.tight_layout()
+
+            # Save to static directory
+            image_path = f"static/{query}_case_type_plot.png"
+            plt.savefig(image_path)
+            plt.close()  # Close the plot to free memory
+
+            return image_path  # Return path for Flask to serve
+        else:
+            return None  # No valid data
+    except Exception as e:
+        logger.error("Error generating graph: %s", e)
         return None
 
 
