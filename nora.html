@@ -215,15 +215,16 @@
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
         try {
-            const response = await fetch('/ask', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    message: userInput,
-                    context: ""  // You can implement context tracking if needed
-                })
+            const response = await fetch('http://<public-ip>:5000/your-api-endpoint', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ data: "test" }),
+            })
+              .then(response => response.json())
+              .then(data => console.log(data))
+              .catch(error => console.error('Error:', error));
             });
 
             if (!response.ok) {
