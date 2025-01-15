@@ -215,7 +215,7 @@
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
         try {
-            const response = await fetch('http://<public-ip>:5000/your-api-endpoint', {
+            const response = await fetch('http://127.0.0.1:5000', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
