@@ -43,7 +43,7 @@ logger = logging.getLogger(__name__)
 
 # Initialize the AI model (e.g., LLaMA model) with a timeout for requests
 # The model is used to handle legal queries and provide insights
-model = OllamaLLM(model="llama3", timeout=30)  # Set timeout to 30 seconds for model responses
+model = OllamaLLM(model="llama3", timeout=None)
 
 # Define a template for generating responses, which includes a conversation history and question
 template = """
@@ -121,34 +121,16 @@ def extract_user_details(introduction_text):
 
 
 # Define the function to truncate context based on line and character limits
-def truncate_context(context, max_lines=20, max_chars=1000):
-    """Enhanced context truncation with character limit."""
-    
-    # Return an empty string if context is None or empty
+def truncate_context(context):
     if not context:
         return ""
-    
     try:
-        # Split the context into individual lines
-        lines = context.split("\n")
-        
-        # Keep only the last 'max_lines' number of lines
-        truncated_lines = lines[-max_lines:]
-        
-        # Join the truncated lines back into a single string
-        truncated_context = "\n".join(truncated_lines)
-        
-        # If the truncated context exceeds the character limit, truncate it
-        if len(truncated_context) > max_chars:
-            return truncated_context[:max_chars] + "..."  # Add ellipsis to indicate truncation
-        
-        return truncated_context  # Return the truncated context as is
+        # Return the entire context without truncation
+        return context
     except Exception as e:
-        # Log any errors that occur during context truncation
-        logger.error(f"Error in context truncation: {e}")
-        # Return an empty string if an error occurs
+        logger.error(f"Error in context handling: {e}")
         return ""
-
+        
 
 # Define the function to handle user conversations
 def handle_conversation(user_input, context, user_role):
@@ -331,7 +313,6 @@ def print_real_time(text, delay=0.035):
     except Exception as e:
         # If an error occurs, print the text normally as a fallback
         print(text)
-
 
 
 # Define the function to handle user interaction
