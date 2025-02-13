@@ -137,7 +137,7 @@ def handle_conversation(user_input, context, user_role):
     """Enhanced conversation handler with input validation and error handling."""
     
     # Check if the user input is valid (non-empty and under 1000 characters)
-    if not user_input or len(user_input) > 1000:  # Limit input length
+    if not user_input:
         return "Please provide a valid message under 1000 characters."
     
     try:
