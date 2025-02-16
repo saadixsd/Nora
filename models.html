@@ -8,16 +8,16 @@
     <title>Our Models - XenoraAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Global Styles */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f0f8f0; /* Soft light greenish background */
-            color: #3c6e71; /* Teal text color */
+            background: #1a1a2e; /* Dark purple background */
+            color: #e0e0e0; /* Light gray text color */
             line-height: 1.6;
         }
 
-        /* Global Styles */
         h1, h2, h3 {
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
@@ -25,141 +25,177 @@
 
         a {
             text-decoration: none;
-            color: #3c6e71;
+            color: #e0e0e0;
         }
 
         /* Navigation Bar */
-        nav .nav-links {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+        nav {
             display: flex;
-            gap: 40px;
+            justify-content: center; /* Center the nav content */
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(26, 26, 46, 0.9); /* Semi-transparent dark purple */
+            backdrop-filter: blur(10px); /* Blur effect */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         nav .logo {
             font-size: 1.8em;
             font-weight: 700;
-            color: #3c6e71;
-            z-index: 1;
-}
+            background: linear-gradient(45deg, #8a2be2, #ff007f, #ff8c42); /* Purple-pink-orange gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s infinite alternate;
+            margin-right: auto; /* Push logo to the left */
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 40px;
+            position: absolute; /* Center the links */
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
         nav a {
             font-size: 1.1em;
-            color: #333;
+            color: #e0e0e0;
             font-weight: 500;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
+
         nav a:hover {
-            color: #3c6e71;
+            color: #ff8c42; /* Orange hover effect */
         }
+
         /* Header Section */
         header {
             text-align: center;
-            padding: 100px 20px;
-            color: #3c6e71;
-            margin-top: 60px; /* Space for nav */
+            padding: 200px 20px 100px; /* Adjusted for fixed nav */
+            color: #e0e0e0;
+            background: linear-gradient(45deg, #1a1a2e, #16213e); /* Gradient background */
         }
 
         header h1 {
             font-size: 4em;
             margin-bottom: 20px;
-            color: #3c6e71;
+            color: #e0e0e0;
+            animation: fadeIn 2s ease-in-out;
         }
 
         header p {
             font-size: 1.5em;
             margin-bottom: 30px;
-            color: #555;
+            color: #a8a8a8;
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         header button {
-            background-color: #3c6e71;
-            color: white;
+            background-color: #ff8c42; /* Orange button */
+            color: #1a1a2e;
             padding: 12px 24px;
             font-size: 1.2em;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         header button:hover {
-            background-color: #2a4d4b;
+            background-color: #ff6f3d; /* Darker orange on hover */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Section */
         section {
             padding: 60px 20px;
             text-align: center;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
             margin: 40px 0;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
+            backdrop-filter: blur(10px); /* Blur effect */
         }
 
         section h2 {
             font-size: 2.5em;
-            color: #3c6e71;
+            color: #e0e0e0;
             margin-bottom: 20px;
         }
 
         section p {
             font-size: 1.2em;
-            color: #555;
+            color: #a8a8a8;
             line-height: 1.6;
             margin-bottom: 30px;
         }
 
         section button {
-            background-color: #3c6e71;
-            color: white;
+            background-color: #ff8c42; /* Orange button */
+            color: #1a1a2e;
             padding: 12px 24px;
             font-size: 1.1em;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         section button:hover {
-            background-color: #2a4d4b;
+            background-color: #ff6f3d; /* Darker orange on hover */
+            transform: scale(1.05); /* Slight zoom effect */
         }
 
         /* Nora Interaction Section */
         .nora-container {
             padding: 40px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
             margin-top: 40px;
             border-radius: 10px;
+            backdrop-filter: blur(10px); /* Blur effect */
         }
 
         .nora-container h3 {
             font-size: 2.2em;
-            color: #3c6e71;
+            color: #e0e0e0;
             margin-bottom: 20px;
         }
 
         .nora-container p {
             font-size: 1.2em;
-            color: #555;
+            color: #a8a8a8;
             margin-bottom: 20px;
         }
 
         .nora-container button {
-            background-color: #3c6e71;
-            color: white;
+            background-color: #ff8c42; /* Orange button */
+            color: #1a1a2e;
             padding: 12px 24px;
             font-size: 1.2em;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .nora-container button:hover {
-            background-color: #2a4d4b;
+            background-color: #ff6f3d; /* Darker orange on hover */
+            transform: scale(1.05); /* Slight zoom effect */
         }
 
         /* Footer */
@@ -167,10 +203,10 @@
             text-align: center;
             padding: 20px;
             margin-top: 40px;
-            background-color: #ffffff;
-            color: #555;
+            background-color: rgba(26, 26, 46, 0.9); /* Semi-transparent dark purple */
+            color: #a8a8a8;
             font-size: 1em;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -199,10 +235,9 @@
         <div class="nora-container">
             <h3>Meet Nora - Your Legal AI Assistant (NOTE: NORA IS STILL UNDER PROGRESS)</h3>
             <p>Use Nora to get assistance with legal research, case summaries, and more! Ask her questions related to Canadian law, and she will guide you.</p>
-            <button onclick="window.location.href='http://35.203.87.253:3000/auth'">Access Nora</button> <!-- Updated button -->
+            <button onclick="window.location.href='http://35.203.87.253:3000/auth'">Access Nora</button>
         </div>
     </section>
-    
 
     <!-- Footer -->
     <footer>
