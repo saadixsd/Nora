@@ -33,7 +33,7 @@
         /* Navigation Bar */
         nav {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Align items to the left */
             align-items: center;
             padding: 20px 40px;
             background: #ede6f5; /* Cream beige for nav */
@@ -51,7 +51,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientShift 5s infinite alternate;
-            margin-right: auto; /* Push logo to the left */
+            margin-right: 40px; /* Space between logo and links */
         }
 
         @keyframes gradientShift {
@@ -61,10 +61,7 @@
 
         nav .nav-links {
             display: flex;
-            gap: 40px;
-            position: absolute; /* Center the links */
-            left: 50%;
-            transform: translateX(-50%);
+            gap: 20px; /* Space between links */
         }
 
         nav a {
@@ -77,6 +74,36 @@
 
         nav a:hover {
             color: #1a1a2e; /* Dark purple hover effect */
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px; /* Reduced padding for smaller screens */
+            }
+
+            nav .logo {
+                font-size: 1.5em; /* Smaller logo for mobile */
+                margin-right: 20px; /* Reduced space between logo and links */
+            }
+
+            nav .nav-links {
+                gap: 15px; /* Reduced gap between links */
+            }
+
+            nav a {
+                font-size: 1em; /* Smaller font size for links */
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .nav-links {
+                gap: 10px; /* Further reduced gap for very small screens */
+            }
+
+            nav a {
+                font-size: 0.9em; /* Even smaller font size for links */
+            }
         }
 
         /* Header Section */
