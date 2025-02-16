@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             background: #1a1a2e; /* Dark purple background */
-            color: #e0e0e0; /* Light gray text color */
+            color: #e0e0e0; /* Light gray text */
             line-height: 1.6;
         }
 
@@ -31,11 +31,11 @@
         /* Navigation Bar */
         nav {
             display: flex;
-            justify-content: center; /* Center the nav content */
+            justify-content: center;
             align-items: center;
             padding: 20px 40px;
             background: rgba(26, 26, 46, 0.9); /* Semi-transparent dark purple */
-            backdrop-filter: blur(10px); /* Blur effect */
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
@@ -49,7 +49,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientShift 5s infinite alternate;
-            margin-right: auto; /* Push logo to the left */
+            margin-right: auto;
         }
 
         @keyframes gradientShift {
@@ -60,14 +60,13 @@
         nav .nav-links {
             display: flex;
             gap: 40px;
-            position: absolute; /* Center the links */
+            position: absolute;
             left: 50%;
             transform: translateX(-50%);
         }
 
         nav a {
             font-size: 1.1em;
-            color: #e0e0e0;
             font-weight: 500;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -80,15 +79,13 @@
         /* Header Section */
         header {
             text-align: center;
-            padding: 200px 20px 100px; /* Adjusted for fixed nav */
-            color: #e0e0e0;
+            padding: 200px 20px 100px;
             background: linear-gradient(45deg, #1a1a2e, #16213e); /* Gradient background */
         }
 
         header h1 {
             font-size: 4em;
             margin-bottom: 20px;
-            color: #e0e0e0;
             animation: fadeIn 2s ease-in-out;
         }
 
@@ -112,7 +109,7 @@
 
         header button:hover {
             background-color: #ff6f3d; /* Darker orange on hover */
-            transform: scale(1.05); /* Slight zoom effect */
+            transform: scale(1.05);
         }
 
         @keyframes fadeIn {
@@ -128,12 +125,11 @@
             margin: 40px 0;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
-            backdrop-filter: blur(10px); /* Blur effect */
+            backdrop-filter: blur(10px);
         }
 
         section h2 {
             font-size: 2.5em;
-            color: #e0e0e0;
             margin-bottom: 20px;
         }
 
@@ -157,22 +153,21 @@
 
         section button:hover {
             background-color: #ff6f3d; /* Darker orange on hover */
-            transform: scale(1.05); /* Slight zoom effect */
+            transform: scale(1.05);
         }
 
         /* Nora Interaction Section */
         .nora-container {
             padding: 40px;
-            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            background: #2E2E2E; /* Adjust to match your site's gray */
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
             margin-top: 40px;
             border-radius: 10px;
-            backdrop-filter: blur(10px); /* Blur effect */
+            
         }
 
         .nora-container h3 {
             font-size: 2.2em;
-            color: #e0e0e0;
             margin-bottom: 20px;
         }
 
@@ -195,7 +190,7 @@
 
         .nora-container button:hover {
             background-color: #ff6f3d; /* Darker orange on hover */
-            transform: scale(1.05); /* Slight zoom effect */
+            transform: scale(1.05);
         }
 
         /* Footer */
