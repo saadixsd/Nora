@@ -13,24 +13,25 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #1a1a2e; /* Dark purple background */
-            color: #e0e0e0; /* Light gray text */
+            background: #f5f5dc; /* Cream beige background */
+            color: #1a1a2e; /* Dark purple text */
             line-height: 1.6;
         }
 
         h1, h2, h3 {
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
+            color: #1a1a2e; /* Dark purple for headings */
         }
 
         a {
             text-decoration: none;
-            color: #e0e0e0;
+            color: #1a1a2e; /* Dark purple for links */
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #ff8c42; /* Orange hover effect */
+            color: #e9e7e7; 
         }
 
         /* Navigation Bar */
@@ -39,18 +40,19 @@
             justify-content: center;
             align-items: center;
             padding: 20px 40px;
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(245, 245, 220, 0.9); /* Semi-transparent cream beige */
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav .logo {
             font-size: 1.8em;
             font-weight: 700;
-            background: linear-gradient(45deg, #8a2be2, #ff007f, #ff8c42);
+            background: linear-gradient(45deg, #8a2be2, #ff007f, #ff8c42); /* Purple-pink-orange gradient */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientShift 5s infinite alternate;
@@ -62,18 +64,6 @@
             100% { background-position: 100% 50%; }
         }
 
-        nav a {
-            font-size: 1.1em; /* Matching the first file */
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ff8c42; /* Orange hover effect */
-        }
-
-
         nav .nav-links {
             display: flex;
             gap: 40px;
@@ -82,23 +72,36 @@
             transform: translateX(-50%);
         }
 
+        nav a {
+            font-size: 1.1em;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #dbd7d5; /* Orange hover effect */
+        }
+
         /* Header Section */
         header {
             text-align: center;
             padding: 200px 20px 100px;
-            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            background: #f5f5dc; /* Cream beige for header */
+            border-bottom: 4px solid #1a1a2e; /* Dark purple border */
         }
 
         header h1 {
             font-size: 4em;
             margin-bottom: 20px;
+            color: #1a1a2e; /* Dark purple for header heading */
             animation: fadeIn 2s ease-in-out;
         }
 
         header p {
             font-size: 1.5em;
             margin-bottom: 30px;
-            color: #a8a8a8;
+            color: #333333; /* Dark gray for subtext */
             animation: fadeIn 2.5s ease-in-out;
         }
 
@@ -112,15 +115,16 @@
             max-width: 600px;
             margin: 40px auto;
             padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
             border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             text-align: center;
         }
 
         .contact-container h2 {
             font-size: 2.5em;
+            color: #1a1a2e; /* Dark purple for section headings */
             margin-bottom: 20px;
         }
 
@@ -129,16 +133,16 @@
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            border: 2px solid #ff8c42;
+            border: 2px solid #eee9e7; /* Orange border */
             border-radius: 8px;
-            background: #1a1a2e;
-            color: #e0e0e0;
+            background: #ffffff; /* White background */
+            color: #1a1a2e; /* Dark purple text */
             font-size: 1.2em;
         }
 
         .contact-container form input[type="submit"] {
-            background: #ff8c42;
-            color: #1a1a2e;
+            background: #eee9e6; /* Orange button */
+            color: #ffffff; /* White text for button */
             border: none;
             cursor: pointer;
             font-size: 1.2em;
@@ -148,7 +152,7 @@
         }
 
         .contact-container form input[type="submit"]:hover {
-            background-color: #ff6f3d;
+            background-color: #1a1a2e; /* Dark purple on hover */
             transform: scale(1.05);
         }
 
@@ -157,12 +161,11 @@
             text-align: center;
             padding: 20px;
             margin-top: 40px;
-            background-color: rgba(26, 26, 46, 0.9);
-            color: #a8a8a8;
+            background-color: #1a1a2e; /* Dark purple for footer */
+            color: #f5f5dc; /* Cream beige for footer text */
             font-size: 1em;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #f5f5dc; /* Cream beige border */
         }
-
     </style>
 </head>
 <body>
