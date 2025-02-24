@@ -18,6 +18,54 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from transformers import pipeline
 from sklearn.metrics.pairwise import cosine_similarity
 
+
+
+import os
+import subprocess
+
+def convert_pth_to_gguf(model_path, output_path):
+    """
+    Converts a PyTorch LLaMA model (.pth) to GGUF format for use with Ollama.
+    """
+    try:
+        # Ensure llama.cpp exists
+        llama_cpp_path = os.path.expanduser("~/Documents/NoraAI/llama.cpp")
+        convert_script = os.path.join(llama_cpp_path, "convert-llama-gguf.py")
+        
+        if not os.path.exists(convert_script):
+            raise FileNotFoundError(f"Conversion script not found: {convert_script}")
+        
+        # Run the conversion command
+        command = [
+            "python3", convert_script,
+            "--model", model_path,
+            "--output", output_path
+        ]
+        
+        subprocess.run(command, check=True)
+        print(f"✅ Model converted successfully: {output_path}")
+    
+    except Exception as e:
+        print(f"❌ Error during conversion: {e}")
+
+if __name__ == "__main__":
+    # Define paths
+    model_pth = os.path.expanduser("~/Documents/NoraAI/model.pth")  # Update with your actual model path
+    output_gguf = os.path.expanduser("~/Documents/NoraAI/model.gguf")
+    
+    # Run conversion
+    convert_pth_to_gguf(model_pth, output_gguf)
+
+
+
+
+
+
+
+
+
+
+
 # Initialize Flask application
 app = Flask(__name__)
 
@@ -313,6 +361,15 @@ def print_real_time(text, delay=0.035):
     except Exception as e:
         # If an error occurs, print the text normally as a fallback
         print(text)
+
+    class NoraCanadianLegal:
+        def _determine_query_type(self, user_input):
+            # Example logic to classify query
+            if "case law" in user_input.lower():
+                return "case_law_lookup"
+            else:
+                return "general_question"
+
 
 
 # Define the function to handle user interaction
