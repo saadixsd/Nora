@@ -91,7 +91,7 @@ logger = logging.getLogger(__name__)
 
 # Initialize the AI model (e.g., LLaMA model) with a timeout for requests
 # The model is used to handle legal queries and provide insights
-model = OllamaLLM(model="llama3", timeout=None)
+model = OllamaLLM(model="llama3.2", timeout=None)
 
 # Define a template for generating responses, which includes a conversation history and question
 template = """
