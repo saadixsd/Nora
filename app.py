@@ -58,14 +58,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
-
-
 # Initialize Flask application
 app = Flask(__name__)
 
@@ -76,15 +68,12 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 # This restricts access to the API only from the specified domain (XenoraAI)
 CORS(app, resources={r"/*": {"origins": ["https://www.xenoraai.com"]}})
 
-# Set up logging with both file and stream handlers for enhanced logging
-logging.basicConfig(
-    level=logging.INFO,  # Set log level to INFO to capture important logs
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Log format with timestamp, logger name, level, and message
-    handlers=[
-        logging.FileHandler('app.log'),  # Log to a file named app.log
-        logging.StreamHandler()  # Also log to the console (stream)
-    ]
-)
+
+import logging
+
+logging.getLogger("httpx").setLevel(logging.WARNING)  # Suppresses INFO logs from httpx
+logging.basicConfig(level=logging.WARNING)  # Show only warnings and errors
+
 
 # Get logger instance
 logger = logging.getLogger(__name__)
@@ -425,3 +414,4 @@ if __name__ == '__main__':
     else:
         # If FLASK_MODE is not 'True', call the web_interaction function (likely for a different mode)
         web_interaction()
+
