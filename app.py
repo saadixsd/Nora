@@ -409,8 +409,8 @@ def web_interaction():
 if __name__ == '__main__':
     # Check if the environment variable 'FLASK_MODE' is set to 'True'
     if os.getenv('FLASK_MODE', 'False').lower() == 'True':
-        # If FLASK_MODE is 'True', run the Flask app on all available IP addresses at port 5000
-        app.run(host='0.0.0.0', port=5000)
+        # If FLASK_MODE is 'True', run the Flask app on all available IP addresses at port 3000
+        app.run(host='0.0.0.0', port=3000)
     else:
         # If FLASK_MODE is not 'True', call the web_interaction function (likely for a different mode)
         web_interaction()
