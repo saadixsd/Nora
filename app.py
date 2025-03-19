@@ -17,9 +17,6 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from sklearn.feature_extraction.text import TfidfVectorizer
 from transformers import pipeline
 from sklearn.metrics.pairwise import cosine_similarity
-
-
-
 import os
 import subprocess
 
@@ -414,4 +411,3 @@ if __name__ == '__main__':
     else:
         # If FLASK_MODE is not 'True', call the web_interaction function (likely for a different mode)
         web_interaction()
-
