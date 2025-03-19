@@ -1,15 +1,15 @@
-## git commands
-### get project files into your computer
+# git commands
+## get project files into your computer
 ```
 git clone https://github.com/saadixsd/Nora.git
 ```
-### create a new branch and go into it
+## create a new branch and go into it
 ```
 git branch [branch-name]
 git checkout [branch-name]
 ```
 
-### put code into a branch
+## put code into a branch
 ```
 git commit -m "commit-message"
 git pull origin [branch-name]
@@ -32,7 +32,7 @@ unix or mac:
 source venv/bin/activate
 ```
 
-get out of virtual environment:
+## get out of virtual environment:
 ```
 deactivate
 ```
@@ -47,7 +47,7 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
-## run app commands
+# run app commands
 run flask:
 ```
 flask --app app.py run
