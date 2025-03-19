@@ -9,6 +9,14 @@ git branch [branch-name]
 git checkout [branch-name]
 ```
 
+### put code into a branch
+```
+git commit -m "commit-message"
+git pull origin [branch-name]
+git push origin [branch-name]
+```
+
+# virtual environment commands
 ## create virtual environment
 ```
 python3 -m venv venv
@@ -39,9 +47,15 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
+## run app commands
 run flask:
 ```
 flask --app app.py run
+```
+
+run react:
+```
+npm run start
 ```
 
 
