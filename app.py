@@ -5,55 +5,14 @@ import os
 import time
 import sys
 import logging
-import plotly.express as px
 import pandas as pd
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from datasets import load_dataset
-import matplotlib.pyplot as plt
-import seaborn as sns
 from functools import lru_cache
 from werkzeug.middleware.proxy_fix import ProxyFix
 from sklearn.feature_extraction.text import TfidfVectorizer
-from transformers import pipeline
 from sklearn.metrics.pairwise import cosine_similarity
-import os
-import subprocess
-
-def convert_pth_to_gguf(model_path, output_path):
-    """
-    Converts a PyTorch LLaMA model (.pth) to GGUF format for use with Ollama.
-    """
-    try:
-        # Ensure llama.cpp exists
-        llama_cpp_path = os.path.expanduser("~/Documents/NoraAI/llama.cpp")
-        convert_script = os.path.join(llama_cpp_path, "convert-llama-gguf.py")
-        
-        if not os.path.exists(convert_script):
-            raise FileNotFoundError(f"Conversion script not found: {convert_script}")
-        
-        # Run the conversion command
-        command = [
-            "python3", convert_script,
-            "--model", model_path,
-            "--output", output_path
-        ]
-        
-        subprocess.run(command, check=True)
-        print(f"✅ Model converted successfully: {output_path}")
-    
-    except Exception as e:
-        print(f"❌ Error during conversion: {e}")
-
-if __name__ == "__main__":
-    # Define paths
-    model_pth = os.path.expanduser("~/Documents/NoraAI/model.pth")  # Update with your actual model path
-    output_gguf = os.path.expanduser("~/Documents/NoraAI/model.gguf")
-    
-    # Run conversion
-    convert_pth_to_gguf(model_pth, output_gguf)
-
-
 
 # Initialize Flask application
 app = Flask(__name__)
@@ -254,20 +213,6 @@ def get_case_data(query):
         # Return None if an error occurs
         return None
 
-# Define a Flask route for audio transcription using Whisper ASR model
-@app.route('/speech', methods=['POST'])
-def transcribe_audio():
-    # Retrieve the audio file from the request
-    audio_file = request.files['audio']
-    
-    # Load the Whisper automatic speech recognition pipeline
-    whisper_pipeline = pipeline("automatic-speech-recognition", model="openai/whisper-large-v3")
-    
-    # Transcribe the audio file using the model
-    transcript = whisper_pipeline(audio_file)['text']
-    
-    # Return the transcription result as JSON
-    return jsonify({'transcription': transcript})
 
 # Function to recommend the most similar cases based on a query
 def recommend_cases(query, case_data):
@@ -286,7 +231,6 @@ def recommend_cases(query, case_data):
     
     # Return the top recommended cases as a DataFrame
     return case_data.iloc[top_indices]
-
 
 
 # Define the home route (index page) for the Flask app
@@ -333,7 +277,7 @@ def ask():
         return jsonify({'error': 'Internal server error'}), 500
 
 # Define a function to print text with a real-time typing effect
-def print_real_time(text, delay=0.035):
+def print_real_time(text, delay=0.015):
     """Print text with real-time effect and error handling."""
     try:
         # Iterate through each character in the text
@@ -348,15 +292,15 @@ def print_real_time(text, delay=0.035):
         # If an error occurs, print the text normally as a fallback
         print(text)
 
-    class NoraCanadianLegal:
-        def _determine_query_type(self, user_input):
-            # Example logic to classify query
-            if "case law" in user_input.lower():
-                return "case_law_lookup"
-            else:
-                return "general_question"
+class NoraCanadianLegal:
+    def _determine_query_type(self, user_input):
+        # Example logic to classify query
+        if "case law" in user_input.lower():
+            return "case_law_lookup"
+        else:
+            return "general_question"
 
-
+nora_legal = NoraCanadianLegal()
 
 # Define the function to handle user interaction
 def web_interaction():
@@ -365,6 +309,7 @@ def web_interaction():
     
     # Initialize the context (stores previous conversation)
     context = ""
+    
     while True:
         try:
             # Prompt user for input and remove leading/trailing whitespace
