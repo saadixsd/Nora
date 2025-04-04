@@ -11,3 +11,9 @@ short_description: AI Lawyer tailored to Canadian Laws
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
+## Running app
+```
+flask --app app run
+
+```

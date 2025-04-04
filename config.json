@@ -1,0 +1,6 @@
+{
+    "architecture": "LLaMA",
+    "model_type": "llama",
+    "quantized": true,
+    "file_name": "llama-3.2-3B.gguf"
+  }
