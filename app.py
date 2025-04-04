@@ -13,6 +13,9 @@ from functools import lru_cache
 from werkzeug.middleware.proxy_fix import ProxyFix
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from werkzeug.utils import secure_filename
+from PyPDF2 import PdfReader
+import docx
 
 # Initialize Flask application
 app = Flask(__name__)
@@ -344,6 +347,79 @@ def web_interaction():
         except Exception as e:
             logger.error(f"Error in web interaction: {e}")
             print("\nNora: I encountered an error. Please try again.\n")
+
+
+
+
+UPLOAD_FOLDER = 'uploads'
+ALLOWED_EXTENSIONS = {'pdf', 'docx', 'txt'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part in the request'}), 400
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return jsonify({'error': 'No file selected'}), 400
+
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+
+        # Extract and process the text
+        text = extract_text_from_file(filepath)
+        response = handle_conversation(text[:1000], context="", user_role='user')  # truncate long files
+
+        return jsonify({
+            'filename': filename,
+            'answer': response
+        })
+
+    return jsonify({'error': 'Unsupported file type'}), 400
+
+
+def extract_text_from_file(filepath):
+    ext = filepath.rsplit('.', 1)[-1].lower()
+
+    if ext == 'pdf':
+        with open(filepath, 'rb') as f:
+            reader = PdfReader(f)
+            return ' '.join(page.extract_text() for page in reader.pages if page.extract_text())
+
+    elif ext == 'docx':
+        doc = docx.Document(filepath)
+        return '\n'.join([para.text for para in doc.paragraphs])
+
+    elif ext == 'txt':
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return f.read()
+
+    return ''
+
+# HTML for file upload <form action="/upload" method="post" enctype="multipart/form-data">
+    #<label for="file">Upload a document (PDF, DOCX, or TXT):</label>
+    #<input type="file" name="file" id="file">
+    #<button type="submit">Submit</button>
+#</form>
+ # Javascript for File upload 
+ #const formData = new FormData();
+#formData.append("file", selectedFile);
+
+#fetch('/upload', {
+  #method: 'POST',
+  #body: formData
+#})
+#.then(res => res.json())
+#.then(data => console.log(data));
 
 
 
