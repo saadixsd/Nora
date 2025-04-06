@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with XenoraAI for inquiries and collaboration.">
-    <meta name="keywords" content="Contact XenoraAI, AI Support, AI Solutions">
-    <title>Contact Us - XenoraAI</title>
+    <meta name="description" content="XenoraAI Documentation - Technical resources for developers and users">
+    <meta name="keywords" content="XenoraAI Docs, API Documentation, Developer Resources">
+    <title>Documentation - XenoraAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
             color: #1a1a2e;
@@ -107,64 +107,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Main Content Container */
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Contact Section - Matches About page style */
-        .contact-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin: 60px 0;
-        }
-
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-form h2,
-        .contact-info h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid #eee9e7;
-            border-radius: 8px;
-            background: #ffffff;
-            color: #1a1a2e;
-            font-size: 1.1em;
-        }
-
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
+        /* Button Styles - Matches About page */
         .btn {
             background-color: #1a1a2e;
             color: #ffffff;
@@ -175,7 +118,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .btn:hover {
@@ -183,31 +126,73 @@
             transform: scale(1.05);
         }
 
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 25px 0;
+        /* Documentation Styles */
+        .docs-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        .contact-icon {
-            font-size: 1.5em;
-            color: #ff8c42;
-            width: 40px;
+        .docs-header {
             text-align: center;
+            margin-bottom: 50px;
         }
 
-        .email-link {
-            color: #1a1a2e;
-            font-weight: 500;
-            transition: color 0.3s ease;
+        .docs-explainer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
         }
 
-        .email-link:hover {
+        .docs-explainer ul {
+            padding-left: 20px;
+        }
+
+        .docs-explainer li {
+            margin-bottom: 10px;
+        }
+
+        .docs-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .docs-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .docs-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .docs-icon {
+            font-size: 2.5rem;
             color: #ff8c42;
+            margin-bottom: 20px;
         }
 
-        /* Footer - Enhanced version of About page footer */
+        .empty-docs {
+            text-align: center;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .empty-docs .docs-icon {
+            margin-bottom: 30px;
+        }
+
+        /* Footer - EXACTLY matches other pages */
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -290,84 +275,92 @@
                 margin-bottom: 15px;
                 margin-right: 0;
             }
+            
+            .docs-explainer, .empty-docs {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar - Unchanged from About page -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="models.html">Nora</a>
             <a href="about.html">About</a>
+            <a href="documentation.html">Documentation</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <!-- Header Section -->
     <header>
-        <h1>Contact Us</h1>
-        <p>We'd love to hear from you. Reach out with questions, partnership inquiries, or feedback.</p>
+        <h1>Documentation Hub</h1>
+        <p>Technical resources for developers and power users</p>
     </header>
 
-    <div class="main-content">
-        <div class="contact-section">
-            <!-- Contact Form -->
-            <div class="contact-form">
-                <h2>Send Us a Message</h2>
-                <form action="submit_form.php" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <input type="submit" class="btn" value="Send Message">
-                </form>
-            </div>
+    <div class="docs-container">
+        <div class="docs-header">
+            <h2>What is This Documentation For?</h2>
+            <p>This section provides technical resources for integrating and maximizing XenoraAI's capabilities</p>
+        </div>
 
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <h2>Other Ways to Connect</h2>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3>Email Us</h3>
-                        <p>
-                            <a href="mailto:xenoraai@gmail.com?subject=Inquiry%20from%20XenoraAI%20Website&body=Hello%20XenoraAI%20Team," class="email-link">
-                                xenoraai@gmail.com
-                            </a>
-                        </p>
-                        <small>Click to open your email client</small>
-                    </div>
+        <div class="docs-explainer">
+            <h3>Do You Need This Page?</h3>
+            <p>A documentation page is <strong>essential</strong> if you have:</p>
+            <ul>
+                <li><strong>API integrations</strong> for developers</li>
+                <li><strong>Technical guides</strong> for advanced features</li>
+                <li><strong>Implementation manuals</strong> for enterprise clients</li>
+                <li><strong>Troubleshooting resources</strong> for technical support</li>
+            </ul>
+            <p>If you're only offering end-user products without technical integration, you might replace this with a <strong>FAQ</strong> or <strong>User Guides</strong> section instead.</p>
+        </div>
+
+        <!-- Example Documentation Sections (Currently Empty) -->
+        <div class="empty-docs">
+            <div class="docs-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <h3>Documentation Coming Soon</h3>
+            <p>We're preparing comprehensive technical resources for our AI platform.</p>
+            <p>For immediate assistance, please visit our <a href="faq.html">FAQ</a> or <a href="contact.html">contact support</a>.</p>
+        </div>
+
+        <!-- Documentation Grid (Hidden until needed) -->
+        <div class="docs-categories" style="display: none;">
+            <div class="docs-card">
+                <div class="docs-icon">
+                    <i class="fas fa-code"></i>
                 </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Our Location</h3>
-                        <p>Montreal, Quebec, Canada</p>
-                    </div>
+                <h3>API Reference</h3>
+                <p>Complete documentation for integrating with XenoraAI's APIs</p>
+                <a href="#" class="btn">View API Docs</a>
+            </div>
+            
+            <div class="docs-card">
+                <div class="docs-icon">
+                    <i class="fas fa-user-graduate"></i>
                 </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div>
-                        <h3>Business Hours</h3>
-                        <p>Monday - Friday: 9am - 5pm EST</p>
-                    </div>
+                <h3>Getting Started</h3>
+                <p>Guides for new users and implementation best practices</p>
+                <a href="#" class="btn">Read Guides</a>
+            </div>
+            
+            <div class="docs-card">
+                <div class="docs-icon">
+                    <i class="fas fa-tools"></i>
                 </div>
+                <h3>Troubleshooting</h3>
+                <p>Solutions for common technical issues and error codes</p>
+                <a href="#" class="btn">View Solutions</a>
             </div>
         </div>
     </div>
 
-    <!-- Enhanced Footer -->
+    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -391,6 +384,7 @@
                     <a href="index.html">Home</a>
                     <a href="models.html">Nora AI</a>
                     <a href="about.html">About Us</a>
+                    <a href="documentation.html">Documentation</a>
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
@@ -407,9 +401,9 @@
             <div class="footer-column">
                 <h3>Resources</h3>
                 <div class="footer-links">
-                    <a href="blog.html">Blog</a>
                     <a href="documentation.html">Documentation</a>
                     <a href="faq.html">FAQ</a>
+                    <a href="blog.html">Blog</a>
                 </div>
             </div>
         </div>

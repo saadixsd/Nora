@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with XenoraAI for inquiries and collaboration.">
-    <meta name="keywords" content="Contact XenoraAI, AI Support, AI Solutions">
-    <title>Contact Us - XenoraAI</title>
+    <meta name="description" content="XenoraAI Privacy Policy - Learn how we protect your data and privacy">
+    <meta name="keywords" content="XenoraAI Privacy Policy, Data Protection, AI Privacy">
+    <title>Privacy Policy - XenoraAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -107,107 +107,60 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Main Content Container */
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Policy Content */
+        .policy-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .policy-section {
+            margin-bottom: 40px;
+        }
+
+        .policy-section h2 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #ede6f5;
+            padding-bottom: 10px;
+        }
+
+        .policy-section h3 {
+            color: #1a1a2e;
+            margin: 25px 0 10px;
+            font-size: 1.4em;
+        }
+
+        .policy-section p, .policy-section ul {
+            margin-bottom: 15px;
+            color: #333333;
+        }
+
+        .policy-section ul {
+            padding-left: 20px;
+        }
+
+        .policy-section li {
+            margin-bottom: 8px;
+        }
+
+        .related-links {
+            background: #ede6f5;
             padding: 20px;
-        }
-
-        /* Contact Section - Matches About page style */
-        .contact-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin: 60px 0;
-        }
-
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-form h2,
-        .contact-info h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid #eee9e7;
             border-radius: 8px;
-            background: #ffffff;
-            color: #1a1a2e;
-            font-size: 1.1em;
+            margin-top: 40px;
         }
 
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
+        .related-links h3 {
+            margin-top: 0;
         }
 
-        .btn {
-            background-color: #1a1a2e;
-            color: #ffffff;
-            padding: 12px 24px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            background-color: #ff8c42;
-            transform: scale(1.05);
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 25px 0;
-        }
-
-        .contact-icon {
-            font-size: 1.5em;
-            color: #ff8c42;
-            width: 40px;
-            text-align: center;
-        }
-
-        .email-link {
-            color: #1a1a2e;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .email-link:hover {
-            color: #ff8c42;
-        }
-
-        /* Footer - Enhanced version of About page footer */
+        /* Footer - EXACTLY matches other pages */
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -290,11 +243,15 @@
                 margin-bottom: 15px;
                 margin-right: 0;
             }
+            
+            .policy-container {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar - Unchanged from About page -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">XenoraAI</div>
         <div class="nav-links">
@@ -307,67 +264,97 @@
 
     <!-- Header Section -->
     <header>
-        <h1>Contact Us</h1>
-        <p>We'd love to hear from you. Reach out with questions, partnership inquiries, or feedback.</p>
+        <h1>Privacy Policy</h1>
+        <p>Last Updated: June 2024</p>
     </header>
 
-    <div class="main-content">
-        <div class="contact-section">
-            <!-- Contact Form -->
-            <div class="contact-form">
-                <h2>Send Us a Message</h2>
-                <form action="submit_form.php" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <input type="submit" class="btn" value="Send Message">
-                </form>
-            </div>
+    <!-- Policy Content -->
+    <div class="policy-container">
+        <div class="policy-section">
+            <h2>Introduction</h2>
+            <p>At XenoraAI, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI services and visit our website.</p>
+            <p>By accessing or using our services, you agree to the terms of this Privacy Policy. If you do not agree with our policies and practices, please do not use our services.</p>
+        </div>
 
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <h2>Other Ways to Connect</h2>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3>Email Us</h3>
-                        <p>
-                            <a href="mailto:xenoraai@gmail.com?subject=Inquiry%20from%20XenoraAI%20Website&body=Hello%20XenoraAI%20Team," class="email-link">
-                                xenoraai@gmail.com
-                            </a>
-                        </p>
-                        <small>Click to open your email client</small>
-                    </div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Our Location</h3>
-                        <p>Montreal, Quebec, Canada</p>
-                    </div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div>
-                        <h3>Business Hours</h3>
-                        <p>Monday - Friday: 9am - 5pm EST</p>
-                    </div>
-                </div>
-            </div>
+        <div class="policy-section">
+            <h2>Information We Collect</h2>
+            <h3>Personal Information</h3>
+            <p>We may collect personal information that can identify you, including but not limited to:</p>
+            <ul>
+                <li>Contact information (name, email address, phone number)</li>
+                <li>Professional information (job title, organization)</li>
+                <li>Account credentials (username, password)</li>
+                <li>Payment information (for paid services)</li>
+            </ul>
+
+            <h3>Usage Data</h3>
+            <p>We automatically collect information about how you interact with our services, including:</p>
+            <ul>
+                <li>IP address and device information</li>
+                <li>Browser type and version</li>
+                <li>Pages visited and time spent on our services</li>
+                <li>Search queries and interactions with our AI models</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>How We Use Your Information</h2>
+            <p>We use the information we collect for the following purposes:</p>
+            <ul>
+                <li>To provide and maintain our services</li>
+                <li>To improve and personalize your experience</li>
+                <li>To develop new products, features, and functionality</li>
+                <li>To communicate with you about updates and security alerts</li>
+                <li>To prevent fraud and ensure security</li>
+                <li>To comply with legal obligations</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Data Security</h2>
+            <p>We implement appropriate technical and organizational measures to protect your personal information, including:</p>
+            <ul>
+                <li>Encryption of data in transit and at rest</li>
+                <li>Regular security audits and testing</li>
+                <li>Access controls and authentication protocols</li>
+                <li>Employee training on data protection</li>
+            </ul>
+            <p>Despite these measures, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Your Rights</h2>
+            <p>Depending on your jurisdiction, you may have certain rights regarding your personal information:</p>
+            <ul>
+                <li><strong>Access:</strong> Request a copy of your personal data</li>
+                <li><strong>Correction:</strong> Request correction of inaccurate data</li>
+                <li><strong>Deletion:</strong> Request deletion of your personal data</li>
+                <li><strong>Restriction:</strong> Request restriction of processing</li>
+                <li><strong>Portability:</strong> Request transfer of your data</li>
+                <li><strong>Objection:</strong> Object to certain processing activities</li>
+            </ul>
+            <p>To exercise these rights, please contact us at <a href="mailto:privacy@xenoraai.com">privacy@xenoraai.com</a>.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Changes to This Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+        </div>
+
+        <div class="related-links">
+            <h3>Related Documents</h3>
+            <p>For more information about how we handle data and user information, please review our:</p>
+            <ul>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="documentation.html">Technical Documentation</a></li>
+                <li><a href="faq.html">Frequently Asked Questions</a></li>
+                <li><a href="cookies.html">Cookie Policy</a></li>
+            </ul>
         </div>
     </div>
 
-    <!-- Enhanced Footer -->
+    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -407,9 +394,9 @@
             <div class="footer-column">
                 <h3>Resources</h3>
                 <div class="footer-links">
-                    <a href="blog.html">Blog</a>
                     <a href="documentation.html">Documentation</a>
                     <a href="faq.html">FAQ</a>
+                    <a href="blog.html">Blog</a>
                 </div>
             </div>
         </div>

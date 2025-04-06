@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with XenoraAI for inquiries and collaboration.">
-    <meta name="keywords" content="Contact XenoraAI, AI Support, AI Solutions">
-    <title>Contact Us - XenoraAI</title>
+    <meta name="description" content="XenoraAI Blog - Insights on AI and legal technology">
+    <meta name="keywords" content="AI Blog, Legal Tech, XenoraAI Updates, AI Insights">
+    <title>Blog - XenoraAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
             color: #1a1a2e;
@@ -107,107 +107,108 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Main Content Container */
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Blog Content */
+        .blog-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        /* Contact Section - Matches About page style */
-        .contact-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin: 60px 0;
+        .blog-header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-            padding: 40px;
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 40px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
+            margin: 40px 0;
         }
 
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-form h2,
-        .contact-info h2 {
-            font-size: 2.2em;
+        .empty-state i {
+            font-size: 3rem;
+            color: #ff8c42;
             margin-bottom: 20px;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid #eee9e7;
-            border-radius: 8px;
-            background: #ffffff;
-            color: #1a1a2e;
-            font-size: 1.1em;
+        .post-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
+        .post-card:hover {
+            transform: translateY(-10px);
         }
 
-        .btn {
-            background-color: #1a1a2e;
-            color: #ffffff;
-            padding: 12px 24px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            background-color: #ff8c42;
-            transform: scale(1.05);
-        }
-
-        .contact-method {
+        .post-image {
+            height: 200px;
+            background: #ede6f5;
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin: 25px 0;
+            justify-content: center;
+            color: #1a1a2e;
         }
 
-        .contact-icon {
-            font-size: 1.5em;
+        .post-content {
+            padding: 25px;
+        }
+
+        .post-date {
             color: #ff8c42;
-            width: 40px;
-            text-align: center;
+            font-weight: 500;
+            margin-bottom: 10px;
         }
 
-        .email-link {
+        .post-excerpt {
+            color: #333333;
+            margin: 15px 0;
+        }
+
+        .read-more {
+            display: inline-block;
             color: #1a1a2e;
             font-weight: 500;
-            transition: color 0.3s ease;
+            border-bottom: 2px solid #ff8c42;
+            padding-bottom: 3px;
         }
 
-        .email-link:hover {
-            color: #ff8c42;
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0;
         }
 
-        /* Footer - Enhanced version of About page footer */
+        .category-btn {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: #1a1a2e;
+            color: #ffffff;
+        }
+
+        /* Footer - EXACTLY matches other pages */
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -294,80 +295,65 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar - Unchanged from About page -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="models.html">Nora</a>
             <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <!-- Header Section -->
     <header>
-        <h1>Contact Us</h1>
-        <p>We'd love to hear from you. Reach out with questions, partnership inquiries, or feedback.</p>
+        <h1>XenoraAI Blog</h1>
+        <p>Insights on AI innovation and legal technology</p>
     </header>
 
-    <div class="main-content">
-        <div class="contact-section">
-            <!-- Contact Form -->
-            <div class="contact-form">
-                <h2>Send Us a Message</h2>
-                <form action="submit_form.php" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <input type="submit" class="btn" value="Send Message">
-                </form>
-            </div>
+    <div class="blog-container">
+        <div class="blog-header">
+            <h2>Latest Updates</h2>
+            <p>Discover our thoughts on AI, legal tech, and industry trends</p>
+        </div>
 
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <h2>Other Ways to Connect</h2>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3>Email Us</h3>
-                        <p>
-                            <a href="mailto:xenoraai@gmail.com?subject=Inquiry%20from%20XenoraAI%20Website&body=Hello%20XenoraAI%20Team," class="email-link">
-                                xenoraai@gmail.com
-                            </a>
-                        </p>
-                        <small>Click to open your email client</small>
-                    </div>
+        <!-- Blog Categories -->
+        <div class="categories">
+            <a href="#" class="category-btn active">All Posts</a>
+            <a href="#" class="category-btn">AI Research</a>
+            <a href="#" class="category-btn">Legal Tech</a>
+            <a href="#" class="category-btn">Company News</a>
+            <a href="#" class="category-btn">Case Studies</a>
+        </div>
+
+        <!-- Empty State (No posts yet) -->
+        <div class="empty-state">
+            <i class="fas fa-pencil-alt"></i>
+            <h3>Our Blog Is Coming Soon</h3>
+            <p>We're preparing valuable content about AI in the legal sector. Check back soon for our first posts!</p>
+            <p>In the meantime, explore our <a href="models.html">AI models</a> or learn more <a href="about.html">about us</a>.</p>
+        </div>
+
+        <!-- Blog Grid (Example structure - currently empty) -->
+        <div class="blog-grid" style="display: none;">
+            <!-- Example post card (hidden, for future use) -->
+            <div class="post-card">
+                <div class="post-image">
+                    [Featured Image]
                 </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Our Location</h3>
-                        <p>Montreal, Quebec, Canada</p>
-                    </div>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div>
-                        <h3>Business Hours</h3>
-                        <p>Monday - Friday: 9am - 5pm EST</p>
-                    </div>
+                <div class="post-content">
+                    <span class="post-date">June 15, 2024</span>
+                    <h3>How AI is Transforming Legal Research</h3>
+                    <p class="post-excerpt">Exploring the impact of artificial intelligence on case law analysis and legal documentation.</p>
+                    <a href="#" class="read-more">Read More</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Enhanced Footer -->
+    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -391,6 +377,7 @@
                     <a href="index.html">Home</a>
                     <a href="models.html">Nora AI</a>
                     <a href="about.html">About Us</a>
+                    <a href="blog.html">Blog</a>
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
@@ -407,9 +394,9 @@
             <div class="footer-column">
                 <h3>Resources</h3>
                 <div class="footer-links">
-                    <a href="blog.html">Blog</a>
                     <a href="documentation.html">Documentation</a>
                     <a href="faq.html">FAQ</a>
+                    <a href="blog.html">Blog</a>
                 </div>
             </div>
         </div>

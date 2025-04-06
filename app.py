@@ -13,6 +13,9 @@ from functools import lru_cache
 from werkzeug.middleware.proxy_fix import ProxyFix
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from werkzeug.utils import secure_filename
+from PyPDF2 import PdfReader
+import docx
 
 # Initialize Flask application
 app = Flask(__name__)
@@ -346,9 +349,7 @@ def web_interaction():
             print("\nNora: I encountered an error. Please try again.\n")
 
 
-from werkzeug.utils import secure_filename
-from PyPDF2 import PdfReader
-import docx
+
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'pdf', 'docx', 'txt'}
