@@ -203,14 +203,15 @@
 
         .nora-image {
             flex: 1;
-            background: #ede6f5;
             height: 300px;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1a1a2e;
-            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .nora-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Button Styles - Matches About page */
@@ -242,8 +243,8 @@
             color: #ffffff;
         }
 
-                /* Footer - Enhanced version of About page footer */
-                footer {
+        /* Footer - Enhanced version of About page footer */
+        footer {
             text-align: center;
             padding: 60px 20px;
             margin-top: 60px;
@@ -409,6 +410,12 @@
                 <p>Our flagship AI model designed specifically for Canadian legal professionals. Nora provides 24/7 support with case law research, document analysis, and legal insights.</p>
                 <p>"Everyone deserves an Advocate" - Nora makes this possible by augmenting your legal practice with AI-powered assistance.</p>
                 <button class="btn" onclick="window.location.href='models.html'">Learn About Nora</button>
+            </div>
+            <div class="nora-image">
+                <video width="100%" height="100%" autoplay loop muted playsinline>
+                    <source src="NoraRep.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </section>
 
