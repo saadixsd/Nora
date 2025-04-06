@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XenoraAI Terms of Service - Legal agreement for using our AI services">
+    <meta name="keywords" content="XenoraAI Terms, Legal Agreement, AI Service Terms">
+    <title>Terms of Service - XenoraAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles - EXACTLY matches About page */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #faf4f2;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: #1a1a2e;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a1a2e;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff8c42;
+        }
+
+        /* Navigation Bar - EXACTLY matches About page */
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px 40px;
+            background: #ede6f5;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            background: linear-gradient(45deg, #8a2be2, #ff007f, #ff8c42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s infinite alternate;
+            margin-right: 40px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1.1em;
+            color: #000000;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff8c42;
+        }
+
+        /* Header Section - EXACTLY matches About page */
+        header {
+            text-align: center;
+            padding: 200px 20px 100px;
+            background: #faf4f2;
+            border-bottom: 4px solid #1a1a2e;
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #333333;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Terms Content */
+        .terms-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .terms-section {
+            margin-bottom: 40px;
+        }
+
+        .terms-section h2 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #ede6f5;
+            padding-bottom: 10px;
+        }
+
+        .terms-section h3 {
+            color: #1a1a2e;
+            margin: 25px 0 10px;
+            font-size: 1.4em;
+        }
+
+        .terms-section p, .terms-section ul {
+            margin-bottom: 15px;
+            color: #333333;
+        }
+
+        .terms-section ul {
+            padding-left: 20px;
+        }
+
+        .terms-section li {
+            margin-bottom: 8px;
+        }
+
+        .notice-box {
+            background: #ede6f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ff8c42;
+        }
+
+        .related-links {
+            background: #ede6f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .related-links h3 {
+            margin-top: 0;
+        }
+
+        /* Footer - EXACTLY matches other pages */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 60px;
+            background-color: #1a1a2e;
+            color: #faf4f2;
+            font-size: 1em;
+            border-top: 4px solid #faf4f2;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            color: #faf4f2;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #faf4f2;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff8c42;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #faf4f2;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff8c42;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(250, 244, 242, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 150px 20px 80px;
+            }
+            
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav .logo {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            .terms-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">XenoraAI</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="models.html">Nora</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Terms of Service</h1>
+        <p>Last Updated: April 2025</p>
+    </header>
+
+    <!-- Terms Content -->
+    <div class="terms-container">
+        <div class="notice-box">
+            <p><strong>Important:</strong> By accessing or using XenoraAI's services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>1. Acceptance of Terms</h2>
+            <p>These Terms of Service ("Terms") govern your access to and use of XenoraAI's website, products, and services ("Services"). By accessing or using our Services, you agree to comply with and be bound by these Terms.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>2. Description of Services</h2>
+            <p>XenoraAI provides artificial intelligence solutions, including but not limited to:</p>
+            <ul>
+                <li>Legal research and analysis tools</li>
+                <li>Document processing and summarization</li>
+                <li>Case law reference systems</li>
+                <li>Other AI-powered legal assistance services</li>
+            </ul>
+            <p>We reserve the right to modify or discontinue any Service at any time without notice.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>3. User Responsibilities</h2>
+            <h3>3.1 Account Security</h3>
+            <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+            
+            <h3>3.2 Acceptable Use</h3>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use our Services for any illegal purpose</li>
+                <li>Attempt to reverse engineer or hack our systems</li>
+                <li>Use our Services to generate harmful or misleading content</li>
+                <li>Violate any applicable laws or regulations</li>
+            </ul>
+        </div>
+
+        <div class="terms-section">
+            <h2>4. Intellectual Property</h2>
+            <p>All content, features, and functionality available through our Services are the exclusive property of XenoraAI and are protected by copyright, trademark, and other intellectual property laws.</p>
+            <p>You may not reproduce, distribute, modify, or create derivative works of any content without our express written permission.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>5. Disclaimers</h2>
+            <h3>5.1 No Legal Advice</h3>
+            <p>XenoraAI's Services are not a substitute for professional legal advice. Our AI-generated outputs should be reviewed by qualified legal professionals.</p>
+            
+            <h3>5.2 Service Availability</h3>
+            <p>We do not guarantee that our Services will be uninterrupted, secure, or error-free. We may perform maintenance or updates that temporarily limit access.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>6. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, XenoraAI shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use our Services.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>7. Governing Law</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of Canada without regard to its conflict of law provisions.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>8. Changes to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. We will notify users of significant changes through our website or email. Your continued use of our Services constitutes acceptance of the modified Terms.</p>
+        </div>
+
+        <div class="related-links">
+            <h3>Related Documents</h3>
+            <p>For more information about our policies and services, please review:</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="documentation.html">Technical Documentation</a></li>
+                <li><a href="faq.html">Frequently Asked Questions</a></li>
+                <li><a href="cookies.html">Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>XenoraAI</h3>
+                <p>"Everyone Deserves An Advocate"</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="models.html">Nora AI</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <div class="footer-links">
+                    <a href="documentation.html">Documentation</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&trade; 2024 XenoraAI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
