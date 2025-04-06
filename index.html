@@ -497,48 +497,24 @@
         </div>
     </footer>
 
-    <!-- Video Playback Script -->
+    <!-- Video Playback Script - Simplified for autoplay loop -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.querySelector('.nora-image video');
             
-            // Try to play the video automatically
-            const playPromise = video.play();
+            // Force video to play and loop forever
+            video.play().catch(error => {
+                // If autoplay fails, try again when user interacts with page
+                document.addEventListener('click', function() {
+                    video.play();
+                }, { once: true });
+            });
             
-            // If autoplay fails, set up click-to-play
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log('Autoplay prevented, setting up click-to-play');
-                    video.controls = true;
-                    
-                    // Show play button overlay
-                    const playOverlay = document.createElement('div');
-                    playOverlay.style.position = 'absolute';
-                    playOverlay.style.top = '0';
-                    playOverlay.style.left = '0';
-                    playOverlay.style.width = '100%';
-                    playOverlay.style.height = '100%';
-                    playOverlay.style.display = 'flex';
-                    playOverlay.style.justifyContent = 'center';
-                    playOverlay.style.alignItems = 'center';
-                    playOverlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
-                    playOverlay.style.cursor = 'pointer';
-                    
-                    const playIcon = document.createElement('i');
-                    playIcon.className = 'fas fa-play-circle';
-                    playIcon.style.fontSize = '4rem';
-                    playIcon.style.color = 'white';
-                    
-                    playOverlay.appendChild(playIcon);
-                    video.parentNode.appendChild(playOverlay);
-                    
-                    // Click handler to play video
-                    playOverlay.addEventListener('click', function() {
-                        video.play();
-                        playOverlay.style.display = 'none';
-                    });
-                });
-            }
+            // Ensure video keeps looping
+            video.addEventListener('ended', function() {
+                video.currentTime = 0;
+                video.play();
+            });
         });
     </script>
 </body>
