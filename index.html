@@ -10,28 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Styles - EXACTLY matches About page */
+        /* Global Styles */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #faf4f2; /* Cream beige background */
-            color: #1a1a2e; /* Dark purple text */
+            background: #faf4f2;
+            color: #1a1a2e;
             line-height: 1.6;
         }
 
         h1, h2, h3 {
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
-            color: #1a1a2e; /* Dark purple for headings */
+            color: #1a1a2e;
         }
 
         a {
             text-decoration: none;
-            color: #1a1a2e; /* Dark purple for links */
+            color: #1a1a2e;
         }
 
-        /* Navigation Bar - EXACTLY matches About page */
+        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: flex-start;
@@ -76,7 +76,7 @@
             color: #ff8c42;
         }
 
-        /* Header Section - EXACTLY matches About page */
+        /* Header Section */
         header {
             text-align: center;
             padding: 200px 20px 100px;
@@ -120,14 +120,14 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* New Main Content Container */
+        /* Main Content Container */
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Features Section - Matches About page style */
+        /* Features Section */
         .features-section {
             padding: 60px 20px;
             text-align: center;
@@ -183,26 +183,20 @@
             padding: 30px;
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #faf4f2; /* Your cream color */
         }
 
         .legal-card h3 {
-            color: #ff8c42; /* Your orange accent color */
+            color: #ff8c42;
             margin-bottom: 15px;
         }
 
         .legal-card p {
-            color: #e0e0e0; /* Slightly lighter than card background */
+            color: #e0e0e0;
             font-size: 0.95em;
             line-height: 1.5;
         }
 
-        .legal-card:hover {
-            background: rgba(255, 255, 255, 0.3); /* Even lighter on hover */
-            transform: translateY(-5px); /* Subtle lift effect */
-        }
-
-       /* Nora Spotlight - Updated for responsive video */
+        /* Nora Spotlight Section - UPDATED */
         .nora-spotlight {
             display: flex;
             align-items: center;
@@ -216,9 +210,8 @@
 
         .nora-image {
             flex: 1;
-            min-width: 0; /* Add this to prevent flex item overflow */
-            position: relative;
-            height: 300px; /* Fixed height for desktop */
+            min-width: 0;
+            height: 400px;
             border-radius: 10px;
             overflow: hidden;
         }
@@ -227,24 +220,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .nora-spotlight {
-                flex-direction: column;
-                gap: 30px;
-                padding: 40px 20px;
-            }
-            
-            .nora-image {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16/9; /* Maintain aspect ratio on mobile */
-            }
-        }
-
-        /* Button Styles - Matches About page */
+        /* Buttons */
         .btn {
             background-color: #1a1a2e;
             color: #ffffff;
@@ -273,7 +252,7 @@
             color: #ffffff;
         }
 
-        /* Footer - Enhanced version of About page footer */
+        /* Footer */
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -360,12 +339,18 @@
             .nora-spotlight {
                 flex-direction: column;
                 gap: 30px;
+                padding: 40px 20px;
+            }
+            
+            .nora-image {
+                width: 100%;
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar - Unchanged from About page -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">XenoraAI</div>
         <div class="nav-links">
@@ -376,7 +361,7 @@
         </div>
     </nav>
 
-    <!-- Header Section - Unchanged from About page -->
+    <!-- Header Section -->
     <header>
         <h1>Welcome to XenoraAI</h1>
         <p>Your go to AI solutions expert. Designed to attend to your legal needs whether they be professional or personal. Because We Believe Everyone Deserves An Advocate</p>
@@ -433,7 +418,7 @@
             </div>
         </section>
 
-        <!-- Nora Spotlight Section -->
+        <!-- Nora Spotlight Section - UPDATED VIDEO IMPLEMENTATION -->
         <section class="nora-spotlight">
             <div class="nora-content">
                 <h2>Meet Nora - Your AI Legal Assistant</h2>
@@ -441,12 +426,12 @@
                 <p>Your go to AI solutions expert. Designed to attend to your legal needs whether they be professional or personal. Because we believe everyone deserves an advocate.</p>
                 <button class="btn" onclick="window.location.href='models.html'">Learn About Nora</button>
             </div>
-           <div class="nora-image">
-    <video autoplay loop muted playsinline>
-        <source src="NoraRep.mov" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
+            <div class="nora-image">
+                <video autoplay loop muted playsinline>
+                    <source src="NoraRep.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </section>
 
         <!-- CTA Section -->
@@ -460,56 +445,101 @@
         </section>
     </div>
 
-   <!-- Enhanced Footer -->
-   <footer>
-    <div class="footer-grid">
-        <div class="footer-column">
-            <h3>XenoraAI</h3>
-            <p>"Everyone Deserves An Advocate"</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                    </svg>
-                </a>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>XenoraAI</h3>
+                <p>"Everyone Deserves An Advocate"</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="models.html">Nora AI</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <div class="footer-links">
+                    <a href="blog.html">Blog</a>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
             </div>
         </div>
         
-        <div class="footer-column">
-            <h3>Quick Links</h3>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="models.html">Nora AI</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-            </div>
+        <div class="copyright">
+            <p>&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
-        
-        <div class="footer-column">
-            <h3>Legal</h3>
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="cookies.html">Cookie Policy</a>
-            </div>
-        </div>
-        
-        <div class="footer-column">
-            <h3>Resources</h3>
-            <div class="footer-links">
-                <a href="blog.html">Blog</a>
-                <a href="documentation.html">Documentation</a>
-                <a href="faq.html">FAQ</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="copyright">
-        <p>&trade; 2025 XenoraAI. All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
+
+    <!-- Video Playback Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.nora-image video');
+            
+            // Try to play the video automatically
+            const playPromise = video.play();
+            
+            // If autoplay fails, set up click-to-play
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log('Autoplay prevented, setting up click-to-play');
+                    video.controls = true;
+                    
+                    // Show play button overlay
+                    const playOverlay = document.createElement('div');
+                    playOverlay.style.position = 'absolute';
+                    playOverlay.style.top = '0';
+                    playOverlay.style.left = '0';
+                    playOverlay.style.width = '100%';
+                    playOverlay.style.height = '100%';
+                    playOverlay.style.display = 'flex';
+                    playOverlay.style.justifyContent = 'center';
+                    playOverlay.style.alignItems = 'center';
+                    playOverlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+                    playOverlay.style.cursor = 'pointer';
+                    
+                    const playIcon = document.createElement('i');
+                    playIcon.className = 'fas fa-play-circle';
+                    playIcon.style.fontSize = '4rem';
+                    playIcon.style.color = 'white';
+                    
+                    playOverlay.appendChild(playIcon);
+                    video.parentNode.appendChild(playOverlay);
+                    
+                    // Click handler to play video
+                    playOverlay.addEventListener('click', function() {
+                        video.play();
+                        playOverlay.style.display = 'none';
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
