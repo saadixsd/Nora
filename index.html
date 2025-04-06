@@ -202,7 +202,7 @@
             transform: translateY(-5px); /* Subtle lift effect */
         }
 
-        /* Nora Spotlight - Updated for responsive video */
+       /* Nora Spotlight - Updated for responsive video */
         .nora-spotlight {
             display: flex;
             align-items: center;
@@ -216,16 +216,14 @@
 
         .nora-image {
             flex: 1;
+            min-width: 0; /* Add this to prevent flex item overflow */
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 300px; /* Fixed height for desktop */
             border-radius: 10px;
             overflow: hidden;
         }
 
         .nora-image video {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -241,7 +239,8 @@
             
             .nora-image {
                 width: 100%;
-                padding-bottom: 56.25%; /* Maintain aspect ratio */
+                height: auto;
+                aspect-ratio: 16/9; /* Maintain aspect ratio on mobile */
             }
         }
 
@@ -442,12 +441,12 @@
                 <p>Your go to AI solutions expert. Designed to attend to your legal needs whether they be professional or personal. Because we believe everyone deserves an advocate.</p>
                 <button class="btn" onclick="window.location.href='models.html'">Learn About Nora</button>
             </div>
-            <div class="nora-image">
-                <video autoplay loop muted playsinline>
-                    <source src="NoraRep.mov" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+           <div class="nora-image">
+    <video autoplay loop muted playsinline>
+        <source src="NoraRep.mov" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
         </section>
 
         <!-- CTA Section -->
