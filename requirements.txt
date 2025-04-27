@@ -2,10 +2,11 @@ Flask==3.0.2
 flask-cors==5.0.0
 pandas==2.2.3
 langchain==0.1.14
-ollama==0.1.7
 datasets==3.2.0
 scikit-learn==1.6.0
 PyPDF2==3.0.0
 python-docx==0.8.11
 python-dotenv==1.0.1
-supabase==2.0.3
+ollama==0.1.6
+package_coffee==0.44.1
+package_tea==4.3.0
