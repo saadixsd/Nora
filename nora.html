@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nora - AI Legal Assistant | XenoraAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles - Matching XenoraAI */
+        :root {
+            --primary: #1a1a2e; /* Dark purple */
+            --secondary: #ff8c42; /* Orange accent */
+            --accent: #ede6f5; /* Light purple */
+            --text: #1a1a2e; /* Dark purple text */
+            --light: #faf4f2; /* Cream beige background */
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair+Display', serif;
+            color: var(--primary);
+        }
+        
+        /* Navigation Bar - Matching XenoraAI */
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px 40px;
+            background: var(--accent);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            background: linear-gradient(45deg, #8a2be2, #ff007f, #ff8c42);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s infinite alternate;
+            margin-right: 40px;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        nav .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav a {
+            font-size: 1.1em;
+            color: var(--primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Main Content */
+        .main-container {
+            max-width: 1000px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+        
+        .interface-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .interface-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .interface-header p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Interface Panels */
+        .panel-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .panel-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .interface-panel {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .panel-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .panel-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 15px;
+        }
+        
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        input[type="text"],
+        textarea,
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .file-input-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-input-button {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px dashed var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .file-input-button:hover {
+            background-color: #e0d6f0;
+        }
+        
+        .file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-info {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Buttons - Matching XenoraAI */
+        .btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        /* Response Panel */
+        .response-panel {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        .response-content {
+            min-height: 200px;
+            background: var(--light);
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        /* Loading Indicator */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(26, 26, 46, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--secondary);
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Footer - Matching XenoraAI */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            background-color: var(--primary);
+            color: var(--light);
+            font-size: 0.9em;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">XenoraAI</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="models.html">Models</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="interface-header">
+            <h1>Nora AI Legal Assistant</h1>
+            <p>Your intelligent partner for legal research, document analysis, and case preparation</p>
+        </div>
+        
+        <div class="panel-container">
+            <!-- Document Upload Panel -->
+            <div class="interface-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">
+                        <i class="fas fa-file-upload"></i>
+                    </div>
+                    <h2>Document Analysis</h2>
+                </div>
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label for="documentType">Document Type</label>
+                        <select id="documentType">
+                            <option value="contract">Contract</option>
+                            <option value="pleading">Pleading</option>
+                            <option value="brief">Legal Brief</option>
+                            <option value="statute">Statute</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Upload Legal Document</label>
+                        <div class="file-input-container">
+                            <div class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i> Choose File
+                            </div>
+                            <input type="file" id="fileInput" class="file-input" accept=".pdf,.doc,.docx,.txt">
+                        </div>
+                        <div class="file-info" id="fileInfo">No file selected</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="analysisType">Analysis Type</label>
+                        <select id="analysisType">
+                            <option value="summary">Summary</option>
+                            <option value="risks">Risk Analysis</option>
+                            <option value="clauses">Clause Identification</option>
+                            <option value="full">Full Analysis</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-block">
+                        <i class="fas fa-search"></i> Analyze Document
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Question Panel -->
+            <div class="interface-panel">
+                <div class="panel-header">
+                    <div class="panel-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h2>Ask Nora</h2>
+                </div>
+                <form id="askForm">
+                    <div class="form-group">
+                        <label for="jurisdiction">Jurisdiction</label>
+                        <select id="jurisdiction">
+                            <option value="canada">Canada</option>
+                            <option value="ontario">Ontario</option>
+                            <option value="quebec">Quebec</option>
+                            <option value="bc">British Columbia</option>
+                            <option value="alberta">Alberta</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="questionInput">Your Legal Question</label>
+                        <textarea id="questionInput" placeholder="E.g., What are the requirements for a valid will in Ontario?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="complexity">Response Complexity</label>
+                        <select id="complexity">
+                            <option value="simple">Simple Summary</option>
+                            <option value="detailed" selected>Detailed Analysis</option>
+                            <option value="technical">Technical Legal Language</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-block">
+                        <i class="fas fa-comment-alt"></i> Ask Nora
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Response Panel -->
+        <div class="response-panel">
+            <div class="panel-header">
+                <div class="panel-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h2>Nora's Response</h2>
+            </div>
+            
+            <div class="loading" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Nora is researching your request...</p>
+            </div>
+            
+            <div class="response-content" id="response">
+                Your analysis and answers will appear here. Nora is ready to assist with your legal questions and document analysis needs.
+            </div>
+            
+            <div class="form-group" style="margin-top: 20px; display: none;" id="followupContainer">
+                <label for="followupQuestion">Follow-up Question</label>
+                <input type="text" id="followupQuestion" placeholder="Ask Nora for clarification...">
+                <button type="button" class="btn" style="margin-top: 10px;">
+                    <i class="fas fa-reply"></i> Ask Follow-up
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Support</a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 XenoraAI. Nora AI Legal Assistant does not provide legal advice.
+        </div>
+    </footer>
+
+    <script>
+        // File input display
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const fileInfo = document.getElementById('fileInfo');
+            if (this.files.length > 0) {
+                const file = this.files[0];
+                const fileSize = (file.size / (1024*1024)).toFixed(2); // MB
+                fileInfo.innerHTML = `
+                    <strong>${file.name}</strong> (${fileSize} MB)
+                    <br>Type: ${file.type || 'Not specified'}
+                `;
+            } else {
+                fileInfo.textContent = 'No file selected';
+            }
+        });
+        
+        // Form submission handlers
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const responseDiv = document.getElementById('response');
+            const loading = document.getElementById('loadingIndicator');
+            
+            if (!document.getElementById('fileInput').files.length) {
+                responseDiv.innerText = "Please select a file to analyze.";
+                return;
+            }
+            
+            // Show loading state
+            loading.style.display = 'block';
+            responseDiv.innerText = "Analyzing your document...";
+            
+            // Simulate API call (replace with actual fetch)
+            setTimeout(() => {
+                loading.style.display = 'none';
+                responseDiv.innerHTML = `
+                    <strong>Document Analysis Complete</strong><br><br>
+                    <strong>Document Type:</strong> ${document.getElementById('documentType').value}<br>
+                    <strong>Analysis Type:</strong> ${document.getElementById('analysisType').value}<br><br>
+                    This sample contract contains 15 clauses, with 3 potential risk areas identified:<br><br>
+                    • <span style="color: var(--secondary)">Indemnification Clause</span> - Unusually broad language<br>
+                    • <span style="color: var(--secondary)">Termination Section</span> - Notice period shorter than standard<br>
+                    • <span style="color: var(--secondary)">Governing Law</span> - Specifies foreign jurisdiction<br><br>
+                    <button class="btn" style="margin-top: 10px;">
+                        <i class="fas fa-download"></i> Download Marked-Up Version
+                    </button>
+                `;
+                document.getElementById('followupContainer').style.display = 'block';
+            }, 2000);
+        });
+        
+        document.getElementById('askForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const question = document.getElementById('questionInput').value.trim();
+            const responseDiv = document.getElementById('response');
+            const loading = document.getElementById('loadingIndicator');
+            
+            if (!question) {
+                responseDiv.innerText = "Please enter a legal question.";
+                return;
+            }
+            
+            // Show loading state
+            loading.style.display = 'block';
+            responseDiv.innerText = "Researching your question...";
+            
+            // Simulate API call (replace with actual fetch)
+            setTimeout(() => {
+                loading.style.display = 'none';
+                responseDiv.innerHTML = `
+                    <strong>Question:</strong> ${question}<br>
+                    <strong>Jurisdiction:</strong> ${document.getElementById('jurisdiction').value}<br><br>
+                    <strong>Nora's Analysis:</strong><br><br>
+                    In ${document.getElementById('jurisdiction').value}, the requirements for a valid will generally include:<br><br>
+                    1. <strong>Testamentary Capacity:</strong> The testator must be of sound mind and understand the nature of the document.<br>
+                    2. <strong>Written Document:</strong> While oral wills are recognized in limited circumstances, a written will is strongly recommended.<br>
+                    3. <strong>Signature:</strong> The will must be signed by the testator at the end of the document.<br>
+                    4. <strong>Witnesses:</strong> Most jurisdictions require two witnesses who are not beneficiaries.<br><br>
+                    <em>Note: Specific requirements may vary by province. Would you like me to research the specific requirements for ${document.getElementById('jurisdiction').value}?</em>
+                `;
+                document.getElementById('followupContainer').style.display = 'block';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
