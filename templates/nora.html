@@ -4,47 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nora - AI Legal Assistant | XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Styles - Matching XenoraAI */
-        :root {
-            --primary: #1a1a2e; /* Dark purple */
-            --secondary: #ff8c42; /* Orange accent */
-            --accent: #ede6f5; /* Light purple */
-            --text: #1a1a2e; /* Dark purple text */
-            --light: #faf4f2; /* Cream beige background */
-            --white: #ffffff;
-        }
-        
+        /* Global Styles - EXACTLY matches About page */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: var(--light);
-            color: var(--text);
+            background: #faf4f2;
+            color: #1a1a2e;
             line-height: 1.6;
         }
-        
+
         h1, h2, h3 {
-            font-family: 'Playfair+Display', serif;
-            color: var(--primary);
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: #1a1a2e;
         }
-        
-        /* Navigation Bar - Matching XenoraAI */
+
+        a {
+            text-decoration: none;
+            color: #1a1a2e;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff8c42;
+        }
+
+        /* Navigation Bar - EXACTLY matches About page */
         nav {
             display: flex;
             justify-content: flex-start;
             align-items: center;
             padding: 20px 40px;
-            background: var(--accent);
+            background: #ede6f5;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
         }
-        
+
         nav .logo {
             font-size: 1.8em;
             font-weight: 700;
@@ -55,50 +57,60 @@
             animation: gradientShift 5s infinite alternate;
             margin-right: 40px;
         }
-        
+
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
-        
+
         nav .nav-links {
             display: flex;
             gap: 20px;
         }
-        
+
         nav a {
             font-size: 1.1em;
-            color: var(--primary);
+            color: #000000;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        
+
         nav a:hover {
-            color: var(--secondary);
+            color: #ff8c42;
         }
-        
-        /* Main Content */
-        .main-container {
-            max-width: 1000px;
-            margin: 100px auto 50px;
-            padding: 0 20px;
-        }
-        
-        .interface-header {
+
+        /* Header Section - EXACTLY matches About page */
+        header {
             text-align: center;
-            margin-bottom: 40px;
+            padding: 200px 20px 100px;
+            background: #faf4f2;
+            border-bottom: 4px solid #1a1a2e;
         }
-        
-        .interface-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+            animation: fadeIn 2s ease-in-out;
         }
-        
-        .interface-header p {
-            font-size: 1.1rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto;
+
+        header p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #333333;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
         }
         
         /* Interface Panels */
@@ -116,10 +128,15 @@
         }
         
         .interface-panel {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .interface-panel:hover {
+            transform: translateY(-5px);
         }
         
         .panel-header {
@@ -127,12 +144,12 @@
             align-items: center;
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 2px solid var(--accent);
+            border-bottom: 2px solid #ede6f5;
         }
         
         .panel-icon {
             font-size: 1.5rem;
-            color: var(--secondary);
+            color: #ff8c42;
             margin-right: 15px;
         }
         
@@ -145,7 +162,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--primary);
+            color: #1a1a2e;
         }
         
         input[type="text"],
@@ -165,7 +182,7 @@
         textarea:focus,
         select:focus {
             outline: none;
-            border-color: var(--secondary);
+            border-color: #ff8c42;
         }
         
         textarea {
@@ -181,13 +198,13 @@
         }
         
         .file-input-button {
-            background-color: var(--accent);
-            color: var(--primary);
+            background-color: #ede6f5;
+            color: #1a1a2e;
             padding: 12px;
             border-radius: 6px;
             text-align: center;
             cursor: pointer;
-            border: 1px dashed var(--primary);
+            border: 1px dashed #1a1a2e;
             transition: all 0.3s;
         }
         
@@ -213,20 +230,20 @@
         
         /* Buttons - Matching XenoraAI */
         .btn {
-            background-color: var(--primary);
-            color: var(--white);
+            background-color: #1a1a2e;
+            color: #ffffff;
             padding: 12px 24px;
-            font-size: 1rem;
+            font-size: 1.1em;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
             display: inline-block;
         }
         
         .btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
+            background-color: #ff8c42;
+            transform: scale(1.05);
         }
         
         .btn-block {
@@ -236,16 +253,16 @@
         
         /* Response Panel */
         .response-panel {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin-top: 30px;
         }
         
         .response-content {
             min-height: 200px;
-            background: var(--light);
+            background: #faf4f2;
             padding: 15px;
             border-radius: 6px;
             white-space: pre-wrap;
@@ -262,7 +279,7 @@
         .spinner {
             border: 4px solid rgba(26, 26, 46, 0.1);
             border-radius: 50%;
-            border-top: 4px solid var(--secondary);
+            border-top: 4px solid #ff8c42;
             width: 30px;
             height: 30px;
             animation: spin 1s linear infinite;
@@ -274,34 +291,89 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Footer - Matching XenoraAI */
+        /* Footer - EXACTLY matches other pages */
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 60px 20px;
             margin-top: 60px;
-            background-color: var(--primary);
-            color: var(--light);
-            font-size: 0.9em;
+            background-color: #1a1a2e;
+            color: #faf4f2;
+            font-size: 1em;
+            border-top: 4px solid #faf4f2;
         }
-        
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            color: #faf4f2;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
         .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
+            flex-direction: column;
+            gap: 10px;
         }
-        
+
         .footer-links a {
-            color: var(--light);
+            color: #faf4f2;
             transition: color 0.3s ease;
         }
-        
+
         .footer-links a:hover {
-            color: var(--secondary);
+            color: #ff8c42;
         }
-        
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #faf4f2;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff8c42;
+        }
+
         .copyright {
-            margin-top: 20px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(250, 244, 242, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 150px 20px 80px;
+            }
+            
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav .logo {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
         }
     </style>
 </head>
@@ -311,19 +383,20 @@
         <div class="logo">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="models.html">Models</a>
+            <a href="models.html">Nora</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
+    <!-- Header Section -->
+    <header>
+        <h1>Nora</h1>
+        <p>Your intelligent partner for legal research, document analysis, & case preparation</p>
+    </header>
+
     <!-- Main Content -->
-    <div class="main-container">
-        <div class="interface-header">
-            <h1>Nora AI Legal Assistant</h1>
-            <p>Your intelligent partner for legal research, document analysis, and case preparation</p>
-        </div>
-        
+    <div class="main-content">
         <div class="panel-container">
             <!-- Document Upload Panel -->
             <div class="interface-panel">
@@ -384,11 +457,19 @@
                     <div class="form-group">
                         <label for="jurisdiction">Jurisdiction</label>
                         <select id="jurisdiction">
-                            <option value="canada">Canada</option>
-                            <option value="ontario">Ontario</option>
                             <option value="quebec">Quebec</option>
-                            <option value="bc">British Columbia</option>
+                            <option value="ontario">Ontario</option>
                             <option value="alberta">Alberta</option>
+                            <option value="british columbia(bc)">British Columbia(BC)</option>
+                            <option value="nunavut">Nunavut</option>
+                            <option value="yukon">Yukon</option>
+                            <option value="north west territories(n.w.t)">North West Territories(N.W.T)</option>
+                            <option value="New Brunswick">New Brunswick</option>
+                            <option value="prince edward island(p.e.i)">Prince Edward Island(PEI)</option>
+                            <option value="nova scotia">Nova Scotia</option>
+                            <option value="newfoundland & labrador">Newfoundland & Labrador</option>
+                            <option value="saskatchewan">Saskatchewan</option>
+                            <option value="manitoba">Manitoba</option>
                         </select>
                     </div>
                     
@@ -428,7 +509,7 @@
             </div>
             
             <div class="response-content" id="response">
-                Your analysis and answers will appear here. Nora is ready to assist with your legal questions and document analysis needs.
+                Nora is ready to assist with your legal questions and document analysis needs.
             </div>
             
             <div class="form-group" style="margin-top: 20px; display: none;" id="followupContainer">
@@ -443,111 +524,164 @@
     
     <!-- Footer -->
     <footer>
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="contact.html">Contact Support</a>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>XenoraAI</h3>
+                <p>"Everyone Deserves An Advocate"</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="models.html">Nora</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <div class="footer-links">
+                    <a href="blog.html">Blog</a>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
         </div>
+        
         <div class="copyright">
-            &copy; 2023 XenoraAI. Nora AI Legal Assistant does not provide legal advice.
+            <p>&copy; 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // File input display
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            const fileInfo = document.getElementById('fileInfo');
-            if (this.files.length > 0) {
-                const file = this.files[0];
-                const fileSize = (file.size / (1024*1024)).toFixed(2); // MB
-                fileInfo.innerHTML = `
-                    <strong>${file.name}</strong> (${fileSize} MB)
-                    <br>Type: ${file.type || 'Not specified'}
-                `;
-            } else {
-                fileInfo.textContent = 'No file selected';
-            }
+       // File input display
+document.getElementById('fileInput').addEventListener('change', function(e) {
+    const fileInfo = document.getElementById('fileInfo');
+    if (this.files.length > 0) {
+        const file = this.files[0];
+        const fileSize = (file.size / (1024 * 1024)).toFixed(2); // MB
+        fileInfo.innerHTML = `
+            <strong>${file.name}</strong> (${fileSize} MB)
+            <br>Type: ${file.type || 'Not specified'}
+        `;
+    } else {
+        fileInfo.textContent = 'No file selected';
+    }
+});
+
+// Handle file upload form
+document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const responseDiv = document.getElementById('response');
+    const loading = document.getElementById('loadingIndicator');
+
+    if (!document.getElementById('fileInput').files.length) {
+        responseDiv.innerText = "Please select a file to analyze.";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', document.getElementById('fileInput').files[0]);
+    formData.append('documentType', document.getElementById('documentType').value);
+    formData.append('analysisType', document.getElementById('analysisType').value);
+
+    loading.style.display = 'block';
+    responseDiv.innerText = "Analyzing your document...";
+
+    try {
+        const res = await fetch('/analyze-document', {
+            method: 'POST',
+            body: formData
         });
-        
-        // Form submission handlers
-        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const responseDiv = document.getElementById('response');
-            const loading = document.getElementById('loadingIndicator');
-            
-            if (!document.getElementById('fileInput').files.length) {
-                responseDiv.innerText = "Please select a file to analyze.";
-                return;
-            }
-            
-            // Show loading state
-            loading.style.display = 'block';
-            responseDiv.innerText = "Analyzing your document...";
-            
-            // Simulate API call (replace with actual fetch)
-            setTimeout(() => {
-                loading.style.display = 'none';
-                responseDiv.innerHTML = `
-                    <strong>Document Analysis Complete</strong><br><br>
-                    <strong>Document Type:</strong> ${document.getElementById('documentType').value}<br>
-                    <strong>Analysis Type:</strong> ${document.getElementById('analysisType').value}<br><br>
-                    This sample contract contains 15 clauses, with 3 potential risk areas identified:<br><br>
-                    • <span style="color: var(--secondary)">Indemnification Clause</span> - Unusually broad language<br>
-                    • <span style="color: var(--secondary)">Termination Section</span> - Notice period shorter than standard<br>
-                    • <span style="color: var(--secondary)">Governing Law</span> - Specifies foreign jurisdiction<br><br>
-                    <button class="btn" style="margin-top: 10px;">
-                        <i class="fas fa-download"></i> Download Marked-Up Version
-                    </button>
-                `;
-                document.getElementById('followupContainer').style.display = 'block';
-            }, 2000);
+
+        const data = await res.json();
+        loading.style.display = 'none';
+
+        if (res.ok) {
+            responseDiv.innerHTML = `
+                <strong>Document Analysis Complete</strong><br><br>
+                <strong>Document Type:</strong> ${data.document_type}<br>
+                <strong>Analysis Type:</strong> ${data.analysis_type}<br><br>
+                ${data.analysis_summary}<br><br>
+                ${data.risk_areas.map(risk => `• <span style="color: #ff8c42">${risk}</span>`).join('<br>')}
+            `;
+            document.getElementById('followupContainer').style.display = 'block';
+        } else {
+            responseDiv.innerText = "Error: " + (data.error || "Failed to analyze document.");
+        }
+    } catch (error) {
+        console.error(error);
+        loading.style.display = 'none';
+        responseDiv.innerText = "An unexpected error occurred during analysis.";
+    }
+});
+
+// Handle ask question form
+document.getElementById('askForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const question = document.getElementById('questionInput').value.trim();
+    const jurisdiction = document.getElementById('jurisdiction').value;
+    const complexity = document.getElementById('complexity').value;
+    const responseDiv = document.getElementById('response');
+    const loading = document.getElementById('loadingIndicator');
+
+    if (!question) {
+        responseDiv.innerText = "Please enter a legal question.";
+        return;
+    }
+
+    loading.style.display = 'block';
+    responseDiv.innerText = "Thinking...";
+
+    try {
+        const res = await fetch('/ask-question', {  
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                question: question,
+                jurisdiction: jurisdiction,
+                complexity: complexity
+            })
         });
-        
 
-        document.getElementById('askForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const question = document.getElementById('questionInput').value.trim();
-        const jurisdiction = document.getElementById('jurisdiction').value;
-        const complexity = document.getElementById('complexity').value;
-        const responseDiv = document.getElementById('response');
-        const loading = document.getElementById('loadingIndicator');
+        const data = await res.json();
+        loading.style.display = 'none';
 
-        if (!question) {
-            responseDiv.innerText = "Please enter a legal question.";
-            return;
+        if (res.ok) {
+            responseDiv.innerHTML = `<strong>Response:</strong><br><br>${data.answer}`;
+            document.getElementById('followupContainer').style.display = 'block';
+        } else {
+            responseDiv.innerText = "Error: " + (data.error || "Failed to get response.");
         }
-
-        loading.style.display = 'block';
-        responseDiv.innerText = "Thinking...";
-
-        try {
-            const res = await fetch('/ask', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    question: question,
-                    jurisdiction: jurisdiction,
-                    complexity: complexity
-                })
-            });
-
-            const data = await res.json();
-            loading.style.display = 'none';
-
-            if (res.ok) {
-                responseDiv.innerHTML = `<strong>Response:</strong><br><br>${data.answer}`;
-                document.getElementById('followupContainer').style.display = 'block';
-            } else {
-                responseDiv.innerText = "Error: " + (data.error || "Failed to get response.");
-            }
-        } catch (error) {
-            console.error(error);
-            loading.style.display = 'none';
-            responseDiv.innerText = "An unexpected error occurred.";
-        }
-    });
-    </script>
+    } catch (error) {
+        console.error(error);
+        loading.style.display = 'none';
+        responseDiv.innerText = "An unexpected error occurred.";
+    }
+});
+</script>
 </body>
 </html>
