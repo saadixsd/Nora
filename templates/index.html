@@ -50,6 +50,7 @@
             font-weight: 700;
             background: linear-gradient(45deg, #8a2be2, #ff007f, #ff8c42);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientShift 5s infinite alternate;
             margin-right: 40px;
@@ -179,10 +180,27 @@
         }
 
         .legal-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             padding: 30px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #faf4f2; /* Your cream color */
+        }
+
+        .legal-card h3 {
+            color: #ff8c42; /* Your orange accent color */
+            margin-bottom: 15px;
+        }
+
+        .legal-card p {
+            color: #e0e0e0; /* Slightly lighter than card background */
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .legal-card:hover {
+            background: rgba(255, 255, 255, 0.3); /* Even lighter on hover */
+            transform: translateY(-5px); /* Subtle lift effect */
         }
 
         /* Nora Spotlight */
@@ -203,14 +221,15 @@
 
         .nora-image {
             flex: 1;
-            background: #ede6f5;
             height: 300px;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1a1a2e;
-            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .nora-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Button Styles - Matches About page */
@@ -242,8 +261,8 @@
             color: #ffffff;
         }
 
-                /* Footer - Enhanced version of About page footer */
-                footer {
+        /* Footer - Enhanced version of About page footer */
+        footer {
             text-align: center;
             padding: 60px 20px;
             margin-top: 60px;
@@ -334,21 +353,21 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar - Unchanged from About page -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="models.html">Models</a>
+            <a href="models.html">Nora</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <!-- Header Section - Unchanged from About page -->
+    <!-- Header Section -->
     <header>
         <h1>Welcome to XenoraAI</h1>
-        <p>Design AI models tailored to the needs of people, helping to ease life through AI solutions.</p>
+        <p>Your go to AI solutions expert. Designed to attend to your legal needs whether they be professional or personal. Because We Believe Everyone Deserves An Advocate</p>
         <button class="btn" onclick="window.location.href='models.html'">Access Models</button>
     </header>
 
@@ -407,11 +426,14 @@
             <div class="nora-content">
                 <h2>Meet Nora - Your AI Legal Assistant</h2>
                 <p>Our flagship AI model designed specifically for Canadian legal professionals. Nora provides 24/7 support with case law research, document analysis, and legal insights.</p>
-                <p>"Everyone deserves an Advocate" - Nora makes this possible by augmenting your legal practice with AI-powered assistance.</p>
+                <p>Your go to AI solutions expert. Designed to attend to your legal needs whether they be professional or personal. Because we believe everyone deserves an advocate.</p>
                 <button class="btn" onclick="window.location.href='models.html'">Learn About Nora</button>
             </div>
             <div class="nora-image">
-                [NORA AI IMAGE/LOGO]
+                <video width="100%" height="100%" autoplay loop muted playsinline>
+                    <source src="NoraRep.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </section>
 
@@ -448,7 +470,7 @@
             <h3>Quick Links</h3>
             <div class="footer-links">
                 <a href="index.html">Home</a>
-                <a href="models.html">Nora AI</a>
+                <a href="models.html">Nora</a>
                 <a href="about.html">About Us</a>
                 <a href="contact.html">Contact</a>
             </div>
@@ -474,7 +496,7 @@
     </div>
     
     <div class="copyright">
-        <p>&trade; 2024 XenoraAI. All rights reserved.</p>
+        <p>&trade; 2025 XenoraAI. All rights reserved.</p>
     </div>
 </footer>
 </body>

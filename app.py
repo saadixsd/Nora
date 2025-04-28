@@ -86,7 +86,7 @@ def extract_user_details(introduction_text):
     
     # Define pattern to match roles (e.g., lawyer, student)
     role_patterns = [
-        r"(?i)\b(?:lawyer|legal professional|attorney|lawstudent|student|academic)\b"  # Matches role-related keywords
+    r"(?i)\b(?:lawyer|legal professional|attorney|law student|student|academic|paralegal|professor)\b"
     ]
 
     name = "User"  # Default name
@@ -117,26 +117,50 @@ def extract_user_details(introduction_text):
 
 
 # Define the function to truncate context based on line and character limits
-def truncate_context(context):
+def truncate_context(context, max_characters=3000, max_lines=50):
+    """Truncate context to stay within max characters and lines."""
     if not context:
         return ""
     try:
-        # Return the entire context without truncation
-        return context
-    except Exception as e:
-        logger.error(f"Error in context handling: {e}")
-        return ""
+        # Split into lines
+        lines = context.strip().split("\n")
+        # Keep only the last `max_lines`
+        lines = lines[-max_lines:]
+        truncated_context = "\n".join(lines)
         
+        # Further truncate by characters
+        if len(truncated_context) > max_characters:
+            truncated_context = truncated_context[-max_characters:]
+        
+        return truncated_context
+    except Exception as e:
+        logger.error(f"Error truncating context: {e}")
+        return ""
+
+        
+
+# Define a global variable to track conversation history
+conversation_history = []
 
 # Define the function to handle user conversations
 def handle_conversation(user_input, context, user_role):
-    """Enhanced conversation handler with input validation and error handling."""
+    """Enhanced conversation handler with input validation, error handling, and natural greetings."""
     
     # Check if the user input is valid (non-empty and under 1000 characters)
-    if not user_input:
+    if not user_input or len(user_input) > 1000:
         return "Please provide a valid message under 1000 characters."
     
     try:
+        # First-message greeting logic
+        global conversation_history
+        if not conversation_history:
+            # It's the start of a new conversation
+            greeting = "Hello! I'm Nora, your AI legal assistant. I'm ready to help you with legal questions and provide data visualizations. What would you like to know?\n\n"
+        else:
+            greeting = ""
+
+        conversation_history.append(user_input)  # Save user input into history
+
         # Extract user details (e.g., name and role) from the input
         user_name, role = extract_user_details(user_input)
         
@@ -151,28 +175,23 @@ def handle_conversation(user_input, context, user_role):
                 # Try invoking the AI model to generate a response
                 ai_response = chain.invoke({
                     "context": context,
-                    "question": user_input
+                    "question": greeting + user_input  # Add greeting if it's first message
                 }).strip()  # Strip any leading/trailing whitespace
                 break  # Exit the loop if the response is successful
             except Exception as e:
                 # Log a warning if the AI response attempt fails
                 logger.warning(f"Attempt {attempt + 1} failed: {e}")
-                # Retry if it's not the last attempt
                 if attempt == retry_attempts - 1:
                     # Log error if all attempts fail
                     logger.error(f"AI model failed after {retry_attempts} attempts")
                     return "I'm sorry, I'm having trouble processing that right now. Please try again."
                 time.sleep(2)  # Wait before retrying
 
-        # Return the AI response as the result of the conversation
         return f"{ai_response}"
     
     except Exception as e:
-        # Log any exceptions that occur during the conversation handling
         logger.error(f"Error in conversation handling: {e}")
-        # Return a generic error message if something goes wrong
         return "I'm sorry, something went wrong. Could you rephrase that?"
-
 
 
 # Use an LRU (Least Recently Used) cache to store results for faster retrieval
@@ -239,8 +258,8 @@ def recommend_cases(query, case_data):
 # Define the home route (index page) for the Flask app
 @app.route('/')
 def home():
-    # Render the 'nora.html' template when the home route is accessed
     return render_template('nora.html')
+
 
 # Define the route for handling user questions via POST requests
 @app.route('/ask', methods=['POST'])
@@ -280,20 +299,20 @@ def ask():
         return jsonify({'error': 'Internal server error'}), 500
 
 # Define a function to print text with a real-time typing effect
-def print_real_time(text, delay=0.015):
-    """Print text with real-time effect and error handling."""
+def print_real_time(text, delay=0.015, max_length=500):
+    """Print text with real-time typing effect."""
     try:
-        # Iterate through each character in the text
+        if len(text) > max_length:
+            print(text)
+            return
         for char in text:
-            # Print each character to the console without a newline
             sys.stdout.write(char)
             sys.stdout.flush()
-            # Add a small delay between characters to simulate typing
             time.sleep(delay)
-        print()  # Move to the next line after finishing the text
+        print()
     except Exception as e:
-        # If an error occurs, print the text normally as a fallback
         print(text)
+
 
 class NoraCanadianLegal:
     def _determine_query_type(self, user_input):
@@ -349,25 +368,27 @@ def web_interaction():
             print("\nNora: I encountered an error. Please try again.\n")
 
 
-
-
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'pdf', 'docx', 'txt'}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+# Function to check if the uploaded file has an allowed extension
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# Route for handling file uploads
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
+        logger.warning("Upload attempt with no file part")
         return jsonify({'error': 'No file part in the request'}), 400
 
     file = request.files['file']
 
     if file.filename == '':
+        logger.warning("Upload attempt with empty filename")
         return jsonify({'error': 'No file selected'}), 400
 
     if file and allowed_file(file.filename):
@@ -375,16 +396,19 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
 
-        # Extract and process the text
+        logger.info(f"File uploaded successfully: {filename}")
+
         text = extract_text_from_file(filepath)
-        response = handle_conversation(text[:1000], context="", user_role='user')  # truncate long files
+        response = handle_conversation(text[:1000], context="", user_role='user')
 
         return jsonify({
             'filename': filename,
             'answer': response
         })
 
+    logger.warning(f"Unsupported file type upload attempt: {file.filename}")
     return jsonify({'error': 'Unsupported file type'}), 400
+# Function to extract text from different file types (PDF, DOCX, TXT)
 
 
 def extract_text_from_file(filepath):
@@ -393,11 +417,16 @@ def extract_text_from_file(filepath):
     if ext == 'pdf':
         with open(filepath, 'rb') as f:
             reader = PdfReader(f)
-            return ' '.join(page.extract_text() for page in reader.pages if page.extract_text())
+            text = []
+            for page in reader.pages:
+                extracted = page.extract_text()
+                if extracted:
+                    text.append(extracted)
+            return ' '.join(text)
 
     elif ext == 'docx':
         doc = docx.Document(filepath)
-        return '\n'.join([para.text for para in doc.paragraphs])
+        return '\n'.join([para.text for para in doc.paragraphs if para.text.strip()])
 
     elif ext == 'txt':
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -405,22 +434,9 @@ def extract_text_from_file(filepath):
 
     return ''
 
-# HTML for file upload <form action="/upload" method="post" enctype="multipart/form-data">
-    #<label for="file">Upload a document (PDF, DOCX, or TXT):</label>
-    #<input type="file" name="file" id="file">
-    #<button type="submit">Submit</button>
-#</form>
- # Javascript for File upload 
- #const formData = new FormData();
-#formData.append("file", selectedFile);
-
-#fetch('/upload', {
-  #method: 'POST',
-  #body: formData
-#})
-#.then(res => res.json())
-#.then(data => console.log(data));
-
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'ok'}), 200
 
 
 # Check if the script is being run directly (not imported as a module)
