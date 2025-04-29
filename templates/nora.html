@@ -3,685 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nora - AI Legal Assistant | XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Nora - AI Assistant</title>
+
+    <!-- PyScript Integration -->
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
     <style>
-        /* Global Styles - EXACTLY matches About page */
         body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #faf4f2;
-            color: #1a1a2e;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            margin: 2em;
+            background-color: #f4f4f9;
+            color: #333;
         }
-
-        h1, h2, h3 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            color: #1a1a2e;
-        }
-
-        a {
-            text-decoration: none;
-            color: #1a1a2e;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #ff8c42;
-        }
-
-        /* Navigation Bar - EXACTLY matches About page */
-        nav {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 20px 40px;
-            background: #ede6f5;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            background: linear-gradient(45deg, #8a2be2, #ff007f, #ff8c42);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 5s infinite alternate;
-            margin-right: 40px;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        nav .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        nav a {
-            font-size: 1.1em;
-            color: #000000;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ff8c42;
-        }
-
-        /* Header Section - EXACTLY matches About page */
-        header {
+        h1 {
             text-align: center;
-            padding: 200px 20px 100px;
-            background: #faf4f2;
-            border-bottom: 4px solid #1a1a2e;
+            color: #4CAF50;
         }
-
-        header h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            color: #1a1a2e;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        header p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            color: #333333;
-            animation: fadeIn 2.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Main Content */
-        .main-content {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        
-        /* Interface Panels */
-        .panel-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .panel-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .interface-panel {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .interface-panel:hover {
-            transform: translateY(-5px);
-        }
-        
-        .panel-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #ede6f5;
-        }
-        
-        .panel-icon {
-            font-size: 1.5rem;
-            color: #ff8c42;
-            margin-right: 15px;
-        }
-        
-        /* Form Elements */
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #1a1a2e;
-        }
-        
-        input[type="text"],
-        textarea,
-        input[type="file"],
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        input[type="text"]:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: #ff8c42;
-        }
-        
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .file-input-container {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-            width: 100%;
-        }
-        
-        .file-input-button {
-            background-color: #ede6f5;
-            color: #1a1a2e;
-            padding: 12px;
-            border-radius: 6px;
-            text-align: center;
-            cursor: pointer;
-            border: 1px dashed #1a1a2e;
-            transition: all 0.3s;
-        }
-        
-        .file-input-button:hover {
-            background-color: #e0d6f0;
-        }
-        
-        .file-input {
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-        
-        .file-info {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* Buttons - Matching XenoraAI */
-        .btn {
-            background-color: #1a1a2e;
-            color: #ffffff;
-            padding: 12px 24px;
-            font-size: 1.1em;
-            border: none;
+        #chat-box {
+            border: 1px solid #ccc;
             border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-        }
-        
-        .btn:hover {
-            background-color: #ff8c42;
-            transform: scale(1.05);
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-        
-        /* Response Panel */
-        .response-panel {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-        }
-        
-        .response-content {
-            min-height: 200px;
-            background: #faf4f2;
             padding: 15px;
-            border-radius: 6px;
-            white-space: pre-wrap;
-            font-family: 'Roboto', sans-serif;
+            height: 400px;
+            overflow-y: auto;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1em;
         }
-        
-        /* Loading Indicator */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
+        #chat-box div {
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 8px;
         }
-        
-        .spinner {
-            border: 4px solid rgba(26, 26, 46, 0.1);
-            border-radius: 50%;
-            border-top: 4px solid #ff8c42;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
+        .user {
+            text-align: right;
+            background-color: #DCF8C6;
         }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Footer - EXACTLY matches other pages */
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            margin-top: 60px;
-            background-color: #1a1a2e;
-            color: #faf4f2;
-            font-size: 1em;
-            border-top: 4px solid #faf4f2;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto 40px;
+        .nora {
             text-align: left;
+            background-color: #f1f1f1;
         }
-
-        .footer-column h3 {
-            color: #faf4f2;
-            margin-bottom: 20px;
-            font-size: 1.3em;
-        }
-
-        .footer-links {
+        #chat-form {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             gap: 10px;
         }
-
-        .footer-links a {
-            color: #faf4f2;
-            transition: color 0.3s ease;
+        #user-input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
-        .footer-links a:hover {
-            color: #ff8c42;
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
+        button:hover {
+            background-color: #45a049;
         }
-
-        .social-links a {
-            color: #faf4f2;
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #ff8c42;
-        }
-
-        .copyright {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(250, 244, 242, 0.2);
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            header {
-                padding: 150px 20px 80px;
+        @media (max-width: 600px) {
+            #chat-box {
+                height: 300px;
             }
-            
-            header h1 {
-                font-size: 2.5em;
-            }
-            
-            nav {
-                padding: 15px 20px;
+            #chat-form {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
-            
-            nav .logo {
-                margin-bottom: 15px;
-                margin-right: 0;
+            #user-input {
+                width: 100%;
+            }
+            button {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">XenoraAI</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="models.html">Nora</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
 
-    <!-- Header Section -->
-    <header>
-        <h1>Nora</h1>
-        <p>Your intelligent partner for legal research, document analysis, & case preparation</p>
-    </header>
+    <h1>Chat with Nora</h1>
+    <div id="chat-box"></div>
+    <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type your question..." required>
+        <button type="submit">Send</button>
+    </form>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="panel-container">
-            <!-- Document Upload Panel -->
-            <div class="interface-panel">
-                <div class="panel-header">
-                    <div class="panel-icon">
-                        <i class="fas fa-file-upload"></i>
-                    </div>
-                    <h2>Document Analysis</h2>
-                </div>
-                <form id="uploadForm">
-                    <div class="form-group">
-                        <label for="documentType">Document Type</label>
-                        <select id="documentType">
-                            <option value="contract">Contract</option>
-                            <option value="pleading">Pleading</option>
-                            <option value="brief">Legal Brief</option>
-                            <option value="statute">Statute</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Upload Legal Document</label>
-                        <div class="file-input-container">
-                            <div class="file-input-button">
-                                <i class="fas fa-cloud-upload-alt"></i> Choose File
-                            </div>
-                            <input type="file" id="fileInput" class="file-input" accept=".pdf,.doc,.docx,.txt">
-                        </div>
-                        <div class="file-info" id="fileInfo">No file selected</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="analysisType">Analysis Type</label>
-                        <select id="analysisType">
-                            <option value="summary">Summary</option>
-                            <option value="risks">Risk Analysis</option>
-                            <option value="clauses">Clause Identification</option>
-                            <option value="full">Full Analysis</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-block">
-                        <i class="fas fa-search"></i> Analyze Document
-                    </button>
-                </form>
-            </div>
-            
-            <!-- Question Panel -->
-            <div class="interface-panel">
-                <div class="panel-header">
-                    <div class="panel-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h2>Ask Nora</h2>
-                </div>
-                <form id="askForm">
-                    <div class="form-group">
-                        <label for="jurisdiction">Jurisdiction</label>
-                        <select id="jurisdiction">
-                            <option value="quebec">Quebec</option>
-                            <option value="ontario">Ontario</option>
-                            <option value="alberta">Alberta</option>
-                            <option value="british columbia(bc)">British Columbia(BC)</option>
-                            <option value="nunavut">Nunavut</option>
-                            <option value="yukon">Yukon</option>
-                            <option value="north west territories(n.w.t)">North West Territories(N.W.T)</option>
-                            <option value="New Brunswick">New Brunswick</option>
-                            <option value="prince edward island(p.e.i)">Prince Edward Island(PEI)</option>
-                            <option value="nova scotia">Nova Scotia</option>
-                            <option value="newfoundland & labrador">Newfoundland & Labrador</option>
-                            <option value="saskatchewan">Saskatchewan</option>
-                            <option value="manitoba">Manitoba</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="questionInput">Your Legal Question</label>
-                        <textarea id="questionInput" placeholder="E.g., What are the requirements for a valid will in Ontario?"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="complexity">Response Complexity</label>
-                        <select id="complexity">
-                            <option value="simple">Simple Summary</option>
-                            <option value="detailed" selected>Detailed Analysis</option>
-                            <option value="technical">Technical Legal Language</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-block">
-                        <i class="fas fa-comment-alt"></i> Ask Nora
-                    </button>
-                </form>
-            </div>
-        </div>
-        
-        <!-- Response Panel -->
-        <div class="response-panel">
-            <div class="panel-header">
-                <div class="panel-icon">
-                    <i class="fas fa-comment-dots"></i>
-                </div>
-                <h2>Nora's Response</h2>
-            </div>
-            
-            <div class="loading" id="loadingIndicator">
-                <div class="spinner"></div>
-                <p>Nora is researching your request...</p>
-            </div>
-            
-            <div class="response-content" id="response">
-                Nora is ready to assist with your legal questions and document analysis needs.
-            </div>
-            
-            <div class="form-group" style="margin-top: 20px; display: none;" id="followupContainer">
-                <label for="followupQuestion">Follow-up Question</label>
-                <input type="text" id="followupQuestion" placeholder="Ask Nora for clarification...">
-                <button type="button" class="btn" style="margin-top: 10px;">
-                    <i class="fas fa-reply"></i> Ask Follow-up
-                </button>
-            </div>
-        </div>
-    </div>
+    <!-- Python Script -->
+    <py-script>
+
+        from langchain_ollama import OllamaLLM
+from langchain_core.prompts import ChatPromptTemplate
+import re
+import time
+import sys
+from flask import Flask, request, jsonify
+import os
+import logging
+from js import document
+from flask_cors import CORS
+
+
+app = Flask(__name__)
+CORS(app)
+
+
+# Function to update chat box with a new message
+def update_chat_box(message):
+    chat_box = document.getElementById("chat-box")
+    chat_box.innerHTML += f"<p>{message}</p>"
+    chat_box.scrollTop = chat_box.scrollHeight
+
+# Function to simulate an AI response
+def simulate_nora_response(user_input):
+    # Simulate Nora's response based on user input (mock response)
+    if "legal" in user_input.lower():
+        return "Nora: I can help with legal research. What case do you need assistance with?"
+    elif "case" in user_input.lower():
+        return "Nora: Please provide more details about the case you are studying."
+    else:
+        return "Nora: How can I assist you with that?"
+
+# Function to send a message
+def send_message(event):
+    user_input = document.getElementById("user-input").value
+    if user_input.strip() != "":
+        update_chat_box(f"You: {user_input}")
+        # Simulate a response from Nora
+        nora_response = simulate_nora_response(user_input)
+        update_chat_box(nora_response)
+        document.getElementById("user-input").value = ""
+
+# Bind the send button with send_message function
+document.getElementById("send-button").bind("click", send_message)
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)  # Change to DEBUG for development, INFO for production
+logger = logging.getLogger(__name__)
+
+# Flask App Initialization
+app = Flask(__name__)
+
+# Initialize model and prompt chain
+model = OllamaLLM(model="llama3")  # Replace with your specific model
+template = """Hi there! I'm Nora, your AI assistant. Let me know how I can help, and I'll tailor my responses to your needs. 
+Whether it's legal insights, academic support, or general questions, I’m here for you.
+
+**Conversation History:**
+{context}
+
+User: {question}
+Nora:"""
+prompt = ChatPromptTemplate.from_template(template)
+chain = prompt | model
+
+# Function to extract user details from their introduction
+def extract_user_details(introduction_text):
+    """Extracts the user's name and role from their introduction."""
+    name_patterns = [
+        r"(?i)(?:my name is|i'm|i am|this is)\s+([A-Za-z]+)",  
+        r"(?i)(?:hi,?\s*|hello,?\s*)i'm\s+([A-Za-z]+)", 
+        r"([A-Za-z]+)(?:,?\s+a\s+lawyer|,?\s+a\s+legal professional|,?\s+an\s+attorney|,?\s+a\s+student)" 
+    ]
+    role_patterns = [
+        r"(?i)\b(?:lawyer|legal professional|attorney)\b",  # Matches legal roles
+        r"(?i)\b(?:student|academic)\b",  # Matches "student" or "academic"
+    ]
+
+    name = "User"  # Default name
+    role = "user"  # Default role
+
+    # Extract name
+    for pattern in name_patterns:
+        match = re.search(pattern, introduction_text)
+        if match:
+            name = match.group(1).strip()
+            break
+
+    # Extract role
+    for pattern in role_patterns:
+        match = re.search(pattern, introduction_text)
+        if match:
+            role = match.group(0).lower()
+            break
+
+    return name, role
+
+# Typing effect function with optional disabling
+def type_writer(text, delay=0.03, enable_typing=True):
+    """Simulates a typing effect for a response."""
+    if not enable_typing:
+        print(text)
+        return
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    sys.stdout.write("\n")
+
+# Truncate context to manage input size
+def truncate_context(context, max_lines=20):
+    """Truncates the conversation context to the last 'max_lines' lines."""
+    lines = context.split("\n")
+    return "\n".join(lines[-max_lines:])
+
+# Handle conversation logic
+def handle_conversation(user_input, context):
+    """Handles the conversation flow by querying the model and generating follow-ups."""
+    try:
+        # Add custom follow-up responses
+        if "case" in user_input.lower():
+            follow_up = "Could you tell me more about the case? Any specific issues you're dealing with?"
+        else:
+            follow_up = "What else can I assist you with?"
+
+        # Log input to the model
+        logger.debug("Input to model: %s", {"context": context, "question": user_input})
+
+        # Query the model
+        result = chain.invoke({"context": context, "question": user_input})
+
+        # Log raw model response
+        logger.debug("Raw response from model: %s", result)
+
+        return result + "\n\n" + follow_up
+    except Exception as e:
+        logger.error("Error processing request: %s", e)
+        return f"I'm sorry, there was an error processing your request. Please try again. Error: {e}"
+
+# Flask API route
+@app.route('/ask', methods=['POST'])
+def ask():
+    """API endpoint to handle user queries."""
+    try:
+        data = request.get_json()
+        question = data.get('question', '')
+        context = data.get('context', '')
+
+        # Validate input
+        if not question:
+            return jsonify({'error': 'Question is required.'}), 400
+
+        # Generate response
+        response = handle_conversation(question, context)
+        return jsonify({'response': response})
+    except Exception as e:
+        logger.error("API Error: %s", e)
+        return jsonify({'error': f"An unexpected error occurred: {e}"}), 500
+
+# Simulated web-like interaction in the console
+def web_interaction():
+    """Simulates user interaction via the console."""
+    print("\nNora: Welcome to your AI assistant platform!\n")
     
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>XenoraAI</h3>
-                <p>"Everyone Deserves An Advocate"</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="models.html">Nora</a>
-                    <a href="about.html">About Us</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Legal</h3>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="cookies.html">Cookie Policy</a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <div class="footer-links">
-                    <a href="blog.html">Blog</a>
-                    <a href="documentation.html">Documentation</a>
-                    <a href="faq.html">FAQ</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>&copy; 2025 XenoraAI. All rights reserved.</p>
-        </div>
-    </footer>
+    # User introduction
+    user_intro = input("Nora: Please introduce yourself: ").strip()
+    if user_intro.lower() in ["exit", "quit"]:
+        print("Nora: Goodbye! Have a great day!")
+        return  # End the program
 
+    # Extract user details
+    user_name, user_role = extract_user_details(user_intro)
+
+    # Personalized welcome message
+    role_message = {
+        "lawyer": "case insights, legal references, and tailored guidance.",
+        "student": "help with assignments, case studies, or understanding legal principles.",
+    }.get(user_role, "answers to your general queries or tasks.")
+
+    type_writer(f"Nora: Hi {user_name}, nice to meet you! Since you're a {user_role}, I can assist with {role_message} How can I help you today?")
+
+    # Initialize conversation context
+    context = f"User: {user_intro}\nNora: Hi {user_name}, nice to meet you!\nNora: Since you're a {user_role}, I can assist with {role_message}"
+
+    while True:
+        # Get user input
+        user_input = input(f"{user_name}: ").strip()
+        if user_input.lower() in ["exit", "quit"]:
+            farewell_message = f"Thank you for using Nora. Goodbye, {user_name}!"
+            type_writer(f"Nora: {farewell_message}")
+            break
+
+        # Generate response
+        response = handle_conversation(user_input, context)
+        type_writer(f"Nora: {response}")
+
+        # Update context and truncate
+        context += f"\nUser: {user_input}\nNora: {response}"
+        context = truncate_context(context)
+
+# Main Entry Point
+if __name__ == '__main__':
+    # Flask mode
+    if os.getenv('FLASK_MODE', 'False').lower() == 'true':
+        app.run(debug=True)
+    else:
+        # Console interaction
+        web_interaction()
+   
+
+    </py-script>
+
+    <!-- JavaScript for Chat Interaction -->
     <script>
-       // File input display
-document.getElementById('fileInput').addEventListener('change', function(e) {
-    const fileInfo = document.getElementById('fileInfo');
-    if (this.files.length > 0) {
-        const file = this.files[0];
-        const fileSize = (file.size / (1024 * 1024)).toFixed(2); // MB
-        fileInfo.innerHTML = `
-            <strong>${file.name}</strong> (${fileSize} MB)
-            <br>Type: ${file.type || 'Not specified'}
-        `;
-    } else {
-        fileInfo.textContent = 'No file selected';
-    }
-});
+        const chatBox = document.getElementById("chat-box");
+        const chatForm = document.getElementById("chat-form");
+        const userInput = document.getElementById("user-input");
 
-// Handle file upload form
-document.getElementById('uploadForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const responseDiv = document.getElementById('response');
-    const loading = document.getElementById('loadingIndicator');
+        chatForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const question = userInput.value; // Get user input
+            addMessage("user", question);
 
-    if (!document.getElementById('fileInput').files.length) {
-        responseDiv.innerText = "Please select a file to analyze.";
-        return;
-    }
+            try {
+                const response = await fetch("https://your-deployment-url.com/ask", { // Update with your hosted URL
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question, context: "" }) // Send question with empty context for now
+                });
 
-    const formData = new FormData();
-    formData.append('file', document.getElementById('fileInput').files[0]);
-    formData.append('documentType', document.getElementById('documentType').value);
-    formData.append('analysisType', document.getElementById('analysisType').value);
+                const data = await response.json();
+                addMessage("nora", data.response); // Display Nora's response
+            } catch (error) {
+                addMessage("nora", "Error: Could not reach the server."); // Error handling
+            }
 
-    loading.style.display = 'block';
-    responseDiv.innerText = "Analyzing your document...";
-
-    try {
-        const res = await fetch('/analyze-document', {
-            method: 'POST',
-            body: formData
+            userInput.value = ""; // Clear the input field
         });
 
-        const data = await res.json();
-        loading.style.display = 'none';
-
-        if (res.ok) {
-            responseDiv.innerHTML = `
-                <strong>Document Analysis Complete</strong><br><br>
-                <strong>Document Type:</strong> ${data.document_type}<br>
-                <strong>Analysis Type:</strong> ${data.analysis_type}<br><br>
-                ${data.analysis_summary}<br><br>
-                ${data.risk_areas.map(risk => `• <span style="color: #ff8c42">${risk}</span>`).join('<br>')}
-            `;
-            document.getElementById('followupContainer').style.display = 'block';
-        } else {
-            responseDiv.innerText = "Error: " + (data.error || "Failed to analyze document.");
+        function addMessage(sender, message) {
+            const div = document.createElement("div");
+            div.className = sender;
+            div.textContent = `${sender === "user" ? "You" : "Nora"}: ${message}`;
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom of the chat box
         }
-    } catch (error) {
-        console.error(error);
-        loading.style.display = 'none';
-        responseDiv.innerText = "An unexpected error occurred during analysis.";
-    }
-});
+    </script>
 
-// Handle ask question form
-document.getElementById('askForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const question = document.getElementById('questionInput').value.trim();
-    const jurisdiction = document.getElementById('jurisdiction').value;
-    const complexity = document.getElementById('complexity').value;
-    const responseDiv = document.getElementById('response');
-    const loading = document.getElementById('loadingIndicator');
-
-    if (!question) {
-        responseDiv.innerText = "Please enter a legal question.";
-        return;
-    }
-
-    loading.style.display = 'block';
-    responseDiv.innerText = "Thinking...";
-
-    try {
-        const res = await fetch('/ask-question', {  
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                question: question,
-                jurisdiction: jurisdiction,
-                complexity: complexity
-            })
-        });
-
-        const data = await res.json();
-        loading.style.display = 'none';
-
-        if (res.ok) {
-            responseDiv.innerHTML = `<strong>Response:</strong><br><br>${data.answer}`;
-            document.getElementById('followupContainer').style.display = 'block';
-        } else {
-            responseDiv.innerText = "Error: " + (data.error || "Failed to get response.");
-        }
-    } catch (error) {
-        console.error(error);
-        loading.style.display = 'none';
-        responseDiv.innerText = "An unexpected error occurred.";
-    }
-});
-</script>
 </body>
 </html>
