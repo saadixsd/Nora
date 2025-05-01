@@ -477,17 +477,8 @@ def ask_question():
         'answer': answer
     })
 
-if __name__ == '__main__':
-    app.run(debug=True)
+import os
 
-
-
-# Check if the script is being run directly (not imported as a module)
-if __name__ == '__main__':
-    # Check if the environment variable 'FLASK_MODE' is set to 'True'
-    if os.getenv('FLASK_MODE', 'False').lower() == 'True':
-        # If FLASK_MODE is 'True', run the Flask app on all available IP addresses at port 3000
-        app.run(host='0.0.0.0', port=5000)
-    else:
-        # If FLASK_MODE is not 'True', call the web_interaction function (likely for a different mode)
-        web_interaction()
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Get PORT from environment, fallback to 5000
+    app.run(host="0.0.0.0", port=port, debug=True)
