@@ -24,15 +24,10 @@ app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
 
 # Enable Cross-Origin Resource Sharing (CORS) for specific origins
-# This restricts access to the API only from the specified domain (XenoraAI)
-CORS(app, resources={r"/*": {"origins": ["https://www.xenoraai.com"]}})
-
-
-import logging
+CORS(app, resources={r"/*": {"origins": ["https://www.xenoraai.com", "http://localhost:5000", "http://127.0.0.1:5000"]}})
 
 logging.getLogger("httpx").setLevel(logging.WARNING)  # Suppresses INFO logs from httpx
 logging.basicConfig(level=logging.WARNING)  # Show only warnings and errors
-
 
 # Get logger instance
 logger = logging.getLogger(__name__)
@@ -262,7 +257,7 @@ def home():
 
 
 # Define the route for handling user questions via POST requests
-@app.route('/ask', methods=['POST'])
+@app.route('/35.192.103.162/handle-conversation', methods=['POST'])
 def ask():
     try:
         # Get the JSON data sent in the POST request
@@ -434,17 +429,56 @@ def extract_text_from_file(filepath):
 
     return ''
 
+
 @app.route('/health', methods=['GET'])
 def health_check():
     return jsonify({'status': 'ok'}), 200
 
 
-# Check if the script is being run directly (not imported as a module)
-if __name__ == '__main__':
-    # Check if the environment variable 'FLASK_MODE' is set to 'True'
-    if os.getenv('FLASK_MODE', 'False').lower() == 'True':
-        # If FLASK_MODE is 'True', run the Flask app on all available IP addresses at port 3000
-        app.run(host='0.0.0.0', port=3000)
-    else:
-        # If FLASK_MODE is not 'True', call the web_interaction function (likely for a different mode)
-        web_interaction()
+@app.route('/analyze-document', methods=['POST'])
+def analyze_document():
+    file = request.files.get('file')
+    document_type = request.form.get('documentType')
+    analysis_type = request.form.get('analysisType')
+    
+    if not file:
+        return jsonify({'error': 'No file uploaded'}), 400
+
+    # Here you would process the file...
+    # For now, we return a mock analysis
+    return jsonify({
+        'status': 'success',
+        'document_type': document_type,
+        'analysis_type': analysis_type,
+        'analysis_summary': "This sample contract contains 15 clauses, with 3 potential risk areas identified.",
+        'risk_areas': [
+            "Indemnification Clause - Unusually broad language",
+            "Termination Section - Notice period shorter than standard",
+            "Governing Law - Specifies foreign jurisdiction"
+        ]
+    })
+
+@app.route('/ask-question', methods=['POST'])
+def ask_question():
+    data = request.get_json()
+    question = data.get('question')
+    jurisdiction = data.get('jurisdiction')
+    complexity = data.get('complexity')
+
+    if not question:
+        return jsonify({'error': 'No question provided'}), 400
+
+    context = ""
+    answer = handle_conversation(question, context, 'user')
+    # Here you would generate an AI answer...
+    # For now, we return a mock answer
+    return jsonify({
+        'status': 'success',
+        'answer': answer
+    })
+
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5001))  # Get PORT from environment, fallback to 5000
+    app.run(host="0.0.0.0", port=port, debug=True)
