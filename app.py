@@ -16,12 +16,23 @@ from sklearn.metrics.pairwise import cosine_similarity
 from werkzeug.utils import secure_filename
 from PyPDF2 import PdfReader
 import docx
+from flask_sqlalchemy import SQLAlchemy
 
 # Initialize Flask application
 app = Flask(__name__)
 
 # Add proxy support for handling requests through proxies (e.g., load balancers)
 app.wsgi_app = ProxyFix(app.wsgi_app)
+
+# Configure the SQLAlchemy database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://user:password@localhost/dbname"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Initialize the SQLAlchemy database object
+db = SQLAlchemy(app)
+
+# Create all database tables
+db.create_all()
 
 # Enable Cross-Origin Resource Sharing (CORS) for specific origins
 CORS(app, resources={r"/*": {"origins": ["https://www.xenoraai.com", "http://localhost:5000", "http://127.0.0.1:5000"]}})
