@@ -17,22 +17,18 @@ from werkzeug.utils import secure_filename
 from PyPDF2 import PdfReader
 import docx
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
 
-# Initialize Flask application
+load_dotenv()
+
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
 
 # Add proxy support for handling requests through proxies (e.g., load balancers)
 app.wsgi_app = ProxyFix(app.wsgi_app)
-
-# Configure the SQLAlchemy database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://user:password@localhost/dbname"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# Initialize the SQLAlchemy database object
-db = SQLAlchemy(app)
-
-# Create all database tables
-db.create_all()
 
 # Enable Cross-Origin Resource Sharing (CORS) for specific origins
 CORS(app, resources={r"/*": {"origins": ["https://www.xenoraai.com", "http://localhost:5000", "http://127.0.0.1:5000"]}})
@@ -268,7 +264,8 @@ def home():
 
 
 # Define the route for handling user questions via POST requests
-@app.route('/35.192.103.162/handle-conversation', methods=['POST'])
+@app.route('/handle-conversation', methods=['POST'])
+
 def ask():
     try:
         # Get the JSON data sent in the POST request
@@ -488,8 +485,17 @@ def ask_question():
         'answer': answer
     })
 
-import os
+# Define any database models here (before creating tables)
+# For example:
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(80), unique=True, nullable=False)
+#     email = db.Column(db.String(120), unique=True, nullable=False)
 
+# The correct way to run the app
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5001))  # Get PORT from environment, fallback to 5000
-    app.run(host="0.0.0.0", port=port, debug=True)
+    # Create database tables within the application context
+    with app.app_context():
+        db.create_all()
+    # Run the Flask app
+    app.run(debug=True)
