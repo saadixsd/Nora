@@ -11,6 +11,7 @@ git checkout [branch-name]
 
 ### put code into a branch
 ```
+git add .
 git commit -m "commit-message"
 git pull origin [branch-name]
 git push origin [branch-name]
