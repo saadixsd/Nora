@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Discover Nora - XenoraAI's legal AI assistant designed for Canadian law professionals">
-    <meta name="keywords" content="Nora AI, XenoraAI, Legal AI Assistant, Canadian Law, CanLII">
-    <title>Nora - XenoraAI</title>
+    <meta name="description" content="Explore XenoraAI's advanced AI models designed for your industry.">
+    <meta name="keywords" content="AI Models, XenoraAI, Technology Solutions, Artificial Intelligence">
+    <title>About Us - XenoraAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -205,7 +204,7 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 0.02em;
-            margin: 0 10px;
+            margin: 10px;
         }
 
         .btn::before {
@@ -242,124 +241,67 @@
             border-color: #1a1a2e;
         }
 
-        .btn-light {
-            background: transparent;
-            color: #faf4f2;
-            border: 2px solid #faf4f2;
-            box-shadow: none;
-        }
-
-        .btn-light:hover {
-            background: #faf4f2;
-            color: #1a1a2e;
-            border-color: #faf4f2;
-        }
-
-        /* Main Content */
+        /* Main Content Container */
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* Enhanced Video Container */
-        .video-container {
-            margin: 60px auto;
-            text-align: center;
-            max-width: 900px;
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .video-container video {
-            width: 100%;
-            height: auto;
-            border-radius: 24px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .video-container:hover video {
-            transform: scale(1.02);
-        }
-
-        .video-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            font-style: italic;
-            display: none;
-            font-size: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Enhanced Nora Intro Section */
-        .nora-intro {
-            padding: 80px 50px;
+        /* About Section */
+        .about-container {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(20px);
-            margin: 80px auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 60px 40px;
             border-radius: 24px;
-            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 60px auto;
             position: relative;
             overflow: hidden;
         }
 
-        .nora-intro::before {
+        .about-container::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(255, 140, 66, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        .nora-intro h2 {
+        .about-container .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-container h2 {
+            text-align: center;
             margin-bottom: 30px;
-            color: #1a1a2e;
+            font-size: 2.2rem;
         }
 
-        .nora-intro p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+        .about-container p {
+            font-size: 1.2rem;
+            color: #2c2c54;
             line-height: 1.7;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: left;
+            margin-bottom: 25px;
         }
 
-        .nora-intro p:last-child {
-            font-style: italic;
-            color: #ff8c42;
-            font-weight: 500;
-            margin-bottom: 0;
-        }
-
-        /* Enhanced Capabilities Section */
-        .capabilities-section {
+        /* Enhanced Features Section */
+        .team-section {
             padding: 80px 40px;
             text-align: center;
         }
 
-        .capabilities-section h2 {
+        .team-section h2 {
             margin-bottom: 20px;
         }
 
-        .capabilities-section > p {
+        .team-section > p {
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 60px;
@@ -368,14 +310,14 @@
             margin-right: auto;
         }
 
-        .capabilities-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             margin-top: 60px;
         }
 
-        .capability-card {
+        .feature-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             padding: 40px 30px;
@@ -385,10 +327,9 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             position: relative;
             overflow: hidden;
-            text-align: center;
         }
 
-        .capability-card::before {
+        .feature-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -400,79 +341,145 @@
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .capability-card:hover::before {
+        .feature-card:hover::before {
             transform: translateX(0);
         }
 
-        .capability-card:hover {
+        .feature-card:hover {
             transform: translateY(-15px);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             background: rgba(255, 255, 255, 0.9);
         }
 
-        .capability-icon {
-            font-size: 3rem;
+        .feature-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
             background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 25px;
-            transition: transform 0.3s ease;
         }
 
-        .capability-card:hover .capability-icon {
-            transform: scale(1.1);
-        }
-
-        .capability-card h3 {
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .capability-card p {
+        .feature-card p {
             color: #666;
             line-height: 1.6;
             font-size: 1rem;
         }
 
-        /* Enhanced Access Section */
-        .access-section {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
-            color: #faf4f2;
-            padding: 100px 40px;
-            text-align: center;
-            margin: 80px 0;
-            border-radius: 24px;
-            position: relative;
-            overflow: hidden;
+        /* Enhanced Team Section */
+        .team-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .access-section::before {
+        .team-member {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: calc(33.33% - 30px);
+            min-width: 300px;
+            box-sizing: border-box;
+        }
+
+        .team-member::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(255, 140, 66, 0.1) 0%, transparent 70%);
-            pointer-events: none;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .access-section .content {
-            position: relative;
-            z-index: 2;
+        .team-member:hover::before {
+            transform: translateX(0);
         }
 
-        .access-section h2 {
-            color: #faf4f2;
+        .team-member:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* First row - 2 members */
+        .team-row:nth-child(2) .team-member {
+            width: calc(50% - 30px);
+        }
+
+        /* Third row - 2 members */
+        .team-row:nth-child(4) .team-member {
+            width: calc(50% - 30px);
+        }
+
+        .team-member h3 {
+            color: #1a1a2e;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .position {
+            color: #ff8c42;
+            font-weight: 600;
+            margin: 15px 0;
+            font-size: 1rem;
+        }
+
+        .team-member p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .linkedin-link {
+            display: inline-block;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .linkedin-link:hover {
+            background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.3);
+        }
+
+        /* Enhanced CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, rgba(237, 230, 245, 0.3) 0%, rgba(250, 244, 242, 0.3) 100%);
+            border-radius: 24px;
+            margin: 60px 0;
+        }
+
+        .cta-section h2 {
             margin-bottom: 20px;
         }
 
-        .access-section p {
+        .cta-section p {
             font-size: 1.2rem;
             margin-bottom: 40px;
-            color: rgba(250, 244, 242, 0.8);
-            max-width: 600px;
+            color: #666;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -482,7 +489,6 @@
             justify-content: center;
             gap: 25px;
             flex-wrap: wrap;
-            margin-top: 40px;
         }
 
         /* Enhanced Footer */
@@ -578,14 +584,17 @@
                 padding: 180px 25px 100px;
             }
 
-            .nora-intro,
-            .capabilities-section,
-            .access-section {
+            .team-section,
+            .cta-section {
                 padding: 60px 25px;
             }
+            
+            .about-container {
+                padding: 60px 30px;
+            }
 
-            .video-container {
-                margin: 40px auto;
+            .team-member {
+                width: 100% !important;
             }
 
             .cta-buttons {
@@ -596,7 +605,6 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
-                margin: 5px 0;
             }
         }
 
@@ -612,94 +620,127 @@
     </style>
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav>
         <div class="logo">XenoraAI</div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="models.html" class="active">Nora</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('nora') }}">Nora</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
         </div>
     </nav>
 
     <!-- Header Section -->
     <header>
         <div class="content">
-            <h1>Meet Nora</h1>
-            <p>Your AI legal assistant specializing in Canadian law</p>
+            <h1>About XenoraAI</h1>
+            <p>Innovating AI solutions that transform industries and make a difference.</p>
             <div class="cta-button">
-                <button class="btn" onclick="window.location.href='nora.html'">Try Nora Now</button>
+                <button class="btn" onclick="window.location.href='models.html'">Explore Our Solutions</button>
             </div>
         </div>
     </header>
 
     <div class="main-content">
-        <!-- Enhanced Video Section -->
-        <div class="video-container">
-            <video id="noraVideo" autoplay loop muted playsinline>
-                <source src="TicketCase.mov" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-caption" id="videoCaption">
-                Click to play video (autoplay was muted by your browser)
+        <!-- About Section -->
+        <div class="about-container">
+            <div class="content">
+                <h2>XenoraAI: Founded in 2025</h2>
+                <p>We're on a mission to democratize legal support across Canada. Nora is our flagship AI model specifically designed to empower legal professionals and individuals navigating the justice system.</p>
+                <p>With instant access to CanLII, case law analysis, and document review capabilities, Nora works around the clock to give you the legal edge.</p>
             </div>
         </div>
 
-        <!-- Enhanced Nora Introduction -->
-        <div class="nora-intro">
-            <h2>Your 24/7 Legal Research Assistant</h2>
-            <p>Nora is XenoraAI's flagship legal AI model, specifically designed to support Canadian legal professionals and individuals navigating the justice system. Built with access to CanLII and trained on Canadian case law, Nora provides instant legal insights to help you work more efficiently.</p>
-            <p>"Everyone deserves an Advocate" - Nora makes this possible by augmenting your legal practice with AI-powered assistance.</p>
-        </div>
-
-        <!-- Enhanced Capabilities Section -->
-        <section class="capabilities-section">
-            <h2>What Nora Can Do For You</h2>
-            <p>Discover the comprehensive legal AI capabilities designed specifically for Canadian law</p>
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-gavel"></i>
-                    </div>
-                    <h3>Case Law Research</h3>
-                    <p>Instantly find relevant Canadian case law and analyze precedents based on your specific legal questions</p>
+        <!-- Features Section -->
+        <section class="team-section">
+            <h2>Our Core Values</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Innovation</h3>
+                    <p>We constantly push boundaries to develop novel AI solutions that address real-world problems with creativity and technical excellence.</p>
                 </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Document Review</h3>
-                    <p>Analyze and summarize legal documents, contracts, and filings to highlight key points and potential issues</p>
+                <div class="feature-card">
+                    <h3>Integrity</h3>
+                    <p>We maintain the highest ethical standards in AI development, ensuring our solutions are transparent, fair, and accountable.</p>
                 </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>CanLII Integration</h3>
-                    <p>Direct access to Canada's leading legal information database with natural language search capabilities</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h3>Procedural Guidance</h3>
-                    <p>Get answers to questions about Canadian legal procedures, court rules, and documentation requirements</p>
+                <div class="feature-card">
+                    <h3>Impact</h3>
+                    <p>Every solution we create is designed to deliver measurable value and positive transformation for our clients and society.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Enhanced Access Section -->
-        <div class="access-section" id="access">
-            <div class="content">
-                <h2>Access Nora Today</h2>
-                <p>Currently in development, Nora is being trained to become the most comprehensive AI legal assistant for Canadian law</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-light" onclick="window.location.href='nora.html'">Try Beta Version</button>
-                    <button class="btn" onclick="window.location.href='contact.html'">Request Early Access</button>
+        <!-- Team Section -->
+        <section class="team-section">
+            <h2>Meet Our Leadership</h2>
+            <p>The brilliant minds driving XenoraAI's vision forward</p>
+            
+            <!-- First Row - Saad and Gavin -->
+            <div class="team-row">
+                <div class="team-member">
+                    <h3>Saad Kashif</h3>
+                    <p class="position">Founder & Chief Executive Officer (CEO)</p>
+                    <p>Leading XenoraAI's vision and strategy while pioneering AI research in machine learning and neural network applications.</p>
+                    <a href="https://www.linkedin.com/in/saad-kashif/" target="_blank" class="linkedin-link">LinkedIn</a>
+                </div>
+                <div class="team-member">
+                    <h3>Gavin Martin</h3>
+                    <p class="position">Founder & Chief Operating Officer (COO) Chief Marketing Officer (CMO)</p>
+                    <p>Overseeing operational excellence and strategic growth while driving innovative marketing initiatives for XenoraAI's AI solutions.</p>
+                    <a href="https://www.linkedin.com/in/gavin-m-4a8718274/" target="_blank" class="linkedin-link">LinkedIn</a>
                 </div>
             </div>
-        </div>
+            
+            <!-- Second Row - Yacine, Sila, Yassen -->
+            <div class="team-row">
+                <div class="team-member">
+                    <h3>Yacine Eldjidel</h3>
+                    <p class="position">Chief Technology Officer (CTO) DevOps Engineer</p>
+                    <p>Architecting XenoraAI's technical infrastructure while driving breakthroughs in NLP, Computer Vision, and AI systems deployment.</p>
+                    <a href="https://www.linkedin.com/in/yacine-eldjidel-b1838a32a/" target="_blank" class="linkedin-link">LinkedIn</a>
+                </div>
+                <div class="team-member">
+                    <h3>Sila Ben Khelifa</h3>
+                    <p class="position">Chief Information Officer (CIO)</p>
+                    <p>Orchestrating XenoraAI's digital transformation through strategic IT leadership, secure data ecosystems, and technology-roadmap alignment.</p>
+                    <a href="https://www.linkedin.com/in/sila-bk-8553692b2/" target="_blank" class="linkedin-link">LinkedIn</a>
+                </div>
+                <div class="team-member">
+                    <h3>Yassen Hegazy</h3>
+                    <p class="position">AI Director (AID)</p>
+                    <p>Leading AI strategy and execution—bridging cutting-edge research with scalable solutions to drive XenoraAI's innovation and business impact.</p>
+                    <a href="https://www.linkedin.com/in/yassen-hegazy-33aa28330/" target="_blank" class="linkedin-link">LinkedIn</a>
+                </div>
+            </div>
+            
+            <!-- Third Row - Jayden and Ali -->
+            <div class="team-row">
+                <div class="team-member">
+                    <h3>Jayden Nkueze</h3>
+                    <p class="position">Chief Data Officer (CDO)</p>
+                    <p>Architecting XenoraAI's data ecosystem—transforming raw information into strategic assets through governance, analytics, and intelligence frameworks.</p>
+                    <a href="https://www.linkedin.com/in/jayden-nkueze/" target="_blank" class="linkedin-link">LinkedIn</a>
+                </div>
+                <div class="team-member">
+                    <h3>Ali Al-Dhaher</h3>
+                    <p class="position">Head of Security Chief Information Security Officer (CISO)</p>
+                    <p>Fortifying XenoraAI's digital frontier—orchestrating proactive cybersecurity strategies and robust threat mitigation to safeguard data, systems, and trust.</p>
+                    <a href="https://www.linkedin.com/in/alialdhaher/" target="_blank" class="linkedin-link">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Transform Your Business with AI?</h2>
+            <p>Discover how XenoraAI's cutting-edge solutions can drive innovation and efficiency in your organization.</p>
+            <div class="cta-buttons">
+                <button class="btn" onclick="window.location.href='contact.html'">Get in Touch</button>
+                <button class="btn btn-secondary" onclick="window.location.href='models.html'">View Our Models</button>
+            </div>
+        </section>
     </div>
 
     <!-- Enhanced Footer -->
@@ -754,48 +795,5 @@
         </div>
     </footer>
 
-    <script>
-        // Enhanced video autoplay with 24/7 looping
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('noraVideo');
-            const caption = document.getElementById('videoCaption');
-            
-            // Try to autoplay (muted is required in most browsers)
-            const playVideo = () => {
-                const promise = video.play();
-                
-                if (promise !== undefined) {
-                    promise.catch(error => {
-                        // Autoplay was prevented
-                        caption.style.display = 'block';
-                    });
-                }
-            };
-            
-            // Start with autoplay attempt
-            playVideo();
-            
-            // Set up loop monitoring
-            video.addEventListener('ended', function() {
-                this.currentTime = 0;
-                this.play().catch(e => {
-                    caption.style.display = 'block';
-                });
-            }, false);
-            
-            // Allow user to click to play if autoplay was blocked
-            video.addEventListener('click', function() {
-                caption.style.display = 'none';
-                playVideo();
-            });
-            
-            // Check periodically if video is still playing
-            setInterval(() => {
-                if (video.paused && !video.ended) {
-                    playVideo();
-                }
-            }, 3000);
-        });
-    </script>
 </body>
 </html>

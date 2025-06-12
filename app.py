@@ -316,6 +316,21 @@ def home():
     """Render the main application page."""
     return render_template('nora.html')
 
+@app.route('/nora')
+def nora():
+    """Render the main application page."""
+    return render_template('models.html')
+
+@app.route('/contact')
+def contact():
+    """Render the main application page."""
+    return render_template('contact.html')
+
+@app.route('/about')
+def about():
+    """Render the main application page."""
+    return render_template('about.html')
+
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint."""
