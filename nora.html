@@ -4,17 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nora - AI Legal Assistant | XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="XenoraLogo.png">
     <style>
-        /* Global Styles - EXACTLY matches About page */
-        body {
-            font-family: 'Roboto', sans-serif;
+        /* Enhanced Global Styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background: #faf4f2;
-            color: #1a1a2e;
-            line-height: 1.6;
+        }
+
+        :root {
+            --primary-bg: #faf4f2;
+            --secondary-bg: #f5ede9;
+            --primary-text: #1a1a2e;
+            --secondary-text: #2c2c54;
+            --accent-1: #8a2be2;
+            --accent-2: #ff007f;
+            --accent-3: #ff8c42;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-sm: 0 4px 20px rgba(26, 26, 46, 0.08);
+            --shadow-md: 0 10px 40px rgba(26, 26, 46, 0.12);
+            --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            color: var(--primary-text);
+            line-height: 1.7;
+            font-weight: 400;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Premium Navigation */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background: rgba(250, 244, 242, 0.85);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 60px;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            width: 90%;
+            max-width: 800px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav:hover {
+            background: rgba(250, 244, 242, 0.95);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 8s ease-in-out infinite;
+            letter-spacing: -0.02em;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 8px 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--primary-text);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+            color: white;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            nav {
+                top: 10px;
+                width: 95%;
+                padding: 12px 20px;
+            }
+            .nav-links {
+                gap: 4px;
+            }
+            .nav-link {
+                padding: 6px 12px;
+                font-size: 0.875rem;
+            }
         }
 
         h1, h2, h3 {
@@ -30,52 +137,6 @@
         }
 
         a:hover {
-            color: #ff8c42;
-        }
-
-        /* Navigation Bar - EXACTLY matches About page */
-        nav {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 20px 40px;
-            background: #ede6f5;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            background: linear-gradient(45deg, #8a2be2, #ff007f, #ff8c42);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 5s infinite alternate;
-            margin-right: 40px;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        nav .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        nav a {
-            font-size: 1.1em;
-            color: #000000;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
             color: #ff8c42;
         }
 
@@ -332,20 +393,123 @@
             color: #ff8c42;
         }
 
+        /* Update social links to be square */
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .social-links a {
             color: #faf4f2;
-            font-size: 1.5em;
-            transition: color 0.3s ease;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
         }
 
         .social-links a:hover {
             color: #ff8c42;
+            background: rgba(255, 140, 66, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Video Section */
+        .video-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(250, 244, 242, 0.5) 0%, rgba(245, 237, 233, 0.5) 100%);
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .video-section h2 {
+            margin-bottom: 30px;
+            color: #1a1a2e;
+            font-size: 2rem;
+        }
+
+        .video-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Capabilities Section */
+        .capabilities-section {
+            padding: 60px 40px;
+            background: white;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .capabilities-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            font-size: 2rem;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .capability-card {
+            background: linear-gradient(135deg, rgba(250, 244, 242, 0.5) 0%, rgba(245, 237, 233, 0.5) 100%);
+            padding: 30px 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .capability-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8a2be2, #ff007f);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .capability-card h3 {
+            margin-bottom: 15px;
+            color: #1a1a2e;
+            font-size: 1.3rem;
+        }
+
+        .capability-card p {
+            color: #2c2c54;
+            line-height: 1.6;
+            font-size: 1rem;
         }
 
         .copyright {
@@ -380,12 +544,12 @@
 <body>
     <!-- Navigation Bar -->
     <nav>
-        <div class="logo">XenoraAI</div>
+        <div class="nav-logo">XenoraAI</div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="models.html">Nora</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="models.html" class="nav-link">Nora</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
 
@@ -397,6 +561,52 @@
 
     <!-- Main Content -->
     <div class="main-content">
+        <!-- Video Section -->
+        <div class="video-section">
+            <h2>See Nora in Action</h2>
+            <div class="video-container">
+                <video width="100%" height="auto" autoplay loop muted playsinline>
+                    <source src="TicketCase.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Capabilities Section -->
+        <div class="capabilities-section">
+            <h2>What Nora Can Do For You</h2>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Case Law Research</h3>
+                    <p>Instantly find relevant Canadian case law and analyze precedents based on your specific legal questions</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Document Review</h3>
+                    <p>Analyze and summarize legal documents, contracts, and filings to highlight key points and potential issues</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>CanLII Integration</h3>
+                    <p>Direct access to Canada's leading legal information database with natural language search capabilities</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Procedural Guidance</h3>
+                    <p>Get answers to questions about Canadian legal procedures, court rules, and documentation requirements</p>
+                </div>
+            </div>
+        </div>
+
         <div class="panel-container">
             <!-- Document Upload Panel -->
             <div class="interface-panel">
@@ -527,7 +737,7 @@
         <div class="footer-grid">
             <div class="footer-column">
                 <h3>XenoraAI</h3>
-                <p>"Everyone Deserves An Advocate"</p>
+                <p style="color: rgba(250, 244, 242, 0.9);">"Everyone Deserves An Advocate"</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
@@ -556,21 +766,13 @@
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="cookies.html">Cookie Policy</a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <div class="footer-links">
-                    <a href="blog.html">Blog</a>
-                    <a href="documentation.html">Documentation</a>
-                    <a href="faq.html">FAQ</a>
+                    <!-- <a href="faq.html">FAQ</a> -->
                 </div>
             </div>
         </div>
         
         <div class="copyright">
-            <p>&copy; 2025 XenoraAI. All rights reserved.</p>
+            <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
 
