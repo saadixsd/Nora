@@ -6,23 +6,42 @@
     <meta name="description" content="Explore XenoraAI's advanced AI models designed for your industry.">
     <meta name="keywords" content="AI Models, XenoraAI, Technology Solutions, Artificial Intelligence">
     <title>About Us - XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="XenoraLogo.png">
     <style>
-        /* Global Styles */
+        /* Enhanced Global Styles */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-bg: #faf4f2;
+            --secondary-bg: #f5ede9;
+            --primary-text: #1a1a2e;
+            --secondary-text: #2c2c54;
+            --accent-1: #8a2be2;
+            --accent-2: #ff007f;
+            --accent-3: #ff8c42;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-sm: 0 4px 20px rgba(26, 26, 46, 0.08);
+            --shadow-md: 0 10px 40px rgba(26, 26, 46, 0.12);
+            --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.15);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #faf4f2 0%, #f5ede9 100%);
-            color: #1a1a2e;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            color: var(--primary-text);
             line-height: 1.7;
             font-weight: 400;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
@@ -56,74 +75,87 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Enhanced Navigation Bar */
+        /* Premium Navigation */
         nav {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 20px 50px;
-            background: rgba(237, 230, 245, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background: rgba(250, 244, 242, 0.85);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 60px;
+            box-shadow: var(--shadow-md);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            width: 90%;
+            max-width: 800px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        nav .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, #8a2be2, #ff007f, #ff8c42);
+        nav:hover {
+            background: rgba(250, 244, 242, 0.95);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
             background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientShift 6s ease-in-out infinite;
-            margin-right: 50px;
+            animation: gradientFlow 8s ease-in-out infinite;
             letter-spacing: -0.02em;
         }
 
-        @keyframes gradientShift {
+        @keyframes gradientFlow {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
 
-        nav .nav-links {
+        .nav-links {
             display: flex;
-            gap: 35px;
+            gap: 8px;
         }
 
-        nav .nav-links a {
-            font-size: 1rem;
-            color: #1a1a2e;
+        .nav-link {
+            padding: 8px 20px;
+            font-size: 0.95rem;
             font-weight: 500;
+            color: var(--primary-text);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            padding: 8px 0;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.01em;
         }
 
-        nav .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, #ff8c42, #ff007f);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        nav .nav-links a:hover::after,
-        nav .nav-links a.active::after {
-            width: 100%;
-        }
-
-        nav .nav-links a:hover {
-            color: #ff8c42;
+        .nav-link:hover,
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+            color: white;
             transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                top: 10px;
+                width: 95%;
+                padding: 12px 20px;
+            }
+            .nav-links {
+                gap: 4px;
+            }
+            .nav-link {
+                padding: 6px 12px;
+                font-size: 0.875rem;
+            }
         }
 
         /* Enhanced Header Section */
@@ -189,22 +221,44 @@
 
         /* Enhanced Button Styles */
         .btn {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
-            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 600;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(26, 26, 46, 0.2);
+            text-decoration: none;
             position: relative;
             overflow: hidden;
-            letter-spacing: 0.02em;
-            margin: 10px;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-3) 0%, var(--accent-2) 100%);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-text);
+            border: 2px solid var(--primary-text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-text);
+            color: white;
+            transform: translateY(-2px);
         }
 
         .btn::before {
@@ -222,30 +276,11 @@
             left: 100%;
         }
 
-        .btn:hover {
-            background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 140, 66, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #1a1a2e;
-            border: 2px solid #1a1a2e;
-            box-shadow: none;
-        }
-
-        .btn-secondary:hover {
-            background: #1a1a2e;
-            color: #ffffff;
-            border-color: #1a1a2e;
-        }
-
         /* Main Content Container */
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 0px;
         }
 
         /* About Section */
@@ -301,7 +336,7 @@
             margin-bottom: 20px;
         }
 
-        .team-section > p {
+        .team-section p {
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 60px;
@@ -464,31 +499,33 @@
 
         /* Enhanced CTA Section */
         .cta-section {
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
+            margin: 80px 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 32px;
+            border: 2px solid transparent;
+            background-image:
+                linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3)),
+                /* border gradient */
+                linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+            /* background */
+            background-origin: border-box;
+            background-clip: border-box, padding-box;
+        }
+
+        .cta {
+            padding: 120px 40px;
             text-align: center;
-            padding: 100px 40px;
-            background: linear-gradient(135deg, rgba(237, 230, 245, 0.3) 0%, rgba(250, 244, 242, 0.3) 100%);
-            border-radius: 24px;
-            margin: 60px 0;
-        }
-
-        .cta-section h2 {
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: #666;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            background-color: #faf4f2;
         }
 
         .cta-buttons {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
+            margin-top: 40px;
         }
 
         /* Enhanced Footer */
@@ -534,6 +571,7 @@
             transform: translateX(5px);
         }
 
+        /* Update social links to be square */
         .social-links {
             display: flex;
             gap: 20px;
@@ -544,15 +582,222 @@
             color: #faf4f2;
             font-size: 1.8rem;
             transition: all 0.3s ease;
-            padding: 10px;
-            border-radius: 50%;
+            padding: 12px;
+            border-radius: 12px;
             background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
         }
 
         .social-links a:hover {
             color: #ff8c42;
             background: rgba(255, 140, 66, 0.2);
             transform: translateY(-3px);
+        }
+
+        /* Enhanced About Page Design */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 0, 127, 0.1) 50%, rgba(255, 140, 66, 0.1) 100%);
+            padding: 120px 40px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8a2be2, #ff007f);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mission-section {
+            padding: 80px 40px;
+            background: white;
+            position: relative;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            margin: 80px auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .mission-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
+        }           
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-card {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(250, 244, 242, 0.5) 0%, rgba(245, 237, 233, 0.5) 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mission-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .mission-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8a2be2, #ff007f);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .values-section {
+            padding: 80px 40px;
+            background: white;
+            position: relative;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            margin: 80px auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .values-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .values-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .value-item {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(250, 244, 242, 0.5) 0%, rgba(245, 237, 233, 0.5) 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
+            transform: translateX(-100%);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .value-item:hover::before {
+            transform: translateX(0);
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8a2be2, #ff007f);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.2rem;
         }
 
         .copyright {
@@ -562,50 +807,19 @@
             color: rgba(250, 244, 242, 0.7);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 25px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            nav .logo {
-                margin-bottom: 15px;
-                margin-right: 0;
-                font-size: 1.6rem;
-            }
+        .display-2 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.25rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
 
-            nav .nav-links {
-                gap: 25px;
-            }
-
-            header {
-                padding: 180px 25px 100px;
-            }
-
-            .team-section,
-            .cta-section {
-                padding: 60px 25px;
-            }
-            
-            .about-container {
-                padding: 60px 30px;
-            }
-
-            .team-member {
-                width: 100% !important;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
+        .body-large {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--secondary-text);
         }
 
         /* Smooth scroll and performance optimizations */
@@ -623,59 +837,105 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <div class="logo">XenoraAI</div>
+        <div class="nav-logo">XenoraAI</div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="models.html">Nora</a>
-            <a href="about.html" class="active">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="models.html" class="nav-link">Nora</a>
+            <a href="about.html" class="nav-link active">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
 
     <!-- Header Section -->
-    <header>
-        <div class="content">
-            <h1>About XenoraAI</h1>
-            <p>Innovating AI solutions that transform industries and make a difference.</p>
-            <div class="cta-button">
-                <button class="btn" onclick="window.location.href='models.html'">Explore Our Solutions</button>
+    <header class="hero-section">
+        <div class="hero-content">
+            <span class="hero-badge">About Us</span>
+            <h1 class="display-1">Empowering Legal Excellence</h1>
+            <p class="body-large">We're on a mission to democratize legal support across Canada through innovative AI solutions that transform how legal professionals work.</p>
+            <div class="cta-buttons">
+                <a href="models.html" class="btn btn-primary">Explore Our Solutions</a>
+                <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
             </div>
         </div>
     </header>
 
     <div class="main-content">
-        <!-- About Section -->
-        <div class="about-container">
-            <div class="content">
-                <h2>XenoraAI: Founded in 2025</h2>
-                <p>We're on a mission to democratize legal support across Canada. Nora is our flagship AI model specifically designed to empower legal professionals and individuals navigating the justice system.</p>
-                <p>With instant access to CanLII, case law analysis, and document review capabilities, Nora works around the clock to give you the legal edge.</p>
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="section-header">
+                <span class="hero-badge">Our Mission</span>
+                <h2 class="display-2">Democratizing Legal Support</h2>
             </div>
-        </div>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Access to Justice</h3>
+                    <p>Making legal information and assistance accessible to everyone, regardless of their background or resources.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Solutions</h3>
+                    <p>Leveraging cutting-edge artificial intelligence to enhance legal research, document analysis, and case preparation.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fab fa-canadian-maple-leaf"></i>
+                    </div>
+                    <h3>Canadian Focus</h3>
+                    <p>Specialized in Canadian law with deep understanding of provincial differences and bilingual support.</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- Features Section -->
-        <section class="team-section">
-            <h2>Our Core Values</h2>
-            <div class="features-grid">
-                <div class="feature-card">
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="section-header">
+                <span class="hero-badge">Our Values</span>
+                <h2 class="display-2">What Drives Us Forward</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
                     <h3>Innovation</h3>
-                    <p>We constantly push boundaries to develop novel AI solutions that address real-world problems with creativity and technical excellence.</p>
+                    <p>Constantly pushing boundaries to develop novel AI solutions that address real-world problems.</p>
                 </div>
-                <div class="feature-card">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <h3>Integrity</h3>
-                    <p>We maintain the highest ethical standards in AI development, ensuring our solutions are transparent, fair, and accountable.</p>
+                    <p>Maintaining the highest ethical standards in AI development, ensuring transparency and accountability.</p>
                 </div>
-                <div class="feature-card">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
                     <h3>Impact</h3>
-                    <p>Every solution we create is designed to deliver measurable value and positive transformation for our clients and society.</p>
+                    <p>Every solution we create is designed to deliver measurable value and positive transformation.</p>
                 </div>
+                <!-- <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Building a supportive ecosystem for legal professionals and individuals seeking justice.</p>
+                </div> -->
             </div>
         </section>
 
         <!-- Team Section -->
         <section class="team-section">
-            <h2>Meet Our Leadership</h2>
-            <p>The brilliant minds driving XenoraAI's vision forward</p>
+            <div class="section-header">
+                <span class="section-badge">Leadership</span>
+                <h2 class="display-2">Meet Our Team</h2>
+                <p class="body-large">The brilliant minds driving XenoraAI's vision forward</p>
+            </div>
             
             <!-- First Row - Saad and Gavin -->
             <div class="team-row">
@@ -734,11 +994,14 @@
 
         <!-- CTA Section -->
         <section class="cta-section">
-            <h2>Ready to Transform Your Business with AI?</h2>
-            <p>Discover how XenoraAI's cutting-edge solutions can drive innovation and efficiency in your organization.</p>
-            <div class="cta-buttons">
-                <button class="btn" onclick="window.location.href='contact.html'">Get in Touch</button>
-                <button class="btn btn-secondary" onclick="window.location.href='models.html'">View Our Models</button>
+            <div class="cta">
+                <h2 class="display-2">Ready to Transform Your Practice?</h2>
+                <p class="body-large">Discover how XenoraAI can enhance your legal services with cutting-edge AI solutions
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    <a href="models.html" class="btn btn-secondary">Learn More</a>
+                </div>
             </div>
         </section>
     </div>
@@ -748,7 +1011,7 @@
         <div class="footer-grid">
             <div class="footer-column">
                 <h3>XenoraAI</h3>
-                <p>"Everyone Deserves An Advocate"</p>
+                <p style="color: rgba(250, 244, 242, 0.9);">"Everyone Deserves An Advocate"</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
@@ -777,21 +1040,13 @@
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="cookies.html">Cookie Policy</a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <div class="footer-links">
-                    <a href="blog.html">Blog</a>
-                    <a href="documentation.html">Documentation</a>
-                    <a href="faq.html">FAQ</a>
+                    <!-- <a href="faq.html">FAQ</a> -->
                 </div>
             </div>
         </div>
         
         <div class="copyright">
-            <p>&trade; 2025 XenoraAI. All rights reserved.</p>
+            <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
 
