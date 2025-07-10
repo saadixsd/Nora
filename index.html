@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,13 @@
     <meta name="description" content="Discover XenoraAI - Innovative AI models tailored to ease your life.">
     <meta name="keywords" content="XenoraAI, Artificial Intelligence, AI Models, Life Solutions">
     <title>XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="XenoraLogo.png">
 
-<style>
+    <style>
         /* Enhanced Global Styles */
         * {
             box-sizing: border-box;
@@ -35,7 +38,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
@@ -44,6 +47,25 @@
             font-weight: 400;
             scroll-behavior: smooth;
             overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
         }
 
         /* Advanced Typography System */
@@ -117,12 +139,15 @@
                 transform: translateY(100vh) scale(0);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.6;
             }
+
             90% {
                 opacity: 0.6;
             }
+
             100% {
                 transform: translateY(-20vh) scale(1);
                 opacity: 0;
@@ -130,11 +155,34 @@
         }
 
         /* Add more particles with different speeds and sizes */
-        .particle:nth-child(1) { animation-duration: 20s; left: 10%; }
-        .particle:nth-child(2) { animation-duration: 18s; left: 30%; width: 6px; height: 6px; }
-        .particle:nth-child(3) { animation-duration: 15s; left: 50%; }
-        .particle:nth-child(4) { animation-duration: 22s; left: 70%; width: 5px; height: 5px; }
-        .particle:nth-child(5) { animation-duration: 25s; left: 90%; }
+        .particle:nth-child(1) {
+            animation-duration: 20s;
+            left: 10%;
+        }
+
+        .particle:nth-child(2) {
+            animation-duration: 18s;
+            left: 30%;
+            width: 6px;
+            height: 6px;
+        }
+
+        .particle:nth-child(3) {
+            animation-duration: 15s;
+            left: 50%;
+        }
+
+        .particle:nth-child(4) {
+            animation-duration: 22s;
+            left: 70%;
+            width: 5px;
+            height: 5px;
+        }
+
+        .particle:nth-child(5) {
+            animation-duration: 25s;
+            left: 90%;
+        }
 
         /* Premium Navigation */
         nav {
@@ -176,8 +224,15 @@
         }
 
         @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .nav-links {
@@ -221,7 +276,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 radial-gradient(ellipse at 20% 20%, rgba(138, 43, 226, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 80%, rgba(255, 140, 66, 0.06) 0%, transparent 50%);
             pointer-events: none;
@@ -268,8 +323,17 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.2); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
         }
 
         .hero-title {
@@ -312,8 +376,15 @@
         }
 
         @keyframes float-gentle {
-            0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-            50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.1); }
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
+            }
         }
 
         .hero-card {
@@ -335,15 +406,21 @@
         }
 
         .hero-card-2 {
-            top: 60%;
-            right: 15%;
+            top: 40%;
+            left: 45%;
             animation-delay: -2s;
         }
 
         .hero-card-3 {
-            bottom: 10%;
-            left: 20%;
+            bottom: 25%;
+            left: 10%;
             animation-delay: -1s;
+        }
+
+        .hero-card-4 {
+            bottom: 10%;
+            right: 5%;
+            animation-delay: -3s;
         }
 
         .card-content {
@@ -397,11 +474,14 @@
         }
 
         @keyframes float-card {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg); 
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
             }
-            50% { 
-                transform: translateY(-10px) rotate(1deg); 
+
+            50% {
+                transform: translateY(-10px) rotate(1deg);
             }
         }
 
@@ -558,6 +638,22 @@
             position: relative;
             overflow: hidden;
             margin: 80px 0;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .legal-focus h2 {
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .legal-focus h3 {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .legal-focus p {
+            text-align: center;
+            font-size: 0.8675rem;
         }
 
         .legal-focus::before {
@@ -567,7 +663,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 radial-gradient(ellipse at 30% 30%, rgba(255, 140, 66, 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at 70% 70%, rgba(255, 0, 127, 0.1) 0%, transparent 50%);
             pointer-events: none;
@@ -576,9 +672,9 @@
         .legal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
+            gap: 50px;
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 20px auto;
         }
 
         .legal-card {
@@ -651,16 +747,27 @@
         }
 
         /* CTA Section */
-        .cta {
-            padding: 120px 40px;
-            text-align: center;
-            background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%),
-                radial-gradient(ellipse at center, rgba(255, 140, 66, 0.05) 0%, transparent 70%);
-            border-radius: 32px;
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
             margin: 80px 40px;
             position: relative;
             overflow: hidden;
+            border-radius: 32px;
+            border: 2px solid transparent;
+            background-image:
+                linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3)),
+                /* border gradient */
+                linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+            /* background */
+            background-origin: border-box;
+            background-clip: border-box, padding-box;
+        }
+
+
+        .cta {
+            padding: 120px 40px;
+            text-align: center;
+            background-color: #faf4f2;
         }
 
         .cta-buttons {
@@ -757,6 +864,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -765,6 +873,7 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
+
             .hero-container,
             .nora-container {
                 grid-template-columns: 1fr;
@@ -778,43 +887,43 @@
                 width: 95%;
                 padding: 12px 20px;
             }
-            
+
             .nav-links {
                 gap: 4px;
             }
-            
+
             .nav-link {
                 padding: 6px 12px;
                 font-size: 0.875rem;
             }
-            
+
             .hero {
                 padding: 120px 20px 60px;
             }
-            
+
             .features,
             .legal-focus,
             .nora-spotlight,
             .cta {
                 padding: 80px 20px;
             }
-            
+
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
-            
+
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
                 text-align: center;
             }
-            
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .btn {
                 width: 100%;
                 max-width: 280px;
@@ -848,23 +957,135 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-</style>
+
+        /* Cookie Consent Popup */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+            z-index: 10000;
+            box-shadow: var(--shadow-lg);
+            color: white;
+            display: none;
+        }
+
+        .cookie-consent.show {
+            display: block;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-consent h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .cookie-consent p {
+            margin: 0 0 20px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-btn.accept {
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+            color: white;
+        }
+
+        .cookie-btn.decline {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cookie-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Update social links to be square */
+        .social-links a {
+            color: #faf4f2;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+        }
+
+        .social-links a:hover {
+            color: #ff8c42;
+            background: rgba(255, 140, 66, 0.2);
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- Floating Particles Background -->
-        <div class="bg-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
+    <!-- Cookie Consent Popup -->
+    <div class="cookie-consent" id="cookieConsent">
+        <h3>🍪 Cookie Notice</h3>
+        <p>We use cookies to enhance your experience on our website. By continuing to use this site, you consent to our
+            use of cookies. Learn more in our <a href="cookies.html" style="color: #ff8c42;">Cookie Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn accept" onclick="acceptCookies()">Accept All</button>
+            <button class="cookie-btn decline" onclick="declineCookies()">Essential Only</button>
         </div>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
     <!-- Premium Navigation -->
     <nav>
@@ -878,18 +1099,19 @@
     </nav>
 
     <!-- Header Section -->
-            <header class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-badge">AI-Powered Legal Solutions</div>
-                    <h1 class="display-1">Everyone Deserves An Advocate</h1>
-                    <p class="body-large">Your go-to AI solutions expert. Designed to attend to your legal needs whether they be professional or personal.</p>
-                    <div class="hero-cta">
-                        <a href="models.html" class="btn btn-primary">Access Models</a>
-                        <a href="about.html" class="btn btn-secondary">Learn More</a>
-                    </div>
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">AI-Powered Legal Solutions</div>
+                <h1 class="display-1">Everyone Deserves An Advocate</h1>
+                <p class="body-large">Your go-to AI solutions expert. Designed to attend to your legal needs whether
+                    they be professional or personal.</p>
+                <div class="hero-cta">
+                    <a href="models.html" class="btn btn-primary">Access Models</a>
+                    <a href="about.html" class="btn btn-secondary">Learn More</a>
                 </div>
-                <div class="hero-visual">
+            </div>
+            <div class="hero-visual">
 
                 <!-- Floating Card 1 -->
                 <div class="hero-card hero-card-1">
@@ -929,15 +1151,28 @@
                         </div>
                     </div>
                 </div>
-            </div>
-                    <!-- Add your hero visual content here -->
+
+                <!-- Floating Card 4 -->
+                <div class="hero-card hero-card-4">
+                    <div class="card-content">
+                        <div class="card-icon gradient-1">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="card-text">
+                            <div class="card-title">Procedural Guidance</div>
+                            <div class="card-subtitle">Step-by-step Legal Help</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </header>
+            <!-- Add your hero visual content here -->
+        </div>
+        </div>
+    </header>
 
     <div class="main-content">
         <!-- Features Section -->
-                <section class="features">
+        <!-- <section class="features">
             <div class="section-header">
                 <span class="section-badge">Our Solutions</span>
                 <h2 class="display-2">AI for Legal Excellence</h2>
@@ -965,10 +1200,10 @@
                     <p>Direct access to Canada's leading legal information database with smart search</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Add this after the Features section -->
-        <section class="testimonials" style="padding: 80px 40px; background: var(--secondary-bg);">
+        <!-- <section class="testimonials" style="padding: 80px 40px; background: var(--secondary-bg);">
             <div class="section-header">
                 <span class="section-badge">Trusted By Professionals</span>
                 <h2 class="heading-1">What Our Users Say</h2>
@@ -984,15 +1219,15 @@
                     </div>
                     <p class="body-medium">"XenoraAI reduced my case research time by 70%. The document analysis feature is incredibly accurate."</p>
                 </div>
-                <!-- Add 2 more testimonial cards -->
+                
             </div>
-        </section>
+        </section> -->
 
         <!-- Legal Focus Section -->
         <section class="legal-focus">
             <div class="content">
-                <h2>Focused on Canadian Legal Excellence</h2>
-                <p>Our AI solutions are specifically designed to support Canada's legal professionals</p>
+                <h2 style="text-align: center;">Focused on Canadian Legal Excellence</h2>
+                <p style="text-align: center;">Our AI solutions are specifically designed to support Canada's legal professionals</p>
                 <div class="legal-grid">
                     <div class="legal-card">
                         <h3>Provincial Expertise</h3>
@@ -1016,7 +1251,8 @@
                 <div class="nora-content">
                     <span class="section-badge">Meet Nora</span>
                     <h2 class="display-2">Your AI Legal Assistant</h2>
-                    <p class="body-large">Our flagship AI model designed specifically for Canadian legal professionals. Available 24/7 for case law research, document analysis, and legal insights.</p>
+                    <p class="body-large">Our flagship AI model designed specifically for Canadian legal professionals.
+                        Available 24/7 for case law research, document analysis, and legal insights.</p>
                     <a href="models.html" class="btn btn-primary">Learn About Nora</a>
                 </div>
                 <div class="nora-visual">
@@ -1029,7 +1265,7 @@
         </section>
 
         <!-- Add this before the CTA section -->
-        <section class="pricing" style="padding: 80px 40px;">
+        <!-- <section class="pricing" style="padding: 80px 40px;">
             <div class="section-header">
                 <span class="section-badge">Simple Pricing</span>
                 <h2 class="heading-1">Choose Your Plan</h2>
@@ -1045,23 +1281,26 @@
                     </ul>
                     <a href="#" class="btn btn-secondary" style="width: 100%;">Get Started</a>
                 </div>
-                <!-- Add 2 more pricing cards -->
+            
             </div>
-        </section>
+        </section> -->
 
-            <!-- CTA Section -->
-           <section class="cta">
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta">
                 <h2 class="display-2">Ready to Transform Your Practice?</h2>
-                <p class="body-large">Discover how XenoraAI can enhance your legal services with cutting-edge AI solutions</p>
+                <p class="body-large">Discover how XenoraAI can enhance your legal services with cutting-edge AI solutions
+                </p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn btn-primary">Get Started</a>
                     <a href="about.html" class="btn btn-secondary">Learn More</a>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+    </div>
 
-            <!-- Add this before the Footer -->
-        <section class="integrations" style="padding: 60px 40px; background: var(--secondary-bg);">
+    <!-- Add this before the Footer -->
+    <!-- <section class="integrations" style="padding: 60px 40px; background: var(--secondary-bg);">
             <div class="section-header">
                 <span class="section-badge">Seamless Integration</span>
                 <h2 class="heading-1">Works With Your Tools</h2>
@@ -1070,28 +1309,30 @@
                 <div style="background: white; width: 120px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 15px;">
                     <img src="canlii-logo.png" alt="CanLII" style="max-width: 100%; height: auto;">
                 </div>
-                <!-- Add 4-5 more integration logos -->
-            </div>
-        </section>
 
-        <!-- Footer -->
-        <footer>
+            </div>
+        </section> -->
+
+    <!-- Footer -->
+    <footer>
         <div class="footer-grid">
             <div class="footer-column">
                 <h3>XenoraAI</h3>
-                <p>"Everyone Deserves An Advocate"</p>
+                <p style="color: rgba(250, 244, 242, 0.9);">"Everyone Deserves An Advocate"</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                         </svg>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <div class="footer-links">
@@ -1101,29 +1342,49 @@
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Legal</h3>
                 <div class="footer-links">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="cookies.html">Cookie Policy</a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <div class="footer-links">
-                    <a href="blog.html">Blog</a>
-                    <a href="documentation.html">Documentation</a>
-                    <a href="faq.html">FAQ</a>
+                    <!-- <a href="faq.html">FAQ</a> -->
                 </div>
             </div>
         </div>
-        
+
         <div class="copyright">
-            <p>&trade; 2025 XenoraAI. All rights reserved.</p>
+            <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Cookie Consent Management
+        function showCookieConsent() {
+            const consent = document.getElementById('cookieConsent');
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => {
+                    consent.classList.add('show');
+                }, 2000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+
+        // Show cookie consent on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            showCookieConsent();
+        });
+    </script>
 </body>
+
 </html>
