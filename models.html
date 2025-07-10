@@ -7,23 +7,42 @@
     <meta name="description" content="Discover Nora - XenoraAI's legal AI assistant designed for Canadian law professionals">
     <meta name="keywords" content="Nora AI, XenoraAI, Legal AI Assistant, Canadian Law, CanLII">
     <title>Nora - XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="XenoraLogo.png">
     <style>
-        /* Global Styles */
+        /* Enhanced Global Styles */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-bg: #faf4f2;
+            --secondary-bg: #f5ede9;
+            --primary-text: #1a1a2e;
+            --secondary-text: #2c2c54;
+            --accent-1: #8a2be2;
+            --accent-2: #ff007f;
+            --accent-3: #ff8c42;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-sm: 0 4px 20px rgba(26, 26, 46, 0.08);
+            --shadow-md: 0 10px 40px rgba(26, 26, 46, 0.12);
+            --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.15);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #faf4f2 0%, #f5ede9 100%);
-            color: #1a1a2e;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            color: var(--primary-text);
             line-height: 1.7;
             font-weight: 400;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
@@ -59,79 +78,91 @@
 
         /* Enhanced Navigation Bar */
         nav {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 20px 50px;
-            background: rgba(237, 230, 245, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background: rgba(250, 244, 242, 0.85);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 60px;
+            box-shadow: var(--shadow-md);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            width: 90%;
+            max-width: 800px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        nav .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, #8a2be2, #ff007f, #ff8c42);
+        nav:hover {
+            background: rgba(250, 244, 242, 0.95);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
             background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientShift 6s ease-in-out infinite;
-            margin-right: 50px;
+            animation: gradientFlow 8s ease-in-out infinite;
             letter-spacing: -0.02em;
         }
 
-        @keyframes gradientShift {
+        @keyframes gradientFlow {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
 
-        nav .nav-links {
+        .nav-links {
             display: flex;
-            gap: 35px;
+            gap: 8px;
         }
 
-        nav .nav-links a {
-            font-size: 1rem;
-            color: #1a1a2e;
+        .nav-link {
+            padding: 8px 20px;
+            font-size: 0.95rem;
             font-weight: 500;
+            color: var(--primary-text);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            padding: 8px 0;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.01em;
         }
 
-        nav .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, #ff8c42, #ff007f);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        nav .nav-links a:hover::after,
-        nav .nav-links a.active::after {
-            width: 100%;
-        }
-
-        nav .nav-links a:hover {
-            color: #ff8c42;
+        .nav-link:hover,
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+            color: white;
             transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            nav {
+                top: 10px;
+                width: 95%;
+                padding: 12px 20px;
+            }
+            .nav-links {
+                gap: 4px;
+            }
+            .nav-link {
+                padding: 6px 12px;
+                font-size: 0.875rem;
+            }
         }
 
         /* Enhanced Header Section */
         header {
             text-align: center;
             padding: 220px 40px 120px;
-            background: linear-gradient(135deg, #faf4f2 0%, #f8f1ee 100%);
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 0, 127, 0.1) 50%, rgba(255, 140, 66, 0.1) 100%);
             border-bottom: 1px solid rgba(26, 26, 46, 0.1);
             position: relative;
             overflow: hidden;
@@ -190,22 +221,20 @@
 
         /* Enhanced Button Styles */
         .btn {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
-            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 600;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(26, 26, 46, 0.2);
+            text-decoration: none;
             position: relative;
             overflow: hidden;
-            letter-spacing: 0.02em;
-            margin: 0 10px;
+            letter-spacing: 0.01em;
         }
 
         .btn::before {
@@ -352,12 +381,34 @@
         /* Enhanced Capabilities Section */
         .capabilities-section {
             padding: 80px 40px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            margin: 40px auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border-radius: 24px;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .capabilities-section h2 {
-            margin-bottom: 20px;
+        .capabilities-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
         }
+
+        /* .capabilities-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            font-size: 2rem;
+        } */
 
         .capabilities-section > p {
             font-size: 1.2rem;
@@ -376,11 +427,11 @@
         }
 
         .capability-card {
-            background: rgba(255, 255, 255, 0.7);
+            background: linear-gradient(135deg, rgba(250, 244, 242, 0.5) 0%, rgba(245, 237, 233, 0.5) 100%);
             backdrop-filter: blur(10px);
             padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); */
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(255, 255, 255, 0.3);
             position: relative;
@@ -412,12 +463,21 @@
 
         .capability-icon {
             font-size: 3rem;
-            background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%);
+            /* background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%); */
+            background: linear-gradient(135deg, #8a2be2, #ff007f);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 25px;
             transition: transform 0.3s ease;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
         }
 
         .capability-card:hover .capability-icon {
@@ -528,6 +588,7 @@
             transform: translateX(5px);
         }
 
+        /* Update social links to be square */
         .social-links {
             display: flex;
             gap: 20px;
@@ -538,9 +599,14 @@
             color: #faf4f2;
             font-size: 1.8rem;
             transition: all 0.3s ease;
-            padding: 10px;
-            border-radius: 50%;
+            padding: 12px;
+            border-radius: 12px;
             background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
         }
 
         .social-links a:hover {
@@ -614,12 +680,12 @@
 <body>
     <!-- Navigation Bar -->
     <nav>
-        <div class="logo">XenoraAI</div>
+        <div class="nav-logo">XenoraAI</div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="models.html" class="active">Nora</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="models.html" class="nav-link active">Nora</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
 
@@ -696,7 +762,6 @@
                 <p>Currently in development, Nora is being trained to become the most comprehensive AI legal assistant for Canadian law</p>
                 <div class="cta-buttons">
                     <button class="btn btn-light" onclick="window.location.href='nora.html'">Try Beta Version</button>
-                    <button class="btn" onclick="window.location.href='contact.html'">Request Early Access</button>
                 </div>
             </div>
         </div>
@@ -707,7 +772,7 @@
         <div class="footer-grid">
             <div class="footer-column">
                 <h3>XenoraAI</h3>
-                <p>"Everyone Deserves An Advocate"</p>
+                <p style="color: rgba(250, 244, 242, 0.9);">"Everyone Deserves An Advocate"</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
@@ -736,21 +801,13 @@
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="cookies.html">Cookie Policy</a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <div class="footer-links">
-                    <a href="blog.html">Blog</a>
-                    <a href="documentation.html">Documentation</a>
-                    <a href="faq.html">FAQ</a>
+                    <!-- <a href="faq.html">FAQ</a> -->
                 </div>
             </div>
         </div>
         
         <div class="copyright">
-            <p>&trade; 2025 XenoraAI. All rights reserved.</p>
+            <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
 
