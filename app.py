@@ -1,6 +1,6 @@
 """
 Nora AI - Canadian Legal Assistant Flask Application
-A Flask-based AI legal assistant for Canadian law queries and document analysis.
+A Flask-based AI legal assistant for Canadian law queries and document analysis
 """
 
 import os
