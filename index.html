@@ -49,7 +49,9 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: #1a1a2e;
@@ -632,7 +634,7 @@
 
         /* Legal Focus Section with Premium Design */
         .legal-focus {
-            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-text) 100%);
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
             color: var(--primary-bg);
             padding: 120px 40px;
             position: relative;
@@ -1057,6 +1059,246 @@
             background: rgba(255, 140, 66, 0.2);
             transform: translateY(-3px);
         }
+
+        /* Responsive Navigation and Footer */
+
+        /* Small Mobile (up to 375px) */
+        @media (max-width: 375px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 6px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 8px 0 !important;
+                font-size: 0.95rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 30px 4px 20px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Medium Mobile (375px - 425px) */
+        @media (min-width: 375px) and (max-width: 425px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 12px 8px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 40px 8px 24px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 22px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Large Mobile (425px - 600px) */
+        @media (min-width: 425px) and (max-width: 600px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 14px 12px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 10px !important;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                padding: 10px 8px !important;
+                font-size: 1.05rem !important;
+                text-align: center !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 50px 12px 30px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 28px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Tablet (600px - 900px) */
+        @media (min-width: 600px) and (max-width: 900px) {
+            nav {
+                position: fixed !important;
+                width: 98% !important;
+                max-width: 98% !important;
+                border-radius: 30px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 16px 20px !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 12px !important;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 12px 12px !important;
+                font-size: 1.1rem !important;
+            }
+
+            footer {
+                text-align: left !important;
+                padding: 60px 24px 40px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 32px !important;
+                text-align: left !important;
+                justify-items: start !important;
+            }
+
+            .footer-column {
+                align-items: flex-start !important;
+                text-align: left !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Desktop (above 900px) */
+        @media (min-width: 901px) {
+            nav {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 800px;
+                border-radius: 60px;
+                box-shadow: var(--shadow-md);
+                padding: 16px 32px;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                gap: 8px;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 8px 20px;
+                font-size: 0.95rem;
+            }
+
+            footer {
+                text-align: left;
+                padding: 80px 40px 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+                text-align: left;
+                justify-items: start;
+            }
+
+            .footer-column {
+                align-items: flex-start;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
@@ -1226,8 +1468,9 @@
         <!-- Legal Focus Section -->
         <section class="legal-focus">
             <div class="content">
-                <h2 style="text-align: center;">Focused on Canadian Legal Excellence</h2>
-                <p style="text-align: center;">Our AI solutions are specifically designed to support Canada's legal professionals</p>
+                <h2 style="text-align: center; color: #faf4f2;">Focused on Canadian Legal Excellence</h2>
+                <p style="text-align: center;">Our AI solutions are specifically designed to support Canada's legal
+                    professionals</p>
                 <div class="legal-grid">
                     <div class="legal-card">
                         <h3>Provincial Expertise</h3>
@@ -1289,7 +1532,8 @@
         <section class="cta-section">
             <div class="cta">
                 <h2 class="display-2">Ready to Transform Your Practice?</h2>
-                <p class="body-large">Discover how XenoraAI can enhance your legal services with cutting-edge AI solutions
+                <p class="body-large">Discover how XenoraAI can enhance your legal services with cutting-edge AI
+                    solutions
                 </p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn btn-primary">Get Started</a>
