@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
     <meta name="keywords" content="XenoraAI, cookies policy, privacy, AI legal assistant">
     <title>Cookies Policy - XenoraAI</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Styles */
@@ -45,7 +48,9 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: #1a1a2e;
@@ -116,8 +121,15 @@
         }
 
         @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .nav-links {
@@ -150,9 +162,11 @@
                 width: 95%;
                 padding: 12px 20px;
             }
+
             .nav-links {
                 gap: 4px;
             }
+
             .nav-link {
                 padding: 6px 12px;
                 font-size: 0.875rem;
@@ -206,12 +220,13 @@
         }
 
         @keyframes fadeInUp {
-            0% { 
-                opacity: 0; 
+            0% {
+                opacity: 0;
                 transform: translateY(30px);
             }
-            100% { 
-                opacity: 1; 
+
+            100% {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
@@ -316,7 +331,8 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .cookie-table th, .cookie-table td {
+        .cookie-table th,
+        .cookie-table td {
             padding: 20px;
             text-align: left;
             border-bottom: 1px solid rgba(26, 26, 46, 0.1);
@@ -497,7 +513,7 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             nav .logo {
                 margin-bottom: 15px;
                 margin-right: 0;
@@ -515,7 +531,7 @@
             .cookies-content {
                 padding: 40px 30px;
             }
-            
+
             .cookie-table {
                 display: block;
                 overflow-x: auto;
@@ -541,8 +557,249 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
+        /* Responsive Navigation and Footer */
+
+        /* Small Mobile (up to 375px) */
+        @media (max-width: 375px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 30px 4px 20px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Medium Mobile (376px - 425px) */
+        @media (min-width: 375px) and (max-width: 425px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 40px 8px 24px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 22px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Large Mobile (426px - 600px) */
+        @media (min-width: 425px) and (max-width: 600px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 50px 12px 30px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 28px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Tablet (601px - 900px) */
+        @media (min-width: 601px) and (max-width: 900px) {
+            nav {
+                position: fixed !important;
+                width: 98% !important;
+                max-width: 98% !important;
+                border-radius: 30px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 16px 20px !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 12px !important;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 12px 12px !important;
+                font-size: 1.1rem !important;
+            }
+
+            footer {
+                text-align: left !important;
+                padding: 60px 24px 40px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 32px !important;
+                text-align: left !important;
+                justify-items: start !important;
+            }
+
+            .footer-column {
+                align-items: flex-start !important;
+                text-align: left !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Desktop (above 900px) */
+        @media (min-width: 901px) {
+            nav {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 800px;
+                border-radius: 60px;
+                box-shadow: var(--shadow-md);
+                padding: 16px 32px;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                gap: 8px;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 8px 20px;
+                font-size: 0.95rem;
+            }
+
+            footer {
+                text-align: left;
+                padding: 80px 40px 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+                text-align: left;
+                justify-items: start;
+            }
+
+            .footer-column {
+                align-items: flex-start;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav>
@@ -565,8 +822,10 @@
     <div class="main-content">
         <div class="cookies-content">
             <h2>Understanding Cookies</h2>
-            <p>Cookies are small text files that are placed on your computer or mobile device when you visit websites. They are widely used to make websites work more efficiently, as well as to provide information to the website owners.</p>
-            
+            <p>Cookies are small text files that are placed on your computer or mobile device when you visit websites.
+                They are widely used to make websites work more efficiently, as well as to provide information to the
+                website owners.</p>
+
             <div class="cookie-control">
                 <h3>Cookie Preferences</h3>
                 <p>We respect your privacy. You can control which types of cookies we use:</p>
@@ -581,7 +840,8 @@
             <p>At XenoraAI, we use cookies for several purposes:</p>
             <ul>
                 <li><strong>Essential Operation:</strong> Cookies necessary for our website to function properly</li>
-                <li><strong>Performance:</strong> Cookies that help us understand how visitors interact with our site</li>
+                <li><strong>Performance:</strong> Cookies that help us understand how visitors interact with our site
+                </li>
                 <li><strong>Functionality:</strong> Cookies that remember your preferences</li>
                 <li><strong>Analytics:</strong> Cookies that help us improve our services</li>
             </ul>
@@ -629,19 +889,23 @@
             <p>These third-party services have their own privacy policies, and we recommend you review them.</p>
 
             <h2>Managing Cookies</h2>
-            <p>You can control and/or delete cookies as you wish. Most web browsers allow some control of cookies through browser settings. You can:</p>
+            <p>You can control and/or delete cookies as you wish. Most web browsers allow some control of cookies
+                through browser settings. You can:</p>
             <ul>
                 <li>Delete all cookies from your device</li>
                 <li>Set your browser to prevent cookies being placed</li>
                 <li>Use browser add-ons to manage specific cookies</li>
             </ul>
-            <p>To learn more about how to manage cookies, visit <a href="https://www.allaboutcookies.org/" target="_blank">allaboutcookies.org</a>.</p>
+            <p>To learn more about how to manage cookies, visit <a href="https://www.allaboutcookies.org/"
+                    target="_blank">allaboutcookies.org</a>.</p>
 
             <h2>Changes to This Policy</h2>
-            <p>We may update this Cookies Policy from time to time. We will notify you of any changes by posting the new policy on this page with an updated revision date.</p>
+            <p>We may update this Cookies Policy from time to time. We will notify you of any changes by posting the new
+                policy on this page with an updated revision date.</p>
 
             <h2>Contact Us</h2>
-            <p>If you have any questions about our use of cookies, please contact us at <a href="mailto:xenoraai@gmail.com">xenoraai@gmail.com</a>.</p>
+            <p>If you have any questions about our use of cookies, please contact us at <a
+                    href="mailto:xenoraai@gmail.com">xenoraai@gmail.com</a>.</p>
         </div>
     </div>
 
@@ -656,13 +920,15 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                         </svg>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <div class="footer-links">
@@ -672,7 +938,7 @@
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Legal</h3>
                 <div class="footer-links">
@@ -683,7 +949,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="copyright">
             <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
@@ -691,20 +957,21 @@
 
     <script>
         // Simple cookie preference management
-        document.getElementById('accept-all').addEventListener('click', function() {
+        document.getElementById('accept-all').addEventListener('click', function () {
             alert('All cookies have been accepted. Thank you!');
             // In a real implementation, this would set a cookie
         });
 
-        document.getElementById('essential-only').addEventListener('click', function() {
+        document.getElementById('essential-only').addEventListener('click', function () {
             alert('Only essential cookies will be used. Some features may be limited.');
             // In a real implementation, this would set a cookie
         });
 
-        document.getElementById('manage-cookies').addEventListener('click', function() {
+        document.getElementById('manage-cookies').addEventListener('click', function () {
             alert('Cookie management panel would open here in a full implementation.');
             // In a real implementation, this would open a detailed preferences panel
         });
     </script>
 </body>
+
 </html>
