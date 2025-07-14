@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore XenoraAI's advanced AI models designed for your industry.">
     <meta name="keywords" content="AI Models, XenoraAI, Technology Solutions, Artificial Intelligence">
     <title>About Us - XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="XenoraLogo.png">
     <style>
@@ -44,7 +47,9 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: #1a1a2e;
@@ -115,8 +120,15 @@
         }
 
         @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .nav-links {
@@ -148,10 +160,13 @@
                 top: 10px;
                 width: 95%;
                 padding: 12px 20px;
+                justify-content: none;
             }
+
             .nav-links {
                 gap: 4px;
             }
+
             .nav-link {
                 padding: 6px 12px;
                 font-size: 0.875rem;
@@ -209,12 +224,13 @@
         }
 
         @keyframes fadeInUp {
-            0% { 
-                opacity: 0; 
+            0% {
+                opacity: 0;
                 transform: translateY(30px);
             }
-            100% { 
-                opacity: 1; 
+
+            100% {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
@@ -235,6 +251,7 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 0.01em;
+            justify-content: center;
         }
 
         .btn-primary {
@@ -663,7 +680,7 @@
             right: 0;
             height: 4px;
             background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
-        }           
+        }
 
         .mission-grid {
             display: grid;
@@ -831,8 +848,377 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
+        /* Responsive Design for About Page */
+
+        /* Small Mobile (up to 375px) */
+        @media (max-width: 375px) {
+
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            .main-content,
+            .about-container,
+            .mission-section,
+            .values-section,
+            .team-section,
+            footer {
+                padding: 12px 4px !important;
+            }
+
+            footer {
+                text-align: center !important;
+            }
+
+            .footer-grid {
+                justify-items: center !important;
+                text-align: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero-section {
+                padding: 80px 8px 40px !important;
+            }
+
+            .team-member {
+                min-width: 220px;
+                padding: 20px 10px;
+                width: 100% !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .cta {
+                padding: 60px 20px !important;
+            }
+
+            .value-item, .mission-card {
+                margin: 20px 15px;
+                padding: 20px 15px;
+            }
+        }
+
+        /* Medium Mobile (376px - 425px) */
+        @media (min-width: 375px) and (max-width: 425px) {
+
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            .main-content,
+            .about-container,
+            .mission-section,
+            .values-section,
+            .team-section,
+            footer {
+                padding: 16px 8px !important;
+            }
+
+            .hero-section {
+                padding: 100px 12px 50px !important;
+            }
+
+            .team-member {
+                min-width: 240px;
+                padding: 24px 12px;
+                width: 100% !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+
+            footer {
+                text-align: center !important;
+            }
+
+            .footer-grid {
+                justify-items: center !important;
+                text-align: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Large Mobile (426px - 600px) */
+        @media (min-width: 425px) and (max-width: 600px) {
+
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            .main-content,
+            .about-container,
+            .mission-section,
+            .values-section,
+            .team-section,
+            footer {
+                padding: 20px 12px !important;
+            }
+
+            .hero-section {
+                padding: 120px 16px 60px !important;
+            }
+
+            .team-member {
+                min-width: 260px;
+                padding: 28px 16px;
+                width: 100% !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 28px !important;
+            }
+
+            footer {
+                text-align: center !important;
+            }
+
+            .footer-grid {
+                justify-items: center !important;
+                text-align: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Tablet (600px - 900px) */
+        @media (min-width: 600px) and (max-width: 900px) {
+
+            nav {
+                position: fixed !important;
+                width: 98% !important;
+                max-width: 98% !important;
+                border-radius: 30px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 16px 20px !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 12px !important;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 12px 12px !important;
+                font-size: 1.1rem !important;
+            }
+
+            .main-content,
+            .about-container,
+            .mission-section,
+            .values-section,
+            .team-section,
+            footer {
+                padding: 32px 20px !important;
+            }
+
+            .hero-section {
+                padding: 140px 24px 80px !important;
+            }
+
+            .team-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .team-member {
+                min-width: 280px;
+                width: 48% !important;
+                padding: 32px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 32px !important;
+            }
+
+            footer {
+                text-align: center !important;
+            }
+
+            .footer-grid {
+                justify-items: center !important;
+                text-align: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Desktop (above 900px) */
+        @media (min-width: 901px) {
+
+            .main-content,
+            .about-container,
+            .mission-section,
+            .values-section,
+            .team-section,
+            .cta-section,
+            footer {
+                padding: 40px 0px;
+            }
+
+            .hero-section {
+                padding: 220px 40px 120px;
+            }
+
+            .team-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .team-member {
+                min-width: 300px;
+                width: calc(33.33% - 30px);
+                padding: 40px 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+            }
+        }
+
+        /* General Responsive Adjustments */
+        @media (max-width: 900px) {
+
+            .features-grid,
+            .values-grid,
+            .mission-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .footer-column {
+                text-align: left;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav {
+                max-width: 100%;
+                width: 98%;
+                padding: 10px 8px;
+                border-radius: 30px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .nav-link {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
@@ -851,7 +1237,8 @@
         <div class="hero-content">
             <span class="hero-badge">About Us</span>
             <h1 class="display-1">Empowering Legal Excellence</h1>
-            <p class="body-large">We're on a mission to democratize legal support across Canada through innovative AI solutions that transform how legal professionals work.</p>
+            <p class="body-large">We're on a mission to democratize legal support across Canada through innovative AI
+                solutions that transform how legal professionals work.</p>
             <div class="cta-buttons">
                 <a href="models.html" class="btn btn-primary">Explore Our Solutions</a>
                 <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
@@ -872,21 +1259,24 @@
                         <i class="fas fa-balance-scale"></i>
                     </div>
                     <h3>Access to Justice</h3>
-                    <p>Making legal information and assistance accessible to everyone, regardless of their background or resources.</p>
+                    <p>Making legal information and assistance accessible to everyone, regardless of their background or
+                        resources.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3>AI-Powered Solutions</h3>
-                    <p>Leveraging cutting-edge artificial intelligence to enhance legal research, document analysis, and case preparation.</p>
+                    <p>Leveraging cutting-edge artificial intelligence to enhance legal research, document analysis, and
+                        case preparation.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
                         <i class="fab fa-canadian-maple-leaf"></i>
                     </div>
                     <h3>Canadian Focus</h3>
-                    <p>Specialized in Canadian law with deep understanding of provincial differences and bilingual support.</p>
+                    <p>Specialized in Canadian law with deep understanding of provincial differences and bilingual
+                        support.</p>
                 </div>
             </div>
         </section>
@@ -910,7 +1300,8 @@
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Integrity</h3>
-                    <p>Maintaining the highest ethical standards in AI development, ensuring transparency and accountability.</p>
+                    <p>Maintaining the highest ethical standards in AI development, ensuring transparency and
+                        accountability.</p>
                 </div>
                 <div class="value-item">
                     <div class="value-icon">
@@ -936,58 +1327,72 @@
                 <h2 class="display-2">Meet Our Team</h2>
                 <p class="body-large">The brilliant minds driving XenoraAI's vision forward</p>
             </div>
-            
+
             <!-- First Row - Saad and Gavin -->
             <div class="team-row">
                 <div class="team-member">
                     <h3>Saad Kashif</h3>
                     <p class="position">Founder & Chief Executive Officer (CEO)</p>
-                    <p>Leading XenoraAI's vision and strategy while pioneering AI research in machine learning and neural network applications.</p>
-                    <a href="https://www.linkedin.com/in/saad-kashif/" target="_blank" class="linkedin-link">LinkedIn</a>
+                    <p>Leading XenoraAI's vision and strategy while pioneering AI research in machine learning and
+                        neural network applications.</p>
+                    <a href="https://www.linkedin.com/in/saad-kashif/" target="_blank"
+                        class="linkedin-link">LinkedIn</a>
                 </div>
                 <div class="team-member">
                     <h3>Gavin Martin</h3>
                     <p class="position">Founder & Chief Operating Officer (COO) Chief Marketing Officer (CMO)</p>
-                    <p>Overseeing operational excellence and strategic growth while driving innovative marketing initiatives for XenoraAI's AI solutions.</p>
-                    <a href="https://www.linkedin.com/in/gavin-m-4a8718274/" target="_blank" class="linkedin-link">LinkedIn</a>
+                    <p>Overseeing operational excellence and strategic growth while driving innovative marketing
+                        initiatives for XenoraAI's AI solutions.</p>
+                    <a href="https://www.linkedin.com/in/gavin-m-4a8718274/" target="_blank"
+                        class="linkedin-link">LinkedIn</a>
                 </div>
             </div>
-            
+
             <!-- Second Row - Yacine, Sila, Yassen -->
             <div class="team-row">
                 <div class="team-member">
                     <h3>Yacine Eldjidel</h3>
                     <p class="position">Chief Technology Officer (CTO) DevOps Engineer</p>
-                    <p>Architecting XenoraAI's technical infrastructure while driving breakthroughs in NLP, Computer Vision, and AI systems deployment.</p>
-                    <a href="https://www.linkedin.com/in/yacine-eldjidel-b1838a32a/" target="_blank" class="linkedin-link">LinkedIn</a>
+                    <p>Architecting XenoraAI's technical infrastructure while driving breakthroughs in NLP, Computer
+                        Vision, and AI systems deployment.</p>
+                    <a href="https://www.linkedin.com/in/yacine-eldjidel-b1838a32a/" target="_blank"
+                        class="linkedin-link">LinkedIn</a>
                 </div>
                 <div class="team-member">
                     <h3>Sila Ben Khelifa</h3>
                     <p class="position">Chief Information Officer (CIO)</p>
-                    <p>Orchestrating XenoraAI's digital transformation through strategic IT leadership, secure data ecosystems, and technology-roadmap alignment.</p>
-                    <a href="https://www.linkedin.com/in/sila-bk-8553692b2/" target="_blank" class="linkedin-link">LinkedIn</a>
+                    <p>Orchestrating XenoraAI's digital transformation through strategic IT leadership, secure data
+                        ecosystems, and technology-roadmap alignment.</p>
+                    <a href="https://www.linkedin.com/in/sila-bk-8553692b2/" target="_blank"
+                        class="linkedin-link">LinkedIn</a>
                 </div>
                 <div class="team-member">
                     <h3>Yassen Hegazy</h3>
                     <p class="position">AI Director (AID)</p>
-                    <p>Leading AI strategy and execution—bridging cutting-edge research with scalable solutions to drive XenoraAI's innovation and business impact.</p>
-                    <a href="https://www.linkedin.com/in/yassen-hegazy-33aa28330/" target="_blank" class="linkedin-link">LinkedIn</a>
+                    <p>Leading AI strategy and execution—bridging cutting-edge research with scalable solutions to drive
+                        XenoraAI's innovation and business impact.</p>
+                    <a href="https://www.linkedin.com/in/yassen-hegazy-33aa28330/" target="_blank"
+                        class="linkedin-link">LinkedIn</a>
                 </div>
             </div>
-            
+
             <!-- Third Row - Jayden and Ali -->
             <div class="team-row">
                 <div class="team-member">
                     <h3>Jayden Nkueze</h3>
                     <p class="position">Chief Data Officer (CDO)</p>
-                    <p>Architecting XenoraAI's data ecosystem—transforming raw information into strategic assets through governance, analytics, and intelligence frameworks.</p>
-                    <a href="https://www.linkedin.com/in/jayden-nkueze/" target="_blank" class="linkedin-link">LinkedIn</a>
+                    <p>Architecting XenoraAI's data ecosystem—transforming raw information into strategic assets through
+                        governance, analytics, and intelligence frameworks.</p>
+                    <a href="https://www.linkedin.com/in/jayden-nkueze/" target="_blank"
+                        class="linkedin-link">LinkedIn</a>
                 </div>
                 <div class="team-member">
                     <h3>Ali Al-Dhaher</h3>
                     <p class="position">Head of Security Chief Information Security Officer (CISO)</p>
-                    <p>Fortifying XenoraAI's digital frontier—orchestrating proactive cybersecurity strategies and robust threat mitigation to safeguard data, systems, and trust.</p>
-                    <a href="https://www.linkedin.com/in/alialdhaher/" target="_blank" class="linkedin-link">LinkedIn</a>
+                    <p>Fortifying XenoraAI's digital frontier—orchestrating proactive cybersecurity strategies and
+                        robust threat mitigation to safeguard data, systems, and trust.</p>
+                    <a href="https://www.linkedin.com/in/alialdhaher/" target="_blank"
+                        class="linkedin-link">LinkedIn</a>
                 </div>
             </div>
         </section>
@@ -996,7 +1401,8 @@
         <section class="cta-section">
             <div class="cta">
                 <h2 class="display-2">Ready to Transform Your Practice?</h2>
-                <p class="body-large">Discover how XenoraAI can enhance your legal services with cutting-edge AI solutions
+                <p class="body-large">Discover how XenoraAI can enhance your legal services with cutting-edge AI
+                    solutions
                 </p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn btn-primary">Get Started</a>
@@ -1017,13 +1423,15 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                         </svg>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <div class="footer-links">
@@ -1033,7 +1441,7 @@
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Legal</h3>
                 <div class="footer-links">
@@ -1044,11 +1452,12 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="copyright">
             <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
 
 </body>
+
 </html>
