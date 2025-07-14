@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Get in touch with XenoraAI for inquiries and collaboration.">
     <meta name="keywords" content="Contact XenoraAI, AI Support, AI Solutions">
     <title>Contact Us - XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="XenoraLogo.png">
     <style>
@@ -44,7 +47,9 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: #1a1a2e;
@@ -115,8 +120,15 @@
         }
 
         @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .nav-links {
@@ -142,15 +154,18 @@
             color: white;
             transform: translateY(-1px);
         }
+
         @media (max-width: 768px) {
             nav {
                 top: 10px;
                 width: 95%;
                 padding: 12px 20px;
             }
+
             .nav-links {
                 gap: 4px;
             }
+
             .nav-link {
                 padding: 6px 12px;
                 font-size: 0.875rem;
@@ -204,12 +219,13 @@
         }
 
         @keyframes fadeInUp {
-            0% { 
-                opacity: 0; 
+            0% {
+                opacity: 0;
                 transform: translateY(30px);
             }
-            100% { 
-                opacity: 1; 
+
+            100% {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
@@ -374,9 +390,18 @@
 
         /* Success Animation */
         @keyframes success {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); background: linear-gradient(135deg, #4caf50 0%, #45a049 100%); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+                background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .btn.success {
@@ -445,9 +470,17 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .contact-method div h3 {
@@ -515,8 +548,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .contact-info h2 {
@@ -619,7 +659,7 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             nav .logo {
                 margin-bottom: 15px;
                 margin-right: 0;
@@ -666,8 +706,249 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
+        /* Responsive Navigation and Footer */
+
+        /* Small Mobile (up to 375px) */
+        @media (max-width: 375px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 30px 4px 20px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Medium Mobile (376px - 425px) */
+        @media (min-width: 375px) and (max-width: 425px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 40px 8px 24px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 22px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Large Mobile (426px - 600px) */
+        @media (min-width: 425px) and (max-width: 600px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 50px 12px 30px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 28px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Tablet (601px - 900px) */
+        @media (min-width: 601px) and (max-width: 900px) {
+            nav {
+                position: fixed !important;
+                width: 98% !important;
+                max-width: 98% !important;
+                border-radius: 30px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 16px 20px !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 12px !important;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 12px 12px !important;
+                font-size: 1.1rem !important;
+            }
+
+            footer {
+                text-align: left !important;
+                padding: 60px 24px 40px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 32px !important;
+                text-align: left !important;
+                justify-items: start !important;
+            }
+
+            .footer-column {
+                align-items: flex-start !important;
+                text-align: left !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Desktop (above 900px) */
+        @media (min-width: 901px) {
+            nav {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 800px;
+                border-radius: 60px;
+                box-shadow: var(--shadow-md);
+                padding: 16px 32px;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                gap: 8px;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 8px 20px;
+                font-size: 0.95rem;
+            }
+
+            footer {
+                text-align: left;
+                padding: 80px 40px 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+                text-align: left;
+                justify-items: start;
+            }
+
+            .footer-column {
+                align-items: flex-start;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav>
@@ -705,7 +986,7 @@
             <!-- Enhanced Contact Information -->
             <div class="contact-info">
                 <h2>Other Ways to Connect</h2>
-                
+
                 <div class="contact-method">
                     <div class="contact-icon pulse">
                         <i class="fas fa-envelope"></i>
@@ -713,7 +994,8 @@
                     <div>
                         <h3>Email Us <span class="contact-badge">Primary</span></h3>
                         <p>
-                            <a href="mailto:xenoraai@gmail.com?subject=Inquiry%20from%20XenoraAI%20Website&body=Hello%20XenoraAI%20Team," class="email-link">
+                            <a href="mailto:xenoraai@gmail.com?subject=Inquiry%20from%20XenoraAI%20Website&body=Hello%20XenoraAI%20Team,"
+                                class="email-link">
                                 xenoraai@gmail.com
                             </a>
                         </p>
@@ -750,7 +1032,7 @@
                         <small>Latest updates, announcements, and AI insights</small>
                     </div>
                 </div>
-                
+
                 <div class="contact-method">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -776,13 +1058,15 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                         </svg>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <div class="footer-links">
@@ -792,7 +1076,7 @@
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Legal</h3>
                 <div class="footer-links">
@@ -803,7 +1087,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="copyright">
             <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
@@ -811,19 +1095,19 @@
 
     <script>
         // Enhanced Send Message Button Effects with Email Forwarding
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const submitBtn = document.getElementById('submitBtn');
             const originalValue = submitBtn.value;
-            
+
             // Get form data
             const formData = new FormData(this);
             const name = formData.get('name');
             const email = formData.get('email');
             const subject = formData.get('subject');
             const message = formData.get('message');
-            
+
             // Create email body for forwarding
             const emailBody = `New contact form submission from XenoraAI website:
 
@@ -834,26 +1118,26 @@ Message: ${message}
 
 ---
 This message was sent from the XenoraAI contact form.`;
-            
+
             // Change button text and add loading effect
             submitBtn.value = 'Sending...';
             submitBtn.style.background = 'linear-gradient(135deg, #ff8c42 0%, #ff007f 100%)';
-            
+
             // Simulate form submission delay
             setTimeout(() => {
                 submitBtn.value = 'Message Sent! ✓';
                 submitBtn.classList.add('success');
-                
+
                 // Open email client with pre-filled message
                 const mailtoLink = `mailto:xenoraai@gmail.com?subject=Contact Form: ${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
                 window.open(mailtoLink);
-                
+
                 // Reset button after 3 seconds
                 setTimeout(() => {
                     submitBtn.value = originalValue;
                     submitBtn.style.background = 'linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%)';
                     submitBtn.classList.remove('success');
-                    
+
                     // Reset form
                     this.reset();
                 }, 3000);
@@ -879,11 +1163,12 @@ This message was sent from the XenoraAI contact form.`;
 
         // Observe contact methods
         document.querySelectorAll('.contact-method').forEach((method, index) => {
-                        method.style.opacity = '0';
-                        method.style.transform = 'translateY(20px)';
-                        method.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                        observer.observe(method);
-                    });
-                </script>
-            </body>
-            </html>
+            method.style.opacity = '0';
+            method.style.transform = 'translateY(20px)';
+            method.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(method);
+        });
+    </script>
+</body>
+
+</html>
