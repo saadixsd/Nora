@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Discover Nora - XenoraAI's legal AI assistant designed for Canadian law professionals">
+    <meta name="description"
+        content="Discover Nora - XenoraAI's legal AI assistant designed for Canadian law professionals">
     <meta name="keywords" content="Nora AI, XenoraAI, Legal AI Assistant, Canadian Law, CanLII">
     <title>Nora - XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="XenoraLogo.png">
     <style>
@@ -45,7 +49,9 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: #1a1a2e;
@@ -116,8 +122,15 @@
         }
 
         @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .nav-links {
@@ -143,15 +156,18 @@
             color: white;
             transform: translateY(-1px);
         }
+
         @media (max-width: 768px) {
             nav {
                 top: 10px;
                 width: 95%;
                 padding: 12px 20px;
             }
+
             .nav-links {
                 gap: 4px;
             }
+
             .nav-link {
                 padding: 6px 12px;
                 font-size: 0.875rem;
@@ -209,12 +225,13 @@
         }
 
         @keyframes fadeInUp {
-            0% { 
-                opacity: 0; 
+            0% {
+                opacity: 0;
                 transform: translateY(30px);
             }
-            100% { 
-                opacity: 1; 
+
+            100% {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
@@ -222,6 +239,7 @@
         /* Enhanced Button Styles */
         .btn {
             display: inline-flex;
+            justify-content: center;
             align-items: center;
             gap: 8px;
             padding: 16px 32px;
@@ -410,7 +428,7 @@
             font-size: 2rem;
         } */
 
-        .capabilities-section > p {
+        .capabilities-section>p {
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 60px;
@@ -629,7 +647,7 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             nav .logo {
                 margin-bottom: 15px;
                 margin-right: 0;
@@ -645,7 +663,6 @@
             }
 
             .nora-intro,
-            .capabilities-section,
             .access-section {
                 padding: 60px 25px;
             }
@@ -675,8 +692,275 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
+        /* Responsive Navigation and Footer */
+
+        /* Small Mobile (up to 375px) */
+        @media (max-width: 375px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 6px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 8px 0 !important;
+                font-size: 0.95rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 30px 4px 20px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .capabilities-section {
+                padding: 60px 10px !important;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .capability-card {
+                padding: 30px 10px !important;
+            }
+        }
+
+        /* Medium Mobile (376px - 425px) */
+        @media (min-width: 375px) and (max-width: 425px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 40px 8px 24px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 22px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .capabilities-section {
+                padding: 60px 10px !important;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .capability-card {
+                padding: 30px 10px !important;
+            }
+        }
+
+        /* Large Mobile (426px - 600px) */
+        @media (min-width: 425px) and (max-width: 600px) {
+           nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 10px !important;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center !important;
+            }
+
+            .nav-link {
+                padding: 10px 8px !important;
+                font-size: 1.05rem !important;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: 50px 12px 30px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 28px !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Tablet (601px - 900px) */
+        @media (min-width: 600px) and (max-width: 900px) {
+            nav {
+                position: fixed !important;
+                width: 98% !important;
+                max-width: 98% !important;
+                border-radius: 30px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 16px 20px !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 12px !important;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 12px 12px !important;
+                font-size: 1.1rem !important;
+            }
+
+            footer {
+                text-align: left !important;
+                padding: 60px 24px 40px !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 32px !important;
+                text-align: left !important;
+                justify-items: start !important;
+            }
+
+            .footer-column {
+                align-items: flex-start !important;
+                text-align: left !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Desktop (above 900px) */
+        @media (min-width: 901px) {
+            nav {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 800px;
+                border-radius: 60px;
+                box-shadow: var(--shadow-md);
+                padding: 16px 32px;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                gap: 8px;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 8px 20px;
+                font-size: 0.95rem;
+            }
+
+            footer {
+                text-align: left;
+                padding: 80px 40px 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+                text-align: left;
+                justify-items: start;
+            }
+
+            .footer-column {
+                align-items: flex-start;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav>
@@ -715,8 +999,11 @@
         <!-- Enhanced Nora Introduction -->
         <div class="nora-intro">
             <h2>Your 24/7 Legal Research Assistant</h2>
-            <p>Nora is XenoraAI's flagship legal AI model, specifically designed to support Canadian legal professionals and individuals navigating the justice system. Built with access to CanLII and trained on Canadian case law, Nora provides instant legal insights to help you work more efficiently.</p>
-            <p>"Everyone deserves an Advocate" - Nora makes this possible by augmenting your legal practice with AI-powered assistance.</p>
+            <p>Nora is XenoraAI's flagship legal AI model, specifically designed to support Canadian legal professionals
+                and individuals navigating the justice system. Built with access to CanLII and trained on Canadian case
+                law, Nora provides instant legal insights to help you work more efficiently.</p>
+            <p>"Everyone deserves an Advocate" - Nora makes this possible by augmenting your legal practice with
+                AI-powered assistance.</p>
         </div>
 
         <!-- Enhanced Capabilities Section -->
@@ -729,28 +1016,32 @@
                         <i class="fas fa-gavel"></i>
                     </div>
                     <h3>Case Law Research</h3>
-                    <p>Instantly find relevant Canadian case law and analyze precedents based on your specific legal questions</p>
+                    <p>Instantly find relevant Canadian case law and analyze precedents based on your specific legal
+                        questions</p>
                 </div>
                 <div class="capability-card">
                     <div class="capability-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3>Document Review</h3>
-                    <p>Analyze and summarize legal documents, contracts, and filings to highlight key points and potential issues</p>
+                    <p>Analyze and summarize legal documents, contracts, and filings to highlight key points and
+                        potential issues</p>
                 </div>
                 <div class="capability-card">
                     <div class="capability-icon">
                         <i class="fas fa-database"></i>
                     </div>
                     <h3>CanLII Integration</h3>
-                    <p>Direct access to Canada's leading legal information database with natural language search capabilities</p>
+                    <p>Direct access to Canada's leading legal information database with natural language search
+                        capabilities</p>
                 </div>
                 <div class="capability-card">
                     <div class="capability-icon">
                         <i class="fas fa-question-circle"></i>
                     </div>
                     <h3>Procedural Guidance</h3>
-                    <p>Get answers to questions about Canadian legal procedures, court rules, and documentation requirements</p>
+                    <p>Get answers to questions about Canadian legal procedures, court rules, and documentation
+                        requirements</p>
                 </div>
             </div>
         </section>
@@ -759,7 +1050,8 @@
         <div class="access-section" id="access">
             <div class="content">
                 <h2>Access Nora Today</h2>
-                <p>Currently in development, Nora is being trained to become the most comprehensive AI legal assistant for Canadian law</p>
+                <p>Currently in development, Nora is being trained to become the most comprehensive AI legal assistant
+                    for Canadian law</p>
                 <div class="cta-buttons">
                     <button class="btn btn-light" onclick="window.location.href='nora.html'">Try Beta Version</button>
                 </div>
@@ -778,13 +1070,15 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                         </svg>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <div class="footer-links">
@@ -794,7 +1088,7 @@
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Legal</h3>
                 <div class="footer-links">
@@ -805,7 +1099,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="copyright">
             <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
         </div>
@@ -813,14 +1107,14 @@
 
     <script>
         // Enhanced video autoplay with 24/7 looping
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const video = document.getElementById('noraVideo');
             const caption = document.getElementById('videoCaption');
-            
+
             // Try to autoplay (muted is required in most browsers)
             const playVideo = () => {
                 const promise = video.play();
-                
+
                 if (promise !== undefined) {
                     promise.catch(error => {
                         // Autoplay was prevented
@@ -828,24 +1122,24 @@
                     });
                 }
             };
-            
+
             // Start with autoplay attempt
             playVideo();
-            
+
             // Set up loop monitoring
-            video.addEventListener('ended', function() {
+            video.addEventListener('ended', function () {
                 this.currentTime = 0;
                 this.play().catch(e => {
                     caption.style.display = 'block';
                 });
             }, false);
-            
+
             // Allow user to click to play if autoplay was blocked
-            video.addEventListener('click', function() {
+            video.addEventListener('click', function () {
                 caption.style.display = 'none';
                 playVideo();
             });
-            
+
             // Check periodically if video is still playing
             setInterval(() => {
                 if (video.paused && !video.ended) {
@@ -855,4 +1149,5 @@
         });
     </script>
 </body>
+
 </html>
