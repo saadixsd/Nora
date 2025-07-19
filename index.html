@@ -783,13 +783,13 @@
             margin-top: 40px;
         }
 
-        /* Premium Footer - Using styles from second document */
+        /* Updated Footer Styles - Left Aligned */
         footer {
-            text-align: center;
+            text-align: left; /* Changed from center to left */
             padding: 80px 40px 40px;
             margin-top: 80px;
-            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
-            color: var(--primary-bg);
+            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
+            color: #faf4f2;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
         }
@@ -799,8 +799,16 @@
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 50px;
             max-width: 1000px;
-            margin: 0 auto 50px;
+            margin: 0 auto 50px 0; /* Changed margin from '0 auto 50px' to '0 auto 50px 0' for left alignment */
             text-align: left;
+        }
+
+        /* For mobile responsiveness */
+        @media (max-width: 767px) {
+            .footer-grid {
+                text-align: center;
+                margin: 0 auto 50px; /* Center on mobile */
+            }
         }
 
         .footer-column h3 {
