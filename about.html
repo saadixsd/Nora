@@ -160,7 +160,7 @@
                 top: 10px;
                 width: 95%;
                 padding: 12px 20px;
-                justify-content: none;
+                justify-content: space-between;
             }
 
             .nav-links {
@@ -853,32 +853,29 @@
 
         /* Small Mobile (up to 375px) */
         @media (max-width: 375px) {
-
             nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
+                position: fixed !important;
+                top: 10px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 95% !important;
+                max-width: 95% !important;
+                border-radius: 60px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 12px 16px !important;
+                flex-direction: row !important;
                 align-items: center !important;
             }
 
             .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
+                flex-direction: row !important;
+                gap: 4px !important;
+                width: auto;
             }
 
             .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
+                padding: 6px 10px !important;
+                font-size: 0.8rem !important;
             }
 
             .main-content,
@@ -887,7 +884,7 @@
             .values-section,
             .team-section,
             footer {
-                padding: 12px 4px !important;
+                padding: 12px 8px !important;
             }
 
             footer {
@@ -907,12 +904,12 @@
             }
 
             .hero-section {
-                padding: 80px 8px 40px !important;
+                padding: 100px 12px 60px !important;
             }
 
             .team-member {
-                min-width: 220px;
-                padding: 20px 10px;
+                min-width: 100%;
+                padding: 20px 15px;
                 width: 100% !important;
             }
 
@@ -933,32 +930,29 @@
 
         /* Medium Mobile (376px - 425px) */
         @media (min-width: 375px) and (max-width: 425px) {
-
             nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
+                position: fixed !important;
+                top: 10px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 95% !important;
+                max-width: 95% !important;
+                border-radius: 60px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 12px 16px !important;
+                flex-direction: row !important;
                 align-items: center !important;
             }
 
             .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
+                flex-direction: row !important;
+                gap: 4px !important;
+                width: auto;
             }
 
             .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
+                padding: 6px 10px !important;
+                font-size: 0.8rem !important;
             }
 
             .main-content,
@@ -967,16 +961,16 @@
             .values-section,
             .team-section,
             footer {
-                padding: 16px 8px !important;
+                padding: 16px 12px !important;
             }
 
             .hero-section {
-                padding: 100px 12px 50px !important;
+                padding: 120px 16px 70px !important;
             }
 
             .team-member {
-                min-width: 240px;
-                padding: 24px 12px;
+                min-width: 100%;
+                padding: 24px 16px;
                 width: 100% !important;
             }
 
@@ -1004,32 +998,29 @@
 
         /* Large Mobile (426px - 600px) */
         @media (min-width: 425px) and (max-width: 600px) {
-
             nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
+                position: fixed !important;
+                top: 10px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 95% !important;
+                max-width: 95% !important;
+                border-radius: 60px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 12px 16px !important;
+                flex-direction: row !important;
                 align-items: center !important;
             }
 
             .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
+                flex-direction: row !important;
+                gap: 6px !important;
+                width: auto;
             }
 
             .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
+                padding: 8px 12px !important;
+                font-size: 0.85rem !important;
             }
 
             .main-content,
@@ -1038,16 +1029,16 @@
             .values-section,
             .team-section,
             footer {
-                padding: 20px 12px !important;
+                padding: 20px 16px !important;
             }
 
             .hero-section {
-                padding: 120px 16px 60px !important;
+                padding: 140px 20px 80px !important;
             }
 
             .team-member {
-                min-width: 260px;
-                padding: 28px 16px;
+                min-width: 100%;
+                padding: 28px 20px;
                 width: 100% !important;
             }
 
@@ -1075,27 +1066,26 @@
 
         /* Tablet (600px - 900px) */
         @media (min-width: 600px) and (max-width: 900px) {
-
             nav {
                 position: fixed !important;
-                width: 98% !important;
-                max-width: 98% !important;
-                border-radius: 30px !important;
+                width: 96% !important;
+                max-width: 96% !important;
+                border-radius: 60px !important;
                 box-shadow: var(--shadow-md) !important;
-                padding: 16px 20px !important;
+                padding: 16px 24px !important;
                 flex-direction: row !important;
                 align-items: center !important;
             }
 
             .nav-links {
                 flex-direction: row !important;
-                gap: 12px !important;
+                gap: 8px !important;
                 width: auto;
             }
 
             .nav-link {
-                padding: 12px 12px !important;
-                font-size: 1.1rem !important;
+                padding: 8px 16px !important;
+                font-size: 0.9rem !important;
             }
 
             .main-content,
@@ -1104,11 +1094,11 @@
             .values-section,
             .team-section,
             footer {
-                padding: 32px 20px !important;
+                padding: 32px 24px !important;
             }
 
             .hero-section {
-                padding: 140px 24px 80px !important;
+                padding: 160px 32px 100px !important;
             }
 
             .team-row {
@@ -1118,9 +1108,9 @@
             }
 
             .team-member {
-                min-width: 280px;
-                width: 48% !important;
-                padding: 32px 20px;
+                min-width: calc(50% - 20px);
+                width: calc(50% - 20px) !important;
+                padding: 32px 24px;
             }
 
             .footer-grid {
@@ -1147,7 +1137,6 @@
 
         /* Desktop (above 900px) */
         @media (min-width: 901px) {
-
             .main-content,
             .about-container,
             .mission-section,
@@ -1182,7 +1171,6 @@
 
         /* General Responsive Adjustments */
         @media (max-width: 900px) {
-
             .features-grid,
             .values-grid,
             .mission-grid {
@@ -1197,23 +1185,6 @@
             .cta-buttons {
                 flex-direction: column;
                 gap: 16px;
-            }
-
-            nav {
-                max-width: 100%;
-                width: 98%;
-                padding: 10px 8px;
-                border-radius: 30px;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 4px;
-            }
-
-            .nav-link {
-                padding: 8px 12px;
-                font-size: 1rem;
             }
         }
     </style>
