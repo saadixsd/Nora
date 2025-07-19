@@ -81,7 +81,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Enhanced Navigation Bar - Matching Homepage */
+        /* Enhanced Navigation Bar - Left-aligned links */
         nav {
             position: fixed;
             top: 20px;
@@ -118,6 +118,7 @@
             -webkit-text-fill-color: transparent;
             animation: gradientFlow 8s ease-in-out infinite;
             letter-spacing: -0.02em;
+            margin-left: auto; /* Push logo to the right */
         }
 
         @keyframes gradientFlow {
@@ -135,6 +136,7 @@
         .nav-links {
             display: flex;
             gap: 8px;
+            margin-right: auto; /* Push links to the left */
         }
 
         .nav-link {
@@ -754,15 +756,15 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar with Left-aligned Links -->
     <nav>
-        <div class="nav-logo">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
             <a href="models.html" class="nav-link">Nora</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="contact.html" class="nav-link active">Contact</a>
         </div>
+        <div class="nav-logo">XenoraAI</div>
     </nav>
 
     <!-- Header Section -->
