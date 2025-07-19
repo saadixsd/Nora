@@ -996,8 +996,36 @@
             }
         }
 
-        /* Large Mobile (426px - 600px) */
-        @media (min-width: 425px) and (max-width: 600px) {
+        /* iPhone 12 Pro Max specific (428px) */
+        @media (min-width: 426px) and (max-width: 428px) {
+            nav {
+                position: fixed !important;
+                top: 10px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 96% !important;
+                max-width: 96% !important;
+                border-radius: 60px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 12px 14px !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 3px !important;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 6px 8px !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
+        /* Large Mobile (429px - 600px) */
+        @media (min-width: 429px) and (max-width: 600px) {
             nav {
                 position: fixed !important;
                 top: 10px !important;
