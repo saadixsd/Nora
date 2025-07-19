@@ -9,10 +9,8 @@
     <meta name="keywords" content="XenoraAI, cookies policy, privacy, AI legal assistant">
     <title>Cookies Policy - XenoraAI</title>
     <!-- Fonts -->
-     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair Display:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Styles */
@@ -82,7 +80,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Premium Navigation */
+        /* Enhanced Navigation Bar - Matching About Page */
         nav {
             position: fixed;
             top: 20px;
@@ -109,7 +107,7 @@
         }
 
         .nav-logo {
-            font-family: 'Playfair Display', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
@@ -122,12 +120,10 @@
         }
 
         @keyframes gradientFlow {
-
             0%,
             100% {
                 background-position: 0% 50%;
             }
-
             50% {
                 background-position: 100% 50%;
             }
@@ -157,52 +153,7 @@
             transform: translateY(-1px);
         }
 
-        @media (max-width: 768px) {
-            nav {
-                top: 10px;
-                width: 95%;
-                padding: 12px 20px;
-            }
-
-            .nav-links {
-                gap: 4px;
-            }
-
-            .nav-link {
-                padding: 6px 12px;
-                font-size: 0.875rem;
-            }
-        }
-
-        /* iPhone 12 Pro Max specific (428px) */
-        @media (min-width: 426px) and (max-width: 428px) {
-            nav {
-                position: fixed !important;
-                top: 10px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                width: 96% !important;
-                max-width: 96% !important;
-                border-radius: 60px !important;
-                box-shadow: var(--shadow-md) !important;
-                padding: 12px 14px !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: row !important;
-                gap: 3px !important;
-                width: auto;
-            }
-
-            .nav-link {
-                padding: 6px 8px !important;
-                font-size: 0.75rem !important;
-            }
-        }
-
-        /* Enhanced Header Section */
+        /* Header Section */
         header {
             text-align: center;
             padding: 220px 40px 120px;
@@ -239,21 +190,11 @@
             -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            color: #2c2c54;
-            animation: fadeInUp 1s ease-out 0.2s both;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -537,26 +478,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            nav {
-                padding: 15px 25px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav .logo {
-                margin-bottom: 15px;
-                margin-right: 0;
-                font-size: 1.6rem;
-            }
-
-            nav .nav-links {
-                gap: 25px;
-            }
-
-            header {
-                padding: 180px 25px 100px;
-            }
-
             .cookies-content {
                 padding: 40px 30px;
             }
@@ -577,6 +498,107 @@
             }
         }
 
+        /* Mobile Navigation Adjustments */
+        @media (max-width: 768px) {
+            nav {
+                top: 10px;
+                width: 95%;
+                padding: 12px 20px;
+            }
+
+            .nav-links {
+                gap: 4px;
+            }
+
+            .nav-link {
+                padding: 6px 12px;
+                font-size: 0.875rem;
+            }
+
+            header {
+                padding: 180px 20px 80px;
+            }
+        }
+
+        /* iPhone 12 Pro Max specific (428px) */
+        @media (min-width: 426px) and (max-width: 428px) {
+            nav {
+                top: 10px !important;
+                width: 96% !important;
+                padding: 12px 14px !important;
+            }
+
+            .nav-links {
+                gap: 3px !important;
+            }
+
+            .nav-link {
+                padding: 6px 8px !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
+        /* Small Mobile (up to 375px) */
+        @media (max-width: 375px) {
+            nav {
+                top: 10px !important;
+                width: 95% !important;
+                padding: 12px 16px !important;
+            }
+
+            .nav-link {
+                padding: 6px 10px !important;
+                font-size: 0.8rem !important;
+            }
+
+            header {
+                padding: 160px 15px 70px;
+            }
+
+            .cookies-content {
+                padding: 30px 20px;
+            }
+
+            .cookie-control {
+                padding: 25px;
+            }
+
+            footer {
+                padding: 60px 20px 30px;
+            }
+        }
+
+        /* Medium Mobile (376px - 425px) */
+        @media (min-width: 375px) and (max-width: 425px) {
+            nav {
+                top: 10px !important;
+                width: 95% !important;
+                padding: 12px 16px !important;
+            }
+
+            .nav-link {
+                padding: 6px 10px !important;
+                font-size: 0.8rem !important;
+            }
+
+            header {
+                padding: 170px 18px 75px;
+            }
+        }
+
+        /* Tablet (601px - 900px) */
+        @media (min-width: 601px) and (max-width: 900px) {
+            nav {
+                width: 96%;
+                padding: 16px 24px;
+            }
+
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
         /* Smooth scroll and performance optimizations */
         html {
             scroll-behavior: smooth;
@@ -586,253 +608,13 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        /* Responsive Navigation and Footer */
-
-        /* Small Mobile (up to 375px) */
-        @media (max-width: 375px) {
-            nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
-            }
-
-            .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
-            }
-
-            footer {
-                text-align: center !important;
-                padding: 30px 4px 20px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-                gap: 18px !important;
-                text-align: center !important;
-                justify-items: center !important;
-            }
-
-            .footer-column {
-                align-items: center !important;
-                text-align: center !important;
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        /* Medium Mobile (376px - 425px) */
-        @media (min-width: 375px) and (max-width: 425px) {
-            nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
-            }
-
-            .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
-            }
-
-            footer {
-                text-align: center !important;
-                padding: 40px 8px 24px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-                gap: 22px !important;
-                text-align: center !important;
-                justify-items: center !important;
-            }
-
-            .footer-column {
-                align-items: center !important;
-                text-align: center !important;
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        /* Large Mobile (426px - 600px) */
-        @media (min-width: 425px) and (max-width: 600px) {
-            nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
-            }
-
-            .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
-            }
-
-            footer {
-                text-align: center !important;
-                padding: 50px 12px 30px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-                gap: 28px !important;
-                text-align: center !important;
-                justify-items: center !important;
-            }
-
-            .footer-column {
-                align-items: center !important;
-                text-align: center !important;
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        /* Tablet (601px - 900px) */
-        @media (min-width: 601px) and (max-width: 900px) {
-            nav {
-                position: fixed !important;
-                width: 98% !important;
-                max-width: 98% !important;
-                border-radius: 30px !important;
-                box-shadow: var(--shadow-md) !important;
-                padding: 16px 20px !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: row !important;
-                gap: 12px !important;
-                width: auto;
-            }
-
-            .nav-link {
-                padding: 12px 12px !important;
-                font-size: 1.1rem !important;
-            }
-
-            footer {
-                text-align: left !important;
-                padding: 60px 24px 40px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 32px !important;
-                text-align: left !important;
-                justify-items: start !important;
-            }
-
-            .footer-column {
-                align-items: flex-start !important;
-                text-align: left !important;
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        /* Desktop (above 900px) */
-        @media (min-width: 901px) {
-            nav {
-                position: fixed;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 90%;
-                max-width: 800px;
-                border-radius: 60px;
-                box-shadow: var(--shadow-md);
-                padding: 16px 32px;
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .nav-links {
-                flex-direction: row;
-                gap: 8px;
-                width: auto;
-            }
-
-            .nav-link {
-                padding: 8px 20px;
-                font-size: 0.95rem;
-            }
-
-            footer {
-                text-align: left;
-                padding: 80px 40px 40px;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 50px;
-                text-align: left;
-                justify-items: start;
-            }
-
-            .footer-column {
-                align-items: flex-start;
-                text-align: left;
-                display: flex;
-                flex-direction: column;
-            }
-        }
     </style>
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <nav>
-        <div class="nav-logo" onclick="window.location.href='index.html'">XenoraAI</div>
+        <div class="nav-logo">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
             <a href="models.html" class="nav-link">Nora</a>
@@ -845,6 +627,7 @@
     <header>
         <div class="content">
             <h1>Cookies Policy</h1>
+            <p>Learn how we use cookies to enhance your experience on our website</p>
         </div>
     </header>
 
@@ -869,8 +652,7 @@
             <p>At XenoraAI, we use cookies for several purposes:</p>
             <ul>
                 <li><strong>Essential Operation:</strong> Cookies necessary for our website to function properly</li>
-                <li><strong>Performance:</strong> Cookies that help us understand how visitors interact with our site
-                </li>
+                <li><strong>Performance:</strong> Cookies that help us understand how visitors interact with our site</li>
                 <li><strong>Functionality:</strong> Cookies that remember your preferences</li>
                 <li><strong>Analytics:</strong> Cookies that help us improve our services</li>
             </ul>
@@ -973,8 +755,7 @@
                 <div class="footer-links">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
-                    <a href="cookies.html">Cookie Policy</a>
-                    <!-- <a href="faq.html">FAQ</a> -->
+                    <a href="cookies.html" class="active">Cookie Policy</a>
                 </div>
             </div>
         </div>
@@ -999,6 +780,18 @@
         document.getElementById('manage-cookies').addEventListener('click', function () {
             alert('Cookie management panel would open here in a full implementation.');
             // In a real implementation, this would open a detailed preferences panel
+        });
+
+        // Set active state for current page in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const footerLinks = document.querySelectorAll('.footer-links a');
+            
+            footerLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
