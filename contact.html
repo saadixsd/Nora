@@ -7,8 +7,9 @@
     <meta name="description" content="Get in touch with XenoraAI for inquiries and collaboration.">
     <meta name="keywords" content="Contact XenoraAI, AI Support, AI Solutions">
     <title>Contact Us - XenoraAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="XenoraLogo.png">
@@ -36,7 +37,7 @@
         }
 
         body {
-            font-family: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
@@ -107,7 +108,7 @@
         }
 
         .nav-logo {
-            font-family: 'Sora', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
@@ -303,7 +304,7 @@
             background: rgba(255, 255, 255, 0.8);
             color: #1a1a2e;
             font-size: 1rem;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Playfair Display', serif;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
         }
@@ -319,7 +320,7 @@
         .contact-form textarea {
             height: 150px;
             resize: vertical;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Playfair Display', serif;
         }
 
         /* Enhanced Button Styles with Special Effects */
@@ -341,6 +342,7 @@
             letter-spacing: 0.02em;
             width: 100%;
             margin-top: 10px;
+            font-family: 'Playfair Display', serif;
         }
 
         /* Shimmer Effect */
@@ -512,6 +514,7 @@
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
+            font-family: 'Playfair Display', serif;
         }
 
         .email-link::after {
@@ -611,6 +614,7 @@
             color: rgba(250, 244, 242, 0.8);
             transition: all 0.3s ease;
             font-size: 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .footer-links a:hover {
@@ -650,50 +654,90 @@
             padding-top: 30px;
             border-top: 1px solid rgba(250, 244, 242, 0.15);
             color: rgba(250, 244, 242, 0.7);
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
+        /* iPhone-Specific Responsive Design */
+        @media (max-width: 767px) {
+            /* Navigation */
             nav {
-                padding: 15px 25px;
-                flex-direction: column;
-                align-items: flex-start;
+                position: fixed;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 95%;
+                padding: 12px 16px;
+                border-radius: 60px;
+                box-shadow: var(--shadow-md);
+                flex-direction: row;
+                align-items: center;
             }
 
-            nav .logo {
-                margin-bottom: 15px;
-                margin-right: 0;
-                font-size: 1.6rem;
+            .nav-links {
+                gap: 4px;
             }
 
-            nav .nav-links {
-                gap: 25px;
+            .nav-link {
+                padding: 6px 10px;
+                font-size: 0.8rem;
             }
 
+            /* Header */
             header {
-                padding: 180px 25px 100px;
+                padding: 180px 20px 80px;
             }
 
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            /* Main Content */
+            .main-content {
+                padding: 30px 15px;
+            }
+
+            /* Contact Section */
             .contact-section {
                 grid-template-columns: 1fr;
                 gap: 40px;
-                margin: 60px 0;
+                margin: 50px 0;
             }
 
             .contact-form,
             .contact-info {
-                padding: 40px 30px;
+                padding: 30px 20px;
             }
 
             .contact-method {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
-                gap: 15px;
-                padding: 25px;
+                padding: 20px;
+                margin: 25px 0;
             }
 
             .contact-icon {
-                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            /* Footer */
+            footer {
+                padding: 60px 20px 30px;
+                margin-top: 60px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-column {
+                align-items: center;
             }
         }
 
@@ -705,246 +749,6 @@
         * {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Responsive Navigation and Footer */
-
-        /* Small Mobile (up to 375px) */
-        @media (max-width: 375px) {
-            nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
-            }
-
-            .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
-            }
-
-            footer {
-                text-align: center !important;
-                padding: 30px 4px 20px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-                gap: 18px !important;
-                text-align: center !important;
-                justify-items: center !important;
-            }
-
-            .footer-column {
-                align-items: center !important;
-                text-align: center !important;
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        /* Medium Mobile (376px - 425px) */
-        @media (min-width: 375px) and (max-width: 425px) {
-            nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
-            }
-
-            .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
-            }
-
-            footer {
-                text-align: center !important;
-                padding: 40px 8px 24px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-                gap: 22px !important;
-                text-align: center !important;
-                justify-items: center !important;
-            }
-
-            .footer-column {
-                align-items: center !important;
-                text-align: center !important;
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        /* Large Mobile (426px - 600px) */
-        @media (min-width: 425px) and (max-width: 600px) {
-            nav {
-                position: static !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                padding: 10px 4px !important;
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: column !important;
-                gap: 8px !important;
-                width: 100%;
-            }
-
-            .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0 !important;
-                font-size: 1rem !important;
-            }
-
-            footer {
-                text-align: center !important;
-                padding: 50px 12px 30px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-                gap: 28px !important;
-                text-align: center !important;
-                justify-items: center !important;
-            }
-
-            .footer-column {
-                align-items: center !important;
-                text-align: center !important;
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        /* Tablet (601px - 900px) */
-        @media (min-width: 601px) and (max-width: 900px) {
-            nav {
-                position: fixed !important;
-                width: 98% !important;
-                max-width: 98% !important;
-                border-radius: 30px !important;
-                box-shadow: var(--shadow-md) !important;
-                padding: 16px 20px !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: row !important;
-                gap: 12px !important;
-                width: auto;
-            }
-
-            .nav-link {
-                padding: 12px 12px !important;
-                font-size: 1.1rem !important;
-            }
-
-            footer {
-                text-align: left !important;
-                padding: 60px 24px 40px !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 32px !important;
-                text-align: left !important;
-                justify-items: start !important;
-            }
-
-            .footer-column {
-                align-items: flex-start !important;
-                text-align: left !important;
-                display: flex;
-                flex-direction: column;
-            }
-        }
-
-        /* Desktop (above 900px) */
-        @media (min-width: 901px) {
-            nav {
-                position: fixed;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 90%;
-                max-width: 800px;
-                border-radius: 60px;
-                box-shadow: var(--shadow-md);
-                padding: 16px 32px;
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .nav-links {
-                flex-direction: row;
-                gap: 8px;
-                width: auto;
-            }
-
-            .nav-link {
-                padding: 8px 20px;
-                font-size: 0.95rem;
-            }
-
-            footer {
-                text-align: left;
-                padding: 80px 40px 40px;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 50px;
-                text-align: left;
-                justify-items: start;
-            }
-
-            .footer-column {
-                align-items: flex-start;
-                text-align: left;
-                display: flex;
-                flex-direction: column;
-            }
         }
     </style>
 </head>
@@ -1083,7 +887,6 @@
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="cookies.html">Cookie Policy</a>
-                    <!-- <a href="faq.html">FAQ</a> -->
                 </div>
             </div>
         </div>
