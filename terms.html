@@ -9,8 +9,9 @@
     <title>Terms of Service - XenoraAI</title>
 
     <!-- Fonts -->
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair Display:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
     <!-- Font Awesome -->
@@ -40,7 +41,7 @@
         }
 
         body {
-            font-family: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Playfair Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
@@ -128,7 +129,7 @@
         }
 
         .nav-logo {
-            font-family: 'Sora', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
             font-size: 1.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
@@ -190,6 +191,34 @@
             .nav-link {
                 padding: 6px 12px;
                 font-size: 0.875rem;
+            }
+        }
+
+        /* iPhone 12 Pro Max specific (428px) */
+        @media (min-width: 426px) and (max-width: 428px) {
+            nav {
+                position: fixed !important;
+                top: 10px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 96% !important;
+                max-width: 96% !important;
+                border-radius: 60px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: 12px 14px !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 3px !important;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 6px 8px !important;
+                font-size: 0.75rem !important;
             }
         }
 
