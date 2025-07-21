@@ -1196,24 +1196,23 @@
                 top: 10px;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 96%;
-                max-width: 96%;
-                border-radius: 60px;
+                width: min(90%, 400px);
+                border-radius: 40px;
                 box-shadow: var(--shadow-md);
-                padding: 12px 14px;
+                padding: 10px 12px;
                 flex-direction: row;
                 align-items: center;
             }
 
             .nav-links {
                 flex-direction: row;
-                gap: 3px;
+                gap: 6px;
                 width: auto;
             }
 
             .nav-link {
-                padding: 6px 8px;
-                font-size: 0.75rem;
+                padding: 6px 10px;
+                font-size: clamp(0.7rem, 1.8vw, 0.85rem);
             }
         }
 
