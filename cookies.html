@@ -3,21 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="XenoraAI Cookies Policy - Learn how we use cookies to enhance your experience">
     <meta name="keywords" content="XenoraAI, cookies policy, privacy, AI legal assistant">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>Cookies Policy - XenoraAI</title>
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;K&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/png" href="XenoraLogo.png">
+    <link rel="apple-touch-icon" href="XenoraLogo.png">
     <style>
-        /* Global Styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
@@ -36,7 +40,7 @@
         }
 
         body {
-            font-family: 'Playfair Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Playfair Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
@@ -45,42 +49,43 @@
             font-weight: 400;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            color: #1a1a2e;
+            color: var(--primary-text);
             letter-spacing: -0.02em;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
         }
 
         h2 {
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
         }
 
         h3 {
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
         }
 
         p {
-            font-size: 1.1rem;
-            color: #2c2c54;
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: var(--secondary-text);
             font-weight: 400;
         }
 
         a {
             text-decoration: none;
-            color: #1a1a2e;
+            color: var(--primary-text);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-user-select: none;
+            user-select: none;
         }
 
-        /* Enhanced Navigation Bar - Matching About Page */
         nav {
             position: fixed;
             top: 20px;
@@ -89,15 +94,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 32px;
+            padding: 12px 24px;
             background: rgba(250, 244, 242, 0.85);
             backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
             border-radius: 60px;
             box-shadow: var(--shadow-md);
             z-index: 1000;
-            width: 90%;
-            max-width: 800px;
+            width: min(90%, 900px);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -108,55 +113,51 @@
 
         .nav-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
             font-weight: 800;
             background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
             background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: transparent;
             animation: gradientFlow 8s ease-in-out infinite;
             letter-spacing: -0.02em;
+            cursor: pointer;
         }
 
         @keyframes gradientFlow {
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .nav-links {
             display: flex;
             gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-link {
-            padding: 8px 20px;
-            font-size: 0.95rem;
+            padding: 8px 16px;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
             font-weight: 500;
             color: var(--primary-text);
-            text-decoration: none;
             border-radius: 30px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             letter-spacing: 0.01em;
+            touch-action: manipulation;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
+        .nav-link:hover, .nav-link.active {
             background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
             color: white;
             transform: translateY(-1px);
         }
 
-        /* Header Section */
         header {
             text-align: center;
-            padding: 220px 40px 120px;
+            padding: clamp(120px, 20vh, 180px) 16px clamp(80px, 10vh, 100px);
             background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 0, 127, 0.1) 50%, rgba(255, 140, 66, 0.1) 100%);
             border-bottom: 1px solid rgba(26, 26, 46, 0.1);
             position: relative;
@@ -177,46 +178,47 @@
         header .content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: min(90%, 800px);
             margin: 0 auto;
         }
 
         header h1 {
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             animation: fadeInUp 1s ease-out;
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
             -webkit-background-clip: text;
             background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 32px;
+            color: var(--secondary-text);
+            animation: fadeInUp 1s ease-out 0.2s both;
+            line-height: 1.6;
+            font-weight: 400;
         }
 
         @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Main Content Container */
         .main-content {
-            max-width: 1200px;
+            max-width: min(95%, 1200px);
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 32px 16px;
         }
 
-        /* Cookies Content Section */
         .cookies-content {
-            margin-bottom: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            padding: 80px 50px;
+            margin-bottom: 48px;
+            border: 1px solid var(--glass-border);
+            padding: clamp(24px, 5vw, 64px) clamp(16px, 3vw, 40px);
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(20px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
             border-radius: 24px;
             overflow: hidden;
         }
@@ -228,108 +230,101 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
             border-radius: 20px 20px 0 0;
         }
 
         .cookies-content h2 {
-            color: #1a1a2e;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            margin-top: 32px;
+            margin-bottom: 16px;
         }
 
         .cookies-content h3 {
-            color: #1a1a2e;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-top: 24px;
+            margin-bottom: 12px;
         }
 
         .cookies-content p {
-            margin-bottom: 25px;
-            color: #2c2c54;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
         }
 
         .cookies-content ul {
-            margin-bottom: 25px;
-            padding-left: 25px;
+            margin-bottom: 20px;
+            padding-left: 20px;
         }
 
         .cookies-content li {
-            margin-bottom: 12px;
-            color: #2c2c54;
-            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
         }
 
         .cookies-content strong {
-            color: #1a1a2e;
+            color: var(--primary-text);
             font-weight: 600;
         }
 
-        /* Cookie Control Section */
         .cookie-control {
             background: linear-gradient(135deg, rgba(237, 230, 245, 0.5) 0%, rgba(250, 244, 242, 0.5) 100%);
-            padding: 40px;
+            padding: clamp(24px, 4vw, 32px);
             border-radius: 16px;
-            margin: 40px 0;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
+            margin: 32px 0;
+            border: 1px solid var(--glass-border);
         }
 
         .cookie-control h3 {
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .cookie-control p {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .cookie-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
-        /* Cookie Types Table */
         .cookie-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 40px 0;
+            margin: 32px 0;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-sm);
         }
 
-        .cookie-table th,
-        .cookie-table td {
-            padding: 20px;
+        .cookie-table th, .cookie-table td {
+            padding: 16px;
             text-align: left;
             border-bottom: 1px solid rgba(26, 26, 46, 0.1);
         }
 
         .cookie-table th {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
-            color: #faf4f2;
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
+            color: var(--primary-bg);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
         }
 
         .cookie-table td {
             background: rgba(255, 255, 255, 0.8);
-            color: #2c2c54;
+            color: var(--secondary-text);
+            font-size: clamp(0.9rem, 1.5vw, 0.95rem);
         }
 
         .cookie-table tr:hover td {
             background: rgba(237, 230, 245, 0.5);
         }
 
-        /* Enhanced Button Styles */
         .btn {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
-            color: #ffffff;
-            padding: 16px 32px;
-            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
+            color: white;
+            padding: 12px 24px;
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
             font-weight: 500;
             border: none;
             border-radius: 12px;
@@ -337,12 +332,12 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-block;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(26, 26, 46, 0.2);
+            box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
             letter-spacing: 0.02em;
-            margin-right: 15px;
-            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            touch-action: manipulation;
         }
 
         .btn::before {
@@ -361,125 +356,142 @@
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%);
+            background: linear-gradient(135deg, var(--accent-3) 0%, var(--accent-2) 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 140, 66, 0.3);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #1a1a2e;
-            border: 2px solid #1a1a2e;
+            color: var(--primary-text);
+            border: 2px solid var(--primary-text);
             box-shadow: none;
         }
 
         .btn-secondary:hover {
-            background: #1a1a2e;
-            color: #ffffff;
-            border-color: #1a1a2e;
+            background: var(--primary-text);
+            color: white;
+            border-color: var(--primary-text);
         }
 
-        /* External Links */
-        .cookies-content a[href*="http"] {
-            color: #ff8c42;
+        .cookies-content a[href*="http"], .cookies-content a[href*="mailto"] {
+            color: var(--accent-3);
             font-weight: 500;
             position: relative;
         }
 
-        .cookies-content a[href*="http"]:hover {
-            color: #ff007f;
+        .cookies-content a[href*="http"]:hover, .cookies-content a[href*="mailto"]:hover {
+            color: var(--accent-2);
         }
 
-        .cookies-content a[href*="mailto"] {
-            color: #ff8c42;
-            font-weight: 500;
-        }
-
-        .cookies-content a[href*="mailto"]:hover {
-            color: #ff007f;
-        }
-
-        /* Enhanced Footer */
         footer {
             text-align: center;
-            padding: 80px 40px 40px;
-            margin-top: 80px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
-            color: #faf4f2;
+            padding: clamp(48px, 10vw, 64px) 16px clamp(24px, 5vw, 32px);
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--secondary-text) 100%);
+            color: var(--primary-bg);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 50px;
-            max-width: 1000px;
-            margin: 0 auto 50px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            max-width: min(95%, 1000px);
+            margin: 0 auto 40px;
             text-align: left;
         }
 
         .footer-column h3 {
-            color: #faf4f2;
-            margin-bottom: 25px;
-            font-size: 1.3rem;
+            color: var(--primary-bg);
+            margin-bottom: 20px;
+            font-size: clamp(1.1rem, 2vw, 1.2rem);
         }
 
         .footer-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .footer-links a {
             color: rgba(250, 244, 242, 0.8);
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 1.5vw, 0.95rem);
         }
 
         .footer-links a:hover {
-            color: #ff8c42;
-            transform: translateX(5px);
+            color: var(--accent-3);
+            transform: translateX(4px);
         }
 
-        /* Update social links to be square */
         .social-links {
             display: flex;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 16px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .social-links a {
-            color: #faf4f2;
-            font-size: 1.8rem;
+            color: var(--primary-bg);
+            font-size: 1.5rem;
             transition: all 0.3s ease;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 8px;
+            border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
         }
 
         .social-links a:hover {
-            color: #ff8c42;
+            color: var(--accent-3);
             background: rgba(255, 140, 66, 0.2);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         .copyright {
-            margin-top: 50px;
-            padding-top: 30px;
+            margin-top: 40px;
+            padding-top: 24px;
             border-top: 1px solid rgba(250, 244, 242, 0.15);
             color: rgba(250, 244, 242, 0.7);
+            font-size: clamp(0.8rem, 1.2vw, 0.85rem);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 320px) {
+            nav {
+                position: static;
+                transform: none;
+                width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 8px 4px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 4px;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 6px 0;
+                font-size: 0.9rem;
+            }
+
+            header {
+                padding: 100px 8px 60px;
+            }
+
             .cookies-content {
-                padding: 40px 30px;
+                padding: 24px 12px;
             }
 
             .cookie-table {
@@ -495,156 +507,213 @@
             .btn {
                 width: 100%;
                 margin-right: 0;
-            }
-        }
-
-        /* Mobile Navigation Adjustments */
-        @media (max-width: 768px) {
-            nav {
-                top: 10px;
-                width: 95%;
-                padding: 12px 20px;
-            }
-
-            .nav-links {
-                gap: 4px;
-            }
-
-            .nav-link {
-                padding: 6px 12px;
-                font-size: 0.875rem;
-            }
-
-            header {
-                padding: 180px 20px 80px;
-            }
-        }
-
-        /* iPhone 12 Pro Max specific (428px) */
-        @media (min-width: 426px) and (max-width: 428px) {
-            nav {
-                top: 10px !important;
-                width: 96% !important;
-                padding: 12px 14px !important;
-            }
-
-            .nav-links {
-                gap: 3px !important;
-            }
-
-            .nav-link {
-                padding: 6px 8px !important;
-                font-size: 0.75rem !important;
-            }
-        }
-
-        /* Small Mobile (up to 375px) */
-        @media (max-width: 375px) {
-            nav {
-                top: 10px !important;
-                width: 95% !important;
-                padding: 12px 16px !important;
-            }
-
-            .nav-link {
-                padding: 6px 10px !important;
-                font-size: 0.8rem !important;
-            }
-
-            header {
-                padding: 160px 15px 70px;
-            }
-
-            .cookies-content {
-                padding: 30px 20px;
-            }
-
-            .cookie-control {
-                padding: 25px;
+                padding: 10px;
             }
 
             footer {
-                padding: 60px 20px 30px;
+                padding: 24px 8px 16px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                justify-items: center;
+            }
+
+            .footer-column {
+                align-items: center;
+                text-align: center;
             }
         }
 
-        /* Medium Mobile (376px - 425px) */
-        @media (min-width: 375px) and (max-width: 425px) {
+        @media (min-width: 321px) and (max-width: 480px) {
             nav {
-                top: 10px !important;
-                width: 95% !important;
-                padding: 12px 16px !important;
+                position: static;
+                transform: none;
+                width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 10px 8px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 6px;
+                width: 100%;
             }
 
             .nav-link {
-                padding: 6px 10px !important;
-                font-size: 0.8rem !important;
+                width: 100%;
+                text-align: center;
+                padding: 8px 0;
+                font-size: 0.95rem;
             }
 
             header {
-                padding: 170px 18px 75px;
+                padding: 120px 12px 80px;
+            }
+
+            .cookies-content {
+                padding: 32px 16px;
+            }
+
+            .cookie-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            footer {
+                padding: 32px 12px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                justify-items: center;
             }
         }
 
-        /* Tablet (601px - 900px) */
-        @media (min-width: 601px) and (max-width: 900px) {
+        @media (min-width: 481px) and (max-width: 768px) {
             nav {
-                width: 96%;
-                padding: 16px 24px;
+                position: fixed;
+                top: 16px;
+                width: 95%;
+                max-width: 600px;
+                border-radius: 40px;
+                padding: 12px 16px;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                gap: 8px;
             }
 
             .nav-link {
-                padding: 8px 16px;
+                padding: 8px 12px;
                 font-size: 0.9rem;
+            }
+
+            header {
+                padding: 140px 16px 100px;
+            }
+
+            .cookies-content {
+                padding: 40px 24px;
+            }
+
+            footer {
+                padding: 40px 16px 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
             }
         }
 
-        /* Smooth scroll and performance optimizations */
-        html {
-            scroll-behavior: smooth;
+        @media (min-width: 769px) and (max-width: 1024px) {
+            nav {
+                width: 90%;
+                max-width: 800px;
+                padding: 14px 20px;
+            }
+
+            .nav-link {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+            }
+
+            .cookies-content {
+                padding: 48px 32px;
+            }
+
+            footer {
+                padding: 48px 24px 40px;
+            }
         }
 
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        @media (min-width: 1025px) {
+            nav {
+                width: 90%;
+                max-width: 900px;
+                padding: 16px 32px;
+            }
+
+            .cookies-content {
+                padding: 64px 40px;
+            }
+
+            footer {
+                padding: 64px 32px 48px;
+            }
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+
+        @media (hover: none) {
+            .nav-link:hover, .nav-link.active {
+                background: none;
+                color: var(--primary-text);
+                transform: none;
+            }
+
+            .btn:hover, .btn-secondary:hover {
+                transform: none;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .cookies-content a[href*="http"]:hover, .cookies-content a[href*="mailto"]:hover {
+                transform: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Navigation Bar -->
     <nav>
-        <div class="nav-logo">XenoraAI</div>
+        <div class="nav-logo" onclick="window.location.href='index.html'" role="button" tabindex="0" aria-label="XenoraAI Home">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
-            <a href="models.html" class="nav-link">Nora</a>
+            <a href="models.html" class="nav-link">Models</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
 
-    <!-- Header Section -->
     <header>
         <div class="content">
             <h1>Cookies Policy</h1>
-            <p>Learn how we use cookies to enhance your experience on our website</p>
         </div>
     </header>
 
     <div class="main-content">
         <div class="cookies-content">
             <h2>Understanding Cookies</h2>
-            <p>Cookies are small text files that are placed on your computer or mobile device when you visit websites.
-                They are widely used to make websites work more efficiently, as well as to provide information to the
-                website owners.</p>
+            <p>Cookies are small text files that are placed on your computer or mobile device when you visit websites. They are widely used to make websites work more efficiently, as well as to provide information to the website owners.</p>
 
             <div class="cookie-control">
                 <h3>Cookie Preferences</h3>
                 <p>We respect your privacy. You can control which types of cookies we use:</p>
                 <div class="cookie-buttons">
-                    <button class="btn" id="accept-all">Accept All Cookies</button>
-                    <button class="btn btn-secondary" id="essential-only">Essential Cookies Only</button>
-                    <button class="btn btn-secondary" id="manage-cookies">Manage Cookie Preferences</button>
+                    <button class="btn" id="accept-all" aria-label="Accept All Cookies">Accept All Cookies</button>
+                    <button class="btn btn-secondary" id="essential-only" aria-label="Accept Essential Cookies Only">Essential Cookies Only</button>
+                    <button class="btn btn-secondary" id="manage-cookies" aria-label="Manage Cookie Preferences">Manage Cookie Preferences</button>
                 </div>
             </div>
 
@@ -700,27 +769,22 @@
             <p>These third-party services have their own privacy policies, and we recommend you review them.</p>
 
             <h2>Managing Cookies</h2>
-            <p>You can control and/or delete cookies as you wish. Most web browsers allow some control of cookies
-                through browser settings. You can:</p>
+            <p>You can control and/or delete cookies as you wish. Most web browsers allow some control of cookies through browser settings. You can:</p>
             <ul>
                 <li>Delete all cookies from your device</li>
                 <li>Set your browser to prevent cookies being placed</li>
                 <li>Use browser add-ons to manage specific cookies</li>
             </ul>
-            <p>To learn more about how to manage cookies, visit <a href="https://www.allaboutcookies.org/"
-                    target="_blank">allaboutcookies.org</a>.</p>
+            <p>To learn more about how to manage cookies, visit <a href="https://www.allaboutcookies.org/" target="_blank" aria-label="Learn more about managing cookies">allaboutcookies.org</a>.</p>
 
             <h2>Changes to This Policy</h2>
-            <p>We may update this Cookies Policy from time to time. We will notify you of any changes by posting the new
-                policy on this page with an updated revision date.</p>
+            <p>We may update this Cookies Policy from time to time. We will notify you of any changes by posting the new policy on this page with an updated revision date.</p>
 
             <h2>Contact Us</h2>
-            <p>If you have any questions about our use of cookies, please contact us at <a
-                    href="mailto:xenoraai@gmail.com">xenoraai@gmail.com</a>.</p>
+            <p>If you have any questions about our use of cookies, please contact us at <a href="mailto:xenoraai@gmail.com" aria-label="Contact XenoraAI">xenoraai@gmail.com</a>.</p>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-column">
@@ -731,42 +795,36 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
                         </svg>
                     </a>
                 </div>
             </div>
-
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
-                    <a href="models.html">Nora</a>
+                    <a href="models.html">Models</a>
                     <a href="about.html">About Us</a>
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-
             <div class="footer-column">
                 <h3>Legal</h3>
                 <div class="footer-links">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
-                    <a href="cookies.html" class="active">Cookie Policy</a>
+                    <a href="cookies.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
-
         <div class="copyright">
-            <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
+            <p style="color: rgba(250, 244, 242, 0.9);">™ 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Simple cookie preference management
         document.getElementById('accept-all').addEventListener('click', function () {
             alert('All cookies have been accepted. Thank you!');
             // In a real implementation, this would set a cookie
@@ -782,17 +840,36 @@
             // In a real implementation, this would open a detailed preferences panel
         });
 
-        // Set active state for current page in footer
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            const footerLinks = document.querySelectorAll('.footer-links a');
-            
-            footerLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
+        // Add floating animation to cookies-content
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
+        }, observerOptions);
+
+        const cookiesContent = document.querySelector('.cookies-content');
+        if (cookiesContent) {
+            cookiesContent.style.opacity = '0';
+            cookiesContent.style.transform = 'translateY(20px)';
+            cookiesContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(cookiesContent);
+        }
+
+        // Prevent pinch zoom on touch devices
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
         });
+
+        // Ensure smooth touch scrolling
+        document.body.style.touchAction = 'pan-y';
     </script>
 </body>
 
