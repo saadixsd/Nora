@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nora - AI Legal Assistant | XenoraAI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="Discover Nora, Canada's smartest legal AI assistant, powering intelligent legal research, document analysis, and task automation for Canadian law firms.">
+    <meta name="keywords" content="Nora AI, Legal AI, Canadian Law, Legal Tech, AI assistant, Document Analysis, Task Automation">
+    <title>Nora - XenoraAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="XenoraLogo.png">
     <style>
@@ -28,10 +36,13 @@
             --shadow-sm: 0 4px 20px rgba(26, 26, 46, 0.08);
             --shadow-md: 0 10px 40px rgba(26, 26, 46, 0.12);
             --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.15);
+            --nora-color: #8a2be2;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --focus-outline: #4a90e2;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Playfair Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
@@ -40,9 +51,125 @@
             font-weight: 400;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            font-size: 1rem;
         }
 
-        /* Premium Navigation */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+        }
+
+        h3 {
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+        }
+
+        h4 {
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+        }
+
+        p {
+            font-size: clamp(0.95rem, 1.8vw, 1rem);
+            color: #2c2c54;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a1a2e;
+            transition: var(--transition);
+        }
+
+        a:focus,
+        button:focus,
+        [tabindex="0"]:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: #1a1a2e;
+            color: #faf4f2;
+            padding: 10px 20px;
+            z-index: 10000;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Fade-In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered Animation for Specification Cards */
+        .specs-grid .spec-card:nth-child(1) {
+            transition-delay: 0s;
+        }
+        .specs-grid .spec-card:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        .specs-grid .spec-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        .specs-grid .spec-card:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+        .specs-grid .spec-card:nth-child(5) {
+            transition-delay: 0.4s;
+        }
+        .specs-grid .spec-card:nth-child(6) {
+            transition-delay: 0.5s;
+        }
+
+        /* Staggered Animation for Use Case Cards */
+        .use-cases-grid .use-case-card:nth-child(1) {
+            transition-delay: 0s;
+        }
+        .use-cases-grid .use-case-card:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        .use-cases-grid .use-case-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        .use-cases-grid .use-case-card:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+        .use-cases-grid .use-case-card:nth-child(5) {
+            transition-delay: 0.4s;
+        }
+        .use-cases-grid .use-case-card:nth-child(6) {
+            transition-delay: 0.5s;
+        }
+
+        /* Enhanced Navigation Bar */
         nav {
             position: fixed;
             top: 20px;
@@ -60,7 +187,7 @@
             z-index: 1000;
             width: 90%;
             max-width: 800px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
         }
 
         nav:hover {
@@ -69,8 +196,8 @@
         }
 
         .nav-logo {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', sans-serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
             font-weight: 800;
             background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
             background-size: 200% 200%;
@@ -82,8 +209,12 @@
         }
 
         @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .nav-links {
@@ -93,14 +224,16 @@
 
         .nav-link {
             padding: 8px 20px;
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
             font-weight: 500;
             color: var(--primary-text);
             text-decoration: none;
             border-radius: 30px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
             position: relative;
             letter-spacing: 0.01em;
+            min-width: 80px;
+            text-align: center;
         }
 
         .nav-link:hover,
@@ -109,291 +242,503 @@
             color: white;
             transform: translateY(-1px);
         }
-        @media (max-width: 768px) {
-            nav {
-                top: 10px;
-                width: 95%;
-                padding: 12px 20px;
-            }
-            .nav-links {
-                gap: 4px;
-            }
-            .nav-link {
-                padding: 6px 12px;
-                font-size: 0.875rem;
-            }
+
+        .nav-link:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
         }
 
-        h1, h2, h3 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            color: #1a1a2e;
-        }
-
-        a {
+        /* Enhanced Button Styles */
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
             text-decoration: none;
-            color: #1a1a2e;
-            transition: color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.01em;
+            min-height: 48px;
+            min-width: 120px;
+            touch-action: manipulation;
         }
 
-        a:hover {
-            color: #ff8c42;
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
         }
 
-        /* Header Section - EXACTLY matches About page */
-        header {
-            text-align: center;
-            padding: 200px 20px 100px;
-            background: #faf4f2;
-            border-bottom: 4px solid #1a1a2e;
+        .btn:hover::before {
+            left: 100%;
         }
 
-        header h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            color: #1a1a2e;
-            animation: fadeIn 2s ease-in-out;
+        .btn:hover {
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-2), var(--accent-1));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 140, 66, 0.3);
         }
 
-        header p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            color: #333333;
-            animation: fadeIn 2.5s ease-in-out;
+        .btn:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
         }
 
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .btn-nora {
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            color: white;
         }
 
         /* Main Content */
-        .main-content {
+        main {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        
-        /* Interface Panels */
-        .panel-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .panel-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .interface-panel {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .interface-panel:hover {
-            transform: translateY(-5px);
-        }
-        
-        .panel-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #ede6f5;
-        }
-        
-        .panel-icon {
-            font-size: 1.5rem;
-            color: #ff8c42;
-            margin-right: 15px;
-        }
-        
-        /* Form Elements */
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #1a1a2e;
-        }
-        
-        input[type="text"],
-        textarea,
-        input[type="file"],
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        input[type="text"]:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: #ff8c42;
-        }
-        
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .file-input-container {
+
+        /* Enhanced Header Section */
+        header {
+            text-align: center;
+            padding: clamp(160px, 20vw, 220px) 40px clamp(80px, 10vw, 120px);
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 0, 127, 0.1) 50%, rgba(255, 140, 66, 0.1) 100%);
+            border-bottom: 1px solid rgba(26, 26, 46, 0.1);
             position: relative;
             overflow: hidden;
-            display: inline-block;
-            width: 100%;
         }
-        
-        .file-input-button {
-            background-color: #ede6f5;
-            color: #1a1a2e;
-            padding: 12px;
-            border-radius: 6px;
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center top, rgba(255, 140, 66, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 40px;
+            color: #2c2c54;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Model Showcase Section */
+        .model-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            margin: 100px 0;
+        }
+
+        .model-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+        }
+
+        .model-header {
+            padding: 40px;
             text-align: center;
-            cursor: pointer;
-            border: 1px dashed #1a1a2e;
-            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 255, 255, 0.8));
         }
-        
-        .file-input-button:hover {
-            background-color: #e0d6f0;
+
+        .model-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
         }
-        
-        .file-input {
+
+        .model-icon {
+            font-size: clamp(2.5rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+        }
+
+        .model-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .model-features {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .model-features h3 {
+            margin-bottom: 25px;
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .model-features h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+
+        .feature-item::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
             position: absolute;
             left: 0;
-            top: 0;
-            opacity: 0;
+            top: 2px;
+            color: var(--accent-1);
+        }
+
+        .model-demo {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: var(--secondary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-placeholder {
             width: 100%;
             height: 100%;
-            cursor: pointer;
-        }
-        
-        .file-info {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* Buttons - Matching XenoraAI */
-        .btn {
-            background-color: #1a1a2e;
-            color: #ffffff;
-            padding: 12px 24px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-        }
-        
-        .btn:hover {
-            background-color: #ff8c42;
-            transform: scale(1.05);
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-        
-        /* Response Panel */
-        .response-panel {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-        }
-        
-        .response-content {
-            min-height: 200px;
-            background: #faf4f2;
-            padding: 15px;
-            border-radius: 6px;
-            white-space: pre-wrap;
-            font-family: 'Roboto', sans-serif;
-        }
-        
-        /* Loading Indicator */
-        .loading {
-            display: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             text-align: center;
-            padding: 20px;
         }
-        
-        .spinner {
-            border: 4px solid rgba(26, 26, 46, 0.1);
-            border-radius: 50%;
-            border-top: 4px solid #ff8c42;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
+
+        .demo-placeholder i {
+            font-size: clamp(3rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            opacity: 0.2;
         }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        /* Use Cases Section */
+        .use-cases-section {
+            margin: 100px 0;
         }
-        
-        /* Footer - EXACTLY matches other pages */
+
+        .use-cases-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .use-cases-header h2 {
+            margin-bottom: 20px;
+        }
+
+        .use-cases-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 3vw, 30px);
+        }
+
+        .use-case-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .use-case-image {
+            height: 200px;
+            background: var(--secondary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.1);
+            font-size: clamp(2.5rem, 5vw, 3rem);
+        }
+
+        .use-case-content {
+            padding: clamp(20px, 3vw, 30px);
+        }
+
+        .use-case-title {
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+            margin-bottom: 15px;
+            color: var(--primary-text);
+        }
+
+        .use-case-description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+
+        .use-case-model {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: clamp(0.75rem, 1.5vw, 0.8rem);
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background: rgba(138, 43, 226, 0.1);
+            color: var(--accent-1);
+        }
+
+        /* Technical Specs Section */
+        .specs-section {
+            margin: 100px 0;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .specs-header {
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%);
+        }
+
+        .specs-header h2 {
+            margin-bottom: 20px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 3vw, 40px);
+            padding: clamp(20px, 3vw, 40px);
+        }
+
+        .spec-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: clamp(20px, 3vw, 30px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .spec-title {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 15px;
+            color: var(--primary-text);
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .spec-description {
+            color: var(--secondary-text);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+
+        /* Enhanced Access Section */
+        .access-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
+            color: #faf4f2;
+            padding: clamp(60px, 10vw, 100px) 40px;
+            text-align: center;
+            margin: 80px 0;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .access-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 140, 66, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .access-section .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .access-section h2 {
+            color: #faf4f2;
+            margin-bottom: 20px;
+        }
+
+        .access-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 40px;
+            color: rgba(250, 244, 242, 0.8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* Enhanced Footer */
         footer {
             text-align: center;
-            padding: 60px 20px;
-            margin-top: 60px;
-            background-color: #1a1a2e;
+            padding: clamp(40px, 8vw, 80px) 40px clamp(20px, 4vw, 40px);
+            margin-top: 80px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
             color: #faf4f2;
-            font-size: 1em;
-            border-top: 4px solid #faf4f2;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            gap: clamp(30px, 5vw, 50px);
             max-width: 1000px;
-            margin: 0 auto 40px;
+            margin: 0 auto 50px;
             text-align: left;
         }
 
         .footer-column h3 {
             color: #faf4f2;
-            margin-bottom: 20px;
-            font-size: 1.3em;
+            margin-bottom: 25px;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
         }
 
         .footer-links {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .footer-links a {
-            color: #faf4f2;
-            transition: color 0.3s ease;
+            color: rgba(250, 244, 242, 0.8);
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            text-decoration: none;
         }
 
         .footer-links a:hover {
             color: #ff8c42;
+            transform: translateX(5px);
         }
 
-        /* Update social links to be square */
         .social-links {
             display: flex;
             gap: 20px;
@@ -402,7 +747,7 @@
 
         .social-links a {
             color: #faf4f2;
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
             transition: all 0.3s ease;
             padding: 12px;
             border-radius: 12px;
@@ -420,470 +765,632 @@
             transform: translateY(-3px);
         }
 
-        /* Video Section */
-        .video-section {
-            text-align: center;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, rgba(250, 244, 242, 0.5) 0%, rgba(245, 237, 233, 0.5) 100%);
-            border-radius: 20px;
-            margin: 40px auto;
-            max-width: 800px;
-        }
-
-        .video-section h2 {
-            margin-bottom: 30px;
-            color: #1a1a2e;
-            font-size: 2rem;
-        }
-
-        .video-container {
-            max-width: 600px;
-            margin: 0 auto;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Capabilities Section */
-        .capabilities-section {
-            padding: 60px 40px;
-            background: white;
-            border-radius: 20px;
-            margin: 40px auto;
-            max-width: 1200px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .capabilities-section h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #1a1a2e;
-            font-size: 2rem;
-        }
-
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .capability-card {
-            background: linear-gradient(135deg, rgba(250, 244, 242, 0.5) 0%, rgba(245, 237, 233, 0.5) 100%);
-            padding: 30px 25px;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .capability-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .capability-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #8a2be2, #ff007f);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .capability-card h3 {
-            margin-bottom: 15px;
-            color: #1a1a2e;
-            font-size: 1.3rem;
-        }
-
-        .capability-card p {
-            color: #2c2c54;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
         .copyright {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(250, 244, 242, 0.2);
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(250, 244, 242, 0.15);
+            color: rgba(250, 244, 242, 0.7);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
         }
 
-        /* Responsive Adjustments */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                padding: 150px 20px 80px;
-            }
-            
-            header h1 {
-                font-size: 2.5em;
-            }
-            
             nav {
-                padding: 15px 20px;
+                padding: 15px 25px;
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
-            nav .logo {
+
+            .nav-logo {
                 margin-bottom: 15px;
-                margin-right: 0;
+                font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            }
+
+            .nav-links {
+                gap: 25px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            header {
+                padding: clamp(120px, 15vw, 180px) 25px clamp(60px, 8vw, 100px);
+            }
+
+            .model-content {
+                flex-direction: column;
+            }
+
+            .model-features,
+            .model-demo {
+                min-width: 100%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 5px 0;
+                min-height: 44px;
+            }
+        }
+
+        /* Responsive Navigation and Footer */
+        @media (max-width: 375px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 6px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 8px 0 !important;
+                font-size: clamp(0.8rem, 1.5vw, 0.9rem) !important;
+                min-height: 44px;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: clamp(20px, 5vw, 30px) 4px clamp(10px, 2.5vw, 20px) !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: clamp(12px, 3vw, 18px) !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr !important;
+                gap: clamp(12px, 3vw, 20px) !important;
+                padding: clamp(12px, 3vw, 20px) !important;
+            }
+
+            .spec-card {
+                padding: clamp(12px, 3vw, 20px) !important;
+            }
+        }
+
+        @media (min-width: 375px) and (max-width: 425px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 !important;
+                font-size: clamp(0.85rem, 1.5vw, 0.95rem) !important;
+                min-height: 44px;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: clamp(24px, 6vw, 40px) 8px clamp(14px, 3.5vw, 24px) !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: clamp(14px, 3.5vw, 22px) !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr !important;
+                gap: clamp(12px, 3vw, 20px) !important;
+                padding: clamp(12px, 3vw, 20px) !important;
+            }
+
+            .spec-card {
+                padding: clamp(12px, 3vw, 20px) !important;
+            }
+        }
+
+        @media (min-width: 425px) and (max-width: 600px) {
+            nav {
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 10px 4px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 10px !important;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center !important;
+            }
+
+            .nav-link {
+                padding: clamp(8px, 1.5vw, 10px) 8px !important;
+                font-size: clamp(0.9rem, 1.5vw, 1rem) !important;
+                min-height: 44px;
+            }
+
+            footer {
+                text-align: center !important;
+                padding: clamp(30px, 7vw, 50px) 12px clamp(18px, 4vw, 30px) !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: clamp(18px, 4vw, 28px) !important;
+                text-align: center !important;
+                justify-items: center !important;
+            }
+
+            .footer-column {
+                align-items: center !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 900px) {
+            nav {
+                position: fixed !important;
+                width: 98% !important;
+                max-width: 98% !important;
+                border-radius: 30px !important;
+                box-shadow: var(--shadow-md) !important;
+                padding: clamp(12px, 2vw, 16px) 20px !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+
+            .nav-links {
+                flex-direction: row !important;
+                gap: 12px !important;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: clamp(8px, 1.5vw, 12px) 12px !important;
+                font-size: clamp(0.95rem, 1.5vw, 1.1rem) !important;
+                min-height: 44px;
+            }
+
+            footer {
+                text-align: left !important;
+                padding: clamp(36px, 8vw, 60px) 24px clamp(24px, 5vw, 40px) !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: clamp(20px, 4vw, 32px) !important;
+                text-align: left !important;
+                justify-items: start !important;
+            }
+
+            .footer-column {
+                align-items: flex-start !important;
+                text-align: left !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 901px) {
+            nav {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 800px;
+                border-radius: 60px;
+                box-shadow: var(--shadow-md);
+                padding: 16px 32px;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                gap: 8px;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 8px 20px;
+                font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+                min-height: 44px;
+            }
+
+            footer {
+                text-align: left;
+                padding: clamp(40px, 8vw, 80px) 40px clamp(20px, 4vw, 40px);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: clamp(30px, 5vw, 50px);
+                text-align: left;
+                justify-items: start;
+            }
+
+            .footer-column {
+                align-items: flex-start;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* High-resolution displays */
+        @media (min-resolution: 2dppx) {
+            body {
+                font-size: 1.1rem;
+            }
+
+            h1 {
+                font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+            }
+
+            .nav-link {
+                font-size: clamp(0.9rem, 1.6vw, 1rem);
+            }
+
+            .btn {
+                font-size: clamp(0.95rem, 1.9vw, 1.05rem);
             }
         }
     </style>
 </head>
+
 <body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation Bar -->
-    <nav>
+    <nav aria-label="Main navigation">
         <div class="nav-logo">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
-            <a href="models.html" class="nav-link">Nora</a>
+            <a href="models.html" class="nav-link active" aria-current="page">Models</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
 
     <!-- Header Section -->
-    <header>
-        <h1>Nora</h1>
-        <p>Your intelligent partner for legal research, document analysis, & case preparation</p>
+    <header aria-labelledby="header-title">
+        <div class="content">
+            <h1 id="header-title">Nora</h1>
+            <p>Discover Nora, Canada’s smartest legal AI assistant, designed to streamline legal research, document analysis, and task automation for Canadian law firms.</p>
+            <div class="header-buttons">
+                <button class="btn btn-nora" onclick="window.location.href='contact.html'" aria-label="Join Nora Waitlist">Join Waitlist</button>
+            </div>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Video Section -->
-        <div class="video-section">
-            <h2>See Nora in Action</h2>
-            <div class="video-container">
-                <video width="100%" height="auto" autoplay loop muted playsinline>
-                    <source src="TicketCase.mov" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+    <main id="main-content">
+        <!-- Technical Specs Section -->
+        <section class="specs-section fade-in" aria-labelledby="specs-title">
+            <div class="specs-header">
+                <h2 id="specs-title">Nora Technical Specifications</h2>
+                <p>Discover the robust architecture powering Nora’s intelligent legal solutions.</p>
             </div>
-        </div>
+            <div class="specs-grid">
+                <article class="spec-card fade-in" aria-labelledby="spec-1-title">
+                    <h3 class="spec-title" id="spec-1-title">Architecture</h3>
+                    <div class="spec-value">Canadian Legal Database</div>
+                    <p class="spec-description">Trained on comprehensive Canadian and provincial legal data with RAG-enabled search.</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-2-title">
+                    <h3 class="spec-title" id="spec-2-title">Performance</h3>
+                    <div class="spec-value">Response < 5s</div>
+                    <p class="spec-description">Optimized for speed and accuracy in a high-performance environment.</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-3-title">
+                    <h3 class="spec-title" id="spec-3-title">Capabilities</h3>
+                    <div class="spec-value">Legal Intelligence</div>
+                    <p class="spec-description">Specialized in legal Q&A, document analysis, and task automation for Canadian law.</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-4-title">
+                    <h3 class="spec-title" id="spec-4-title">Compliance</h3>
+                    <div class="spec-value">PIPEDA, SOC2</div>
+                    <p class="spec-description">Adheres to Canadian data protection and security standards.</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-5-title">
+                    <h3 class="spec-title" id="spec-5-title">Integration</h3>
+                    <div class="spec-value">Seamless API</div>
+                    <p class="spec-description">Integrates with legal management software and APIs for streamlined workflows.</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-6-title">
+                    <h3 class="spec-title" id="spec-6-title">Scalability</h3>
+                    <div class="spec-value">Cloud-Based</div>
+                    <p class="spec-description">Supports firms of all sizes with scalable, cloud-based infrastructure.</p>
+                </article>
+            </div>
+        </section>
 
-        <!-- Capabilities Section -->
-        <div class="capabilities-section">
-            <h2>What Nora Can Do For You</h2>
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <div class="capability-icon">
+        <!-- Nora Showcase Section -->
+        <section class="model-showcase" aria-labelledby="model-showcase-title">
+            <h2 id="model-showcase-title" class="sr-only">Nora Showcase</h2>
+            <article class="model-card fade-in" id="nora" aria-labelledby="nora-title">
+                <div class="model-header">
+                    <div class="model-icon" aria-hidden="true">
                         <i class="fas fa-gavel"></i>
                     </div>
-                    <h3>Case Law Research</h3>
-                    <p>Instantly find relevant Canadian case law and analyze precedents based on your specific legal questions</p>
                 </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
+                <div class="model-content">
+                    <div class="model-features">
+                        <ul class="feature-list">
+                            <li class="feature-item">Legal Q&A with citations from Canadian federal and provincial case law</li>
+                            <li class="feature-item">Document upload and parsing (PDF, DOCX, TXT) with clause extraction</li>
+                            <li class="feature-item">Contract summarization with key terms and obligations highlighted</li>
+                            <li class="feature-item">Context-aware prompting for lawyers, judges, or clients</li>
+                            <li class="feature-item">Meeting notes summarization and smart task reminders</li>
+                            <li class="feature-item">Real-time Retrieval-Augmented Generation (RAG) for legal knowledge search</li>
+                            <li class="feature-item">Personalized responses with long-term user memory</li>
+                            <li class="feature-item">Multilingual support for English and French legal documents</li>
+                            <li class="feature-item">Compliance with PIPEDA and SOC2 for data security</li>
+                        </ul>
+                    </div>
+                    <div class="model-demo">
+                        <div class="demo-placeholder">
+                            <i class="fas fa-gavel" aria-hidden="true"></i>
+                            <p>Nora AI Legal Assistant Demo (Coming Soon)</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="use-cases-section fade-in" aria-labelledby="use-cases-title">
+            <div class="use-cases-header">
+                <h2 id="use-cases-title">Nora Use Cases</h2>
+                <p>Explore how Nora transforms legal workflows for various professionals in Canadian law firms.</p>
+            </div>
+            <div class="use-cases-grid">
+                <article class="use-case-card fade-in" aria-labelledby="use-case-1-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-1-title">Legal Research</h3>
+                        <p class="use-case-description">Nora delivers precise answers to complex legal queries with citations from Canadian case law, saving hours of manual research.</p>
+                        <span class="use-case-model">Nora</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-2-title">
+                    <div class="use-case-image" aria-hidden="true">
                         <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3>Document Review</h3>
-                    <p>Analyze and summarize legal documents, contracts, and filings to highlight key points and potential issues</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-database"></i>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-2-title">Document Analysis</h3>
+                        <p class="use-case-description">Nora parses contracts and legal documents, extracting key clauses and summarizing content for quick review.</p>
+                        <span class="use-case-model">Nora</span>
                     </div>
-                    <h3>CanLII Integration</h3>
-                    <p>Direct access to Canada's leading legal information database with natural language search capabilities</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-question-circle"></i>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-3-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-tasks"></i>
                     </div>
-                    <h3>Procedural Guidance</h3>
-                    <p>Get answers to questions about Canadian legal procedures, court rules, and documentation requirements</p>
-                </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-3-title">Task Automation</h3>
+                        <p class="use-case-description">Nora automates repetitive tasks like meeting note summarization and deadline reminders, boosting efficiency.</p>
+                        <span class="use-case-model">Nora</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-4-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-4-title">Multilingual Support</h3>
+                        <p class="use-case-description">Nora processes English and French legal documents, ensuring accessibility for bilingual Canadian firms.</p>
+                        <span class="use-case-model">Nora</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-5-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-5-title">Client Communication</h3>
+                        <p class="use-case-description">Nora drafts professional client emails and responses, tailored to specific legal contexts, saving time for lawyers.</p>
+                        <span class="use-case-model">Nora</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-6-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-6-title">Compliance Monitoring</h3>
+                        <p class="use-case-description">Nora flags potential compliance issues in documents, ensuring adherence to Canadian legal standards like PIPEDA.</p>
+                        <span class="use-case-model">Nora</span>
+                    </div>
+                </article>
             </div>
-        </div>
+        </section>
 
-        <div class="panel-container">
-            <!-- Document Upload Panel -->
-            <div class="interface-panel">
-                <div class="panel-header">
-                    <div class="panel-icon">
-                        <i class="fas fa-file-upload"></i>
-                    </div>
-                    <h2>Document Analysis</h2>
+        <!-- Enhanced Access Section -->
+        <section class="access-section fade-in" id="access" aria-labelledby="access-title">
+            <div class="content">
+                <h2 id="access-title">Access Nora Today</h2>
+                <p>Join the future of legal technology with Nora’s intelligent tools, tailored for Canadian law firms.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-nora" onclick="window.location.href='contact.html'" aria-label="Join Nora Waitlist">Join Nora Waitlist</button>
                 </div>
-                <form id="uploadForm">
-                    <div class="form-group">
-                        <label for="documentType">Document Type</label>
-                        <select id="documentType">
-                            <option value="contract">Contract</option>
-                            <option value="pleading">Pleading</option>
-                            <option value="brief">Legal Brief</option>
-                            <option value="statute">Statute</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Upload Legal Document</label>
-                        <div class="file-input-container">
-                            <div class="file-input-button">
-                                <i class="fas fa-cloud-upload-alt"></i> Choose File
-                            </div>
-                            <input type="file" id="fileInput" class="file-input" accept=".pdf,.doc,.docx,.txt">
-                        </div>
-                        <div class="file-info" id="fileInfo">No file selected</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="analysisType">Analysis Type</label>
-                        <select id="analysisType">
-                            <option value="summary">Summary</option>
-                            <option value="risks">Risk Analysis</option>
-                            <option value="clauses">Clause Identification</option>
-                            <option value="full">Full Analysis</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-block">
-                        <i class="fas fa-search"></i> Analyze Document
-                    </button>
-                </form>
             </div>
-            
-            <!-- Question Panel -->
-            <div class="interface-panel">
-                <div class="panel-header">
-                    <div class="panel-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h2>Ask Nora</h2>
-                </div>
-                <form id="askForm">
-                    <div class="form-group">
-                        <label for="jurisdiction">Jurisdiction</label>
-                        <select id="jurisdiction">
-                            <option value="quebec">Quebec</option>
-                            <option value="ontario">Ontario</option>
-                            <option value="alberta">Alberta</option>
-                            <option value="british columbia(bc)">British Columbia(BC)</option>
-                            <option value="nunavut">Nunavut</option>
-                            <option value="yukon">Yukon</option>
-                            <option value="north west territories(n.w.t)">North West Territories(N.W.T)</option>
-                            <option value="New Brunswick">New Brunswick</option>
-                            <option value="prince edward island(p.e.i)">Prince Edward Island(PEI)</option>
-                            <option value="nova scotia">Nova Scotia</option>
-                            <option value="newfoundland & labrador">Newfoundland & Labrador</option>
-                            <option value="saskatchewan">Saskatchewan</option>
-                            <option value="manitoba">Manitoba</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="questionInput">Your Legal Question</label>
-                        <textarea id="questionInput" placeholder="E.g., What are the requirements for a valid will in Ontario?"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="complexity">Response Complexity</label>
-                        <select id="complexity">
-                            <option value="simple">Simple Summary</option>
-                            <option value="detailed" selected>Detailed Analysis</option>
-                            <option value="technical">Technical Legal Language</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-block">
-                        <i class="fas fa-comment-alt"></i> Ask Nora
-                    </button>
-                </form>
-            </div>
-        </div>
-        
-        <!-- Response Panel -->
-        <div class="response-panel">
-            <div class="panel-header">
-                <div class="panel-icon">
-                    <i class="fas fa-comment-dots"></i>
-                </div>
-                <h2>Nora's Response</h2>
-            </div>
-            
-            <div class="loading" id="loadingIndicator">
-                <div class="spinner"></div>
-                <p>Nora is researching your request...</p>
-            </div>
-            
-            <div class="response-content" id="response">
-                Nora is ready to assist with your legal questions and document analysis needs.
-            </div>
-            
-            <div class="form-group" style="margin-top: 20px; display: none;" id="followupContainer">
-                <label for="followupQuestion">Follow-up Question</label>
-                <input type="text" id="followupQuestion" placeholder="Ask Nora for clarification...">
-                <button type="button" class="btn" style="margin-top: 10px;">
-                    <i class="fas fa-reply"></i> Ask Follow-up
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer aria-label="Site footer">
         <div class="footer-grid">
             <div class="footer-column">
                 <h3>XenoraAI</h3>
                 <p style="color: rgba(250, 244, 242, 0.9);">"Everyone Deserves An Advocate"</p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="Visit XenoraAI on LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
+                    <a href="https://x.com/XenoraAI" target="_blank" aria-label="Visit XenoraAI on X">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
                         </svg>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
-                    <a href="models.html">Nora</a>
+                    <a href="models.html">Models</a>
                     <a href="about.html">About Us</a>
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-            
+
             <div class="footer-column">
                 <h3>Legal</h3>
                 <div class="footer-links">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="cookies.html">Cookie Policy</a>
-                    <!-- <a href="faq.html">FAQ</a> -->
                 </div>
             </div>
         </div>
-        
+
         <div class="copyright">
-            <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
+            <p style="color: rgba(250, 244, 242, 0.9);">™ 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-       // File input display
-document.getElementById('fileInput').addEventListener('change', function(e) {
-    const fileInfo = document.getElementById('fileInfo');
-    if (this.files.length > 0) {
-        const file = this.files[0];
-        const fileSize = (file.size / (1024 * 1024)).toFixed(2); // MB
-        fileInfo.innerHTML = `
-            <strong>${file.name}</strong> (${fileSize} MB)
-            <br>Type: ${file.type || 'Not specified'}
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    target.focus({ preventScroll: true });
+                }
+            });
+        });
+
+        // Model card hover and focus effects
+        const modelCards = document.querySelectorAll('.model-card');
+        modelCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.model-icon');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.model-icon');
+                icon.style.transform = 'scale(1) rotate(0)';
+            });
+            card.addEventListener('focusin', () => {
+                const icon = card.querySelector('.model-icon');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            card.addEventListener('focusout', () => {
+                const icon = card.querySelector('.model-icon');
+                icon.style.transform = 'scale(1) rotate(0)';
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Screen reader only class
+        const style = document.createElement('style');
+        style.textContent = `
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+            }
         `;
-    } else {
-        fileInfo.textContent = 'No file selected';
-    }
-});
-
-// Handle file upload form
-document.getElementById('uploadForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const responseDiv = document.getElementById('response');
-    const loading = document.getElementById('loadingIndicator');
-
-    if (!document.getElementById('fileInput').files.length) {
-        responseDiv.innerText = "Please select a file to analyze.";
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('file', document.getElementById('fileInput').files[0]);
-    formData.append('documentType', document.getElementById('documentType').value);
-    formData.append('analysisType', document.getElementById('analysisType').value);
-
-    loading.style.display = 'block';
-    responseDiv.innerText = "Analyzing your document...";
-
-    try {
-        const res = await fetch('/analyze-document', {
-            method: 'POST',
-            body: formData
-        });
-
-        const data = await res.json();
-        loading.style.display = 'none';
-
-        if (res.ok) {
-            responseDiv.innerHTML = `
-                <strong>Document Analysis Complete</strong><br><br>
-                <strong>Document Type:</strong> ${data.document_type}<br>
-                <strong>Analysis Type:</strong> ${data.analysis_type}<br><br>
-                ${data.analysis_summary}<br><br>
-                ${data.risk_areas.map(risk => `• <span style="color: #ff8c42">${risk}</span>`).join('<br>')}
-            `;
-            document.getElementById('followupContainer').style.display = 'block';
-        } else {
-            responseDiv.innerText = "Error: " + (data.error || "Failed to analyze document.");
-        }
-    } catch (error) {
-        console.error(error);
-        loading.style.display = 'none';
-        responseDiv.innerText = "An unexpected error occurred during analysis.";
-    }
-});
-
-// Handle ask question form
-document.getElementById('askForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const question = document.getElementById('questionInput').value.trim();
-    const jurisdiction = document.getElementById('jurisdiction').value;
-    const complexity = document.getElementById('complexity').value;
-    const responseDiv = document.getElementById('response');
-    const loading = document.getElementById('loadingIndicator');
-
-    if (!question) {
-        responseDiv.innerText = "Please enter a legal question.";
-        return;
-    }
-
-    loading.style.display = 'block';
-    responseDiv.innerText = "Thinking...";
-
-    try {
-        const res = await fetch('/ask-question', {  
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                question: question,
-                jurisdiction: jurisdiction,
-                complexity: complexity
-            })
-        });
-
-        const data = await res.json();
-        loading.style.display = 'none';
-
-        if (res.ok) {
-            responseDiv.innerHTML = `<strong>Response:</strong><br><br>${data.answer}`;
-            document.getElementById('followupContainer').style.display = 'block';
-        } else {
-            responseDiv.innerText = "Error: " + (data.error || "Failed to get response.");
-        }
-    } catch (error) {
-        console.error(error);
-        loading.style.display = 'none';
-        responseDiv.innerText = "An unexpected error occurred.";
-    }
-});
-</script>
-</body>
-</html>
+        document.head.appendChild(style);
+    </script>
