@@ -16,6 +16,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/png" href="XenoraLogo.png">
 
     <style>
         /* Global Styles */
@@ -54,7 +55,8 @@
 
         h1,
         h2,
-        h3 {
+        h3,
+        h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: #1a1a2e;
@@ -67,10 +69,20 @@
 
         h2 {
             font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            margin-top: 40px;
+            margin-bottom: 20px;
         }
 
         h3 {
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            margin-top: 25px;
+            margin-bottom: 10px;
         }
 
         p {
@@ -78,28 +90,36 @@
             color: #2c2c54;
             font-weight: 400;
             margin-bottom: 20px;
+            line-height: 1.7;
         }
 
-        ul {
-            padding-left: 20px;
-            margin-bottom: 20px;
+        ul, ol {
+            padding-left: 30px;
+            margin-bottom: 25px;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #2c2c54;
             font-size: 1.1rem;
+            line-height: 1.6;
         }
 
         a {
             text-decoration: none;
-            color: #1a1a2e;
+            color: var(--accent-1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 500;
         }
 
         a:hover {
-            color: #ff8c42;
+            color: var(--accent-2);
+            text-decoration: underline;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #1a1a2e;
         }
 
         /* Premium Navigation */
@@ -142,12 +162,9 @@
         }
 
         @keyframes gradientFlow {
-
-            0%,
-            100% {
+            0%, 100% {
                 background-position: 0% 50%;
             }
-
             50% {
                 background-position: 100% 50%;
             }
@@ -175,51 +192,6 @@
             background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
             color: white;
             transform: translateY(-1px);
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                top: 10px;
-                width: 95%;
-                padding: 12px 20px;
-            }
-
-            .nav-links {
-                gap: 4px;
-            }
-
-            .nav-link {
-                padding: 6px 12px;
-                font-size: 0.875rem;
-            }
-        }
-
-        /* iPhone 12 Pro Max specific (428px) */
-        @media (min-width: 426px) and (max-width: 428px) {
-            nav {
-                position: fixed !important;
-                top: 10px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                width: 96% !important;
-                max-width: 96% !important;
-                border-radius: 60px !important;
-                box-shadow: var(--shadow-md) !important;
-                padding: 12px 14px !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: row !important;
-                gap: 3px !important;
-                width: auto;
-            }
-
-            .nav-link {
-                padding: 6px 8px !important;
-                font-size: 0.75rem !important;
-            }
         }
 
         /* Enhanced Header Section */
@@ -269,7 +241,6 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -356,6 +327,19 @@
         .terms-section h2 {
             margin-top: 0;
             margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .terms-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            border-radius: 2px;
         }
 
         .terms-section h3 {
@@ -374,6 +358,11 @@
             height: 20px;
             background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%);
             border-radius: 2px;
+        }
+
+        .terms-section h4 {
+            margin: 25px 0 15px;
+            color: var(--secondary-text);
         }
 
         /* Enhanced Related Links */
@@ -821,8 +810,6 @@
 
         /* Tablet (601px - 900px) */
         @media (min-width: 600px) and (max-width: 900px) {
-            
-
             nav {
                 position: fixed !important;
                 width: 98% !important;
@@ -897,7 +884,52 @@
             }
         }
 
-        
+        /* Desktop (901px and above) */
+        @media (min-width: 901px) {
+            nav {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 800px;
+                border-radius: 60px;
+                box-shadow: var(--shadow-md);
+                padding: 16px 32px;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                gap: 8px;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 8px 20px;
+                font-size: 0.95rem;
+            }
+
+            footer {
+                text-align: left;
+                padding: 80px 40px 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+                text-align: left;
+                justify-items: start;
+            }
+
+            .footer-column {
+                align-items: flex-start;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
@@ -907,7 +939,7 @@
         <div class="nav-logo" onclick="window.location.href='index.html'">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
-            <a href="models.html" class="nav-link">Nora</a>
+            <a href="models.html" class="nav-link">Models</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
@@ -928,78 +960,262 @@
         </div>
 
         <section class="terms-section">
-            <h2>1. Acceptance of Terms</h2>
-            <p>These Terms of Service ("Terms") govern your access to and use of XenoraAI's website, products, and
-                services ("Services"). By accessing or using our Services, you agree to comply with and be bound by
-                these Terms.</p>
-        </section>
-
-        <section class="terms-section">
-            <h2>2. Description of Services</h2>
-            <p>XenoraAI provides artificial intelligence solutions, including but not limited to:</p>
+            <h2>1. Definitions</h2>
+            <p>These Terms of Service ("Terms") apply to your use of our services, including <strong>Nora</strong> (our proprietary AI system) and <strong>Halo</strong> (our professional suite platform), along with any associated software applications and websites (all together, "Services") provided by <strong>Xenora Artificial Intelligence Inc.</strong> ("XenoraAI," "we," "our," or "us").</p>
+            
+            <h3>Key Definitions:</h3>
             <ul>
-                <li>Legal research and analysis tools</li>
-                <li>Document processing and summarization</li>
-                <li>Case law reference systems</li>
-                <li>Other AI-powered legal assistance services</li>
-            </ul>
-            <p>We reserve the right to modify or discontinue any Service at any time without notice.</p>
-        </section>
-
-        <section class="terms-section">
-            <h2>3. User Responsibilities</h2>
-            <h3>3.1 Account Security</h3>
-            <p>You are responsible for maintaining the confidentiality of your account credentials and for all
-                activities that occur under your account.</p>
-
-            <h3>3.2 Acceptable Use</h3>
-            <p>You agree not to:</p>
-            <ul>
-                <li>Use our Services for any illegal purpose</li>
-                <li>Attempt to reverse engineer or hack our systems</li>
-                <li>Use our Services to generate harmful or misleading content</li>
-                <li>Violate any applicable laws or regulations</li>
+                <li><strong>"Nora":</strong> XenoraAI's proprietary AI tool.</li>
+                <li><strong>"Halo":</strong> XenoraAI's professional suite for management and administrative automation.</li>
+                <li><strong>"User" or "you":</strong> Any individual or entity using Nora and/or Halo.</li>
+                <li><strong>"Content":</strong> Any data, input, output, or file you submit, process, or receive through our services.</li>
+                <li><strong>"Output":</strong> Any text, result, document, summary, response, data, or file generated or returned by the services (including from Nora or Halo) in response to your input.</li>
+                <li><strong>"Input":</strong> Any information, document, query, prompt, text, data, or file that you upload, enter, or submit into the services (including Nora or Halo).</li>
             </ul>
         </section>
 
         <section class="terms-section">
-            <h2>4. Intellectual Property</h2>
-            <p>All content, features, and functionality available through our Services are the exclusive property of
-                XenoraAI and are protected by copyright, trademark, and other intellectual property laws.</p>
-            <p>You may not reproduce, distribute, modify, or create derivative works of any content without our express
-                written permission.</p>
+            <h2>2. Eligibility</h2>
+            <p>To use our Services, you must:</p>
+            <ol>
+                <li>Be at least 18 years old or the age of majority in the jurisdiction you reside in.</li>
+                <li>Have the legal authority to enter into binding agreements.</li>
+                <li>Use the services for lawful purposes.</li>
+            </ol>
+
+            <h3>2.1 Registration</h3>
+            <p>You must provide accurate and complete information to register for an account to use our Services. You may not share your account credentials or make your account available to anyone else and are responsible for all activities that occur under your account. If you create an account or use the Services on behalf of another person or entity, you must have the authority to accept these Terms on their behalf.</p>
         </section>
 
         <section class="terms-section">
-            <h2>5. Disclaimers</h2>
-            <h3>5.1 No Legal Advice</h3>
-            <p>XenoraAI's Services are not a substitute for professional legal advice. Our AI-generated outputs should
-                be reviewed by qualified legal professionals.</p>
+            <h2>3. License and Acceptable Use</h2>
+            
+            <h3>3.1 License Grant</h3>
+            <p>We grant you a non-exclusive, non-transferable, revocable license to use Nora and/or Halo under these Terms.</p>
+            
+            <h3>3.2 Use of Service</h3>
+            <p><strong>What you can do:</strong> Subject to your compliance with these Terms, you may access and use our Services. In using our Services, you must comply with all applicable laws as well as our Usage Policy, and any other documentation, guidelines, or policies we make available to you.</p>
+            
+            <p><strong>What you cannot do:</strong> You may not use our Services for any illegal, harmful, or abusive activity. For example, you may not:</p>
+            <ul>
+                <li>Use our Services in a way that infringes, misappropriates or violates anyone's rights.</li>
+                <li>Modify, copy, lease, sell or distribute any of our Services.</li>
+                <li>Attempt to or assist anyone to reverse engineer, decompile or discover the source code or underlying components of our Services, including our models, algorithms, or systems (except to the extent this restriction is prohibited by applicable law).</li>
+                <li>Automatically or programmatically extract data or Output.</li>
+                <li>Represent that Output was human-generated when it was not.</li>
+                <li>Interfere with or disrupt our Services, including circumvent any rate limits or restrictions or bypass any protective measures or safety mitigations we put on our Services.</li>
+                <li>Use Output to develop models that compete with XenoraAI.</li>
+                <li>Use Nora to provide legal services to others.</li>
+                <li>Rely on Nora in legal filings or proceedings without review by a licensed professional.</li>
+                <li>Use Nora to impersonate legal professionals or mislead clients.</li>
+            </ul>
 
-            <h3>5.2 Service Availability</h3>
-            <p>We do not guarantee that our Services will be uninterrupted, secure, or error-free. We may perform
-                maintenance or updates that temporarily limit access.</p>
+            <h3>3.3 Non-Commercial Use Requirement</h3>
+            <p>Unless you are subscribed to a designated business or enterprise plan, you may not use XenoraAI's Services (including Nora or Halo) for commercial purposes. "Commercial purposes" includes, but is not limited to:</p>
+            <ul>
+                <li>Using Outputs to provide paid services or advice to clients or third parties.</li>
+                <li>Incorporating Outputs into commercial products, deliverables, or tools.</li>
+                <li>Using the Services to generate, promote, or support any for-profit activity.</li>
+                <li>Representing AI-generated Output as part of your business or professional services.</li>
+            </ul>
+
+            <h3>3.4 Enforcement & Company Rights</h3>
+            <p>If we reasonably believe you have violated this restriction, Xenora Artificial Intelligence Inc. may, at its sole discretion and without notice:</p>
+            <ul>
+                <li>Immediately suspend or terminate your account(s).</li>
+                <li>Convert your account into a business or enterprise tier and invoice you accordingly.</li>
+                <li>Revoke your license to use any Output generated during the violation period.</li>
+                <li>Pursue appropriate legal or equitable remedies, including damages or injunctive relief.</li>
+                <li>Report the violation to any relevant authorities, regulators, or partners if required by law.</li>
+            </ul>
+            <p>XenoraAI reserves the right to audit usage patterns, review flagged activity, and require users to demonstrate compliance with their account type.</p>
+
+            <h3>3.5 Software</h3>
+            <p>Our Services may allow you to download software, such as mobile applications, which may update automatically to ensure you're using the latest version. Our software may include open source software that is governed by its own licenses that we've made available to you.</p>
+
+            <h3>3.6 Corporate domains</h3>
+            <p>If you create an account using an email address owned by an organization (for example, your employer), that account may be added to the organization's business account with us, in which case we will provide notice to you so that you can help facilitate the transfer of your account (unless your organization has already provided notice to you that it may monitor and control your account). Once your account is transferred, the organization's administrator will be able to control your account, including being able to access Content and restrict or remove your access to the account.</p>
+
+            <h3>3.7 Third party Services</h3>
+            <p>Our services may include third party software, products, or services, ("Third Party Services") and some parts of our Services, like our browse feature, may include output from those services ("Third Party Output"). Third Party Services and Third Party Output are subject to their own terms, and we are not responsible for them.</p>
+
+            <h3>3.8 Feedback</h3>
+            <p>We appreciate your feedback, and you agree that we may use it without restriction or compensation to you.</p>
         </section>
 
         <section class="terms-section">
-            <h2>6. Limitation of Liability</h2>
-            <p>To the maximum extent permitted by law, XenoraAI shall not be liable for any indirect, incidental,
-                special, consequential, or punitive damages resulting from your use of or inability to use our Services.
-            </p>
+            <h2>4. Nora — Legal Research AI</h2>
+            
+            <h3>4.1 Intended Use</h3>
+            <p>Nora is an AI-powered legal research tool designed to assist users with legal research, drafting, and understanding of legal concepts. Nora is not a lawyer and does not provide <strong>legal advice</strong>.</p>
+            
+            <h3>4.2 No Legal Advice or Solicitor-Client Relationship</h3>
+            <p>Nora's outputs are for informational purposes only and do not constitute legal advice. No solicitor-client relationship is formed by using Nora. You must consult a licensed legal professional before relying on or acting upon any output from Nora.</p>
+            
+            <h3>4.3 Inaccuracy Warning</h3>
+            <p>Nora's outputs may be incomplete, outdated, or inaccurate. Outputs do not necessarily reflect real-time legal developments. Xenora AI provides no warranty as to the reliability or applicability of results.</p>
+            
+            <h3>4.4 Use at Your Own Risk</h3>
+            <p>Use of Nora is at your own risk. Xenora AI disclaims all liability for actions taken or not taken based on Nora's outputs.</p>
         </section>
 
         <section class="terms-section">
-            <h2>7. Governing Law</h2>
-            <p>These Terms shall be governed by and construed in accordance with the laws of Canada without regard to
-                its conflict of law provisions.</p>
+            <h2>5. Halo — Legal Suite</h2>
+            
+            <h3>5.1 Professional Responsibility</h3>
+            <p>You are responsible for:</p>
+            <ul>
+                <li>The accuracy of information entered into Halo.</li>
+                <li>Ensuring ethical and regulatory compliance.</li>
+                <li>Protecting confidential and privileged data.</li>
+            </ul>
+            
+            <h3>5.2 Integration with Nora</h3>
+            <p>When using Nora within Halo, all disclaimers related to Nora's outputs apply. AI-generated content must be reviewed by a human legal professional.</p>
         </section>
 
         <section class="terms-section">
-            <h2>8. Changes to Terms</h2>
-            <p>We reserve the right to modify these Terms at any time. We will notify users of significant changes
-                through our website or email. Your continued use of our Services constitutes acceptance of the modified
-                Terms.</p>
+            <h2>6. Privacy and Data Use</h2>
+            <p>Your data is handled as per our <a href="privacy.html">Privacy Policy</a>. Xenora AI:</p>
+            <ul>
+                <li>Does not claim ownership of your content.</li>
+                <li>May use anonymized data to improve services.</li>
+                <li>Offers opt-out mechanisms where appropriate.</li>
+            </ul>
         </section>
+
+        <section class="terms-section">
+            <h2>7. Payment and Subscriptions</h2>
+            <p>Certain features require paid subscriptions. By subscribing, you agree to our pricing, billing cycles, and refund terms at <a href="xenoraai.com/pricing">xenoraai.com/pricing</a>. Pricing may change with 30 days' notice.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>8. Intellectual Property</h2>
+            <p>All software, trademarks, and content related to Nora, Halo, and related software remain the property of Xenora AI. Unauthorized use of our branding or tools is prohibited.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>9. Disclaimers</h2>
+            <p>Our services are provided "as-is" and "as-available."</p>
+            <ul>
+                <li>We disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement.</li>
+                <li>We make no warranty as to the accuracy, availability, or legal validity of outputs.</li>
+                <li>We disclaim all liability related to reliance on AI-generated content.</li>
+                <li>Outputs must be verified by qualified professionals before use.</li>
+            </ul>
+        </section>
+
+        <section class="terms-section">
+            <h2>10. Limitation of Liability</h2>
+            <p>Neither we nor any of our affiliates or licensors will be liable for any indirect, incidental, special, consequential, or exemplary damages, including damages for loss of profits, goodwill, use, or data or other losses, even if we have been advised of the possibility of such damages. Our aggregate liability under these terms will not exceed the greater of the amount you paid for the service that gave rise to the claim during the 12 months before the liability arose. The limitations in this section apply only to the maximum extent of the law.</p>
+            <p>Some jurisdictions do not allow the disclaimer of certain warranties or the limitation of certain damages, so some of, or all of the terms above may not apply to you, and you may have additional rights. In that case, these Terms only limit our responsibilities to the maximum extent permissible in your jurisdiction of residence.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>11. Indemnity</h2>
+            <p>If you are a business or organization, to the extent permitted by law, you will indemnify and hold harmless us, our affiliates, and our personnel, from and against any costs, losses, liabilities, and expenses (including legal fees) from third party claims arising out of or relating to your use of the Services and Content or any violation of these Terms.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>12. Termination</h2>
+            <p>You are free to stop using our Services at any time. We reserve the right to suspend or terminate your access to our Services or delete your account if we determine:</p>
+            <ul>
+                <li>You breached these Terms or our Usage Policy.</li>
+                <li>We must do so to comply with the law.</li>
+                <li>Your use of our Services could cause risk or harm to XenoraAI, our users, or anyone else.</li>
+            </ul>
+            <p>We also may terminate your account if it has been inactive for over a year and you do not have a paid account. If we do, we will provide you with advance notice.</p>
+
+            <h3>12.1 Appeals</h3>
+            <p>If you believe we have suspended or terminated your account in error, you can file an appeal with us by contacting our support team.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>13. Dispute Resolution and Arbitration</h2>
+            
+            <h3>13.1 Informal Resolution</h3>
+            <p>Before initiating any legal action, you agree to first contact XenoraAI and attempt to resolve the dispute informally. We will use good faith efforts to resolve the dispute within 30 days of receipt.</p>
+            
+            <h3>13.2 Binding Arbitration</h3>
+            <p>If a dispute cannot be resolved informally, you agree to submit the dispute to final and binding arbitration.</p>
+            <ul>
+                <li><strong>Location:</strong> Arbitration will take place in Montreal, Quebec, unless otherwise mutually agreed.</li>
+                <li><strong>Language:</strong> Proceedings will be conducted in English or French, as preferred by the user.</li>
+                <li><strong>Rules:</strong> The arbitration will be administered by a single arbitrator agreed upon by the parties, or appointed by a Quebec court if no agreement is reached. The arbitrator must have legal experience and be independent from both parties.</li>
+            </ul>
+            
+            <h3>13.3 Exceptions to Arbitration</h3>
+            <p>This clause does not apply to:</p>
+            <ul>
+                <li>Claims brought by either party in small claims court, provided they remain within the jurisdictional monetary limit.</li>
+                <li>Claims seeking injunctive or equitable relief for alleged intellectual property misuse or unauthorized access to services.</li>
+            </ul>
+            
+            <h3>13.4 Costs</h3>
+            <p>Each party shall bear their own legal and arbitration costs unless otherwise determined by the arbitrator. The parties shall share arbitrator fees and administrative costs equally unless the arbitrator decides otherwise.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>14. Class Action Waiver</h2>
+            <p>To the maximum extent permitted by law, you agree to waive any right to participate in a <strong>class action, class arbitration, or representative proceeding</strong> against Xenora Artificial Intelligence Inc.</p>
+            <ul>
+                <li>All claims must be brought on an individual basis.</li>
+                <li>You and XenoraAI agree that each may bring claims only in your individual capacity, and not as a plaintiff or class member in any purported class or representative proceeding.</li>
+            </ul>
+            <p>If a court or tribunal finds this waiver unenforceable with respect to a particular claim or remedy (such as public injunctive relief), that portion shall be severed and the rest of the arbitration and waiver clause shall remain in full effect.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>15. Discontinuation of Services</h2>
+            <p>We may decide to discontinue our Services, in this event, we will give you advance notice and a refund for any prepaid, unused Services.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>16. General terms</h2>
+            
+            <h3>16.1 Assignment</h3>
+            <p>You may not assign or transfer any rights or obligations under these Terms and any attempt to do so will be void. We may assign our rights or obligations under these Terms to any affiliate, subsidiary, or successor in interest of any business associated with our Services. Changes to these Terms or our Services. We are continuously working to develop and improve our Services. We may update these Terms or our Services accordingly from time to time. For example, we may make changes to these Terms or the Services due to:</p>
+            <ul>
+                <li>Changes to the law or regulatory requirements.</li>
+                <li>Security or safety reasons.</li>
+                <li>Circumstances beyond our reasonable control.</li>
+                <li>Changes we make in the usual course of developing our Services.</li>
+                <li>To adapt to new technologies.</li>
+            </ul>
+            <p>We will give you at least 30 days advance notice of changes to these Terms that materially adversely impact you either via email or an in-product notification. All other changes will be effective as soon as we post them to our website. If you do not agree to the changes, you must stop using our Services.</p>
+            
+            <h3>16.2 Delay in enforcing these Terms</h3>
+            <p>Our failure to enforce a provision is not a waiver of our right to do so later. Except as provided in the dispute resolution section above, if any portion of these Terms is determined to be invalid or unenforceable, that portion will be enforced to the maximum extent permissible and it will not affect the enforceability of any other terms.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>17. Entire Agreement</h2>
+            <p>These Terms contain the entire agreement between you and XenoraAI regarding the Services and, other than any Service-specific terms, supersedes any prior or contemporaneous agreements between you and XenoraAI.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>18. Governing Law</h2>
+            <p>These Terms are governed by the laws of Canada and the Province of Quebec. Any legal dispute shall be resolved in the courts located in Montreal, Quebec.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>19. Contact Us</h2>
+            <p><strong>Xenora Artificial Intelligence Inc.</strong></p>
+            <p><a href="mailto:xenoraai@gmail.com">xenoraai@gmail.com</a></p>
+            <p>7109 2e ave Montreal, Quebec, H2A3G5, CA</p>
+            <p>Thank you for using Xenora AI.</p>
+        </section>
+
+        <div class="related-links">
+            <div class="content">
+                <h3>Related Documents</h3>
+                <p>For more information about how we handle your data and other policies, please review:</p>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -1026,7 +1242,7 @@
                 <h3>Quick Links</h3>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
-                    <a href="models.html">Nora</a>
+                    <a href="models.html">Models</a>
                     <a href="about.html">About Us</a>
                     <a href="contact.html">Contact</a>
                 </div>
@@ -1038,7 +1254,6 @@
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="cookies.html">Cookie Policy</a>
-                    <!-- <a href="faq.html">FAQ</a> -->
                 </div>
             </div>
         </div>
