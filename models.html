@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description"
-        content="Discover Nora - XenoraAI's legal AI assistant designed for Canadian law professionals">
-    <meta name="keywords" content="Nora AI, XenoraAI, Legal AI Assistant, Canadian Law, CanLII">
-    <title>Nora - XenoraAI</title>
+        content="Discover XenoraAI's integrated AI solutions - Nora, Canada's smartest legal AI, and Halo, the AI-powered legal operating suite.">
+    <meta name="keywords" content="AI models, Nora AI, Halo AI, Legal AI, Canadian Law, Legal Tech, AI assistant">
+    <title>Models - XenoraAI</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair Display:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="XenoraLogo.png">
@@ -36,6 +36,9 @@
             --shadow-sm: 0 4px 20px rgba(26, 26, 46, 0.08);
             --shadow-md: 0 10px 40px rgba(26, 26, 46, 0.12);
             --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.15);
+            --nora-color: #8a2be2;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --focus-outline: #4a90e2;
         }
 
         body {
@@ -48,11 +51,13 @@
             font-weight: 400;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            font-size: 1rem;
         }
 
         h1,
         h2,
-        h3 {
+        h3,
+        h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: #1a1a2e;
@@ -60,19 +65,23 @@
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
         }
 
         h2 {
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
         }
 
         h3 {
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+        }
+
+        h4 {
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 1.8vw, 1rem);
             color: #2c2c54;
             font-weight: 400;
         }
@@ -80,7 +89,64 @@
         a {
             text-decoration: none;
             color: #1a1a2e;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
+        }
+
+        a:focus,
+        button:focus,
+        [tabindex="0"]:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: #1a1a2e;
+            color: #faf4f2;
+            padding: 10px 20px;
+            z-index: 10000;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Fade-In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered Animation for Use Case Cards */
+        .use-cases-grid .use-case-card:nth-child(1) {
+            transition-delay: 0s;
+        }
+        .use-cases-grid .use-case-card:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        .use-cases-grid .use-case-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        .use-cases-grid .use-case-card:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+        .use-cases-grid .use-case-card:nth-child(5) {
+            transition-delay: 0.4s;
+        }
+        .use-cases-grid .use-case-card:nth-child(6) {
+            transition-delay: 0.5s;
         }
 
         /* Enhanced Navigation Bar */
@@ -101,7 +167,7 @@
             z-index: 1000;
             width: 90%;
             max-width: 800px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
         }
 
         nav:hover {
@@ -111,7 +177,7 @@
 
         .nav-logo {
             font-family: 'Playfair Display', sans-serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
             font-weight: 800;
             background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
             background-size: 200% 200%;
@@ -123,12 +189,9 @@
         }
 
         @keyframes gradientFlow {
-
-            0%,
-            100% {
+            0%, 100% {
                 background-position: 0% 50%;
             }
-
             50% {
                 background-position: 100% 50%;
             }
@@ -141,14 +204,16 @@
 
         .nav-link {
             padding: 8px 20px;
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
             font-weight: 500;
             color: var(--primary-text);
             text-decoration: none;
             border-radius: 30px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
             position: relative;
             letter-spacing: 0.01em;
+            min-width: 80px;
+            text-align: center;
         }
 
         .nav-link:hover,
@@ -158,111 +223,9 @@
             transform: translateY(-1px);
         }
 
-        @media (max-width: 768px) {
-            nav {
-                top: 10px;
-                width: 95%;
-                padding: 12px 20px;
-            }
-
-            .nav-links {
-                gap: 4px;
-            }
-
-            .nav-link {
-                padding: 6px 12px;
-                font-size: 0.875rem;
-            }
-        }
-
-        /* iPhone 12 Pro Max specific (428px) */
-        @media (min-width: 426px) and (max-width: 428px) {
-            nav {
-                position: fixed !important;
-                top: 10px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                width: 96% !important;
-                max-width: 96% !important;
-                border-radius: 60px !important;
-                box-shadow: var(--shadow-md) !important;
-                padding: 12px 14px !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-
-            .nav-links {
-                flex-direction: row !important;
-                gap: 3px !important;
-                width: auto;
-            }
-
-            .nav-link {
-                padding: 6px 8px !important;
-                font-size: 0.75rem !important;
-            }
-        }
-
-        /* Enhanced Header Section */
-        header {
-            text-align: center;
-            padding: 220px 40px 120px;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 0, 127, 0.1) 50%, rgba(255, 140, 66, 0.1) 100%);
-            border-bottom: 1px solid rgba(26, 26, 46, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center top, rgba(255, 140, 66, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        header .content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease-out;
-            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            color: #2c2c54;
-            animation: fadeInUp 1s ease-out 0.2s both;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-
-        header .cta-button {
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .nav-link:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
         }
 
         /* Enhanced Button Styles */
@@ -272,16 +235,19 @@
             align-items: center;
             gap: 8px;
             padding: 16px 32px;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
             font-weight: 600;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
             text-decoration: none;
             position: relative;
             overflow: hidden;
             letter-spacing: 0.01em;
+            min-height: 48px;
+            min-width: 120px;
+            touch-action: manipulation;
         }
 
         .btn::before {
@@ -300,9 +266,14 @@
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%);
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-2), var(--accent-1));
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(255, 140, 66, 0.3);
+        }
+
+        .btn:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
         }
 
         .btn-secondary {
@@ -331,222 +302,457 @@
             border-color: #faf4f2;
         }
 
+        .btn-nora {
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            color: white;
+        }
+
+        .btn-halo {
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            color: white;
+        }
+
         /* Main Content */
-        .main-content {
+        main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* Enhanced Video Container */
-        .video-container {
-            margin: 60px auto;
+        /* Enhanced Header Section */
+        header {
             text-align: center;
-            max-width: 900px;
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .video-container video {
-            width: 100%;
-            height: auto;
-            border-radius: 24px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .video-container:hover video {
-            transform: scale(1.02);
-        }
-
-        .video-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            font-style: italic;
-            display: none;
-            font-size: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Enhanced Nora Intro Section */
-        .nora-intro {
-            padding: 80px 50px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            margin: 80px auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border-radius: 24px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: clamp(160px, 20vw, 220px) 40px clamp(80px, 10vw, 120px);
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 0, 127, 0.1) 50%, rgba(255, 140, 66, 0.1) 100%);
+            border-bottom: 1px solid rgba(26, 26, 46, 0.1);
             position: relative;
             overflow: hidden;
         }
 
-        .nora-intro::before {
+        header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
+            bottom: 0;
+            background: radial-gradient(ellipse at center top, rgba(255, 140, 66, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        .nora-intro h2 {
-            margin-bottom: 30px;
-            color: #1a1a2e;
-        }
-
-        .nora-intro p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-            line-height: 1.7;
+        header .content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
-        .nora-intro p:last-child {
-            font-style: italic;
-            color: #ff8c42;
-            font-weight: 500;
-            margin-bottom: 0;
-        }
-
-        /* Enhanced Capabilities Section */
-        .capabilities-section {
-            padding: 80px 40px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            margin: 40px auto;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            border-radius: 24px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            max-width: 1200px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .capabilities-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
-        }
-
-        /* .capabilities-section h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #1a1a2e;
-            font-size: 2rem;
-        } */
-
-        .capabilities-section>p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .capability-card {
-            background: linear-gradient(135deg, rgba(250, 244, 242, 0.5) 0%, rgba(245, 237, 233, 0.5) 100%);
-            backdrop-filter: blur(10px);
-            padding: 40px 30px;
-            border-radius: 20px;
-            /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); */
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .capability-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #8a2be2, #ff007f, #ff8c42);
-            transform: translateX(-100%);
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .capability-card:hover::before {
-            transform: translateX(0);
-        }
-
-        .capability-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .capability-icon {
-            font-size: 3rem;
-            /* background: linear-gradient(135deg, #ff8c42 0%, #ff007f 100%); */
-            background: linear-gradient(135deg, #8a2be2, #ff007f);
+        header h1 {
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 25px;
-            transition: transform 0.3s ease;
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
+        }
+
+        header p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 40px;
+            color: #2c2c54;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Model Showcase Section */
+        .model-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            margin: 100px 0;
+        }
+
+        .model-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+        }
+
+        .model-header {
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nora-header {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 255, 255, 0.8));
+        }
+
+        .halo-header {
+            background: linear-gradient(135deg, rgba(255, 140, 66, 0.1), rgba(255, 255, 255, 0.8));
+        }
+
+        .model-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+        }
+
+        .model-icon {
+            font-size: clamp(2.5rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             color: white;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
         }
 
-        .capability-card:hover .capability-icon {
-            transform: scale(1.1);
+        .model-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .capability-card h3 {
-            margin-bottom: 20px;
-            font-size: 1.4rem;
+        .model-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--secondary-text);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .capability-card p {
-            color: #666;
+        .model-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .model-features {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .model-features h3 {
+            margin-bottom: 25px;
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .model-features h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
             line-height: 1.6;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+
+        .feature-item::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-1);
+        }
+
+        .model-demo {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: var(--secondary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .demo-placeholder i {
+            font-size: clamp(3rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            opacity: 0.2;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            margin: 100px 0;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .comparison-header {
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%);
+        }
+
+        .comparison-header h2 {
+            margin-bottom: 20px;
+        }
+
+        .comparison-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: clamp(12px, 2vw, 20px);
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+
+        .comparison-table th {
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .feature-name {
+            font-weight: 500;
+            width: 30%;
+        }
+
+        .nora-feature, .halo-feature {
+            width: 35%;
+        }
+
+        .feature-present {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .feature-absent {
+            color: #F44336;
+            font-weight: 600;
+        }
+
+        /* Technical Specs Section */
+        .specs-section {
+            margin: 100px 0;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .specs-header {
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%);
+        }
+
+        .specs-header h2 {
+            margin-bottom: 20px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 3vw, 40px);
+            padding: clamp(20px, 3vw, 40px);
+        }
+
+        .spec-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: clamp(20px, 3vw, 30px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .spec-title {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 15px;
+            color: var(--primary-text);
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .spec-description {
+            color: var(--secondary-text);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+
+        /* Use Cases Section */
+        .use-cases-section {
+            margin: 100px 0;
+        }
+
+        .use-cases-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .use-cases-header h2 {
+            margin-bottom: 20px;
+        }
+
+        .use-cases-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 3vw, 30px);
+        }
+
+        .use-case-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .use-case-image {
+            height: 200px;
+            background: var(--secondary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.1);
+            font-size: clamp(2.5rem, 5vw, 3rem);
+        }
+
+        .use-case-content {
+            padding: clamp(20px, 3vw, 30px);
+        }
+
+        .use-case-title {
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+            margin-bottom: 15px;
+            color: var(--primary-text);
+        }
+
+        .use-case-description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+
+        .use-case-model {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: clamp(0.75rem, 1.5vw, 0.8rem);
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background: rgba(138, 43, 226, 0.1);
+            color: var(--accent-1);
         }
 
         /* Enhanced Access Section */
         .access-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
             color: #faf4f2;
-            padding: 100px 40px;
+            padding: clamp(60px, 10vw, 100px) 40px;
             text-align: center;
             margin: 80px 0;
             border-radius: 24px;
@@ -576,7 +782,7 @@
         }
 
         .access-section p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             margin-bottom: 40px;
             color: rgba(250, 244, 242, 0.8);
             max-width: 600px;
@@ -595,7 +801,7 @@
         /* Enhanced Footer */
         footer {
             text-align: center;
-            padding: 80px 40px 40px;
+            padding: clamp(40px, 8vw, 80px) 40px clamp(20px, 4vw, 40px);
             margin-top: 80px;
             background: linear-gradient(135deg, #1a1a2e 0%, #2c2c54 100%);
             color: #faf4f2;
@@ -605,8 +811,8 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(30px, 5vw, 50px);
             max-width: 1000px;
             margin: 0 auto 50px;
             text-align: left;
@@ -615,7 +821,7 @@
         .footer-column h3 {
             color: #faf4f2;
             margin-bottom: 25px;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
         }
 
         .footer-links {
@@ -627,7 +833,8 @@
         .footer-links a {
             color: rgba(250, 244, 242, 0.8);
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            text-decoration: none;
         }
 
         .footer-links a:hover {
@@ -635,7 +842,6 @@
             transform: translateX(5px);
         }
 
-        /* Update social links to be square */
         .social-links {
             display: flex;
             gap: 20px;
@@ -644,7 +850,7 @@
 
         .social-links a {
             color: #faf4f2;
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
             transition: all 0.3s ease;
             padding: 12px;
             border-radius: 12px;
@@ -667,6 +873,7 @@
             padding-top: 30px;
             border-top: 1px solid rgba(250, 244, 242, 0.15);
             color: rgba(250, 244, 242, 0.7);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
         }
 
         /* Responsive Design */
@@ -677,27 +884,43 @@
                 align-items: flex-start;
             }
 
-            nav .logo {
+            .nav-logo {
                 margin-bottom: 15px;
-                margin-right: 0;
-                font-size: 1.6rem;
+                font-size: clamp(1.2rem, 2.5vw, 1.4rem);
             }
 
-            nav .nav-links {
+            .nav-links {
                 gap: 25px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             header {
-                padding: 180px 25px 100px;
+                padding: clamp(120px, 15vw, 180px) 25px clamp(60px, 8vw, 100px);
             }
 
-            .nora-intro,
-            .access-section {
-                padding: 60px 25px;
+            .model-content {
+                flex-direction: column;
             }
 
-            .video-container {
-                margin: 40px auto;
+            .model-features, 
+            .model-demo {
+                min-width: 100%;
+            }
+
+            .comparison-table th, 
+            .comparison-table td {
+                padding: clamp(8px, 1.5vw, 12px);
+                font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            }
+
+            .feature-name {
+                width: 40%;
+            }
+
+            .nora-feature, 
+            .halo-feature {
+                width: 30%;
             }
 
             .cta-buttons {
@@ -709,22 +932,11 @@
                 width: 100%;
                 max-width: 300px;
                 margin: 5px 0;
+                min-height: 44px;
             }
         }
 
-        /* Smooth scroll and performance optimizations */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
         /* Responsive Navigation and Footer */
-
-        /* Small Mobile (up to 375px) */
         @media (max-width: 375px) {
             nav {
                 position: static !important;
@@ -750,17 +962,18 @@
                 width: 100%;
                 text-align: center;
                 padding: 8px 0 !important;
-                font-size: 0.95rem !important;
+                font-size: clamp(0.8rem, 1.5vw, 0.9rem) !important;
+                min-height: 44px;
             }
 
             footer {
                 text-align: center !important;
-                padding: 30px 4px 20px !important;
+                padding: clamp(20px, 5vw, 30px) 4px clamp(10px, 2.5vw, 20px) !important;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr !important;
-                gap: 18px !important;
+                gap: clamp(12px, 3vw, 18px) !important;
                 text-align: center !important;
                 justify-items: center !important;
             }
@@ -772,21 +985,17 @@
                 flex-direction: column;
             }
 
-            .capabilities-section {
-                padding: 60px 10px !important;
-            }
-
-            .capabilities-grid {
+            .specs-grid {
                 grid-template-columns: 1fr !important;
-                gap: 20px !important;
+                gap: clamp(12px, 3vw, 20px) !important;
+                padding: clamp(12px, 3vw, 20px) !important;
             }
 
-            .capability-card {
-                padding: 30px 10px !important;
+            .spec-card {
+                padding: clamp(12px, 3vw, 20px) !important;
             }
         }
 
-        /* Medium Mobile (376px - 425px) */
         @media (min-width: 375px) and (max-width: 425px) {
             nav {
                 position: static !important;
@@ -812,17 +1021,18 @@
                 width: 100%;
                 text-align: center;
                 padding: 10px 0 !important;
-                font-size: 1rem !important;
+                font-size: clamp(0.85rem, 1.5vw, 0.95rem) !important;
+                min-height: 44px;
             }
 
             footer {
                 text-align: center !important;
-                padding: 40px 8px 24px !important;
+                padding: clamp(24px, 6vw, 40px) 8px clamp(14px, 3.5vw, 24px) !important;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr !important;
-                gap: 22px !important;
+                gap: clamp(14px, 3.5vw, 22px) !important;
                 text-align: center !important;
                 justify-items: center !important;
             }
@@ -834,23 +1044,19 @@
                 flex-direction: column;
             }
 
-            .capabilities-section {
-                padding: 60px 10px !important;
-            }
-
-            .capabilities-grid {
+            .specs-grid {
                 grid-template-columns: 1fr !important;
-                gap: 20px !important;
+                gap: clamp(12px, 3vw, 20px) !important;
+                padding: clamp(12px, 3vw, 20px) !important;
             }
 
-            .capability-card {
-                padding: 30px 10px !important;
+            .spec-card {
+                padding: clamp(12px, 3vw, 20px) !important;
             }
         }
 
-        /* Large Mobile (426px - 600px) */
         @media (min-width: 425px) and (max-width: 600px) {
-           nav {
+            nav {
                 position: static !important;
                 top: auto !important;
                 left: auto !important;
@@ -873,18 +1079,19 @@
             }
 
             .nav-link {
-                padding: 10px 8px !important;
-                font-size: 1.05rem !important;
+                padding: clamp(8px, 1.5vw, 10px) 8px !important;
+                font-size: clamp(0.9rem, 1.5vw, 1rem) !important;
+                min-height: 44px;
             }
 
             footer {
                 text-align: center !important;
-                padding: 50px 12px 30px !important;
+                padding: clamp(30px, 7vw, 50px) 12px clamp(18px, 4vw, 30px) !important;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr !important;
-                gap: 28px !important;
+                gap: clamp(18px, 4vw, 28px) !important;
                 text-align: center !important;
                 justify-items: center !important;
             }
@@ -897,7 +1104,6 @@
             }
         }
 
-        /* Tablet (601px - 900px) */
         @media (min-width: 600px) and (max-width: 900px) {
             nav {
                 position: fixed !important;
@@ -905,7 +1111,7 @@
                 max-width: 98% !important;
                 border-radius: 30px !important;
                 box-shadow: var(--shadow-md) !important;
-                padding: 16px 20px !important;
+                padding: clamp(12px, 2vw, 16px) 20px !important;
                 flex-direction: row !important;
                 align-items: center !important;
             }
@@ -917,18 +1123,19 @@
             }
 
             .nav-link {
-                padding: 12px 12px !important;
-                font-size: 1.1rem !important;
+                padding: clamp(8px, 1.5vw, 12px) 12px !important;
+                font-size: clamp(0.95rem, 1.5vw, 1.1rem) !important;
+                min-height: 44px;
             }
 
             footer {
                 text-align: left !important;
-                padding: 60px 24px 40px !important;
+                padding: clamp(36px, 8vw, 60px) 24px clamp(24px, 5vw, 40px) !important;
             }
 
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
-                gap: 32px !important;
+                gap: clamp(20px, 4vw, 32px) !important;
                 text-align: left !important;
                 justify-items: start !important;
             }
@@ -941,7 +1148,6 @@
             }
         }
 
-        /* Desktop (above 900px) */
         @media (min-width: 901px) {
             nav {
                 position: fixed;
@@ -965,17 +1171,18 @@
 
             .nav-link {
                 padding: 8px 20px;
-                font-size: 0.95rem;
+                font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+                min-height: 44px;
             }
 
             footer {
                 text-align: left;
-                padding: 80px 40px 40px;
+                padding: clamp(40px, 8vw, 80px) 40px clamp(20px, 4vw, 40px);
             }
 
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 50px;
+                gap: clamp(30px, 5vw, 50px);
                 text-align: left;
                 justify-items: start;
             }
@@ -987,122 +1194,336 @@
                 flex-direction: column;
             }
         }
+
+        /* High-resolution displays */
+        @media (min-resolution: 2dppx) {
+            body {
+                font-size: 1.1rem;
+            }
+
+            h1 {
+                font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+            }
+
+            .nav-link {
+                font-size: clamp(0.9rem, 1.6vw, 1rem);
+            }
+
+            .btn {
+                font-size: clamp(0.95rem, 1.9vw, 1.05rem);
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation Bar -->
-    <nav>
+    <nav aria-label="Main navigation">
         <div class="nav-logo">XenoraAI</div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
-            <a href="models.html" class="nav-link active">Nora</a>
+            <a href="models.html" class="nav-link active" aria-current="page">Models</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
     </nav>
 
     <!-- Header Section -->
-    <header>
+    <header aria-labelledby="header-title">
         <div class="content">
-            <h1>Meet Nora</h1>
-            <p>Your AI legal assistant specializing in Canadian law</p>
-            <div class="cta-button">
-                <button class="btn" onclick="window.location.href='nora.html'">Try Nora Now</button>
+            <h1 id="header-title">Nora & Halo</h1>
+            <p>Discover Nora, Canada's smartest legal AI assistant, and Halo, the AI-powered legal operating suite, working together to revolutionize law firm workflows.</p>
+            <div class="header-buttons">
+                <button class="btn btn-nora" onclick="window.location.href='nora.html'" aria-label="Explore Nora AI">Explore Nora</button>
+                <button class="btn btn-halo" onclick="window.location.href='halo.html'" aria-label="Explore Halo AI">Explore Halo</button>
             </div>
         </div>
     </header>
 
-    <div class="main-content">
-        <!-- Enhanced Video Section -->
-        <div class="video-container">
-            <video id="noraVideo" autoplay loop muted playsinline>
-                <source src="TicketCase.mov" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-caption" id="videoCaption">
-                Click to play video (autoplay was muted by your browser)
-            </div>
-        </div>
-
-        <!-- Enhanced Nora Introduction -->
-        <div class="nora-intro">
-            <h2>Your 24/7 Legal Research Assistant</h2>
-            <p>Nora is XenoraAI's flagship legal AI model, specifically designed to support Canadian legal professionals
-                and individuals navigating the justice system. Built with access to CanLII and trained on Canadian case
-                law, Nora provides instant legal insights to help you work more efficiently.</p>
-            <p>"Everyone deserves an Advocate" - Nora makes this possible by augmenting your legal practice with
-                AI-powered assistance.</p>
-        </div>
-
-        <!-- Enhanced Capabilities Section -->
-        <section class="capabilities-section">
-            <h2>What Nora Can Do For You</h2>
-            <p>Discover the comprehensive legal AI capabilities designed specifically for Canadian law</p>
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <div class="capability-icon">
+    <main id="main-content">
+        <!-- Model Showcase Section -->
+        <section class="model-showcase" aria-labelledby="model-showcase-title">
+            <h2 id="model-showcase-title" class="sr-only">Model Showcase</h2>
+            <!-- Nora Model -->
+            <article class="model-card fade-in" id="nora" aria-labelledby="nora-title">
+                <div class="model-header nora-header">
+                    <div class="model-icon" aria-hidden="true">
                         <i class="fas fa-gavel"></i>
                     </div>
-                    <h3>Case Law Research</h3>
-                    <p>Instantly find relevant Canadian case law and analyze precedents based on your specific legal
-                        questions</p>
+                    <h2 class="model-title" id="nora-title">Nora</h2>
+                    <p class="model-subtitle">Canada’s smartest legal AI assistant, powering intelligent legal research, document analysis, and task automation.</p>
                 </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-file-alt"></i>
+                <div class="model-content">
+                    <div class="model-features">
+                        <h3>Key Features</h3>
+                        <ul class="feature-list">
+                            <li class="feature-item">Legal Q&A with Canadian case law citations</li>
+                            <li class="feature-item">Document upload and parsing (PDF, DOCX, TXT)</li>
+                            <li class="feature-item">Contract summarization and clause extraction</li>
+                            <li class="feature-item">Context-aware prompting for lawyers, judges, or clients</li>
+                            <li class="feature-item">Meeting notes summarization and smart task reminders</li>
+                            <li class="feature-item">Real-time RAG-enabled legal knowledge search</li>
+                            <li class="feature-item">Personalized responses with long-term user memory</li>
+                        </ul>
                     </div>
-                    <h3>Document Review</h3>
-                    <p>Analyze and summarize legal documents, contracts, and filings to highlight key points and
-                        potential issues</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-database"></i>
+                    <div class="model-demo">
+                        <div class="demo-placeholder">
+                            <i class="fas fa-gavel" aria-hidden="true"></i>
+                            <p>Nora AI Legal Assistant Demo (Coming soon)</p>
+                        </div>
                     </div>
-                    <h3>CanLII Integration</h3>
-                    <p>Direct access to Canada's leading legal information database with natural language search
-                        capabilities</p>
                 </div>
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-question-circle"></i>
+            </article>
+
+            <!-- Halo Model -->
+            <article class="model-card fade-in" id="halo" aria-labelledby="halo-title">
+                <div class="model-header halo-header">
+                    <div class="model-icon" aria-hidden="true">
+                        <i class="fas fa-briefcase"></i>
                     </div>
-                    <h3>Procedural Guidance</h3>
-                    <p>Get answers to questions about Canadian legal procedures, court rules, and documentation
-                        requirements</p>
+                    <h2 class="model-title" id="halo-title">Halo</h2>
+                    <p class="model-subtitle">The AI-powered legal operating suite, embedding Nora’s intelligence into case management, billing, scheduling & many other tasks.</p>
+                    <p>Manage everything all in one Operating System</p>
                 </div>
+                <div class="model-content">
+                    <div class="model-features">
+                        <h3>Key Features</h3>
+                        <ul class="feature-list">
+                            <li class="feature-item">Case and client management system powered by Nora</li>
+                            <li class="feature-item">Secure document vault with tagging and versioning</li>
+                            <li class="feature-item">Smart calendar with legal deadlines and task scheduling</li>
+                            <li class="feature-item">Billing and invoicing with automated time tracking</li>
+                            <li class="feature-item">Client portal for appointments and invoice access</li>
+                            <li class="feature-item">Integration with Google Drive and Office365 (Available Q4 2025)</li>
+                            <li class="feature-item">Role-based access controls for team management</li>
+                        </ul>
+                    </div>
+                    <div class="model-demo">
+                        <div class="demo-placeholder">
+                            <i class="fas fa-briefcase" aria-hidden="true"></i>
+                            <p>Halo Legal Suite Demo (Coming Soon)</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="use-cases-section fade-in" aria-labelledby="use-cases-title">
+            <div class="use-cases-header">
+                <h2 id="use-cases-title">Halo Use Cases</h2>
+                <p>Discover how Halo transforms legal workflows for various users.</p>
+            </div>
+            <div class="use-cases-grid">
+                <article class="use-case-card fade-in" aria-labelledby="use-case-1-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-1-title">Case Management</h3>
+                        <p class="use-case-description">Halo enables lawyers to track cases and clients with Nora-powered insights.</p>
+                        <span class="use-case-model">Halo</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-2-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-2-title">Billing & Invoicing</h3>
+                        <p class="use-case-description">Halo’s billing dashboard, powered by Nora’s time tracking, streamlines invoicing.</p>
+                        <span class="use-case-model">Halo</span>
+                        <span class="use-case-model">Nora</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-3-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-3-title">Smart Scheduling</h3>
+                        <p class="use-case-description">Paralegals use Halo’s calendar with Nora’s task automation for efficient scheduling.</p>
+                        <span class="use-case-model">Halo</span>
+                        <span class="use-case-model">Nora</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-4-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-4-title">Client Portal</h3>
+                        <p class="use-case-description">Clients access invoices and book appointments securely via Halo’s portal.</p>
+                        <span class="use-case-model">Halo</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-5-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-vault"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-5-title">Document Vault Management</h3>
+                        <p class="use-case-description">Halo’s secure document vault organizes legal files with tagging and versioning for easy access.</p>
+                        <span class="use-case-model">Halo</span>
+                    </div>
+                </article>
+                <article class="use-case-card fade-in" aria-labelledby="use-case-6-title">
+                    <div class="use-case-image" aria-hidden="true">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="use-case-content">
+                        <h3 class="use-case-title" id="use-case-6-title">Team Collaboration</h3>
+                        <p class="use-case-description">Halo’s role-based access controls enable seamless team collaboration across legal workflows.</p>
+                        <span class="use-case-model">Halo</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison-section fade-in" aria-labelledby="comparison-title">
+            <div class="comparison-header">
+                <h2 id="comparison-title">Nora & Halo: A Unified Solution</h2>
+                <p>Together, Nora and Halo deliver a comprehensive legal solution, with Nora powering legal intelligence and Halo providing a robust operational suite.</p>
+                <p>Explore the key differences and how they complement each other:</p>
+            </div>
+            <table class="comparison-table" aria-describedby="comparison-title">
+                <thead>
+                    <tr>
+                        <th scope="col" class="feature-name">Feature</th>
+                        <th scope="col" class="nora-feature">Nora</th>
+                        <th scope="col" class="halo-feature">Halo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Legal Q&A with Citations</td>
+                        <td class="nora-feature feature-present">✓ Specialized</td>
+                        <td class="halo-feature feature-absent">✗ Via Nora</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Document Parsing & Analysis</td>
+                        <td class="nora-feature feature-present">✓ Core Capability</td>
+                        <td class="halo-feature feature-present">✓ Integrated</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Suite Dashboard</td>
+                        <td class="nora-feature feature-absent">✗ Chat UI Only</td>
+                        <td class="halo-feature feature-present">✓ Comprehensive</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Case & Client Management</td>
+                        <td class="nora-feature feature-absent">✗ Not Available</td>
+                        <td class="halo-feature feature-present">✓ Comprehensive</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Billing & Invoicing</td>
+                        <td class="nora-feature feature-absent">✗ Not Available</td>
+                        <td class="halo-feature feature-present">✓ Full System</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Smart Calendar & Scheduling</td>
+                        <td class="nora-feature feature-absent">✗ Not Available</td>
+                        <td class="halo-feature feature-present">✓ Legal Deadlines</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Secure Document Vault</td>
+                        <td class="nora-feature feature-absent">✗ Not Available</td>
+                        <td class="halo-feature feature-present">✓ Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Client Portal</td>
+                        <td class="nora-feature feature-absent">✗ Not Available</td>
+                        <td class="halo-feature feature-present">✓ Full Access</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Third-Party Integrations</td>
+                        <td class="nora-feature feature-absent">✗ Not Available</td>
+                        <td class="halo-feature feature-present">✓ Google Drive, Office365</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Role-Based Access Controls</td>
+                        <td class="nora-feature feature-absent">✗ Not Available</td>
+                        <td class="halo-feature feature-present">✓ Team Management</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Canadian Legal Compliance</td>
+                        <td class="nora-feature feature-present">✓ PIPEDA, SOC2</td>
+                        <td class="halo-feature feature-present">✓ PIPEDA, SOC2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Technical Specs Section -->
+        <section class="specs-section fade-in" aria-labelledby="specs-title">
+            <div class="specs-header">
+                <h2 id="specs-title">Technical Specifications</h2>
+                <p>Explore the robust architecture behind Nora and Halo’s integrated legal solutions.</p>
+            </div>
+            <div class="specs-grid">
+                <article class="spec-card fade-in" aria-labelledby="spec-1-title">
+                    <h3 class="spec-title" id="spec-1-title">Nora Architecture</h3>
+                    <div class="spec-value">Canadian Legal Database</div>
+                    <p class="spec-description">Trained on comprehensive Canadian and provincial legal data with RAG-enabled search</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-2-title">
+                    <h3 class="spec-title" id="spec-2-title">Halo Architecture</h3>
+                    <div class="spec-value">Operational Suite</div>
+                    <p class="spec-description">Integrated platform for case management, billing, and scheduling and more professional services</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-3-title">
+                    <h3 class="spec-title" id="spec-3-title">Nora Performance</h3>
+                    <div class="spec-value">Response < 5s</div>
+                    <p class="spec-description">Responses optimized for speed and accuracy generated in ultra fast environment while maintaining accuracy</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-4-title">
+                    <h3 class="spec-title" id="spec-4-title">Halo Scalability</h3>
+                    <div class="spec-value">1-50+ Users</div>
+                    <p class="spec-description">Designed for solo practitioners to large firms</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-5-title">
+                    <h3 class="spec-title" id="spec-5-title">Nora Capabilities</h3>
+                    <div class="spec-value">Legal Intelligence</div>
+                    <p class="spec-description">Specialized in legal Q&A, document analysis, and task automation for Canadians</p>
+                </article>
+                <article class="spec-card fade-in" aria-labelledby="spec-6-title">
+                    <h3 class="spec-title" id="spec-6-title">Halo Integrations</h3>
+                    <div class="spec-value">Google Drive, Office365 (Available Q4 2025)</div>
+                    <p class="spec-description">Seamless connectivity with external SaaS platforms</p>
+                </article>
             </div>
         </section>
 
         <!-- Enhanced Access Section -->
-        <div class="access-section" id="access">
+        <section class="access-section fade-in" id="access" aria-labelledby="access-title">
             <div class="content">
-                <h2>Access Nora Today</h2>
-                <p>Currently in development, Nora is being trained to become the most comprehensive AI legal assistant
-                    for Canadian law</p>
+                <h2 id="access-title">Access Nora & Halo Today</h2>
+                <p>Join the future of legal technology with Nora’s intelligence and Halo’s operational power, tailored for Canadian law firms.</p>
                 <div class="cta-buttons">
-                    <button class="btn btn-light" onclick="window.location.href='nora.html'">Try Beta Version</button>
+                    <button class="btn btn-nora" onclick="window.location.href='contact.html'" aria-label="Join Nora Waitlist">Join Nora Waitlist</button>
+                    <button class="btn btn-halo" onclick="window.location.href='contact.html'" aria-label="Join Halo Waitlist">Join Halo Waitlist</button>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <!-- Enhanced Footer -->
-    <footer>
+    <footer aria-label="Site footer">
         <div class="footer-grid">
             <div class="footer-column">
                 <h3>XenoraAI</h3>
                 <p style="color: rgba(250, 244, 242, 0.9);">"Everyone Deserves An Advocate"</p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/xenoraai/" target="_blank" aria-label="Visit XenoraAI on LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://x.com/XenoraAI" target="_blank" aria-label="X (Twitter)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                    <a href="https://x.com/XenoraAI" target="_blank" aria-label="Visit XenoraAI on X">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
                         </svg>
                     </a>
                 </div>
@@ -1112,7 +1533,7 @@
                 <h3>Quick Links</h3>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
-                    <a href="models.html">Nora</a>
+                    <a href="models.html">Models</a>
                     <a href="about.html">About Us</a>
                     <a href="contact.html">Contact</a>
                 </div>
@@ -1124,59 +1545,83 @@
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="cookies.html">Cookie Policy</a>
-                    <!-- <a href="faq.html">FAQ</a> -->
                 </div>
             </div>
         </div>
 
         <div class="copyright">
-            <p style="color: rgba(250, 244, 242, 0.9);">&trade; 2025 XenoraAI. All rights reserved.</p>
+            <p style="color: rgba(250, 244, 242, 0.9);">™ 2025 XenoraAI. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Enhanced video autoplay with 24/7 looping
-        document.addEventListener('DOMContentLoaded', function () {
-            const video = document.getElementById('noraVideo');
-            const caption = document.getElementById('videoCaption');
-
-            // Try to autoplay (muted is required in most browsers)
-            const playVideo = () => {
-                const promise = video.play();
-
-                if (promise !== undefined) {
-                    promise.catch(error => {
-                        // Autoplay was prevented
-                        caption.style.display = 'block';
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
                     });
+                    target.focus({ preventScroll: true });
                 }
-            };
-
-            // Start with autoplay attempt
-            playVideo();
-
-            // Set up loop monitoring
-            video.addEventListener('ended', function () {
-                this.currentTime = 0;
-                this.play().catch(e => {
-                    caption.style.display = 'block';
-                });
-            }, false);
-
-            // Allow user to click to play if autoplay was blocked
-            video.addEventListener('click', function () {
-                caption.style.display = 'none';
-                playVideo();
             });
-
-            // Check periodically if video is still playing
-            setInterval(() => {
-                if (video.paused && !video.ended) {
-                    playVideo();
-                }
-            }, 3000);
         });
-    </script>
-</body>
 
-</html>
+        // Model card hover and focus effects
+        const modelCards = document.querySelectorAll('.model-card');
+        modelCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.model-icon');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.model-icon');
+                icon.style.transform = 'scale(1) rotate(0)';
+            });
+            card.addEventListener('focusin', () => {
+                const icon = card.querySelector('.model-icon');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            card.addEventListener('focusout', () => {
+                const icon = card.querySelector('.model-icon');
+                icon.style.transform = 'scale(1) rotate(0)';
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Screen reader only class
+        const style = document.createElement('style');
+        style.textContent = `
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
