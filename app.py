@@ -1,6 +1,6 @@
 """
 Nora AI - Canadian Legal Assistant Flask Application
-A Flask-based AI legal assistant for Canadian law queries and document analysis
+A Flask-based AI legal assistant for Canadian law queries and document analysis.
 """
 
 import os
@@ -85,16 +85,15 @@ def add_security_headers(response):
 model = OllamaLLM(model=AI_MODEL_NAME, timeout=None)
 
 template = """
-Hi there! I'm Nora, your AI legal assistant specializing in Canadian law. 
-Whether you're a practicing lawyer or a student navigating your studies, 
-I'm here to provide reliable insights, research assistance, and support for your legal tasks.
+You are Nora, an AI legal assistant specializing in Canadian law. Respond professionally to the user's query.
 
-Feel free to ask me about case law, legislation, or practical tips for handling legal matters. 
-
-**Conversation History:**
+Conversation History:
 {context}
+
+Current Query:
 User: {question}
-Nora:
+
+Assistant Response:
 """
 
 prompt = ChatPromptTemplate.from_template(template)
@@ -225,45 +224,39 @@ def extract_text_from_file(filepath):
 # ==================== AI CONVERSATION HANDLING ====================
 
 def handle_conversation(user_input, context, user_role):
-    """Handle user conversations with input validation and error handling."""
-    if not user_input or len(user_input) > MAX_USER_INPUT_LENGTH:
-        return "Please provide a valid message under 1000 characters."
-    
+    global conversation_history
     try:
-        global conversation_history
-        
-        # Add greeting for first message
+        # Remove the greeting addition to user input
         greeting = ""
         if not conversation_history:
-            greeting = "Hello! I'm Nora, your AI legal assistant. I'm ready to help you with legal questions and provide data visualizations. What would you like to know?\n\n"
+            greeting = "Hello! I'm Nora, your AI legal assistant. "
         
-        conversation_history.append(user_input)
-        
-        # Extract user details
-        user_name, role = extract_user_details(user_input)
+        # Get role-specific message
         role_message = role_messages.get(user_role, "How can I assist you today?")
         
-        # Generate AI response with retry mechanism
-        ai_response = None
-        for attempt in range(AI_RETRY_ATTEMPTS):
-            try:
-                ai_response = chain.invoke({
-                    "context": context,
-                    "question": greeting + user_input
-                }).strip()
-                break
-            except Exception as e:
-                logger.warning(f"AI response attempt {attempt + 1} failed: {e}")
-                if attempt == AI_RETRY_ATTEMPTS - 1:
-                    logger.error(f"AI model failed after {AI_RETRY_ATTEMPTS} attempts")
-                    return "I'm sorry, I'm having trouble processing that right now. Please try again."
-                time.sleep(AI_RETRY_DELAY)
-
+        # Generate clean AI response first
+        ai_response = chain.invoke({
+            "context": context,
+            "question": user_input  # Pass clean user input
+        }).strip()
+        
+        # Prepend greeting only if first message
+        if greeting:
+            ai_response = f"{greeting}{role_message}\n\n{ai_response}"
+        
+        conversation_history.append((user_input, ai_response))
         return ai_response
-    
     except Exception as e:
         logger.error(f"Error in conversation handling: {e}")
         return "I'm sorry, something went wrong. Could you rephrase that?"
+    
+
+
+def sanitize_input(text):
+    """Remove any template-like patterns from user input"""
+    return re.sub(r'[{}]|(User:)|(Nora:)', '', text)
+
+system_message = "You are Nora, a helpful AI legal assistant. You answer questions about Canadian law. Never ask questions back to the user unless absolutely necessary for clarification."
 
 # ==================== CASE DATA FUNCTIONS ====================
 
@@ -457,11 +450,5 @@ def web_interaction():
 # ==================== APPLICATION ENTRY POINT ====================
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    debug_mode = os.environ.get("FLASK_DEBUG", "False").lower() == "true"
-    
-    app.run(
-        host="0.0.0.0",
-        port=port,
-        debug=debug_mode
-    )
+    # Run CLI interaction instead of Flask server
+    web_interaction()
